@@ -1,0 +1,1708 @@
+<title>The Case of the Vanishing Valuation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a drawing-room case file. Green chrome band on top, paper folders below, brass for anything you can press. */
+:root{
+  --bg:#efe7d4; --paper:#f8f2e3; --paper-2:#ebe1c9; --ink:#1d2620; --ink-soft:#4c5649;
+  --green:#1d3628; --green-2:#294a37; --on-green:#f1e8d2; --brass:#94701f; --brass-soft:#d8bd76;
+  --line:#cbbd9b; --focus:#b07a12; --shadow:0 1px 0 rgba(60,45,10,.08),0 6px 18px -10px rgba(40,30,10,.35);
+  --s-court:#2c5785; --s-sworn:#674a8c; --s-plaintiff:#9a4625; --s-defense:#2f6a58; --s-receiver:#4b6a22;
+  --s-reported:#76662f; --s-unverified:#666a66; --s-fiction:#8c2d5c;
+  --ok:#2f6a3a; --warn:#8a5a12; --bad:#9a3324;
+  --f-display:"IM Fell English SC","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --f-body:"Source Serif 4","Iowan Old Style",Georgia,serif;
+  --f-ui:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#122019; --paper:#1b2a21; --paper-2:#22342a; --ink:#ece3cd; --ink-soft:#b9b29e;
+  --green:#0d1912; --green-2:#1a2d22; --on-green:#efe5cc; --brass:#d6b25e; --brass-soft:#8a6d2a;
+  --line:#3b4d40; --focus:#e2b450; --shadow:0 1px 0 rgba(0,0,0,.3),0 8px 20px -12px rgba(0,0,0,.7);
+  --s-court:#86b1e0; --s-sworn:#c0a4e6; --s-plaintiff:#ec9a76; --s-defense:#7fcab2; --s-receiver:#a9cd73;
+  --s-reported:#d8c785; --s-unverified:#b2b6b2; --s-fiction:#ec8fbe; --ok:#8fd19b; --warn:#e8b765; --bad:#f09682;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#122019; --paper:#1b2a21; --paper-2:#22342a; --ink:#ece3cd; --ink-soft:#b9b29e;
+  --green:#0d1912; --green-2:#1a2d22; --on-green:#efe5cc; --brass:#d6b25e; --brass-soft:#8a6d2a;
+  --line:#3b4d40; --focus:#e2b450; --shadow:0 1px 0 rgba(0,0,0,.3),0 8px 20px -12px rgba(0,0,0,.7);
+  --s-court:#86b1e0; --s-sworn:#c0a4e6; --s-plaintiff:#ec9a76; --s-defense:#7fcab2; --s-receiver:#a9cd73;
+  --s-reported:#d8c785; --s-unverified:#b2b6b2; --s-fiction:#ec8fbe; --ok:#8fd19b; --warn:#e8b765; --bad:#f09682;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;margin:0}
+a{color:inherit}
+button,select,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px}
+.ui{font-family:var(--f-ui);letter-spacing:.02em}
+.mono{font-family:var(--f-mono);font-size:.82rem}
+.muted{color:var(--ink-soft)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Chrome */
+.top{background:var(--green);color:var(--on-green);border-bottom:3px double var(--brass)}
+.top .wrap{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding-block:12px}
+.brand{display:flex;flex-direction:column;min-width:0;flex:1 1 260px}
+.brand b{font-family:var(--f-display);font-weight:400;font-size:1.35rem;letter-spacing:.01em}
+.brand span{font-family:var(--f-ui);font-size:.78rem;opacity:.85}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{font-family:var(--f-ui);font-size:.9rem;border:1px solid var(--brass);background:transparent;color:inherit;border-radius:3px;padding:6px 11px;cursor:pointer;min-height:36px}
+.btn:hover{background:color-mix(in srgb,var(--brass) 18%,transparent)}
+.btn.solid{background:var(--brass);color:#fff8e6;border-color:var(--brass)}
+:root[data-theme="dark"] .btn.solid{color:#1a140a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.solid{color:#1a140a}}
+.btn[aria-pressed="true"]{background:var(--brass);color:var(--green)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.modes{display:inline-flex;border:1px solid var(--brass);border-radius:3px;overflow:hidden}
+.modes button{border:0;border-radius:0;min-height:36px;padding:6px 12px;background:transparent;color:inherit;font-family:var(--f-ui);cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--brass);color:var(--green)}
+.score{font-family:var(--f-mono);font-size:.85rem;border:1px dashed var(--brass-soft);padding:5px 9px;border-radius:3px}
+.strip{background:var(--green-2);color:var(--on-green);font-family:var(--f-ui);font-size:.82rem}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding-block:7px;align-items:center}
+.strip a{color:var(--on-green);text-underline-offset:3px}
+.strip .fbi{margin-left:auto}
+.notice-bar{background:var(--paper-2);border-bottom:1px solid var(--line);font-size:.86rem}
+.notice-bar .wrap{padding-block:6px}
+
+nav.tabs{border-bottom:1px solid var(--line);background:var(--paper)}
+nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto;padding-block:0}
+nav.tabs button{font-family:var(--f-ui);font-size:.95rem;border:0;background:none;padding:12px 12px 10px;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;color:var(--ink-soft)}
+nav.tabs button[aria-current="page"]{color:var(--ink);border-bottom-color:var(--brass)}
+
+main{padding-block:22px 64px}
+.lede{max-width:68ch}
+.section-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-bottom:14px}
+.section-head h2{font-size:1.75rem}
+.kicker{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:var(--brass)}
+.aside{font-family:var(--f-ui);font-size:.85rem;border-left:3px solid var(--brass-soft);padding:4px 10px;color:var(--ink-soft);margin:10px 0;max-width:68ch}
+.aside b{font-weight:600}
+
+/* Welcome */
+.welcome{display:grid;gap:22px;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start}
+@media (max-width:820px){.welcome{grid-template-columns:1fr}}
+.welcome h1{font-size:clamp(2rem,5vw,3.2rem);margin:6px 0 10px}
+.notice{border:2px solid var(--ink);background:var(--paper);padding:14px 16px;font-size:1.02rem;box-shadow:var(--shadow)}
+.notice strong{display:block;font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;margin-bottom:4px}
+.door{display:grid;gap:12px}
+.door button{text-align:left;background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--s-court);padding:14px 16px;cursor:pointer;box-shadow:var(--shadow)}
+.door button.fic{border-left-color:var(--s-fiction);background-image:repeating-linear-gradient(135deg,transparent 0 10px,color-mix(in srgb,var(--s-fiction) 7%,transparent) 10px 12px)}
+.door b{font-family:var(--f-display);font-weight:400;font-size:1.35rem;display:block}
+.door span{font-size:.92rem;color:var(--ink-soft)}
+.check{display:flex;gap:8px;align-items:center;font-family:var(--f-ui)}
+
+/* Rooms */
+.rooms{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.room{background:var(--paper);border:1px solid var(--line);padding:16px;text-align:left;cursor:pointer;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px;min-height:150px}
+.room:hover{border-color:var(--brass)}
+.room h3{font-size:1.3rem}
+.room .meta{margin-top:auto;font-family:var(--f-ui);font-size:.82rem;color:var(--ink-soft);display:flex;gap:12px;flex-wrap:wrap}
+.fic-band{background-image:repeating-linear-gradient(135deg,transparent 0 12px,color-mix(in srgb,var(--s-fiction) 6%,transparent) 12px 14px)}
+
+.cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.folder{position:relative;background:var(--paper);border:1px solid var(--line);padding:22px 14px 14px;text-align:left;cursor:pointer;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;min-width:0}
+.folder::before{content:"";position:absolute;top:-1px;left:14px;width:84px;height:9px;background:var(--paper-2);border:1px solid var(--line);border-bottom:0;transform:translateY(-8px);border-radius:3px 3px 0 0}
+.folder:hover{border-color:var(--brass)}
+.folder h3{font-family:var(--f-body);font-weight:600;font-size:1.02rem;line-height:1.3}
+.folder .cite{font-family:var(--f-mono);font-size:.75rem;color:var(--ink-soft)}
+.folder .row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:auto}
+.empty-slot{border:2px dashed var(--line);background:transparent;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.empty-slot h3{font-family:var(--f-ui);font-size:.95rem;font-weight:600}
+.empty-slot p{margin:0;font-size:.9rem;color:var(--ink-soft)}
+
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-ui);font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid currentColor;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.chip i{font-style:normal;font-weight:500;text-transform:none;letter-spacing:0}
+.chip.fiction{background-image:repeating-linear-gradient(135deg,transparent 0 4px,color-mix(in srgb,currentColor 18%,transparent) 4px 6px)}
+.tag{font-family:var(--f-ui);font-size:.75rem;background:var(--paper-2);border:1px solid var(--line);padding:1px 7px;border-radius:10px}
+.hidden-status{font-family:var(--f-ui);font-size:.74rem;border:1.5px dashed var(--ink-soft);padding:2px 7px;color:var(--ink-soft)}
+
+/* Dialog */
+.scrim{position:fixed;inset:0;background:rgba(10,16,12,.55);display:flex;justify-content:center;align-items:flex-start;padding:max(16px,env(safe-area-inset-top,0px)) 16px 16px;overflow-y:auto;z-index:20}
+.dialog{background:var(--paper);color:var(--ink);border:1px solid var(--line);border-top:6px solid var(--brass);width:min(760px,100%);padding:20px;box-shadow:0 20px 60px -20px rgba(0,0,0,.6);margin-block:12px}
+.dialog h2{font-size:1.5rem;margin:4px 0 10px}
+.fieldgrid{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;font-size:.92rem;margin:12px 0}
+.fieldgrid dt{font-family:var(--f-ui);color:var(--ink-soft)}
+.fieldgrid dd{margin:0;min-width:0;overflow-wrap:anywhere}
+@media (max-width:520px){.fieldgrid{grid-template-columns:1fr}.fieldgrid dd{margin-bottom:6px}}
+blockquote{margin:10px 0;padding:8px 14px;border-left:3px solid var(--brass);background:var(--paper-2);font-style:italic}
+.box{border:1px solid var(--line);padding:10px 12px;margin:10px 0;background:var(--paper)}
+.box h4{margin:0 0 4px;font-family:var(--f-ui);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}
+.quiz{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.quiz button{font-family:var(--f-ui);font-size:.85rem;border:1px solid var(--line);background:var(--paper-2);padding:6px 9px;cursor:pointer;border-radius:3px}
+.quiz button:hover{border-color:var(--brass)}
+.fb{font-family:var(--f-ui);font-size:.9rem;padding:6px 10px;border-left:4px solid}
+.fb.ok{border-color:var(--ok)} .fb.no{border-color:var(--bad)}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.dlg-btn{font-family:var(--f-ui);border:1px solid var(--brass);background:var(--paper);padding:7px 12px;cursor:pointer;border-radius:3px;min-height:38px}
+.dlg-btn.primary{background:var(--green);color:var(--on-green);border-color:var(--green)}
+.dlg-btn:disabled{opacity:.5;cursor:not-allowed}
+.tagpick{display:flex;flex-wrap:wrap;gap:6px}
+.tagpick button{font-family:var(--f-ui);font-size:.82rem;border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:3px 10px;cursor:pointer}
+.tagpick button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+textarea,input[type=text],select{width:100%;border:1px solid var(--line);background:var(--paper);padding:7px 9px;border-radius:3px}
+
+/* Drawer */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(460px,100%);background:var(--paper);border-left:3px double var(--brass);z-index:30;overflow-y:auto;padding:max(16px,env(safe-area-inset-top,0px)) 18px 24px;box-shadow:-20px 0 40px -20px rgba(0,0,0,.5)}
+.drawer h2{font-size:1.4rem}
+.src{border:1px solid var(--line);padding:10px 12px;margin:10px 0;background:var(--paper)}
+.src.hl{border:2px solid var(--brass)}
+.src h3{font-family:var(--f-body);font-weight:600;font-size:.98rem}
+.src a{overflow-wrap:anywhere}
+
+/* Caseboard */
+.lanes{display:grid;gap:14px;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1000px){.lanes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.lanes{grid-template-columns:1fr}}
+.lane{background:var(--paper-2);border:1px solid var(--line);padding:12px;min-width:0}
+.lane h3{font-family:var(--f-ui);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.lane > p{font-size:.82rem;color:var(--ink-soft);margin:0 0 10px}
+.lane.fic{background-image:repeating-linear-gradient(135deg,transparent 0 12px,color-mix(in srgb,var(--s-fiction) 8%,transparent) 12px 14px);border-style:dashed}
+.pin{background:var(--paper);border:1px solid var(--line);padding:8px 10px;margin-bottom:8px;font-size:.9rem}
+.pin button.linkish{background:none;border:0;padding:0;text-align:left;cursor:pointer;font:inherit;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.pin ul{margin:6px 0 0;padding-left:18px}
+.pts{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));margin:12px 0 20px}
+.pts div{background:var(--paper);border:1px solid var(--line);padding:8px 10px}
+.pts b{font-family:var(--f-mono);font-size:1.25rem;display:block}
+.pts span{font-family:var(--f-ui);font-size:.8rem;color:var(--ink-soft)}
+
+/* Timeline */
+.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--brass);margin-left:6px}
+.tl li{position:relative;padding:0 0 16px 18px}
+.tl li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--brass)}
+.tl .when{font-family:var(--f-mono);font-size:.8rem;color:var(--ink-soft)}
+.tl .conf{font-family:var(--f-ui);font-size:.82rem;color:var(--warn);font-weight:600}
+
+/* People */
+.groups{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.group{background:var(--paper);border:1px solid var(--line);padding:14px;min-width:0}
+.group h3{font-size:1.2rem;margin-bottom:6px}
+.ent{border-top:1px solid var(--line);padding:8px 0}
+.ent b{font-weight:600}
+.rel{font-size:.9rem;margin:3px 0;display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}
+
+/* Challenges */
+.chal{background:var(--paper);border:1px solid var(--line);padding:16px;margin-bottom:18px}
+.item{border-top:1px solid var(--line);padding:12px 0}
+.pair{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:stretch;margin:6px 0 8px}
+.pair > div{background:var(--paper-2);border:1px solid var(--line);padding:8px 10px;min-width:0}
+.pair .amt{font-family:var(--f-mono);font-size:1.05rem;font-variant-numeric:tabular-nums;display:block}
+.pair .vs{align-self:center;font-family:var(--f-display);font-size:1.4rem;color:var(--brass)}
+@media (max-width:620px){.pair{grid-template-columns:1fr}.pair .vs{justify-self:center}}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opts button{font-family:var(--f-ui);font-size:.86rem;border:1px solid var(--line);background:var(--paper-2);padding:6px 10px;cursor:pointer;border-radius:3px}
+.opts button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.opts button:disabled{cursor:default}
+
+/* Assessment */
+.assess{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(330px,1fr))}
+.assess section{background:var(--paper);border:1px solid var(--line);padding:14px 16px;min-width:0}
+.assess h3{font-size:1.25rem;margin-bottom:8px}
+.assess ul{margin:0;padding-left:18px}
+.assess li{margin-bottom:6px;font-size:.94rem}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-family:var(--f-ui);font-weight:600}
+td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tablewrap{overflow-x:auto}
+
+.cast{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.person{background:var(--paper);border:1px solid var(--line);padding:14px}
+.person h3{font-size:1.25rem}
+.reveal{background:var(--paper);border:1px solid var(--line);border-top:6px solid var(--s-fiction);padding:18px;max-width:900px}
+.reveal h3{font-size:1.3rem;margin-top:14px}
+
+footer{border-top:1px solid var(--line);padding-block:18px;font-size:.85rem;color:var(--ink-soft)}
+@media (prefers-reduced-motion:no-preference){.folder,.room{transition:border-color .15s}}
+</style>
+
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.umd.js"></script>
+<script>
+(function(){
+"use strict";
+var e = React.createElement;
+var html = htm.bind(e);
+var useState = React.useState, useEffect = React.useEffect, useRef = React.useRef;
+
+/* ============================================================
+   SOURCE MANIFEST — only documents actually retrieved and read
+   ============================================================ */
+var FBI_URL = "https://forms.fbi.gov/victims/seeking-victim-information-in-the-visionary-private-equity-group-investigation";
+var FBI_LABEL = "FBI: Seeking Victim Information in the Visionary Private Equity Group Investigation";
+var REVIEW_DATE = "October 6, 2026";
+
+var SOURCES = {
+  S88: {
+    short: "Doc. 88 (June 4, 2025 order)",
+    title: "Memorandum and Order, Oliver and Company et al. v. Zamber et al., No. 4:25-cv-00132-MTS (E.D. Mo.), Doc. 88",
+    date: "June 4, 2025",
+    url: "https://cases.justia.com/federal/district-courts/missouri/moedce/4:2025cv00132/217693/88/0.pdf",
+    kind: "Court order (primary source)",
+    status: "Read in full (31 pages).",
+    note: "Grants in part the motion to dismiss (derivative claims), retains direct claims, and appoints a receiver. Findings are made at the receivership stage under equitable standards. It is not a final judgment."
+  },
+  S264: {
+    short: "Doc. 264 (March 16, 2026 order)",
+    title: "Memorandum and Order, Oliver and Company et al. v. Zamber et al., No. 4:25-cv-00132-MTS (E.D. Mo.), Doc. 264",
+    date: "March 16, 2026",
+    url: "https://cases.justia.com/federal/district-courts/missouri/moedce/4:2025cv00132/217693/264/0.pdf",
+    kind: "Court order (primary source)",
+    status: "Read in full (17 pages).",
+    note: "Denies three defense motions. The factual background repeats Third Amended Complaint allegations, which the court accepted as true only to decide the motions (n.1)."
+  },
+  SJLP: {
+    short: "JLP complaint (Aug. 13, 2026)",
+    title: "Class Action Complaint, JLP Partners, LLC v. Husch Blackwell LLP, No. 4:26-cv-01298 (E.D. Mo.), Doc. 1",
+    date: "Filed August 13, 2026",
+    url: "https://brokerwatch.com/wp-content/uploads/2026/08/2026-08-13-DN-1-Complaint.pdf",
+    kind: "Complaint (primary source; copy hosted by a third-party website)",
+    status: "Read; 36 pages, with the counts and prayer for relief skimmed.",
+    note: "Allegations only. Its quotations from the receiver’s report, the hearing transcript, and a deposition were chosen by the plaintiff. Those underlying documents were not reviewed."
+  },
+  SSLM: {
+    short: "St. Louis Magazine (Aug. 27, 2025)",
+    title: "Nicholas Phillips, “St. Charles private equity fund goes into receivership—and stokes fears,” St. Louis Magazine",
+    date: "August 27, 2025",
+    url: "https://www.stlmag.com/news/visionary-private-equity-receivership/",
+    kind: "News reporting (secondary source)",
+    status: "Read in full.",
+    note: "Reports on the April 28, 2025 hearing. Quotations attributed to witnesses are the magazine’s rendering, not a transcript."
+  },
+  FICTION: {
+    short: "Invented for this game",
+    title: "Fictional game material: The Harrowgate Orchard Trust affair",
+    date: "Fictional",
+    url: "",
+    kind: "Fiction",
+    status: "Invented.",
+    note: "Every character, company, place, amount and event in the Fictional Mystery is made up. None is based on a real person."
+  }
+};
+
+var NEEDED = [
+  { t: "Receiver’s investigative report (cited by the JLP complaint as dated Sept. 23, 2025)", why: "The complaint quotes it, but the report was not located. Until it is read, anything attributed to the receiver stays a plaintiff allegation that cites the report." },
+  { t: "Receiver’s monthly cash receipts and disbursements reports", why: "Ordered by Doc. 88 (p. 27) for each month from Jan. 1, 2021. None were retrieved." },
+  { t: "April 28, 2025 hearing transcript (Doc. 82)", why: "Cited for most witness testimony. Only summaries in Doc. 88 and quotations in other documents were reviewed." },
+  { t: "Third Amended Complaint (Doc. 177, filed Sept. 5, 2025)", why: "The operative complaint. Known here only through Doc. 264 and the JLP complaint." },
+  { t: "Order on sealing of the receiver’s preliminary report (research lead: Mar. 16, 2026)", why: "Found only as a research lead. The hosting page was blocked by a captcha and the order was not read." },
+  { t: "Order on sale of Circle Internet Group shares (research lead: Jan. 13, 2026)", why: "Found only as a research lead. Not retrieved; whether any sale occurred is unknown." },
+  { t: "Eighth Circuit, No. 25-2269 (consolidated appeals): docket and any decision", why: "Doc. 264 says the appeals were pending on Mar. 16, 2026. The docket returned an access error." },
+  { t: "Cosby deposition, Vol. 2 (Doc. 278-11, Mar. 13, 2026)", why: "Known only from a short excerpt in the JLP complaint." },
+  { t: "Husch Blackwell’s response to the JLP complaint", why: "None located. The firm’s position is not represented in this game." },
+  { t: "Docket activity in No. 4:25-cv-00132 after Mar. 16, 2026", why: "Not reviewed, so the evidence coverage date cannot be verified." },
+  { t: "FBI victim-information page (contents)", why: "The link is provided, but the page returned an access error during review. Its contents are not described here." }
+];
+
+/* ============================================================
+   STATUSES
+   ============================================================ */
+var STATUS = {
+  court:      { label: "Court finding or order", code: "Court", est: "Establishes what the court ordered or found at that stage of the case." },
+  sworn:      { label: "Sworn testimony", code: "Sworn", est: "Establishes that a witness said this under oath or in a sworn declaration. It does not establish that the statement is true." },
+  plaintiff:  { label: "Plaintiff allegation", code: "Alleged", est: "Establishes only that a plaintiff made this claim in a filing." },
+  defense:    { label: "Defense position", code: "Defense", est: "Establishes only that the defense argued or asserted this." },
+  receiver:   { label: "Receiver finding", code: "Receiver", est: "Establishes what the court-appointed receiver reported, once the receiver’s own document has been inspected." },
+  reported:   { label: "Reported information", code: "Reported", est: "Establishes what a news outlet reported. It is not a transcript or a court record." },
+  unverified: { label: "Unverified", code: "Unverified", est: "No reviewed source establishes this." },
+  fiction:    { label: "Fictional game material", code: "Fiction", est: "Invented for the game. It says nothing about the real case." }
+};
+var STATUS_ORDER = ["court","sworn","plaintiff","defense","receiver","reported","unverified","fiction"];
+
+function Chip(p){
+  var s = STATUS[p.status];
+  return html`<span className=${"chip"+(p.status==="fiction"?" fiction":"")} style=${{color:"var(--s-"+p.status+")"}}>${s.code}<i>· ${s.label}</i></span>`;
+}
+
+/* ============================================================
+   ROOMS
+   ============================================================ */
+var ROOMS = [
+  { id:"pitch",   name:"The Pitch Room",       real:"Representations and projected returns.", fic:"Letters to members and the glossy newsletter." },
+  { id:"ledger",  name:"The Ledger Library",   real:"Inflows, outflows, fees and loans.", fic:"Bank statements and a workbook with a long memory." },
+  { id:"gallery", name:"The Portfolio Gallery",real:"Operating reality versus valuation.", fic:"The orchard, its appraisal, and the Land Registry." },
+  { id:"witness", name:"The Witness Lounge",   real:"Testimony and the limits of what each witness knew.", fic:"Interviews over cold coffee." },
+  { id:"court",   name:"The Courtroom",        real:"Orders and procedural posture.", fic:"Serving tonight as the Board Room: minutes and logs." },
+  { id:"vault",   name:"The Recovery Vault",   real:"Remaining assets and unanswered questions.", fic:"Leases, ashes, and the racing pages." }
+];
+
+var REAL_ASIDES = {
+  pitch:   "A projection is a forecast. A forecast is not a promise, and a promise is not a bank transfer.",
+  ledger:  "Rule of the library: a valuation is not a bank balance.",
+  gallery: "“Mark-to-market” names a method. It does not tell you the mood of the market.",
+  witness: "Fun fact: “pendente lite” means “while the lawsuit is pending.” It is not a light pasta.",
+  court:   "A docket number works like a library call number, with more motions.",
+  vault:   "Before anything is recovered, it has to be found, valued and argued over, usually in that order."
+};
+var FIC_ASIDES = {
+  pitch:   "Projected exit date: perpetually next quarter.",
+  ledger:  "This spreadsheet has more tabs than the manor has rooms.",
+  gallery: "A valuation is not a bank balance. An orchard is not a valuation.",
+  witness: "Everyone was somewhere else. That is the trouble with somewhere else.",
+  court:   "The minutes are very thorough about the biscuits.",
+  vault:   "The fire was lit in September. Nobody lights a fire in September."
+};
+
+/* ============================================================
+   REAL-CASE EVIDENCE CARDS
+   Every quotation below was copied from the cited source.
+   ============================================================ */
+var CARDS = [
+  // ---------- PITCH ROOM ----------
+  { id:"p1", room:"pitch", src:"S88", pin:"p. 21", date:"June 4, 2025",
+    head:"Court: repeated material misrepresentations “credibly shown”",
+    claim:"In deciding to appoint a receiver, the court found plaintiffs had credibly shown repeated material misrepresentations by Zamber and Grenley.",
+    wording:"exact",
+    quotes:["Plaintiffs have also credibly shown that Defendants Zamber and Grenley have made repeated material misrepresentations as to the financial health of VPEG, the likelihood of liquidity events, the amount of incoming capital contributions, and the imminent closure of the Fund, all in an effort to induce individuals to make initial investments in the fund and to garner additional funds in the form of subsequent loans."],
+    status:"court", why:"The judge says this in the order’s own analysis (“credibly shown”).",
+    limit:"This finding was made to decide whether to appoint a receiver while the case is pending, under an equitable standard. It is not a jury verdict or a final judgment of fraud. Defendants opposed the receivership, and the appointment was appealed."
+  },
+  { id:"p2", room:"pitch", src:"S88", pin:"p. 8 (citing Doc. 82 at 166, 169–70)", date:"June 4, 2025",
+    head:"Hart: told the loans would be repaid because $50 million was “lined up”",
+    claim:"As summarized by the court, Hart testified that Zamber said the short-term loans would be repaid by the end of 2024.",
+    wording:"exact",
+    quotes:["In a meeting to discuss these loans, Defendant Zamber assured Plaintiff Hart that the short-term loans would be repaid by the end of 2024 because “he had over $50 million lined up” and that $4 million to $5 million were “guaranteed” to come into the Fund."],
+    status:"sworn", why:"The order summarizes Hart’s sworn hearing testimony.",
+    limit:"This establishes what Hart testified he was told. It does not show whether any money was actually lined up. Hart is a plaintiff, and the transcript itself was not reviewed."
+  },
+  { id:"p3", room:"pitch", src:"S264", pin:"p. 3 (reciting TAC ¶ 46)", date:"March 16, 2026",
+    head:"Alleged: “no debt at the Fund level” (September 2022)",
+    claim:"The Third Amended Complaint alleges that Zamber and Grenley told plaintiffs at a September 2022 meeting that the Fund had no debt, and that a distribution was coming.",
+    wording:"exact",
+    quotes:["during a September 2022 meeting in South Bend, Indiana, Zamber and Grenley represented that “there was no debt at the Fund level,” and “falsely stated that a distribution was forthcoming” at the end of that year."],
+    status:"plaintiff", why:"The court is repeating the complaint, which it accepted as true only to decide the motions (Doc. 264 n.1).",
+    limit:"Whether the statement was false depends on the Fund’s liabilities in September 2022. The liens cited elsewhere are dated November 2024, which leaves a timing gap that the reviewed record does not close.",
+    conflicts:["v5"]
+  },
+  { id:"p4", room:"pitch", src:"SJLP", pin:"¶ 37, p. 8", date:"Aug. 13, 2026",
+    head:"Alleged: at least 28 versions of a distribution forecast",
+    claim:"The JLP complaint alleges that in 2024–2025 Zamber and Grenley prepared at least 28 versions of a spreadsheet projecting distributions from portfolio companies. It says each version moved liquidity events further out and that the spreadsheets went to investors.",
+    wording:"paraphrase", quotes:[],
+    status:"plaintiff", why:"An allegation in a complaint. The spreadsheets were not reviewed.",
+    limit:"Revising a forecast is not by itself a false statement. The disputed question is what the preparers knew each time a version was sent."
+  },
+  { id:"p5", room:"pitch", src:"SJLP", pin:"¶ 95, p. 21", date:"Aug. 13, 2026",
+    head:"Alleged: a May 2023 “harvest season” presentation",
+    claim:"The complaint describes a May 2023 presentation titled “Why VPEG? Why Now?” that was given to the plaintiff before it invested.",
+    wording:"exact",
+    quotes:["That presentation represented that, as of the first quarter of 2023, VPEG’s portfolio had a mark-to-market valuation equal to 1.72 times invested capital and an estimated fair market value equal to 3.23 times invested capital. It also described the Fund as “mature, well into its ‘harvest season,’” and represented that the next distribution to limited partners was expected in the fourth quarter of 2023."],
+    status:"plaintiff", why:"The complaint describes a document. The presentation itself was not reviewed.",
+    limit:"One presentation gives two multiples, 1.72x and 3.23x, for the same portfolio, which shows how much depends on method. Neither multiple is cash."
+  },
+  { id:"p6", room:"pitch", src:"S88", pin:"pp. 7–8 (citing Doc. 48-8)", date:"June 4, 2025",
+    head:"“Soon close”: yet open, at 1.5 shares per dollar",
+    claim:"The order describes statements that the Fund would soon close and the $1-per-share window would end. It also says the Fund stayed open and some new investors bought at 1.5 shares per dollar.",
+    wording:"exact",
+    quotes:["To create an atmosphere of urgency when recruiting additional investors, Defendants have made statements indicating that the Fund would soon close and that the one-dollar-per-share investment window would soon cease.",
+            "On the contrary, the Fund remains open, and at least some new investors have been able to buy into the Fund at 1.5 shares per dollar, effectively diluting the investments of previous limited partners."],
+    status:"court", why:"Stated in the order’s factual background, based on sworn declarations.",
+    limit:"This is a preliminary account. The TAC alleges the discounted price began “no later than 2023” (Doc. 264 n.3). The number of discounted units and their exact dates are not established in reviewed sources."
+  },
+
+  // ---------- LEDGER LIBRARY ----------
+  { id:"l1", room:"ledger", src:"S88", pin:"p. 6 (Hearing Exs. 9, 12; Doc. 82 at 106)", date:"June 4, 2025",
+    head:"At least $1,779,462.63 wired to Zamber, per the records one manager could see",
+    claim:"From the bank records Bonetti could access, at least $1,779,462.63 went from VPEG directly to Zamber.",
+    wording:"exact",
+    quotes:["According to the records that she can access, at least $1,779,462.63 has been wired from VPEG directly to Defendant Zamber, sometimes in varied increments mere days apart"],
+    status:"sworn", why:"The order summarizes Bonetti’s testimony and the hearing exhibits.",
+    limit:"This is a minimum drawn from partial records, because her access was intermittent. The period it covers is not stated, and it overlaps with later totals. The defense said these were loan repayments.",
+    conflicts:["l2","l5"]
+  },
+  { id:"l2", room:"ledger", src:"S88", pin:"p. 6 n.5 (citing Doc. 82 at 199–200)", date:"June 4, 2025",
+    head:"Defense: “a loan to the fund,” repaid",
+    claim:"Zamber’s lawyer told the court that the wires repaid a loan Zamber had made to the Fund.",
+    wording:"exact",
+    quotes:["At the hearing, Defendant Zamber’s counsel explained, based on statements made to him by Defendant Zamber, that these funds were wired because “Mr. Zamber made a loan to the fund, and it was repaid to him.”"],
+    status:"defense", why:"An explanation from Zamber’s lawyer, relaying what his client told him.",
+    limit:"A lawyer’s statement is not sworn evidence. The reviewed sources contain no loan agreement, no record of the loan coming in, and no repayment schedule. Those records would test the explanation either way.",
+    conflicts:["l1"]
+  },
+  { id:"l3", room:"ledger", src:"S88", pin:"p. 6 (citing Doc. 82 at 109, 112–13)", date:"June 4, 2025",
+    head:"Payments to entities a manager did not recognize",
+    claim:"The same records show transfers to Cosby, to an entity called “Visionary Fund, LLC,” and to two entities Bonetti did not recognize.",
+    wording:"exact",
+    quotes:["The records also show significant funds paid to entities and accounts that Ms. Bonetti does not recognize, including $422,788.55 to Visionary Private DST BIZ 1 and $895,040.06 to Visionary Private DST IND 1."],
+    status:"sworn", why:"The court’s summary of testimony and exhibits.",
+    limit:"Not recognizing a payee does not make a payment improper. The reviewed sources do not say what these entities are. The same passage lists $128,812.50 to Cosby and at least $705,000 to “Visionary Fund, LLC,” a name that differs from Visionary Fund Manager, LLC."
+  },
+  { id:"l4", room:"ledger", src:"S264", pin:"p. 4 & n.6 (reciting TAC ¶ 3)", date:"March 16, 2026",
+    head:"Alleged: over $7 million to the three individuals, 2020 to present",
+    claim:"The Third Amended Complaint alleges payments from 2020 to the present and breaks them down by person.",
+    wording:"exact",
+    quotes:["from 2020 until the present, the Individual Defendants have appropriated over $7 million of VPEG funds to pay themselves.",
+            "Zamber has received over $5.2 million, Cosby has received over $1 million, and Grenley has received over $800,000."],
+    status:"plaintiff", why:"Complaint allegations repeated by the court for the motions.",
+    limit:"This period starts in 2020. The JLP complaint uses January 2021 and gives lower per-person figures. The two describe overlapping money and should not be added together.",
+    conflicts:["l5"]
+  },
+  { id:"l5", room:"ledger", src:"SJLP", pin:"¶¶ 44–46, p. 10", date:"Aug. 13, 2026",
+    head:"Alleged: cash in, cash out since January 2021",
+    claim:"The JLP complaint alleges about $55 million in cash receipts and $57.4 million in cash spending since January 2021, and lists direct payments to the three individuals.",
+    wording:"exact",
+    quotes:["Since January 2021, VPEG has received approximately $55 million in cash receipts, including but not limited to approximately $43.5 million from external investments and an additional $8.1 million in distributions from portfolio companies.",
+            "Of those expenditures, approximately $4.7 million was paid directly to Zamber, $734,000 to Grenley, and $655,000 to Cosby."],
+    status:"plaintiff", why:"Complaint allegations. These paragraphs do not say where the figures come from.",
+    limit:"The $57.4 million in spending covers investments, fees, expenses and distributions, not just alleged diversions. The per-person figures differ from the TAC’s because the periods and the pleadings differ.",
+    conflicts:["l4","l1"]
+  },
+  { id:"l6", room:"ledger", src:"SJLP", pin:"¶ 33, p. 7", date:"Aug. 13, 2026",
+    head:"Alleged: about $1.6 million in management fees to the fund manager",
+    claim:"The complaint alleges that VPEG paid about $1.6 million to Visionary Fund Manager, LLC since 2021 and challenges how those payments were disclosed.",
+    wording:"exact",
+    quotes:["Since 2021, VPEG paid approximately $1.6 million to VFM in purported management fees, but the basis, calculation, classification, and ultimate disposition of those payments were not adequately disclosed to investors."],
+    status:"plaintiff", why:"An allegation in a complaint.",
+    limit:"The same paragraph says the LPA provided a quarterly consulting fee at an annual rate of 1.5% of limited partners’ capital accounts, so some fee may have been contractually authorized. Whether these amounts followed that formula is unresolved."
+  },
+  { id:"l7", room:"ledger", src:"SJLP", pin:"¶ 47, pp. 10–11", date:"Aug. 13, 2026",
+    head:"Alleged: wire requests sent by text message",
+    claim:"The complaint quotes text messages it attributes to Zamber asking Cosby for wires, and says the bank records labeled the transfers as fees.",
+    wording:"exact",
+    quotes:["“I will need a wire for $270k (deferred compensation) today if possible” (October 19, 2021);",
+            "VPEG’s bank records labeled these transfers as “Director Fees” or “Consulting Fees,” notwithstanding the personal purposes reflected in the contemporaneous text messages."],
+    status:"plaintiff", why:"Messages quoted in a complaint. The full threads were not reviewed.",
+    limit:"The plaintiff chose these excerpts. “Deferred compensation” could refer to an agreed arrangement, and the reviewed sources do not show whether one existed."
+  },
+  { id:"l8", room:"ledger", src:"S88", pin:"p. 8 (citing Doc. 48-1 ¶¶ 9–11)", date:"June 4, 2025",
+    head:"Short-term loans: $1.6 million, not repaid",
+    claim:"Plaintiffs made short-term loans totaling $1.6 million, and Hart lent another $100,000. None had been repaid when the order issued.",
+    wording:"exact",
+    quotes:["Plaintiffs agreed to make short term loans to VPEG totaling $1.6 million.",
+            "None of these loans has been repaid. Doc. [48-1] ¶ 11 (explaining that VPEG has been in default for over $2 million in loans, interest, and fees owed to Plaintiffs)."],
+    status:"sworn", why:"Based on Hart’s sworn declaration and testimony, as summarized by the court.",
+    limit:"The “over $2 million” figure includes the $1.6 million principal along with the separate $100,000, interest and fees. These are debts owed to lenders, which is a different category from investment losses."
+  },
+  { id:"l9", room:"ledger", src:"S88", pin:"p. 3 (comparing Docs. 12-1 and 12-2)", date:"June 4, 2025",
+    head:"The 2021 distribution: $5.8 million or $9.1 million?",
+    claim:"The Fund’s own summaries reported different distribution totals a few months apart.",
+    wording:"exact",
+    quotes:["the exact amount of funds distributed, when they were distributed, and to whom is unclear. An executive summary prepared by Defendants reported distribution payments to limited partners totaling $5.8 million as of March 01, 2024, but an updated report dated July 23, 2024, indicates that limited partners have received distributions totaling $9.1 million—a discrepancy of $3.3 million."],
+    status:"court", why:"The court’s own description of the documents in the record.",
+    limit:"Doc. 264, repeating the TAC, dates the $9.1 million presentation to June 2024 rather than July 23, 2024. The JLP complaint gives a third measure: about $3 million to non-insider limited partners since 2021.",
+    conflicts:["l5"]
+  },
+  { id:"l10", room:"ledger", src:"S88", pin:"p. 5 (citing Doc. 82 at 113–15)", date:"June 4, 2025",
+    head:"IRA share sales: some sellers never paid",
+    claim:"In some sales where VPEG handled IRA-held shares between investors, the court said the seller never received the money.",
+    wording:"exact",
+    quotes:["In “many instances,” the limited-partner seller in these transactions never received the funds from the purported sale."],
+    status:"sworn", why:"The court’s summary of hearing testimony.",
+    limit:"The order does not say how many transactions were affected or how much money was involved."
+  },
+  { id:"l11", room:"ledger", src:"SJLP", pin:"¶ 54, p. 12", date:"Aug. 13, 2026",
+    head:"Alleged: over $10 million to media affiliates",
+    claim:"The complaint alleges large transfers to two media affiliates, plus expenses paid on their behalf.",
+    wording:"exact",
+    quotes:["In addition to direct payments to VPEG principals, VPEG also funneled over $10 million to its affiliates, including “Visionary Entertainment and Media” and “Visionary Media Group.” VPEG also paid an additional $1.2 million in expenses on behalf of these entities."],
+    status:"plaintiff", why:"An allegation in a complaint.",
+    limit:"These affiliates were also portfolio holdings. The same complaint (¶ 61(e)) says VPEG “invested at least $10.2 million” in them since January 2021. Whether that money was an investment, a diversion, or both is the disputed question.",
+    conflicts:["g7"]
+  },
+
+  // ---------- PORTFOLIO GALLERY ----------
+  { id:"g1", room:"gallery", src:"S88", pin:"pp. 6–7 (citing Doc. 82 at 43–44, 59)", date:"June 4, 2025",
+    head:"A clinic valued at $1.7 million; its assets were laptops and freezers",
+    claim:"Kevin Huss, the clinic’s former Director of Operations, testified about a vaccination clinic that had stopped providing services. The order quotes his description of its assets and notes the defendants’ valuation.",
+    wording:"exact",
+    quotes:["its current assets are limited to seven laptops, a medical freezer, and a medical deep freezer.",
+            "Despite these circumstances, Defendants value Visionary Vaccination & Health Services, LLC at $1.7 million."],
+    status:"sworn", why:"The court’s summary of Huss’s testimony.",
+    limit:"A valuation can include more than equipment, such as contracts, licenses or goodwill. The valuation workpapers are not in reviewed sources, and another source gives a different figure.",
+    conflicts:["g2"]
+  },
+  { id:"g2", room:"gallery", src:"SJLP", pin:"¶ 61(d), p. 14", date:"Aug. 13, 2026",
+    head:"Same clinic, different number: about $1.2 million",
+    claim:"The JLP complaint gives a December 2024 valuation for the same clinic.",
+    wording:"exact",
+    quotes:["As of December 2024, VPEG valued its position in VVHS to be approximately $1.2 million, apparently reflecting valuations of nearly $150,000 per laptop or freezer."],
+    status:"plaintiff", why:"An allegation in a complaint.",
+    limit:"The $1.7 million and $1.2 million figures may come from different reports or dates. Neither is cash. The per-item arithmetic is the plaintiff’s framing.",
+    conflicts:["g1"]
+  },
+  { id:"g3", room:"gallery", src:"S88", pin:"p. 7 (citing Doc. 82 at 180)", date:"June 4, 2025",
+    head:"A popcorn company that had not made popcorn in over two years",
+    claim:"The order describes a portfolio company’s operating status.",
+    wording:"exact",
+    quotes:["One final example is Pop! Gourmet, a popcorn company that has not manufactured popcorn in over two years."],
+    status:"sworn", why:"Based on Hart’s testimony as a former board member of the company.",
+    limit:"Hart is a plaintiff. A company’s operating status at one point in time does not set its value by itself."
+  },
+  { id:"g4", room:"gallery", src:"SJLP", pin:"¶ 61(a), pp. 13–14", date:"Aug. 13, 2026",
+    head:"Alleged: valued at $5 million, projected to pay $10 million",
+    claim:"The complaint alleges VPEG invested about $2.2 million in POP! Gourmet since January 2021, valued its position at $5 million, and projected $10 million in distributions in 2027. It also alleges the company had no employees, faced a sheriff’s sale over a judgment of about $353,000, owed VPEG about $5.4 million, and had negative equity of $6.4 million.",
+    wording:"paraphrase", quotes:[],
+    status:"plaintiff", why:"An allegation in a complaint.",
+    limit:"The complaint also alleges Grenley was the company’s CEO, which bears on what he knew. That too is an allegation. The company’s financial statements were not reviewed."
+  },
+  { id:"g5", room:"gallery", src:"SJLP", pin:"¶ 61(b), p. 14", date:"Aug. 13, 2026",
+    head:"Alleged: valued at 22 times cost; shares last traded at $0.0002",
+    claim:"The complaint contrasts VPEG’s valuation of a publicly traded holding with that company’s share price.",
+    wording:"exact",
+    quotes:["VPEG invested approximately $840,500 in Victory Clean Energy, a publicly-traded over-the-counter stock with a last known price of $0.0002 per share. VPEG marketed this company as a major component of its internal valuation, valuing its position at approximately $19 million – more than 22x what VPEG invested"],
+    status:"plaintiff", why:"An allegation in a complaint.",
+    limit:"The excerpt does not give the share count or the dates of the valuation and the price. A traded price is one test of value; private terms could differ."
+  },
+  { id:"g6", room:"gallery", src:"SJLP", pin:"¶ 60, p. 13", date:"Aug. 13, 2026",
+    head:"The receiver, as quoted: a method “not generally used”",
+    claim:"The complaint quotes the receiver’s view of VPEG’s valuation method.",
+    wording:"exact",
+    quotes:["According to the Receiver, this methodology “is not generally used for valuing privately held companies” and did not appear to be supported by independent third-party analysis or market-based metrics."],
+    status:"plaintiff", why:"This is a complaint quoting the receiver’s report. Until the report itself is read, it is a plaintiff allegation that cites the report, not a receiver finding.",
+    limit:"The receiver’s report was not retrieved, so its context, caveats and full reasoning are unknown."
+  },
+  { id:"g7", room:"gallery", src:"S88", pin:"p. 7 (citing Docs. 48-8, 48-1; Doc. 82 at 126–27)", date:"June 4, 2025",
+    head:"Media group: “between $13 million and $15 million” invested, and negative balances",
+    claim:"The order describes VPEG’s investment in Visionary Media Group as “ranging between $13 million and $15 million.” It also notes bank notices of insufficient funds and repeated negative balances in the company’s account.",
+    wording:"paraphrase", quotes:[],
+    status:"court", why:"The court’s factual background, drawn from declarations and testimony.",
+    limit:"The JLP complaint says “at least $10.2 million” went into two media affiliates since January 2021, and separately alleges “over $10 million” was funneled to them. These figures cover different periods and are framed differently. They probably overlap and should not be added.",
+    conflicts:["l11"]
+  },
+  { id:"g8", room:"gallery", src:"S88", pin:"p. 7 n.6 (citing Doc. 82 at 44–45)", date:"June 4, 2025",
+    head:"Asked to write reports “in a more favorable light”",
+    claim:"A former operations director explained why he left.",
+    wording:"exact",
+    quotes:["Mr. Huss explains that he left this role because Defendants Grenley and Zamber asked him to rewrite his monthly operating reports “in a more favorable light,” making them “inaccurate.”"],
+    status:"sworn", why:"The court’s summary of Huss’s testimony.",
+    limit:"This is one witness’s account. The drafts and the requests themselves were not reviewed."
+  },
+
+  // ---------- WITNESS LOUNGE ----------
+  { id:"w1", room:"witness", src:"S88", pin:"p. 6 (citing Doc. 82 at 106–07)", date:"June 4, 2025",
+    head:"Bonetti’s view of the bank account came and went",
+    claim:"VPEG’s Managing Director and Director of Investor Relations had only intermittent access to the bank account.",
+    wording:"exact",
+    quotes:["Brigitte Bonetti, VPEG’s Managing Director and Director of Investor Relations has at-least-intermittent access to this bank account while working for the Fund."],
+    status:"sworn", why:"The court’s summary of her testimony, which also notes her access was “cut off for long periods of time” starting in 2018.",
+    limit:"Intermittent access means her view of the money was partial. Her testimony supports what she saw, not what she could not see."
+  },
+  { id:"w2", room:"witness", src:"SSLM", pin:"article text", date:"Aug. 27, 2025",
+    head:"Reported: a bank account set up so funds would not be spent",
+    claim:"The magazine reported Bonetti’s account of something Cosby told her.",
+    wording:"exact",
+    quotes:["Bonetti also said that at one point, Cosby, the Husch Blackwell attorney, told her that he had set up a bank account that Zamber didn’t know about so that Visionary could put funds there without Zamber spending them."],
+    status:"reported", why:"A magazine’s account of hearing testimony. The JLP complaint cites the same testimony (Doc. 82 at 114:16–115:21), but the transcript was not reviewed.",
+    limit:"There are competing readings: an effort to restrain spending; awareness of a problem without disclosing it (the JLP complaint’s reading, ¶ 58); or an ordinary cash-management choice. The account’s own records would help tell them apart."
+  },
+  { id:"w3", room:"witness", src:"SSLM", pin:"article text", date:"Aug. 27, 2025",
+    head:"Reported: “an outright falsification”",
+    claim:"The magazine reported Huss’s characterization of a valuation.",
+    wording:"exact",
+    quotes:["“I believe it is an outright falsification,” he said."],
+    status:"reported", why:"Testimony as rendered by a news outlet.",
+    limit:"This is an opinion. His firsthand observations about the clinic’s operating status and equipment carry more evidentiary weight than the label."
+  },
+  { id:"w4", room:"witness", src:"S88", pin:"p. 5 (citing Doc. 82 at 87–88)", date:"June 4, 2025",
+    head:"Lepski: “little or nothing” in the account",
+    claim:"An investor-relations staff member testified about the Fund’s ability to pay its bills.",
+    wording:"exact",
+    quotes:["Given these difficulties and the fact that VPEG’s bank account often has “little or nothing in it,” Patrick Lepski, VPEG’s Assistant Director of Investment Relations, testified he that [sic] does not believe that the Fund has sufficient resources to pay these current bills."],
+    status:"sworn", why:"The court’s summary of testimony.",
+    limit:"This is a belief based on the balances and invoices he saw. It is an inference, not an accounting."
+  },
+  { id:"w5", room:"witness", src:"S88", pin:"p. 9 (citing Doc. 82 at 168; Hearing Ex. 21)", date:"June 4, 2025",
+    head:"Hart received statements marked “unaudited, unreconciled”",
+    claim:"Hart described the financial documents he received after asking for reports.",
+    wording:"exact",
+    quotes:["He received a collection of documents, including a “portfolio cost basis,” “balance sheet,” and a “profit-and-loss statement” designated “unaudited, unreconciled, and non-tax basis.”"],
+    status:"sworn", why:"The court’s summary of testimony and a hearing exhibit.",
+    limit:"These statements are the source of the end-of-2023 figures in the Recovery Vault. The court noted “concerns regarding the accuracy of the documents.”"
+  },
+  { id:"w6", room:"witness", src:"S88", pin:"p. 7 n.7 (citing Doc. 48-8 at 14)", date:"June 4, 2025",
+    head:"Brown: budget concerns raised repeatedly",
+    claim:"A former senior adviser’s sworn statement concerned budgeting at Visionary Media Group.",
+    wording:"exact",
+    quotes:["This comports with former-senior-advisor Anastasia Brown’s sworn statement that she regularly raised the issue of Visionary Media Group’s failure “to set or comply with a budget.”"],
+    status:"sworn", why:"A sworn written statement, cited by the court.",
+    limit:"In the reviewed sources this is a written declaration, not live testimony. It concerns budgeting at one portfolio company."
+  },
+  { id:"w7", room:"witness", src:"SSLM", pin:"article text", date:"Aug. 27, 2025",
+    head:"Defense: “hearsay, circumstantial, and conclusory”",
+    claim:"The magazine reported a defense lawyer’s argument at the April hearing.",
+    wording:"exact",
+    quotes:["But he also argued that the investors’ evidence wasn’t damning but rather “hearsay, circumstantial, and conclusory.” Private equity funds don’t generate cash flow, and capital markets were the worst they’d been in a half century."],
+    status:"defense", why:"A defense lawyer’s argument, as reported by the magazine.",
+    limit:"This is an argument, not evidence, but it is a real alternative explanation worth testing: illiquidity and poor markets can sink a fund without misconduct. The court later found enough evidence to appoint a receiver."
+  },
+  { id:"w8", room:"witness", src:"SJLP", pin:"¶ 90, p. 20 (citing Doc. 278-11 at 277:9–279:6)", date:"Aug. 13, 2026",
+    head:"Deposition excerpt: Cosby’s departure from his law firm",
+    claim:"The JLP complaint describes Cosby’s deposition testimony about leaving Husch Blackwell.",
+    wording:"exact",
+    quotes:["By late November or early December 2025, Husch Blackwell’s executive board had decided that Cosby would no longer remain a partner of the firm."],
+    status:"plaintiff", why:"A complaint describing deposition testimony. An excerpt is not the whole deposition.",
+    limit:"Leaving a firm is not an admission of liability by anyone. The firm’s own account was not reviewed."
+  },
+
+  // ---------- COURTROOM ----------
+  { id:"c1", room:"court", src:"S88", pin:"p. 23", date:"June 4, 2025",
+    head:"A receiver is appointed",
+    claim:"Jason Buhlinger of Armanino LLP was appointed receiver over VPEG and Visionary Fund Manager, LLC while the case is pending.",
+    wording:"exact",
+    quotes:["IT IS FURTHER ORDERED that Jason Buhlinger (the “Receiver”) is appointed receiver for Visionary Private Equity Group I, LP and Visionary Fund Manager, LLC along with their holdings in any portfolio companies (collectively, “the Fund”) during the pendency of the above captioned action (the “Action”)."],
+    status:"court", why:"The order itself.",
+    limit:"This is interim control while the case is pending. It is not a finding of liability, and it is not a criminal matter. The court did not appoint a receiver over the general partner, Visionary PE GP I, LLC (p. 22)."
+  },
+  { id:"c2", room:"court", src:"S88", pin:"p. 18", date:"June 4, 2025",
+    head:"“An extraordinary equitable remedy”",
+    claim:"The court described the standard for appointing a receiver and found that this case met it.",
+    wording:"exact",
+    quotes:["appointing a receiver remains “an extraordinary equitable remedy that is only justified in extreme situations.”",
+            "The circumstances in this case are plainly extraordinary"],
+    status:"court", why:"The court’s legal analysis.",
+    limit:"The standard comes from Eighth Circuit precedent. Meeting it justifies interim relief only."
+  },
+  { id:"c3", room:"court", src:"S88", pin:"p. 21", date:"June 4, 2025",
+    head:"“Imminent danger of further dissipation”",
+    claim:"The court found credible evidence of apparent personal use of Fund money and a risk of further loss.",
+    wording:"exact",
+    quotes:["Plaintiffs have also introduced credible evidence indicating that Defendants Zamber and Cosby have, at times, siphoned funds from VPEG’s account for their apparent personal use.",
+            "Accordingly, the Court finds that there is an imminent danger of further dissipation."],
+    status:"court", why:"The court’s findings for purposes of the receivership.",
+    limit:"“Credible evidence” of “apparent” personal use is a preliminary assessment, not a damages finding. The defense offered a loan-repayment explanation for some of the transfers.",
+    conflicts:["l2"]
+  },
+  { id:"c4", room:"court", src:"S88", pin:"p. 23", date:"June 4, 2025",
+    head:"Derivative claims dismissed; direct claims kept",
+    claim:"The court dismissed the claims brought on behalf of the Fund for jurisdictional reasons and kept the investors’ own claims.",
+    wording:"exact",
+    quotes:["The Court will dismiss without prejudice Plaintiffs’ derivative claims for lack of subject matter jurisdiction, but the Court retains jurisdiction over Plaintiffs’ direct claims as described above."],
+    status:"court", why:"The order itself.",
+    limit:"The derivative claims were dismissed without prejudice for jurisdictional reasons. The court did not reach their merits."
+  },
+  { id:"c5", room:"court", src:"S264", pin:"pp. 6–7", date:"March 16, 2026",
+    head:"Two appeals, consolidated and pending",
+    claim:"Visionary Fund Manager appealed the receivership (June 24, 2025), and the general partner LLC appealed the denial of intervention (Aug. 20, 2025). The appeals were consolidated as No. 25-2269.",
+    wording:"exact",
+    quotes:["The Eighth Circuit has consolidated both VFM and GP LLC’s interlocutory appeals, and they remain pending."],
+    status:"court", why:"The district court’s description of the procedural posture.",
+    limit:"This was true as of March 16, 2026. The outcome after that date was not verified, because the appellate docket could not be retrieved."
+  },
+  { id:"c6", room:"court", src:"S264", pin:"p. 1; pp. 16–17", date:"March 16, 2026",
+    head:"Three defense motions denied",
+    claim:"The court denied motions by Zamber, Grenley and Visionary Fund Manager to strike the Third Amended Complaint, to dismiss the fraud claims, and for judgment on the fiduciary-duty claims.",
+    wording:"exact",
+    quotes:["For the reasons that follow, the Court will deny all three."],
+    status:"court", why:"The order itself.",
+    limit:"At this stage the court accepted the complaint’s allegations as true (n.1). Surviving these motions means the claims were adequately pleaded, not proved. Cosby was not among the movants."
+  },
+  { id:"c7", room:"court", src:"S264", pin:"p. 16", date:"March 16, 2026",
+    head:"The exculpation clause does not bar these claims",
+    claim:"The court held that the partnership agreement does not shield the conduct alleged.",
+    wording:"exact",
+    quotes:["the LPA does not bar liability for fraudulent, grossly negligent, or criminal conduct, which Plaintiffs have plausibly alleged."],
+    status:"court", why:"The court’s holding on the motion.",
+    limit:"“Plausibly alleged” is a pleading standard. It is not a finding that the conduct occurred."
+  },
+  { id:"c8", room:"court", src:"S264", pin:"p. 14", date:"March 16, 2026",
+    head:"Defense: the partnership agreement precludes fiduciary claims",
+    claim:"The defendants argued that an exculpation provision barred the fiduciary-duty claims.",
+    wording:"exact",
+    quotes:["Defendants argue that the LPA’s exculpation provision precludes Plaintiffs’ breach of fiduciary duty claims."],
+    status:"defense", why:"The court describing the defense argument.",
+    limit:"The court rejected this argument at the pleading stage. Among its reasons, it noted the Fund is a limited partnership, not an LLC."
+  },
+  { id:"c9", room:"court", src:"S88", pin:"p. 22 (quoting Doc. 82 at 15)", date:"June 4, 2025",
+    head:"Defense: “It’s a kill shot to the company.”",
+    claim:"The defendants argued a receivership would trigger the partnership’s dissolution provisions.",
+    wording:"exact",
+    quotes:["Defendants assert this cannot be the case because appointing a receiver over VPEG and Visionary Fund Manager, LLC, will trigger the partnership-dissolution provisions contained in the LPA. See Doc. [82] at 15 (“It’s a kill shot to the company.”)."],
+    status:"defense", why:"A defense argument quoted by the court.",
+    limit:"The court disagreed. It read the dissolution clause as tied to a receiver over the general partner, which it did not appoint."
+  },
+  { id:"c10", room:"court", src:"SSLM", pin:"article text", date:"Aug. 27, 2025",
+    head:"Reported remark from the bench: “It sounds criminal to me.”",
+    claim:"The magazine reported a remark the judge made during the hearing.",
+    wording:"exact",
+    quotes:["And the federal judge overseeing a lawsuit brought by investors against the fund’s leadership recently said of the latter’s behavior: “It sounds criminal to me.”"],
+    status:"reported", why:"A reported remark. The JLP complaint cites the transcript (Doc. 82 at 193:25), which was not reviewed.",
+    limit:"This was a remark from the bench in a civil hearing. It is not a criminal charge, finding or conviction. No criminal charges appear in the reviewed sources."
+  },
+  { id:"c11", room:"court", src:"SJLP", pin:"p. 1; ¶ 104; Counts I–III", date:"Aug. 13, 2026",
+    head:"A separate case: proposed class action against the law firm",
+    claim:"A proposed class action was filed against Husch Blackwell LLP alone. It alleges aiding and abetting fraud (Count I), aiding and abetting breach of fiduciary duty (Count II), and a Missouri securities-law claim (Count III). The proposed class is purchasers of VPEG interests through subscription materials directed to, processed through, or bearing the firm’s name, from VPEG’s formation through June 4, 2025.",
+    wording:"paraphrase", quotes:[],
+    status:"plaintiff", why:"A complaint, made up of allegations.",
+    limit:"No class has been certified in the reviewed sources, and the firm’s response was not reviewed. This case is separate from Oliver v. Zamber."
+  },
+
+  // ---------- RECOVERY VAULT ----------
+  { id:"v1", room:"vault", src:"S88", pin:"p. 27", date:"June 4, 2025",
+    head:"The receiver must report every month’s cash since 2021",
+    claim:"The order requires a month-by-month account of receipts and disbursements.",
+    wording:"exact",
+    quotes:["IT IS FURTHER ORDERED that Receiver shall prepare a report that contains for each month from January 1, 2021, to the present a statement of cash receipts and disbursements by Defendants (including all disbursements to or for the benefit of Defendants and their affiliates)."],
+    status:"court", why:"The order itself.",
+    limit:"The order required a report, but the report is not among the reviewed sources. The JLP complaint refers to a receiver report dated September 23, 2025."
+  },
+  { id:"v2", room:"vault", src:"S88", pin:"p. 9 (citing Doc. 82 at 168–69; Hearing Ex. 21)", date:"June 4, 2025",
+    head:"End of 2023: $218,000 in the accounts, net loss over $10 million",
+    claim:"The figures come from the unaudited statements Hart received.",
+    wording:"exact",
+    quotes:["they indicate that, by the end of 2023, VPEG possessed $218,000 in its accounts and had suffered a net loss of over $10 million."],
+    status:"sworn", why:"Drawn from statements Hart introduced and testified about. The court noted concerns about their accuracy.",
+    limit:"Cash on hand is not the same as total assets, because portfolio holdings are separate. A net loss is an accounting result, not a measure of missing money."
+  },
+  { id:"v3", room:"vault", src:"SJLP", pin:"¶ 69, p. 16", date:"Aug. 13, 2026",
+    head:"Alleged: cash at $0 by August 2025",
+    claim:"The JLP complaint alleges the cash balance reached zero.",
+    wording:"exact",
+    quotes:["By August 2025, VPEG’s cash balance reached $0."],
+    status:"plaintiff", why:"An allegation in a complaint.",
+    limit:"This covers cash only. It says nothing about the value of the remaining portfolio holdings or of any legal claims."
+  },
+  { id:"v4", room:"vault", src:"S88", pin:"p. 28", date:"June 4, 2025",
+    head:"What the receivership costs",
+    claim:"The order sets the receiver’s rate and says where the money comes from.",
+    wording:"exact",
+    quotes:["IT IS FURTHER ORDERED that Receiver’s compensation shall be $575 per hour.",
+            "Receiver’s compensation shall be paid from any proceeds from the Receivership Property."],
+    status:"court", why:"The order itself.",
+    limit:"Administration costs come out of whatever is recovered. The reviewed sources give no running total."
+  },
+  { id:"v5", room:"vault", src:"S264", pin:"p. 5 (reciting TAC ¶ 85)", date:"March 16, 2026",
+    head:"Alleged: a lien over all assets (November 2024)",
+    claim:"The Third Amended Complaint alleges VPEG is the debtor on a lien filing.",
+    wording:"exact",
+    quotes:["And VPEG is listed as the debtor related to a lien filed by Wolters Kluwer Lien Solutions on November 12, 2024."],
+    status:"plaintiff", why:"Complaint allegations repeated by the court.",
+    limit:"The JLP complaint separately describes a November 2024 UCC filing by a lender (¶ 70). Secured creditors may be paid ahead of investors in any recovery. The amount of the debt is not stated in the reviewed sources.",
+    conflicts:["p3"]
+  },
+  { id:"v6", room:"vault", src:"SJLP", pin:"¶ 101, p. 23", date:"Aug. 13, 2026",
+    head:"Alleged: “no reasonable path” to recover",
+    claim:"The proposed class representative describes its own prospects for recovery.",
+    wording:"exact",
+    quotes:["Given VPEG’s receivership and financial condition, there is no reasonable path for Plaintiff to recoup its investment."],
+    status:"plaintiff", why:"A party’s assessment, made in a complaint.",
+    limit:"This is a party’s own view. It is not a receiver finding or a court determination about recoveries."
+  }
+];
+
+var EMPTY = {
+  pitch: [
+    { t:"Offering documents as issued (private placement memorandum, subscription booklet)", b:"What belongs here: the documents investors actually received, with their dates. Reviewed sources only describe them." }
+  ],
+  ledger: [
+    { t:"Receiver’s cash receipts and disbursements report", b:"What belongs here: the receiver’s own month-by-month figures (ordered by Doc. 88, p. 27). Not retrieved." },
+    { t:"Loan documents for the defense’s repayment explanation", b:"What belongs here: any note or agreement showing a loan from Zamber to the Fund and its repayment terms. None in reviewed sources." }
+  ],
+  gallery: [
+    { t:"Valuation workpapers or an independent appraisal", b:"What belongs here: how each portfolio value was calculated, by whom, and as of what date. None in reviewed sources." }
+  ],
+  witness: [
+    { t:"April 28, 2025 hearing transcript (Doc. 82)", b:"What belongs here: the testimony in full, including cross-examination. Only summaries and excerpts were reviewed." },
+    { t:"Full deposition transcripts", b:"What belongs here: complete depositions of the parties. Only one excerpt, quoted in a complaint, was reviewed." }
+  ],
+  court: [
+    { t:"Eighth Circuit decision in No. 25-2269", b:"What belongs here: the appellate outcome on the receivership and intervention appeals. Pending as of March 16, 2026; later status unverified." },
+    { t:"Order on sealing of the receiver’s preliminary report", b:"Research lead only (reportedly March 16, 2026). The page was blocked by a captcha and the order was not read." }
+  ],
+  vault: [
+    { t:"Order on sale of Circle Internet Group shares", b:"Research lead only (reportedly January 13, 2026). Not retrieved. Whether any sale occurred, and for how much, is unknown." },
+    { t:"Claims or distribution plan", b:"What belongs here: any court-approved process for investors to make claims or receive recoveries. None found in reviewed sources." }
+  ]
+};
+
+/* ============================================================
+   REAL TIMELINE
+   ============================================================ */
+var TIMELINE = [
+  { d:"Jan. 2010", t:"VPEG formed as a Missouri limited partnership.", s:"plaintiff", src:"SJLP", pin:"¶ 20" },
+  { d:"Late 2010 or early 2011", t:"First investors join, described as “family and friends.”", s:"court", src:"S88", pin:"p. 3" },
+  { d:"2011", t:"Last independent audit, according to the JLP complaint.", s:"plaintiff", src:"SJLP", pin:"¶¶ 31, 59" },
+  { d:"2017 / 2018–2023 / “not long after” 2010", t:"The Oliver plaintiffs’ investment of about $11 million. Doc. 88 says they decided to invest after a 2017 presentation; Doc. 264, repeating the TAC, says initial investments were made 2018–2023; the magazine says “not long after” the 2010 launch.", s:"court", src:"S88", pin:"p. 8; Doc. 264 p. 2; magazine", conflict:"Three sources, three timings." },
+  { d:"2021", t:"At least one distribution to limited partners. Its amount and recipients are unclear.", s:"court", src:"S88", pin:"p. 3" },
+  { d:"Sept. 2022", t:"South Bend meeting; alleged “no debt at the Fund level” statement.", s:"plaintiff", src:"S264", pin:"p. 3" },
+  { d:"2022–2023", t:"Short-term loans of $1.6 million from plaintiffs, plus $100,000 from Hart.", s:"sworn", src:"S88", pin:"p. 8" },
+  { d:"Mar. 2023", t:"Trustee board meeting; distribution alleged to be “right around the corner.”", s:"plaintiff", src:"S264", pin:"p. 3" },
+  { d:"May 12, 2023", t:"JLP Partners subscribes for $100,000.", s:"plaintiff", src:"SJLP", pin:"¶ 99" },
+  { d:"End of 2023", t:"Unaudited statements show $218,000 cash and a net loss over $10 million.", s:"sworn", src:"S88", pin:"p. 9" },
+  { d:"Mar. 1, 2024", t:"Executive summary reports $5.8 million in distributions.", s:"court", src:"S88", pin:"p. 3" },
+  { d:"July 23, 2024 (or June 2024)", t:"Updated report shows $9.1 million in distributions.", s:"court", src:"S88", pin:"p. 3; Doc. 264 p. 3", conflict:"Doc. 88 says July 23; Doc. 264 (TAC) says June." },
+  { d:"Sept. 30, 2024", t:"Summary document provided by Cosby shows a year-to-date gross profit of $14.50.", s:"sworn", src:"S88", pin:"p. 9" },
+  { d:"Nov. 12, 2024", t:"Lien filing naming VPEG as debtor (alleged).", s:"plaintiff", src:"S264", pin:"p. 5" },
+  { d:"Dec. 30, 2024", t:"Most recent rent payment as of the April hearing.", s:"sworn", src:"S88", pin:"p. 4" },
+  { d:"Jan. 29, 2025", t:"City of St. Charles business-license notice: “required to cease operation.”", s:"court", src:"S88", pin:"p. 4" },
+  { d:"Jan. 31, 2025", t:"Oliver and Company v. Zamber filed.", s:"court", src:"S264", pin:"p. 5" },
+  { d:"Apr. 28, 2025", t:"Consolidated hearing on jurisdiction and receivership.", s:"court", src:"S88", pin:"p. 1" },
+  { d:"June 4, 2025", t:"Receiver appointed; derivative claims dismissed without prejudice.", s:"court", src:"S88", pin:"pp. 23–31" },
+  { d:"June 24, 2025", t:"Visionary Fund Manager appeals the receivership.", s:"court", src:"S264", pin:"p. 6" },
+  { d:"Aug. 4, 2025", t:"Court denies dismissal for failure to join the GP LLC, and denies its intervention.", s:"court", src:"S264", pin:"p. 6" },
+  { d:"Aug. 2025", t:"Cash balance alleged to reach $0.", s:"plaintiff", src:"SJLP", pin:"¶ 69" },
+  { d:"Aug. 20, 2025", t:"GP LLC appeals the denial of intervention.", s:"court", src:"S264", pin:"p. 6" },
+  { d:"Aug. 27, 2025", t:"St. Louis Magazine reports on the hearing.", s:"reported", src:"SSLM", pin:"" },
+  { d:"Sept. 5, 2025", t:"Third Amended Complaint filed (adds fraud claims).", s:"court", src:"S264", pin:"p. 7" },
+  { d:"Sept. 23, 2025", t:"Eighth Circuit consolidates the appeals (No. 25-2269).", s:"court", src:"S264", pin:"pp. 6–7" },
+  { d:"Sept. 23, 2025", t:"Receiver report, as cited by the JLP complaint. Not reviewed.", s:"plaintiff", src:"SJLP", pin:"¶ 78" },
+  { d:"Late Nov./early Dec. 2025", t:"Firm board decides Cosby will no longer be a partner (per deposition excerpt).", s:"plaintiff", src:"SJLP", pin:"¶ 90" },
+  { d:"Mar. 16, 2026", t:"Three defense motions denied; appeals noted as still pending.", s:"court", src:"S264", pin:"pp. 16–17" },
+  { d:"Aug. 13, 2026", t:"JLP Partners v. Husch Blackwell filed as a proposed class action.", s:"plaintiff", src:"SJLP", pin:"p. 1" },
+  { d:"Unverified leads", t:"Reported orders on Jan. 13, 2026 (Circle shares) and Mar. 16, 2026 (sealing) could not be retrieved.", s:"unverified", src:null, pin:"" }
+];
+
+/* ============================================================
+   PEOPLE & ENTITIES — documented roles only
+   ============================================================ */
+var GROUPS = [
+  { name:"The Fund and its entities", items:[
+    { n:"Visionary Private Equity Group I, LP (VPEG)", rels:[
+      ["Missouri limited partnership; private equity fund “of some 32-plus portfolio companies”","court","S88","p. 2"],
+      ["In receivership since June 4, 2025","court","S88","p. 23"] ]},
+    { n:"Visionary PE GP I, LLC", rels:[
+      ["Sole general partner under the partnership agreement","court","S264","p. 6"],
+      ["Not placed in receivership","court","S88","p. 22"],
+      ["Court concluded Zamber and Cosby are its sole members (Doc. 170, as described)","court","S264","pp. 9–10 & n.8"],
+      ["Appellant (denial of intervention)","court","S264","p. 6"] ]},
+    { n:"Visionary Fund Manager, LLC (VFM)", rels:[
+      ["Empowered to “manage and direct” portfolio investments","court","S88","p. 2"],
+      ["In receivership; appellant (receivership appeal)","court","S264","p. 6"],
+      ["Alleged sole members: Zamber and Cosby","plaintiff","S264","p. 2 (TAC ¶ 27)"] ]}
+  ]},
+  { name:"Individual defendants (Oliver v. Zamber)", items:[
+    { n:"Dr. Ronald Zamber", rels:[["Chairman and Senior Managing Director of VPEG","court","S88","p. 2"],["Co-signatory on the Great Southern Bank account (testimony)","sworn","S88","p. 6"]]},
+    { n:"Robert Grenley", rels:[["Director of Capital Development","court","S88","p. 2"],["Alleged CEO of POP! Gourmet and Shop4E","plaintiff","SJLP","¶ 38"]]},
+    { n:"Michael Cosby", rels:[["Senior Managing Director and General Counsel; has apparently resigned those positions","court","S88","p. 2 & n.2"],["Co-signatory on the Great Southern Bank account (testimony)","sworn","S88","p. 6"],["Husch Blackwell partner until his separation","plaintiff","SJLP","¶ 28"]]}
+  ]},
+  { name:"The court and its officer", items:[
+    { n:"Judge Matthew T. Schelp", rels:[["U.S. District Judge presiding over No. 4:25-cv-00132","court","S88","p. 31"]]},
+    { n:"Jason Buhlinger, Armanino LLP", rels:[["Court-appointed receiver over VPEG and VFM","court","S88","p. 23"]]}
+  ]},
+  { name:"Plaintiffs", items:[
+    { n:"Oliver-family entities, trusts and individual investors", rels:[["Plaintiffs in Oliver v. Zamber; associated with a family office","court","S88","pp. 1–2"]]},
+    { n:"James Hart", rels:[["President of the Oliver Family Office; also a named plaintiff; testified at the hearing","court","S88","pp. 1–2"]]},
+    { n:"JLP Partners, LLC", rels:[["Proposed class representative in the separate case against Husch Blackwell","plaintiff","SJLP","¶ 16"]]}
+  ]},
+  { name:"Separate case", items:[
+    { n:"Husch Blackwell LLP", rels:[["Sole defendant in JLP Partners v. Husch Blackwell (No. 4:26-cv-01298)","plaintiff","SJLP","p. 1"],["Alleged to be named as Fund counsel in the subscription booklet","plaintiff","SJLP","¶ 10"]]}
+  ]},
+  { name:"Witnesses and declarants", items:[
+    { n:"Brigitte Bonetti", rels:[["Managing Director and Director of Investor Relations; testified (the JLP complaint spells it “Brigette”)","sworn","S88","p. 6"]]},
+    { n:"Kevin Huss", rels:[["Former Director of Operations at the vaccination clinic; testified","sworn","S88","p. 7"]]},
+    { n:"Patrick Lepski", rels:[["Assistant Director of Investment Relations; testified","sworn","S88","p. 5"]]},
+    { n:"Anastasia Brown", rels:[["Former senior adviser; sworn written statement","sworn","S88","p. 7 n.7"]]},
+    { n:"Kevin DeLeon (for Highgate Capital, LLC)", rels:[["Denied signing papers identifying LLC membership","sworn","S88","p. 3 n.3"]]}
+  ]},
+  { name:"Record holders (no misconduct alleged against them in reviewed sources)", items:[
+    { n:"Great Southern Bank", rels:[["Holds the VPEG bank account","sworn","S88","p. 6"]]},
+    { n:"Inspira", rels:[["Administers the self-directed IRA program","sworn","S88","p. 5"]]},
+    { n:"Dynamo Software", rels:[["Runs the investor portal","sworn","S88","p. 4"]]}
+  ]}
+];
+
+/* ============================================================
+   CHALLENGES (real case)
+   ============================================================ */
+var LEDGER_OPTS = [
+  { id:"add", t:"Add them" },
+  { id:"overlap", t:"Don’t add: same money or overlapping period" },
+  { id:"different", t:"Don’t add: different kinds of number" }
+];
+var LEDGER_ITEMS = [
+  { id:"d1", a:["Over $5.2 million to Zamber","2020 to present · TAC via Doc. 264 n.6"], b:["About $4.7 million to Zamber","Since Jan. 2021 · JLP ¶ 46"], ans:"overlap",
+    x:"Both figures describe payments to the same person over overlapping periods, in two different pleadings. Adding them would count most of the money twice." },
+  { id:"d2", a:["At least $1,779,462.63 to Zamber","Partial bank records · Doc. 88 p. 6"], b:["About $4.7 million to Zamber","Since Jan. 2021 · JLP ¶ 46"], ans:"overlap",
+    x:"Doc. 88’s figure is a minimum from records one manager could see. Its example wires are from August 2021, which falls inside the JLP period. It is almost certainly part of the larger figure." },
+  { id:"d3", a:["$4.7M + $734K + $655K to three individuals","Since Jan. 2021 · JLP ¶ 46"], b:["About $1.6 million to VFM in fees","Since 2021 · JLP ¶ 33"], ans:"add",
+    x:"These are different recipients in the same period and the same pleading, so adding them is reasonable for describing the allegation: about $7.69 million. The complaint itself says about $7.5 million (¶ 32), so note the rounding or classification gap. The total is still an allegation." },
+  { id:"d4", a:["About $90 million raised","Lifetime, as reported in testimony · Doc. 88 p. 3"], b:["About $55 million in cash receipts","Since Jan. 2021 · JLP ¶ 44"], ans:"overlap",
+    x:"The $43.5 million in outside investment since 2021 is part of the lifetime raising, and receipts also include portfolio distributions. Neither number is a loss figure." },
+  { id:"d5", a:["Over $10 million “funneled” to media affiliates","JLP ¶ 54"], b:["At least $10.2 million invested in the same affiliates","Since Jan. 2021 · JLP ¶ 61(e)"], ans:"overlap",
+    x:"This is likely the same money described two ways, once as investment and once as diversion. Which description is accurate is the disputed question." },
+  { id:"d6", a:["$1.6 million in short-term loans","Principal · Doc. 88 p. 8"], b:["“Over $2 million in loans, interest, and fees”","Doc. 88 p. 8"], ans:"overlap",
+    x:"The $2 million figure already contains the $1.6 million principal." },
+  { id:"d7", a:["$57.4 million in cash spending","Since Jan. 2021 · JLP ¶ 45"], b:["About $7.5 million to insiders and VFM","Since 2021 · JLP ¶ 32"], ans:"overlap",
+    x:"The insider payments are part of the total spending. The $57.4 million also includes investments, expenses and distributions, so it is not a diversion total." },
+  { id:"d8", a:["Clinic valued at $1.7 million","Valuation · Doc. 88 p. 7"], b:["$218,000 cash at end of 2023","Cash · Doc. 88 p. 9"], ans:"different",
+    x:"One is a claimed asset value and the other is a bank balance. Adding them would mix a contested opinion with cash. A valuation is not a bank balance." }
+];
+
+var WIT_OPTS = [
+  { id:"firsthand", t:"Firsthand observation" },
+  { id:"statement", t:"Firsthand account of what someone said" },
+  { id:"document",  t:"Based on documents" },
+  { id:"inference", t:"Inference or opinion" },
+  { id:"relayed",   t:"Secondhand / relayed" }
+];
+var WIT_ITEMS = [
+  { id:"x1", who:"Bonetti", q:"Her access to the bank account was “cut off for long periods of time” starting in 2018.", src:"Doc. 88 p. 6", ans:"firsthand", x:"This is her own experience of being locked out." },
+  { id:"x2", who:"Bonetti", q:"At least $1,779,462.63 was wired to Zamber, per the records she could access.", src:"Doc. 88 p. 6", ans:"document", x:"She is reading records, and only the ones she could reach. That makes it a floor, not a total." },
+  { id:"x3", who:"Lepski", q:"He does not believe the Fund has enough resources to pay current bills.", src:"Doc. 88 p. 5", ans:"inference", x:"This is a belief drawn from balances and invoices. It is reasonable, but it is still an inference." },
+  { id:"x4", who:"Huss", q:"The clinic’s assets are seven laptops, a medical freezer, and a medical deep freezer.", src:"Doc. 88 p. 7", ans:"firsthand", x:"This is what he saw as Director of Operations." },
+  { id:"x5", who:"Huss (as reported)", q:"“I believe it is an outright falsification.”", src:"St. Louis Magazine", ans:"inference", x:"This is a characterization, and an opinion, not an observation." },
+  { id:"x6", who:"Zamber’s counsel", q:"“Mr. Zamber made a loan to the fund, and it was repaid to him.”", src:"Doc. 88 p. 6 n.5", ans:"relayed", x:"The lawyer is relaying what his client told him. It was not sworn testimony." },
+  { id:"x7", who:"Hart", q:"Zamber told him “he had over $50 million lined up.”", src:"Doc. 88 p. 8", ans:"statement", x:"Hart can testify firsthand that the words were said. That does not establish whether $50 million existed." },
+  { id:"x8", who:"Hart", q:"By the end of 2023, VPEG had $218,000 in its accounts and a net loss over $10 million.", src:"Doc. 88 p. 9", ans:"document", x:"These figures come from unaudited statements he received, and the court noted accuracy concerns." },
+  { id:"x9", who:"Bonetti (as reported)", q:"Cosby told her he had set up an account Zamber didn’t know about.", src:"St. Louis Magazine", ans:"statement", x:"She is recounting what Cosby told her, and it reaches us through a magazine. Account records would show what actually happened." }
+];
+
+var RES_OPTS = [
+  { id:"bank", t:"Bank records" },
+  { id:"contract", t:"Contracts & loan documents" },
+  { id:"comms", t:"Emails & texts" },
+  { id:"valuation", t:"Valuation workpapers" },
+  { id:"testimony", t:"Testimony or deposition" },
+  { id:"distrib", t:"Distribution records & K-1s" }
+];
+var RES_ITEMS = [
+  { id:"r1", q:"Were the wires to Zamber repayments of a loan he made to the Fund?", ok:["contract","bank"], x:"A signed note or loan agreement, plus bank records showing the original loan coming in. Both are needed: paperwork without the inflow proves little, and so does an inflow without paperwork." },
+  { id:"r2", q:"Was the 2021 distribution $5.8 million or $9.1 million, and who received it?", ok:["distrib","bank"], x:"A payee-level distribution ledger and K-1s, checked against the outgoing bank transfers." },
+  { id:"r3", q:"What supported the clinic’s $1.7 million (or $1.2 million) valuation?", ok:["valuation"], x:"The valuation workpapers: method, inputs, the date of the valuation, and who prepared it." },
+  { id:"r4", q:"Did the roughly $1.6 million paid to VFM follow the partnership agreement’s 1.5% fee formula?", ok:["contract"], x:"The LPA and PPM fee terms, applied to the capital-account balances for each quarter." },
+  { id:"r5", q:"When did the law firm learn about Cosby’s financial role at the Fund?", ok:["comms","testimony"], x:"Internal firm communications and testimony from the people who handled the matter. The firm’s side has not been reviewed." },
+  { id:"r6", q:"What are “Visionary Private DST BIZ 1” and “IND 1,” and why were they paid?", ok:["bank","contract"], x:"Bank records showing where the money went next, and the formation or operating documents for those entities." },
+  { id:"r7", q:"Did the people preparing the forecast spreadsheets believe them when they sent them?", ok:["comms","testimony"], x:"Contemporaneous emails and texts about the projections, and testimony under cross-examination. Knowledge is the hard part." },
+  { id:"r8", q:"Were IRA sellers in investor-to-investor sales ever paid?", ok:["bank"], x:"Bank and IRA-custodian records showing the buyer’s payment coming in and any payment going out to the seller." }
+];
+
+/* ============================================================
+   FICTIONAL MYSTERY — invented characters, places, sums
+   ============================================================ */
+var F_PREMISE = "Every September the Harrowgate Orchard Trust, a members’ fund that owns orchards and a cider house, holds its Valuation Supper at Pellingham Manor. This year’s printed report lists Southfield Orchard at 3.4 million. At eleven o’clock a courier from the County Land Registry delivers a routine extract: Southfield has belonged to Brindle Hill Farms since March. Nobody at the table admits to selling it. If it was sold, where is the money? And who kept a vanished orchard on the books?";
+
+var CAST = [
+  { id:"ottoline", n:"Ottoline Vane", r:"Chair of the Trust", d:"Collects antique barometers and has never met a forecast she didn’t like. Signs the annual letter to members.", j:"Owns eleven barometers, all of them set to “Fair.”" },
+  { id:"lionel", n:"Lionel Fairweather", r:"Treasurer", d:"Punctual and precise, with a fondness for the turf. Holds the Trust’s signing authority on property transfers.", j:"Times his tea with a stopwatch." },
+  { id:"crane", n:"Bartholomew Crane", r:"Outside appraiser", d:"Values orchards by walking every row and counting every tree. Signed the Southfield appraisal.", j:"Has measured the dining table twice since the soup." },
+  { id:"desmond", n:"Desmond Achterberg", r:"Cellar master", d:"Runs the cider house. A gleaming new copper still arrived in April, and he is fiercely proud of it.", j:"Refers to the still as “she.”" },
+  { id:"priya", n:"Priya Haldane", r:"Analyst", d:"Built and maintains the Trust’s workbook. She asks a lot of questions in cell comments.", j:"Her workbook has 47 tabs. The manor has 31 rooms." },
+  { id:"marguerite", n:"Marguerite Selby-Oakes", r:"Member communications", d:"Writes the quarterly newsletter in a prose style best described as “in bloom.”", j:"Has used the word “burgeoning” fourteen times this year." }
+];
+
+var F_CARDS = [
+  { id:"fp1", room:"pitch", head:"Six chair’s letters, one prediction",
+    claim:"Six consecutive quarterly letters from Ottoline Vane each say: “Southfield harvest exit expected next quarter.” Every one describes Southfield as a Trust holding.",
+    joke:"Projected exit date: perpetually next quarter.",
+    note:"Overconfident, yes. But she writes about selling Southfield in the future. That fits someone who did not know it had already gone." },
+  { id:"fp2", room:"pitch", head:"The newsletter: “Southfield in glorious blossom”",
+    claim:"Marguerite’s spring newsletter shows a photograph of Southfield in flower. The credit in the corner, in tiny type, reads: “Stock image, licensed 2019.”",
+    joke:"The orchard in the photo also appears in a brochure for Norwegian fjord cruises.",
+    note:"Embarrassing and careless, but a stock photo does not move a land title." },
+  { id:"fl1", room:"ledger", head:"Bank statements, March to May",
+    claim:"No deposit from Brindle Hill Farms. Nothing near 1.1 million arrived from anyone. The largest receipt in the period is 18,400 from cider sales.",
+    joke:"",
+    note:"If Southfield was sold for cash, the cash never reached the Trust, and there is no sign it was ever paid at all." },
+  { id:"fl2", room:"ledger", head:"Workbook change log (tab 31 of 47)",
+    claim:"Cell Southfield!B4, “Appraisal date,” was changed from “14 Oct” to “30 Jun” on 9 July at 23:48, under the shared login “treasury-desk.” The value, 3,400,000, was not changed.",
+    joke:"This spreadsheet has more tabs than the manor has rooms.",
+    note:"Someone made an old appraisal look current. Who uses that login?" },
+  { id:"fl3", room:"ledger", head:"Login roster",
+    claim:"The shared login “treasury-desk” is used by two people: Lionel Fairweather and Priya Haldane.",
+    joke:"",
+    note:"That narrows the edit to two people." },
+  { id:"fg1", room:"gallery", head:"Crane’s appraisal, original file",
+    claim:"Southfield Orchard valued at 3,400,000. The footer reads “Prepared 14 October, following site inspection.” The caveat reads “Valid as of the date of inspection only.”",
+    joke:"",
+    note:"The appraisal predates the March transfer. Crane valued an orchard the Trust still owned. Someone else carried his number forward." },
+  { id:"fg2", room:"gallery", head:"Land Registry extract",
+    claim:"Southfield was transferred to Brindle Hill Farms on 3 March. Consideration: “Nil cash. In satisfaction of obligations under side letter of the same date.” Signed for the Trust by the Treasurer.",
+    joke:"A valuation is not a bank balance. An orchard is not a valuation.",
+    note:"No money changed hands. The orchard paid off something else, and the Treasurer signed." },
+  { id:"fg3", room:"gallery", head:"Comment thread on tab “Southfield_OLD_do_not_use”",
+    claim:"20 March, Priya: “Registry fee invoice addressed to Brindle Hill?? Is Southfield still ours?” Reply the same day, initialled L.F.: “Clerical. Ignore.”",
+    joke:"",
+    note:"Priya raised the alarm. The reply shows the Treasurer knew in March that there was a question." },
+  { id:"fw1", room:"witness", head:"Interview: Desmond Achterberg",
+    claim:"“Bought the still? I leased her. It’s minute twelve of the April board meeting, and the lessor’s agreement is in the vault. Ask anyone who’s had to read the depreciation schedule.”",
+    joke:"He then talked about copper for eleven minutes.",
+    note:"This can be checked against the lease in the Recovery Vault." },
+  { id:"fw2", room:"witness", head:"Interview: Priya Haldane",
+    claim:"“On 9 July I was judging perry at the county cider fair until after midnight. The results were printed in the county paper the next day, and my name is on them.” The clipping lists her as judge, with prizes presented at 23:30.",
+    joke:"",
+    note:"She could not have made the 23:48 edit from the manor office." },
+  { id:"fw3", room:"witness", head:"Interview: Lionel Fairweather",
+    claim:"“Southfield? Sound as a bell. Crane valued it at year-end, it’s all in the report.”",
+    joke:"",
+    note:"Crane’s own file says October, not year-end. Why would the Treasurer misstate the appraisal date?" },
+  { id:"fw4", room:"witness", head:"Interview: Ottoline Vane",
+    claim:"“I was in Lisbon for the barometer fair from 28 February to 10 March. I sent the office a postcard.” The postcard, pinned in the hall, is postmarked Lisbon, 2 March.",
+    joke:"The postcard is of a barometer.",
+    note:"She was abroad when the transfer was signed on 3 March." },
+  { id:"fw5", room:"witness", head:"Interview: Bartholomew Crane",
+    claim:"“I valued what I saw in October. If someone has kept my number past its sell-by date, that’s their spreadsheet, not my appraisal.”",
+    joke:"",
+    note:"This matches the footer on his original file." },
+  { id:"fc1", room:"court", head:"Board minutes, March meeting",
+    claim:"There is no resolution to dispose of Southfield. The bylaws require the Chair’s countersignature for any disposal over 250,000, and none is recorded.",
+    joke:"The minutes give three paragraphs to the biscuits.",
+    note:"The transfer bypassed the board and the Chair." },
+  { id:"fc2", room:"court", head:"Gate log, 9 July",
+    claim:"Lionel Fairweather’s badge: in at 23:31, out at 23:59. No other entries after 22:00.",
+    joke:"",
+    note:"Only one of the two “treasury-desk” users was in the building at 23:48." },
+  { id:"fv1", room:"vault", head:"Equipment lease for the copper still",
+    claim:"A five-year lease approved at minute 12 of the April board meeting. Monthly payments run from the Trust’s operating account, and every one appears on the statements.",
+    joke:"",
+    note:"The still was leased, not bought with orchard money." },
+  { id:"fv2", room:"vault", head:"A charred fragment from the vault hearth",
+    claim:"“…in full and final satisfaction of the sum owed by L.F. on account of Thunderclap, the transfer of the parcel known as Southfield…”",
+    joke:"",
+    note:"This looks like the side letter. A personal debt was settled with the Trust’s orchard." },
+  { id:"fv3", room:"vault", head:"Racing pages, folded in a coat pocket",
+    claim:"“Thunderclap (owned in partnership by L. Fairweather and the Brindle Hill syndicate) finished last at Harwick. Again.”",
+    joke:"",
+    note:"This connects the Treasurer, a debt, and Brindle Hill." }
+];
+
+var F_TIMELINE = [
+  { d:"14 October (last year)", t:"Crane inspects Southfield and values it at 3.4 million." },
+  { d:"28 Feb – 10 March", t:"Ottoline is in Lisbon." },
+  { d:"3 March", t:"Southfield is transferred to Brindle Hill Farms for nil cash under a side letter, signed by the Treasurer." },
+  { d:"March board meeting", t:"No disposal is approved, and there is no countersignature." },
+  { d:"20 March", t:"Priya asks “Is Southfield still ours?” and gets the reply “Clerical. Ignore.”" },
+  { d:"April", t:"The copper still arrives under a lease approved at minute 12." },
+  { d:"30 June", t:"Financial year ends." },
+  { d:"9 July, 23:31–23:59", t:"Lionel is in the office. At 23:48 the appraisal date is changed from “14 Oct” to “30 Jun.”" },
+  { d:"9 July, to midnight", t:"Priya is judging at the county cider fair." },
+  { d:"September", t:"Valuation Supper. The Land Registry extract arrives." }
+];
+
+var MECHS = [
+  { id:"cash", t:"Sold for cash; the proceeds were skimmed from the Trust’s bank account" },
+  { id:"appraiser", t:"The appraiser inflated the valuation" },
+  { id:"swap", t:"Swapped to settle a personal debt; an old appraisal was rolled forward to hide it" },
+  { id:"still", t:"Sale proceeds secretly paid for the copper still" },
+  { id:"clerical", t:"No wrongdoing: an overoptimistic forecast and a clerical error" }
+];
+var KEY_CLUES = ["fg2","fl2","fc2","fw2","fg1","fg3","fl1","fv2","fv3","fl3","fc1"];
+var ALTS = [
+  { id:"a1", t:"“The appraiser inflated it.”", ok:["fg1","fw5","fl2"], x:"Crane’s file is dated 14 October, before the transfer, and the change log shows the date was edited later under the Treasurer’s login. His number was accurate when he made it." },
+  { id:"a2", t:"“The sale proceeds bought the still.”", ok:["fv1","fl1"], x:"The still is leased, approved at minute 12 and paid monthly. No sale proceeds ever arrived to pay for anything." },
+  { id:"a3", t:"“The cash was skimmed from the bank.”", ok:["fl1","fg2"], x:"The registry shows nil cash, and the statements show no deposit. There was never any cash to skim." },
+  { id:"a4", t:"“Just a clerical error and an optimistic Chair.”", ok:["fg3","fv2","fc1"], x:"“Clerical. Ignore.” came after a direct question, the side letter shows intent, and the transfer skipped the board. The Chair was overoptimistic, but she was in Lisbon and never countersigned." }
+];
+
+/* ============================================================
+   STATE & SCORING
+   ============================================================ */
+var KEY = "vanishing-valuation-v1";
+function blank(){
+  return { started:false, mode:"real", humor:true, tab:"rooms", room:null,
+    real:{ guess:{}, sourced:{}, alt:{}, board:{}, ledger:{}, wit:{}, res:{} },
+    fic:{ seen:{}, board:{}, culprit:"", mech:"", picks:[], alts:{}, submitted:false } };
+}
+function load(){
+  try { var raw = localStorage.getItem(KEY); if(!raw) return blank();
+    var s = JSON.parse(raw), b = blank();
+    return Object.assign(b, s, { real:Object.assign(b.real, s.real||{}), fic:Object.assign(b.fic, s.fic||{}) });
+  } catch(err){ return blank(); }
+}
+function save(s){ try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(err){} }
+
+function realScore(r){
+  var cls=0, src=0, unc=0, dbl=0, alt=0;
+  CARDS.forEach(function(c){
+    if (r.guess[c.id] === c.status) cls += 10;
+    if (r.sourced[c.id]) src += 2;
+    if (r.alt[c.id]) alt += 3;
+    var b = r.board[c.id];
+    if (b){
+      if (b.tags.indexOf("Inconsistency")>=0 && c.conflicts) unc += 5;
+      if (b.tags.indexOf("Missing record")>=0) unc += 2;
+      unc += Math.min(2, b.questions.length) * 2;
+    }
+  });
+  LEDGER_ITEMS.forEach(function(i){ if (r.ledger[i.id] === i.ans) dbl += 10; });
+  WIT_ITEMS.forEach(function(i){ if (r.wit[i.id] === i.ans) cls += 10; });
+  RES_ITEMS.forEach(function(i){ if (r.res[i.id] && i.ok.indexOf(r.res[i.id])>=0) unc += 10; });
+  return { "Accurate sourcing":src, "Correct evidence classification":cls, "Identifying uncertainty":unc, "Avoiding double-counting":dbl, "Recognizing alternative explanations":alt };
+}
+function ficScore(f){
+  var ex=0, ev=0, alt=0;
+  F_CARDS.forEach(function(c){ if (f.seen[c.id]) ex += 3; });
+  if (f.submitted){
+    f.picks.forEach(function(id){ if (KEY_CLUES.indexOf(id)>=0) ev += 10; });
+    ALTS.forEach(function(a){ if (f.alts[a.id] && a.ok.indexOf(f.alts[a.id])>=0) alt += 10; });
+  }
+  return { "Clues examined":ex, "Evidence cited":ev, "Alternatives ruled out":alt };
+}
+function sum(o){ return Object.keys(o).reduce(function(a,k){ return a+o[k]; },0); }
+
+/* ============================================================
+   COMPONENTS
+   ============================================================ */
+function srcCite(c){ var s = SOURCES[c.src]; return s.short + " · " + c.pin; }
+
+function App(){
+  var _s = useState(load), st = _s[0], setSt = _s[1];
+  var _d = useState(null), drawer = _d[0], setDrawer = _d[1];   // {src, card}
+  var _o = useState(null), open = _o[0], setOpen = _o[1];       // card id
+  var _r = useState(false), confirmReset = _r[0], setConfirmReset = _r[1];
+  useEffect(function(){ save(st); }, [st]);
+  useEffect(function(){
+    function onKey(ev){ if (ev.key === "Escape"){ if (drawer) setDrawer(null); else if (open) setOpen(null); } }
+    window.addEventListener("keydown", onKey); return function(){ window.removeEventListener("keydown", onKey); };
+  }, [drawer, open]);
+
+  function up(fn){ setSt(function(prev){ var n = JSON.parse(JSON.stringify(prev)); fn(n); return n; }); }
+  var real = st.mode === "real";
+  var score = real ? realScore(st.real) : ficScore(st.fic);
+  var tabs = real
+    ? [["rooms","Rooms"],["board","Caseboard"],["timeline","Timeline"],["people","People & entities"],["challenges","Challenges"],["sources","Sources"],["assess","Evidence Assessment"]]
+    : [["rooms","Manor rooms"],["board","Caseboard"],["timeline","Timeline"],["people","Cast"],["deduce","Deduction & reveal"]];
+
+  function setMode(m){ up(function(n){ n.mode = m; n.tab = "rooms"; n.room = null; }); setOpen(null); }
+  function go(tab){ up(function(n){ n.tab = tab; n.room = null; }); }
+
+  var header = html`
+    <header className="top">
+      <div className="wrap">
+        <div className="brand"><b>The Case of the Vanishing Valuation</b>
+          <span>${real ? "Case Explorer: the public record of the Visionary Private Equity Group receivership" : "Fictional Mystery: invented characters, invented money"}</span></div>
+        ${st.started && html`
+        <div className="tools">
+          <div className="modes" role="group" aria-label="Mode">
+            <button aria-pressed=${real} onClick=${function(){setMode("real");}}>Case Explorer</button>
+            <button aria-pressed=${!real} onClick=${function(){setMode("fiction");}}>Fictional Mystery</button>
+          </div>
+          <span className="score" aria-live="polite" title="Points come from sourcing, classification, uncertainty, double-count avoidance, and alternatives. Never from accusations.">${sum(score)} pts</span>
+          <button className="btn" aria-pressed=${st.humor} onClick=${function(){ up(function(n){ n.humor = !n.humor; }); }}>Humor: ${st.humor ? "on" : "off"}</button>
+          ${real && html`<button className="btn" onClick=${function(){ setDrawer({}); }}>Source drawer</button>`}
+          <button className="btn" onClick=${function(){ setConfirmReset(true); }}>Reset</button>
+        </div>`}
+      </div>
+    </header>
+    <div className="strip"><div className="wrap">
+      <span>Evidence current through: <b>Not yet verified</b> <span style=${{opacity:.8}}>(latest document reviewed: Aug. 13, 2026; full docket not reviewed)</span></span>
+      <span className="fbi">Official victim resources: <a href=${FBI_URL} target="_blank" rel="noopener noreferrer">${FBI_LABEL}</a> <span style=${{opacity:.8}}>(external site; contents not verified here; no affiliation)</span></span>
+    </div></div>
+    ${confirmReset && html`<div className="notice-bar" role="alertdialog" aria-label="Confirm reset"><div className="wrap" style=${{display:"flex",gap:"10px",flexWrap:"wrap",alignItems:"center"}}>
+      <span>Erase all progress saved in this browser, for both modes?</span>
+      <button className="dlg-btn primary" onClick=${function(){ var b = blank(); b.started = true; b.humor = st.humor; setSt(b); setConfirmReset(false); setOpen(null); }}>Erase progress</button>
+      <button className="dlg-btn" autoFocus onClick=${function(){ setConfirmReset(false); }}>Keep it</button>
+    </div></div>`}`;
+
+  if (!st.started) return html`${header}<${Welcome} st=${st} up=${up} />`;
+
+  var body;
+  if (st.tab === "rooms") body = st.room ? html`<${Room} st=${st} id=${st.room} up=${up} openCard=${setOpen} />` : html`<${Rooms} st=${st} up=${up} />`;
+  else if (st.tab === "board") body = html`<${Board} st=${st} up=${up} openCard=${setOpen} score=${score} />`;
+  else if (st.tab === "timeline") body = html`<${Timeline} real=${real} openSrc=${function(s){ setDrawer({src:s}); }} />`;
+  else if (st.tab === "people") body = real ? html`<${People} openSrc=${function(s){ setDrawer({src:s}); }} />` : html`<${Cast} humor=${st.humor} />`;
+  else if (st.tab === "challenges") body = html`<${Challenges} st=${st} up=${up} />`;
+  else if (st.tab === "sources") body = html`<${SourcesView} />`;
+  else if (st.tab === "assess") body = html`<${Assessment} st=${st} score=${score} />`;
+  else if (st.tab === "deduce") body = html`<${Deduce} st=${st} up=${up} />`;
+
+  var card = open && (real ? CARDS : F_CARDS).filter(function(c){ return c.id === open; })[0];
+
+  return html`
+    ${header}
+    <nav className="tabs" aria-label="Sections"><div className="wrap">
+      ${tabs.map(function(t){ return html`<button key=${t[0]} aria-current=${st.tab===t[0] ? "page" : undefined} onClick=${function(){ go(t[0]); }}>${t[1]}</button>`; })}
+    </div></nav>
+    <main className=${real ? "" : "fic-band"}><div className="wrap">${body}</div></main>
+    <footer><div className="wrap">
+      An independent educational experience: not legal advice, not an official investigation, and not an accusation of criminal guilt. Allegations are not findings. The real case may remain unresolved. Built from documents reviewed on ${REVIEW_DATE}; not reviewed by a lawyer. Progress is saved only in this browser.
+    </div></footer>
+    ${card && (real
+      ? html`<${CardDialog} c=${card} st=${st} up=${up} close=${function(){ setOpen(null); }} openSrc=${function(){ up(function(n){ n.real.sourced[card.id] = true; }); setDrawer({src:card.src, card:card}); }} />`
+      : html`<${FicDialog} c=${card} st=${st} up=${up} close=${function(){ setOpen(null); }} />`)}
+    ${drawer && html`<${Drawer} d=${drawer} close=${function(){ setDrawer(null); }} />`}
+  `;
+}
+
+function Welcome(p){
+  var st = p.st, up = p.up;
+  function start(m){ up(function(n){ n.started = true; n.mode = m; n.tab = "rooms"; }); }
+  return html`<main><div className="wrap welcome">
+    <div>
+      <div className="kicker">An evidence game in two separate modes</div>
+      <h1>The Case of the Vanishing Valuation</h1>
+      <div className="notice" role="note">
+        <strong>Before you begin</strong>
+        An independent educational experience—not legal advice, an official investigation, or an accusation of criminal guilt. Allegations are not findings. The real case may remain unresolved.
+      </div>
+      <p className="lede">Some people playing this have lost money in the fund described here. The Case Explorer treats their experience as real. It sorts the public record into what courts have ordered, what witnesses said under oath, what parties allege, and what nobody knows yet. It never asks you to decide who is guilty.</p>
+      <p className="lede muted">The Fictional Mystery is a separate, invented whodunit about an orchard trust. None of its characters is based on a real person.</p>
+      <label className="check"><input type="checkbox" id="humor-toggle" checked=${st.humor} onChange=${function(ev){ var v = ev.target.checked; up(function(n){ n.humor = v; }); }} /> Include gentle humor about jargon and spreadsheets</label>
+    </div>
+    <div className="door">
+      <button onClick=${function(){ start("real"); }}>
+        <b>Case Explorer</b>
+        <span>The real record. Six rooms of sourced evidence cards and three challenges, ending in an Evidence Assessment rather than a verdict. Some evidence slots are deliberately left empty.</span>
+      </button>
+      <button className="fic" onClick=${function(){ start("fiction"); }}>
+        <b>Fictional Mystery</b>
+        <span>Pellingham Manor, one missing orchard, six suspects. Invented from top to bottom, with a fair solution.</span>
+      </button>
+      <p className="ui muted" style=${{fontSize:".85rem",margin:0}}>Points reward sourcing, classification, spotting uncertainty, avoiding double-counting, and weighing alternatives. Accusations earn nothing.</p>
+    </div>
+  </div></main>`;
+}
+
+function Rooms(p){
+  var st = p.st, real = st.mode === "real";
+  var list = real ? CARDS : F_CARDS;
+  return html`<section>
+    <div className="section-head"><h2>${real ? "Six rooms of the public record" : "Pellingham Manor"}</h2>
+      <span className="muted ui">${real ? "Each card cites its source. Classify a card before its status is revealed." : "Every card here is fictional game material."}</span></div>
+    ${!real && html`<p className="lede">${F_PREMISE}</p>`}
+    <div className="rooms">
+      ${ROOMS.map(function(r){
+        var cs = list.filter(function(c){ return c.room === r.id; });
+        var done = cs.filter(function(c){ return real ? st.real.guess[c.id] : st.fic.seen[c.id]; }).length;
+        var empty = real ? (EMPTY[r.id]||[]).length : 0;
+        return html`<button key=${r.id} className="room" onClick=${function(){ p.up(function(n){ n.room = r.id; }); }}>
+          <span className="kicker">${real ? "Case Explorer" : "Fiction"}</span>
+          <h3>${r.name}</h3>
+          <span>${real ? r.real : r.fic}</span>
+          <span className="meta"><span>${cs.length} cards</span><span>${done} ${real ? "classified" : "examined"}</span>${real && html`<span>${empty} empty slot${empty===1?"":"s"}</span>`}</span>
+        </button>`;
+      })}
+    </div>
+  </section>`;
+}
+
+function Room(p){
+  var st = p.st, real = st.mode === "real", r = ROOMS.filter(function(x){ return x.id === p.id; })[0];
+  var list = (real ? CARDS : F_CARDS).filter(function(c){ return c.room === p.id; });
+  var aside = st.humor ? (real ? REAL_ASIDES : FIC_ASIDES)[p.id] : null;
+  return html`<section>
+    <button className="dlg-btn" onClick=${function(){ p.up(function(n){ n.room = null; }); }}>← All rooms</button>
+    <div className="section-head" style=${{marginTop:"12px"}}><h2>${r.name}</h2><span className="muted ui">${real ? r.real : r.fic}</span></div>
+    ${aside && html`<p className="aside"><b>${real ? "Clerk’s aside (an invented interface joke, not about the real case):" : "Aside:"}</b> ${aside}</p>`}
+    <div className="cards">
+      ${list.map(function(c){
+        var known = real ? st.real.guess[c.id] : true;
+        var onBoard = real ? st.real.board[c.id] : st.fic.board[c.id];
+        return html`<button key=${c.id} className="folder" onClick=${function(){ p.openCard(c.id); if (!real) p.up(function(n){ n.fic.seen[c.id] = true; }); }}>
+          <h3>${c.head}</h3>
+          <span className="cite">${real ? srcCite(c) : "Exhibit " + c.id.toUpperCase() + " · invented"}</span>
+          <span className="row">
+            ${known ? html`<${Chip} status=${real ? c.status : "fiction"} />` : html`<span className="hidden-status">Status: classify to reveal</span>`}
+            ${onBoard && html`<span className="tag">On caseboard</span>`}
+            ${!real && st.fic.seen[c.id] && html`<span className="tag">Examined</span>`}
+          </span>
+        </button>`;
+      })}
+      ${real && (EMPTY[p.id]||[]).map(function(s, i){
+        return html`<div key=${"e"+i} className="empty-slot" role="group" aria-label="Empty evidence slot">
+          <span><${Chip} status="unverified" /></span>
+          <h3>Empty slot: ${s.t}</h3>
+          <p>${s.b}</p>
+        </div>`;
+      })}
+    </div>
+  </section>`;
+}
+
+var TAGS = ["Inconsistency","Missing record","Timing gap","Disputed","Overlapping amounts"];
+var Q_TEMPLATES = [
+  "What record would confirm or refute this?",
+  "What period does this figure cover?",
+  "Who had firsthand knowledge?",
+  "Does another source give a different number or date?",
+  "What is the other side’s explanation?"
+];
+
+function useDialogFocus(){
+  var ref = useRef(null);
+  useEffect(function(){ var prev = document.activeElement; if (ref.current) ref.current.focus(); return function(){ if (prev && prev.focus) prev.focus(); }; }, []);
+  return ref;
+}
+
+function CardDialog(p){
+  var c = p.c, st = p.st, r = st.real, guessed = r.guess[c.id];
+  var ref = useDialogFocus();
+  var onBoard = r.board[c.id];
+  var _q = useState(""), q = _q[0], setQ = _q[1];
+  function guess(s){ p.up(function(n){ if (!n.real.guess[c.id]) n.real.guess[c.id] = s; }); }
+  function toggleBoard(){ p.up(function(n){ if (n.real.board[c.id]) delete n.real.board[c.id]; else n.real.board[c.id] = { tags:[], questions:[] }; }); }
+  function toggleTag(t){ p.up(function(n){ var b = n.real.board[c.id]; var i = b.tags.indexOf(t); if (i>=0) b.tags.splice(i,1); else b.tags.push(t); }); }
+  function addQ(text){ text = (text||"").trim(); if (!text) return; p.up(function(n){ n.real.board[c.id].questions.push(text); }); setQ(""); }
+  var titleId = "dlg-"+c.id;
+  return html`<div className="scrim" onClick=${function(ev){ if (ev.target === ev.currentTarget) p.close(); }}>
+    <div className="dialog" role="dialog" aria-modal="true" aria-labelledby=${titleId} tabIndex="-1" ref=${ref}>
+      <div className="kicker">Evidence card · ${ROOMS.filter(function(x){return x.id===c.room;})[0].name}</div>
+      <h2 id=${titleId}>${c.head}</h2>
+      <dl className="fieldgrid">
+        <dt>Document</dt><dd>${SOURCES[c.src].title}</dd>
+        <dt>Document date</dt><dd>${c.date}</dd>
+        <dt>Pinpoint</dt><dd className="mono">${c.pin}</dd>
+        <dt>Source URL</dt><dd><a href=${SOURCES[c.src].url} target="_blank" rel="noopener noreferrer" className="mono">${SOURCES[c.src].url}</a></dd>
+        <dt>Wording</dt><dd>${c.wording === "exact" ? "Exact quotation from the source" : "Paraphrase (short phrases in quotation marks are exact)"}</dd>
+      </dl>
+      <p><b>Relevant claim.</b> ${c.claim}</p>
+      ${c.quotes.map(function(qq, i){ return html`<blockquote key=${i}>${qq}</blockquote>`; })}
+
+      <div className="box">
+        <h4>Evidence status</h4>
+        ${!guessed ? html`<div>
+            <p style=${{margin:"0 0 4px"}}>Classify this card before the status is revealed. You get one try.</p>
+            <div className="quiz" role="group" aria-label="Choose a status">
+              ${STATUS_ORDER.map(function(s){ return html`<button key=${s} onClick=${function(){ guess(s); }}>${STATUS[s].label}</button>`; })}
+            </div></div>`
+          : html`<div>
+            <p style=${{margin:"0 0 6px"}}><${Chip} status=${c.status} /></p>
+            <p className=${"fb " + (guessed === c.status ? "ok" : "no")}>${guessed === c.status ? "Correct (+10)." : "You chose “" + STATUS[guessed].label + ".” The status is “" + STATUS[c.status].label + ".”"} ${c.why}</p>
+            <p className="muted" style=${{margin:"6px 0 0",fontSize:".92rem"}}><b>What this establishes:</b> ${STATUS[c.status].est}</p>
+          </div>`}
+      </div>
+
+      <div className="box">
+        <h4>Limitation or competing explanation</h4>
+        ${r.alt[c.id] ? html`<p style=${{margin:0}}>${c.limit}</p>`
+          : html`<button className="dlg-btn" onClick=${function(){ p.up(function(n){ n.real.alt[c.id] = true; }); }}>What else could explain this, or what limits it? (+3)</button>`}
+      </div>
+
+      <div className="actions">
+        <button className="dlg-btn" onClick=${p.openSrc}>Open in source drawer${r.sourced[c.id] ? "" : " (+2)"}</button>
+        <button className="dlg-btn primary" onClick=${toggleBoard}>${onBoard ? "Remove from caseboard" : "Add to caseboard"}</button>
+        <button className="dlg-btn" onClick=${p.close}>Close</button>
+      </div>
+
+      ${onBoard && html`<div className="box">
+        <h4>Tag it</h4>
+        <div className="tagpick">${TAGS.map(function(t){ return html`<button key=${t} aria-pressed=${onBoard.tags.indexOf(t)>=0} onClick=${function(){ toggleTag(t); }}>${t}</button>`; })}</div>
+        <p className="muted ui" style=${{fontSize:".8rem",margin:"6px 0 0"}}>“Inconsistency” scores only when another reviewed source really does conflict with this card.</p>
+        <h4 style=${{marginTop:"12px"}}>Attach a question an investigator could ask next</h4>
+        <div className="tagpick" style=${{marginBottom:"6px"}}>${Q_TEMPLATES.map(function(t){ return html`<button key=${t} onClick=${function(){ addQ(t); }}>${t}</button>`; })}</div>
+        <label className="sr" htmlFor=${"q-"+c.id}>Your question</label>
+        <div style=${{display:"flex",gap:"6px"}}>
+          <input type="text" id=${"q-"+c.id} value=${q} placeholder="Or write your own question" onInput=${function(ev){ setQ(ev.target.value); }} onKeyDown=${function(ev){ if (ev.key==="Enter") addQ(q); }} />
+          <button className="dlg-btn" onClick=${function(){ addQ(q); }}>Attach</button>
+        </div>
+        ${onBoard.questions.length > 0 && html`<ul>${onBoard.questions.map(function(x,i){ return html`<li key=${i}>${x}</li>`; })}</ul>`}
+      </div>`}
+    </div>
+  </div>`;
+}
+
+function FicDialog(p){
+  var c = p.c, st = p.st, ref = useDialogFocus(), onBoard = st.fic.board[c.id];
+  var titleId = "fdlg-"+c.id;
+  return html`<div className="scrim" onClick=${function(ev){ if (ev.target === ev.currentTarget) p.close(); }}>
+    <div className="dialog fic-band" role="dialog" aria-modal="true" aria-labelledby=${titleId} tabIndex="-1" ref=${ref} style=${{borderTopColor:"var(--s-fiction)"}}>
+      <div className="kicker" style=${{color:"var(--s-fiction)"}}>Fictional exhibit ${c.id.toUpperCase()} · ${ROOMS.filter(function(x){return x.id===c.room;})[0].name}</div>
+      <h2 id=${titleId}>${c.head}</h2>
+      <p><${Chip} status="fiction" /></p>
+      <p>${c.claim}</p>
+      ${st.humor && c.joke && html`<p className="aside">${c.joke}</p>`}
+      <div className="box"><h4>Auditor’s note</h4><p style=${{margin:0}}>${c.note}</p></div>
+      <div className="actions">
+        <button className="dlg-btn primary" onClick=${function(){ p.up(function(n){ if (n.fic.board[c.id]) delete n.fic.board[c.id]; else n.fic.board[c.id] = true; }); }}>${onBoard ? "Remove from caseboard" : "Add to caseboard"}</button>
+        <button className="dlg-btn" onClick=${p.close}>Close</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function Drawer(p){
+  var ref = useDialogFocus(), d = p.d;
+  return html`<aside className="drawer" role="dialog" aria-modal="true" aria-label="Source drawer" tabIndex="-1" ref=${ref}>
+    <div style=${{display:"flex",justifyContent:"space-between",alignItems:"center",gap:"10px"}}>
+      <h2>Source drawer</h2><button className="dlg-btn" onClick=${p.close}>Close</button>
+    </div>
+    ${d.card && html`<div className="box"><h4>Basis for this card</h4>
+      <p style=${{margin:0}}><b>${d.card.head}</b><br/><span className="mono">${SOURCES[d.card.src].short} · ${d.card.pin}</span><br/>${d.card.wording === "exact" ? "Exact quotation." : "Paraphrase."}</p></div>`}
+    <p className="muted" style=${{fontSize:".9rem"}}>Every factual statement in the Case Explorer rests on one of these four documents. Nothing else, including earlier research notes, is treated as a source.</p>
+    ${["S88","S264","SJLP","SSLM"].map(function(k){ var s = SOURCES[k];
+      var n = CARDS.filter(function(c){ return c.src === k; }).length;
+      return html`<div key=${k} className=${"src" + (d.src === k ? " hl" : "")}>
+        <h3>${s.title}</h3>
+        <p className="mono" style=${{margin:"4px 0"}}>${s.date} · ${s.kind}</p>
+        <p style=${{margin:"4px 0",fontSize:".9rem"}}>${s.note}</p>
+        <p style=${{margin:"4px 0",fontSize:".85rem"}} className="muted">Review: ${s.status} Used by ${n} card${n===1?"":"s"}.</p>
+        <a href=${s.url} target="_blank" rel="noopener noreferrer" className="mono">${s.url}</a>
+      </div>`; })}
+    <h3 style=${{marginTop:"18px",fontFamily:"var(--f-ui)",fontSize:".9rem",textTransform:"uppercase",letterSpacing:".08em"}}>Not retrieved (no card relies on these)</h3>
+    <ul style=${{paddingLeft:"18px",fontSize:".9rem"}}>${NEEDED.map(function(x,i){ return html`<li key=${i}>${x.t}</li>`; })}</ul>
+  </aside>`;
+}
+
+function Board(p){
+  var st = p.st, real = st.mode === "real";
+  if (!real){
+    var ids = Object.keys(st.fic.board);
+    return html`<section>
+      <div className="section-head"><h2>Caseboard</h2><span className="muted ui">Fictional Mystery</span></div>
+      <div className="lanes">
+        <div className="lane"><h3>What the source establishes</h3><p>Real-case lane. Switch to the Case Explorer to use it.</p></div>
+        <div className="lane"><h3>What a party alleges</h3><p>Real-case lane. Switch to the Case Explorer to use it.</p></div>
+        <div className="lane"><h3>What an investigator asks next</h3><p>Real-case lane. Switch to the Case Explorer to use it.</p></div>
+        <div className="lane fic"><h3>Exists only in the fictional story</h3><p>Exhibits you pinned at Pellingham Manor.</p>
+          ${ids.length === 0 && html`<p className="muted">Nothing pinned yet.</p>`}
+          ${ids.map(function(id){ var c = F_CARDS.filter(function(x){ return x.id === id; })[0];
+            return html`<div key=${id} className="pin"><button className="linkish" onClick=${function(){ p.openCard(id); }}>${c.head}</button><div><${Chip} status="fiction" /></div></div>`; })}
+        </div>
+      </div>
+    </section>`;
+  }
+  var ids2 = Object.keys(st.real.board);
+  var cards = ids2.map(function(id){ return CARDS.filter(function(c){ return c.id === id; })[0]; });
+  var established = cards.filter(function(c){ return c.status === "court" || c.status === "sworn" || c.status === "receiver"; });
+  var alleged = cards.filter(function(c){ return ["plaintiff","defense","reported","unverified"].indexOf(c.status) >= 0; });
+  function pin(c){
+    var b = st.real.board[c.id];
+    return html`<div key=${c.id} className="pin">
+      <button className="linkish" onClick=${function(){ p.openCard(c.id); }}>${c.head}</button>
+      <div style=${{margin:"4px 0"}}>${st.real.guess[c.id] ? html`<${Chip} status=${c.status} />` : html`<span className="hidden-status">Unclassified</span>`}</div>
+      <div className="mono">${srcCite(c)}</div>
+      ${b.tags.length > 0 && html`<div style=${{display:"flex",gap:"4px",flexWrap:"wrap",marginTop:"4px"}}>${b.tags.map(function(t){ return html`<span key=${t} className="tag">${t}</span>`; })}</div>`}
+    </div>`;
+  }
+  var qs = [];
+  cards.forEach(function(c){ st.real.board[c.id].questions.forEach(function(q, i){ qs.push({ c:c, q:q, i:i }); }); });
+  return html`<section>
+    <div className="section-head"><h2>Caseboard</h2><span className="muted ui">Four lanes, kept separate on purpose</span></div>
+    <div className="pts">${Object.keys(p.score).map(function(k){ return html`<div key=${k}><b>${p.score[k]}</b><span>${k}</span></div>`; })}</div>
+    ${cards.length === 0 && html`<p className="lede muted">Open a card in any room and choose “Add to caseboard.” Cards sort themselves into lanes by evidence status, so classify them first.</p>`}
+    <div className="lanes">
+      <div className="lane"><h3>What the source establishes</h3><p>Court orders, and the fact that sworn testimony was given. These show that something was ordered or said, not that every statement is true.</p>${established.map(pin)}</div>
+      <div className="lane"><h3>What a party alleges</h3><p>Plaintiff allegations, defense positions and press reports. These are contested until tested.</p>${alleged.map(pin)}</div>
+      <div className="lane"><h3>What an investigator asks next</h3><p>Questions you attached. They are open lines of inquiry, not conclusions.</p>
+        ${qs.length === 0 && html`<p className="muted">No questions attached yet.</p>`}
+        ${qs.map(function(x){ return html`<div key=${x.c.id+x.i} className="pin">${x.q}<div className="mono" style=${{marginTop:"4px"}}>re: ${x.c.head}</div>
+          <button className="dlg-btn" style=${{marginTop:"6px",minHeight:"30px",padding:"2px 8px",fontSize:".8rem"}} onClick=${function(){ p.up(function(n){ n.real.board[x.c.id].questions.splice(x.i,1); }); }}>Remove question</button></div>`; })}
+      </div>
+      <div className="lane fic"><h3>Exists only in the fictional story</h3><p>This lane stays empty in the Case Explorer. Fiction never mixes with the record.</p></div>
+    </div>
+  </section>`;
+}
+
+function Timeline(p){
+  if (!p.real) return html`<section>
+    <div className="section-head"><h2>Timeline</h2><span className="muted ui">Fictional Mystery: every date is invented</span></div>
+    <p className="aside">Pieced together from exhibits you can find in the manor rooms.</p>
+    <ol className="tl">${F_TIMELINE.map(function(t,i){ return html`<li key=${i}><div className="when">${t.d}</div><div>${t.t}</div><div><${Chip} status="fiction" /></div></li>`; })}</ol>
+  </section>`;
+  return html`<section>
+    <div className="section-head"><h2>Timeline</h2><span className="muted ui">Each entry carries the status of its source</span></div>
+    <ol className="tl">
+      ${TIMELINE.map(function(t,i){ return html`<li key=${i}>
+        <div className="when">${t.d}</div>
+        <div>${t.t}</div>
+        ${t.conflict && html`<div className="conf">Sources disagree: ${t.conflict}</div>`}
+        <div style=${{display:"flex",gap:"8px",flexWrap:"wrap",alignItems:"center",marginTop:"3px"}}>
+          <${Chip} status=${t.s} />
+          ${t.src && html`<button className="dlg-btn" style=${{minHeight:"28px",padding:"1px 8px",fontSize:".8rem"}} onClick=${function(){ p.openSrc(t.src); }}>${SOURCES[t.src].short}${t.pin ? " · " + t.pin : ""}</button>`}
+        </div>
+      </li>`; })}
+    </ol>
+  </section>`;
+}
+
+function People(p){
+  return html`<section>
+    <div className="section-head"><h2>People and entities</h2><span className="muted ui">Documented roles only</span></div>
+    <p className="aside">Each line is a role or relationship stated in a reviewed document, labeled with that document’s status. A connection is not an accusation, and this map draws no lines the documents do not draw.</p>
+    <div className="groups">
+      ${GROUPS.map(function(g){ return html`<div key=${g.name} className="group"><h3>${g.name}</h3>
+        ${g.items.map(function(it){ return html`<div key=${it.n} className="ent"><b>${it.n}</b>
+          ${it.rels.map(function(r,i){ return html`<div key=${i} className="rel"><span>${r[0]}</span> <${Chip} status=${r[1]} />
+            <button className="dlg-btn" style=${{minHeight:"26px",padding:"0 7px",fontSize:".78rem"}} onClick=${function(){ p.openSrc(r[2]); }}>${SOURCES[r[2]].short} · ${r[3]}</button></div>`; })}
+        </div>`; })}
+      </div>`; })}
+    </div>
+  </section>`;
+}
+
+function Cast(p){
+  return html`<section>
+    <div className="section-head"><h2>The cast at Pellingham Manor</h2><span className="muted ui">Invented characters. None is based on a real person.</span></div>
+    <p className="lede">${F_PREMISE}</p>
+    <div className="cast">${CAST.map(function(c){ return html`<div key=${c.id} className="person fic-band">
+      <${Chip} status="fiction" />
+      <h3 style=${{marginTop:"8px"}}>${c.n}</h3>
+      <div className="ui muted">${c.r}</div>
+      <p>${c.d}</p>
+      ${p.humor && html`<p className="aside">${c.j}</p>`}
+    </div>`; })}</div>
+  </section>`;
+}
+
+function Challenges(p){
+  var st = p.st, r = st.real;
+  function set(kind, id, v){ p.up(function(n){ if (!n.real[kind][id]) n.real[kind][id] = v; }); }
+  function fb(ok, x){ return html`<p className=${"fb " + (ok ? "ok" : "no")} style=${{marginTop:"8px"}}>${ok ? "Correct (+10). " : "Not quite. "}${x}</p>`; }
+  return html`<section>
+    <div className="section-head"><h2>Evidence challenges</h2><span className="muted ui">One answer per item. Explanations appear after you answer.</span></div>
+
+    <div className="chal">
+      <div className="kicker">Challenge 1</div><h3 style=${{fontSize:"1.4rem"}}>The Ledger: avoid double-counting</h3>
+      <p className="lede">Each pair shows two figures from the record. Decide whether they can be added together.</p>
+      ${st.humor && html`<p className="aside"><b>Clerk’s aside (invented):</b> Adding two numbers is easy. Knowing whether you should is the hard part.</p>`}
+      ${LEDGER_ITEMS.map(function(it, idx){ var a = r.ledger[it.id];
+        return html`<div key=${it.id} className="item">
+          <div className="ui muted">Pair ${idx+1} of ${LEDGER_ITEMS.length}</div>
+          <div className="pair"><div><span className="amt">${it.a[0]}</span><span className="mono">${it.a[1]}</span></div><span className="vs" aria-hidden="true">+ ?</span><div><span className="amt">${it.b[0]}</span><span className="mono">${it.b[1]}</span></div></div>
+          <div className="opts" role="group" aria-label=${"Pair "+(idx+1)}>${LEDGER_OPTS.map(function(o){ return html`<button key=${o.id} aria-pressed=${a===o.id} disabled=${!!a} onClick=${function(){ set("ledger", it.id, o.id); }}>${o.t}</button>`; })}</div>
+          ${a && fb(a === it.ans, it.x)}
+        </div>`; })}
+    </div>
+
+    <div className="chal">
+      <div className="kicker">Challenge 2</div><h3 style=${{fontSize:"1.4rem"}}>Witness comparison: knowledge vs. inference</h3>
+      <p className="lede">For each statement, decide how the witness knew it. That is a separate question from whether it is true.</p>
+      ${WIT_ITEMS.map(function(it){ var a = r.wit[it.id];
+        return html`<div key=${it.id} className="item">
+          <p style=${{margin:"0 0 6px"}}><b>${it.who}:</b> ${it.q} <span className="mono muted">(${it.src})</span></p>
+          <div className="opts" role="group" aria-label=${"How did "+it.who+" know?"}>${WIT_OPTS.map(function(o){ return html`<button key=${o.id} aria-pressed=${a===o.id} disabled=${!!a} onClick=${function(){ set("wit", it.id, o.id); }}>${o.t}</button>`; })}</div>
+          ${a && fb(a === it.ans, it.x)}
+        </div>`; })}
+    </div>
+
+    <div className="chal">
+      <div className="kicker">Challenge 3</div><h3 style=${{fontSize:"1.4rem"}}>What would resolve this?</h3>
+      <p className="lede">Match each open question to the record most likely to answer it. Some questions accept more than one good answer.</p>
+      ${RES_ITEMS.map(function(it){ var a = r.res[it.id];
+        return html`<div key=${it.id} className="item">
+          <p style=${{margin:"0 0 6px"}}><b>${it.q}</b></p>
+          <div className="opts" role="group" aria-label="Record type">${RES_OPTS.map(function(o){ return html`<button key=${o.id} aria-pressed=${a===o.id} disabled=${!!a} onClick=${function(){ set("res", it.id, o.id); }}>${o.t}</button>`; })}</div>
+          ${a && fb(it.ok.indexOf(a) >= 0, "Best evidence: " + it.x)}
+        </div>`; })}
+    </div>
+  </section>`;
+}
+
+function SourcesView(){
+  return html`<section>
+    <div className="section-head"><h2>Source manifest</h2><span className="muted ui">Reviewed ${REVIEW_DATE}</span></div>
+    <p className="lede">The Case Explorer uses only these four documents. Each was retrieved and read for this project. Earlier research notes were treated as leads, not sources: they pointed to these documents, and anything they said that could not be confirmed is left out or marked unverified.</p>
+    <div className="tablewrap"><table>
+      <thead><tr><th>Document</th><th>Date</th><th>Kind</th><th>Review</th></tr></thead>
+      <tbody>${["S88","S264","SJLP","SSLM"].map(function(k){ var s = SOURCES[k]; return html`<tr key=${k}><td><a href=${s.url} target="_blank" rel="noopener noreferrer">${s.title}</a><div className="muted" style=${{fontSize:".85rem"}}>${s.note}</div></td><td className="num">${s.date}</td><td>${s.kind}</td><td>${s.status}</td></tr>`; })}</tbody>
+    </table></div>
+    <h3 style=${{fontSize:"1.4rem",margin:"24px 0 8px"}}>Documents needed next</h3>
+    <div className="tablewrap"><table>
+      <thead><tr><th>Document</th><th>Why it matters / what happened</th></tr></thead>
+      <tbody>${NEEDED.map(function(n,i){ return html`<tr key=${i}><td>${n.t}</td><td>${n.why}</td></tr>`; })}</tbody>
+    </table></div>
+    <h3 style=${{fontSize:"1.4rem",margin:"24px 0 8px"}}>Corrections to the research lead found during review</h3>
+    <ul className="lede">
+      <li>Timing of the Oliver plaintiffs’ investment: Doc. 88 refers to a 2017 presentation, Doc. 264 (repeating the TAC) gives initial investments from 2018 to 2023, and the magazine says “not long after” 2010. The record does not settle it.</li>
+      <li>The $9.1 million distribution report: Doc. 88 dates it July 23, 2024, and Doc. 264 (repeating the TAC) says June 2024.</li>
+      <li>Per-person insider figures differ between the TAC (from 2020) and the JLP complaint (from January 2021). Do not combine them.</li>
+      <li>The Eighth Circuit appeals had been consolidated and were still pending on March 16, 2026 (Doc. 264). The later outcome is unverified.</li>
+      <li>The clinic valuation appears as $1.7 million (Doc. 88, from testimony) and about $1.2 million as of December 2024 (JLP complaint).</li>
+      <li>Rent arrears: “over $21,000” as of April 28, 2025 (Doc. 88), and “at least $35,000” by the receiver’s appointment (JLP ¶ 66).</li>
+      <li>Bonetti’s first name is spelled “Brigitte” in Doc. 88 and the magazine, and “Brigette” in the JLP complaint.</li>
+    </ul>
+  </section>`;
+}
+
+function Assessment(p){
+  var st = p.st, r = st.real;
+  var classified = Object.keys(r.guess).length, total = CARDS.length;
+  var qcount = 0; Object.keys(r.board).forEach(function(k){ qcount += r.board[k].questions.length; });
+  return html`<section>
+    <div className="section-head"><h2>Evidence Assessment</h2><span className="muted ui">Not a verdict. A map of what is known, what is claimed, and what is missing.</span></div>
+    <p className="lede">You have classified ${classified} of ${total} cards and attached ${qcount} question${qcount===1?"":"s"}. Score: ${sum(p.score)} points, none of them for accusations.</p>
+    <div className="assess">
+      <section><h3>Established in reviewed sources</h3><ul>
+        <li>A receiver (Jason Buhlinger, Armanino LLP) was appointed over VPEG and Visionary Fund Manager, LLC on June 4, 2025, pending the lawsuit. <span className="mono">Doc. 88 p. 23</span></li>
+        <li>At that stage the court found credible evidence of apparent personal use of Fund money by Zamber and Cosby, an imminent danger of further dissipation, and credibly shown repeated material misrepresentations by Zamber and Grenley. <span className="mono">Doc. 88 p. 21</span></li>
+        <li>Derivative claims were dismissed without prejudice for lack of jurisdiction, and direct claims proceeded. <span className="mono">Doc. 88 p. 23</span></li>
+        <li>Appeals by VFM (June 24, 2025) and the GP LLC (Aug. 20, 2025) were consolidated as No. 25-2269 and were pending on March 16, 2026. <span className="mono">Doc. 264 pp. 6–7</span></li>
+        <li>On March 16, 2026, motions to strike, to dismiss the fraud claims, and for judgment on the fiduciary claims were denied. The Third Amended Complaint is operative. <span className="mono">Doc. 264 pp. 16–17</span></li>
+        <li>A proposed class action against Husch Blackwell LLP was filed August 13, 2026. <span className="mono">JLP complaint p. 1</span></li>
+      </ul></section>
+      <section><h3>Alleged and disputed</h3><ul>
+        <li>Insider payment totals: over $7 million from 2020 (TAC), or about $7.5 million including VFM fees since 2021 (JLP).</li>
+        <li>Over $10 million to media affiliates, plus $1.2 million in expenses: investment or diversion?</li>
+        <li>That portfolio valuations used an unsupported method and that projections were unrealistic.</li>
+        <li>That new investor money paid earlier investors (JLP ¶ 56, the plaintiff’s characterization).</li>
+        <li>That the law firm knew of and substantially assisted the misconduct.</li>
+        <li><b>Defense positions in the record:</b> the wires repaid a loan; illiquidity and bad markets, not misconduct; the evidence was “hearsay, circumstantial, and conclusory”; the partnership agreement’s exculpation clause bars the claims (rejected at the pleading stage).</li>
+      </ul></section>
+      <section><h3>Missing records</h3><ul>
+        ${NEEDED.slice(0,9).map(function(n,i){ return html`<li key=${i}>${n.t}</li>`; })}
+      </ul></section>
+      <section><h3>Financial categories that cannot yet be reconciled</h3>
+        <div className="tablewrap"><table>
+          <thead><tr><th>Category</th><th>Figures in the record</th><th>Why they don’t reconcile</th></tr></thead>
+          <tbody>
+            <tr><td>Money raised vs. receipts</td><td className="num">~$90M lifetime; ~$55M since 2021</td><td>Different periods; receipts include portfolio distributions</td></tr>
+            <tr><td>Payments to Zamber</td><td className="num">≥$1.78M; >$5.2M; ~$4.7M</td><td>Partial records versus two pleadings with different start dates</td></tr>
+            <tr><td>2021 distribution</td><td className="num">$5.8M vs. $9.1M; ~$3M non-insider</td><td>Fund summaries conflict; the JLP measure is narrower</td></tr>
+            <tr><td>Media affiliates</td><td className="num">$13–15M; ≥$10.2M; >$10M</td><td>Investment versus transfer framing; different periods</td></tr>
+            <tr><td>Clinic valuation</td><td className="num">$1.7M vs. ~$1.2M</td><td>Different reports or dates; no workpapers</td></tr>
+            <tr><td>Plaintiff loans</td><td className="num">$1.6M principal; >$2M owed</td><td>Principal versus principal plus interest and fees</td></tr>
+            <tr><td>Rent arrears</td><td className="num">>$21K; ≥$35K</td><td>Different dates (April 2025 versus appointment)</td></tr>
+          </tbody>
+        </table></div>
+        <p className="muted" style=${{fontSize:".88rem"}}>None of these is a final investor-loss figure. The $90 million raised is not a measure of money stolen or lost.</p>
+      </section>
+      <section><h3>Questions the next filing or receiver report might answer</h3><ul>
+        <li>How did the Eighth Circuit rule on the receivership and intervention appeals?</li>
+        <li>What do the receiver’s own cash tables show, month by month, from January 2021?</li>
+        <li>Is there documentation of a loan from Zamber to the Fund?</li>
+        <li>What are the Visionary Private DST entities, and where did the money paid to them go next?</li>
+        <li>What are the portfolio holdings worth on an independent basis, and what is recoverable after secured creditors and administration costs?</li>
+        <li>Will there be a claims or distribution process for investors?</li>
+        <li>How does Husch Blackwell respond to the JLP complaint, and is a class certified?</li>
+        <li>Are there criminal proceedings? None were found in the reviewed sources. The FBI victim-information page exists, but its contents were not verified.</li>
+      </ul></section>
+    </div>
+  </section>`;
+}
+
+function Deduce(p){
+  var f = p.st.fic;
+  var seen = F_CARDS.filter(function(c){ return f.seen[c.id]; });
+  function upF(fn){ p.up(function(n){ fn(n.fic); }); }
+  var ready = f.culprit && f.mech && f.picks.length >= 3;
+  if (f.submitted) return html`<${Reveal} st=${p.st} up=${p.up} />`;
+  return html`<section>
+    <div className="section-head"><h2>The deduction</h2><span className="muted ui">Fiction only. Points come from the evidence you cite, not from the name you choose.</span></div>
+    ${seen.length < 8 && html`<p className="aside">You have examined ${seen.length} of ${F_CARDS.length} exhibits. You can submit at any time, but the fair solution needs clues from several rooms.</p>`}
+    <div className="chal">
+      <h3 style=${{fontSize:"1.3rem"}}>1. Who moved Southfield off the Trust’s land and kept it on the Trust’s books?</h3>
+      <div className="opts" role="radiogroup" aria-label="Suspect">${CAST.map(function(c){ return html`<button key=${c.id} role="radio" aria-checked=${f.culprit===c.id} aria-pressed=${f.culprit===c.id} onClick=${function(){ upF(function(x){ x.culprit = c.id; }); }}>${c.n}</button>`; })}</div>
+      <h3 style=${{fontSize:"1.3rem",marginTop:"16px"}}>2. How was it done?</h3>
+      <div className="opts" role="radiogroup" aria-label="Mechanism">${MECHS.map(function(m){ return html`<button key=${m.id} role="radio" aria-checked=${f.mech===m.id} aria-pressed=${f.mech===m.id} onClick=${function(){ upF(function(x){ x.mech = m.id; }); }}>${m.t}</button>`; })}</div>
+      <h3 style=${{fontSize:"1.3rem",marginTop:"16px"}}>3. Cite your evidence (pick 3 to 5 examined exhibits)</h3>
+      ${seen.length === 0 ? html`<p className="muted">Examine exhibits in the manor rooms first.</p>` :
+        html`<div className="opts">${seen.map(function(c){ var on = f.picks.indexOf(c.id) >= 0;
+          return html`<button key=${c.id} aria-pressed=${on} disabled=${!on && f.picks.length >= 5} onClick=${function(){ upF(function(x){ var i = x.picks.indexOf(c.id); if (i>=0) x.picks.splice(i,1); else if (x.picks.length < 5) x.picks.push(c.id); }); }}>${c.id.toUpperCase()}: ${c.head}</button>`; })}</div>`}
+      <h3 style=${{fontSize:"1.3rem",marginTop:"16px"}}>4. Rule out the competing explanations</h3>
+      <p className="muted" style=${{marginTop:0}}>For each theory, choose the exhibit that does the most to defeat it.</p>
+      ${ALTS.map(function(a){ return html`<div key=${a.id} style=${{margin:"8px 0"}}>
+        <label htmlFor=${"alt-"+a.id}><b>${a.t}</b></label>
+        <select id=${"alt-"+a.id} value=${f.alts[a.id] || ""} onChange=${function(ev){ var v = ev.target.value; upF(function(x){ x.alts[a.id] = v; }); }}>
+          <option value="">Choose an exhibit…</option>
+          ${seen.map(function(c){ return html`<option key=${c.id} value=${c.id}>${c.id.toUpperCase()}: ${c.head}</option>`; })}
+        </select></div>`; })}
+      <div className="actions"><button className="dlg-btn primary" disabled=${!ready} onClick=${function(){ upF(function(x){ x.submitted = true; }); }}>Present the case in the drawing room</button>
+        ${!ready && html`<span className="muted ui" style=${{alignSelf:"center"}}>Choose a person and a mechanism, and cite at least three exhibits.</span>`}</div>
+    </div>
+  </section>`;
+}
+
+function Reveal(p){
+  var f = p.st.fic;
+  var right = f.culprit === "lionel" && f.mech === "swap";
+  var name = (CAST.filter(function(c){ return c.id === f.culprit; })[0] || {}).n;
+  var sc = ficScore(f);
+  return html`<section className="reveal fic-band">
+    <div className="kicker" style=${{color:"var(--s-fiction)"}}>Fictional Mystery · The reveal</div>
+    <h2 style=${{fontSize:"2rem",margin:"6px 0 10px"}}>The orchard that was paid away</h2>
+    <p><${Chip} status="fiction" /></p>
+    <p className="lede">${right
+      ? "You named Lionel Fairweather and the right mechanism. Here is how the evidence fits together."
+      : "You named " + (name || "someone") + ". The evidence points elsewhere, so it is worth checking your reasoning against what follows."}</p>
+    <div className="pts">${Object.keys(sc).map(function(k){ return html`<div key=${k}><b>${sc[k]}</b><span>${k}</span></div>`; })}</div>
+
+    <h3>What happened</h3>
+    <p>Lionel Fairweather, the Treasurer, co-owned a racehorse called Thunderclap with the Brindle Hill syndicate and ran up a debt to them. On 3 March, while the Chair was in Lisbon, he signed Southfield Orchard over to Brindle Hill Farms for nil cash, under a side letter that settled his personal debt (FG2, FV2, FV3). The board never approved the disposal, and the Chair never countersigned it (FC1, FW4).</p>
+    <p>To keep the orchard on the books, he did not invent a new number. He reused an honest one. Crane’s 14 October appraisal of 3.4 million was accurate when made (FG1, FW5). At 23:48 on 9 July, under the shared “treasury-desk” login, someone changed its date to 30 June so it looked like a year-end valuation (FL2). Only two people use that login (FL3). Priya was judging perry at the county fair (FW2), and the gate log puts Lionel alone in the building from 23:31 to 23:59 (FC2). Priya had already asked “Is Southfield still ours?” in March, and the reply, initialled L.F., was “Clerical. Ignore.” (FG3). At supper he told you Crane valued it “at year-end,” which Crane’s file contradicts (FW3).</p>
+
+    <h3>Why the other explanations fail</h3>
+    <ul>${ALTS.map(function(a){ var mine = f.alts[a.id]; var ok = mine && a.ok.indexOf(mine) >= 0;
+      return html`<li key=${a.id}><b>${a.t}</b> ${a.x} <span className="ui" style=${{color: ok ? "var(--ok)" : "var(--bad)"}}>(${mine ? (ok ? "your pick, " + mine.toUpperCase() + ", works" : "your pick, " + mine.toUpperCase() + ", does not do the job") : "not answered"})</span></li>`; })}</ul>
+
+    <h3>The fair-play check</h3>
+    <p>Every fact in this solution is on an exhibit you could open before you accused anyone. The red herrings had real evidence behind them. The Chair’s forecasts really were overconfident, the newsletter photo really was a stock image, the still really was new, and the appraiser’s signature really was on the 3.4 million figure. A good case explains every clue, including the ones that point the wrong way.</p>
+    ${p.st.humor && html`<p className="aside">Ottoline has since revised her forecast for Southfield’s exit to “not applicable.” It is the first accurate forecast in the Trust’s history.</p>`}
+    <div className="actions"><button className="dlg-btn" onClick=${function(){ p.up(function(n){ n.fic.submitted = false; }); }}>Revise my deduction</button></div>
+  </section>`;
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(e(App));
+})();
+</script>
