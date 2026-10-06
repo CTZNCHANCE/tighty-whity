@@ -326,6 +326,31 @@ td.num{font-family:var(--f-type);font-variant-numeric:tabular-nums;white-space:n
 .exh{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin-bottom:6px}
 .inq-opts{flex-direction:column;align-items:stretch}
 .inq-opts button{text-align:left;font-family:var(--f-body);font-size:.95rem;line-height:1.4;padding:9px 12px}
+/* Poster hero */
+.hero{background:#000;border-block:22px solid #000;padding:clamp(18px,4vw,40px) 16px;display:flex;justify-content:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 50% 40%,rgba(200,162,74,.10),transparent 70%);pointer-events:none}
+.poster{position:relative;margin:0;width:min(460px,100%);aspect-ratio:2/3;box-shadow:0 40px 90px -30px rgba(200,162,74,.25),0 30px 60px -20px #000;overflow:hidden;container-type:inline-size}
+.poster svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.poster > div,.poster figcaption{position:absolute;left:0;right:0;text-align:center;padding-inline:7%}
+.p-top{top:6%;font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.42em;font-size:max(9px,2.6cqi);color:var(--gold)}
+.p-title{top:12%;font-family:var(--f-display);color:var(--bone);line-height:.95}
+.p-title span{display:block;font-size:max(18px,7cqi);letter-spacing:.02em}
+.p-title em{display:block;font-size:max(30px,12.5cqi);color:var(--gold);margin-top:.12em;text-shadow:0 2px 24px rgba(0,0,0,.6)}
+.p-tag{top:43%;font-family:var(--f-type);font-size:max(11px,3.6cqi);color:var(--bone);letter-spacing:.06em}
+.p-bill{bottom:4.5%}
+.p-parts{display:flex;justify-content:center;gap:6%;flex-wrap:wrap;font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.18em;font-size:max(9px,2.7cqi);color:var(--bone-dim)}
+.p-parts b{color:var(--bone);font-weight:700}
+.p-bill p{margin:.8em auto .9em;max-width:92%;font-family:var(--f-ui);font-stretch:condensed;text-transform:uppercase;letter-spacing:.08em;font-size:max(8px,2.15cqi);line-height:1.35;color:var(--bone-dim)}
+.p-rating{display:inline-flex;align-items:stretch;border:1px solid var(--bone-dim);text-align:left;max-width:92%}
+.p-rating b{font-family:var(--f-ui);font-size:max(14px,5cqi);padding:0 .35em;background:var(--bone);color:#000;display:grid;place-items:center}
+.p-rating span{font-family:var(--f-ui);font-size:max(8px,2cqi);line-height:1.3;padding:.35em .6em;color:var(--bone-dim);letter-spacing:.03em}
+.p-rating strong{display:block;color:var(--bone);text-transform:uppercase;letter-spacing:.14em}
+@media (prefers-reduced-motion:no-preference){.p-title em{animation:settle 2.4s cubic-bezier(.2,.7,.2,1) both}}
+.brand-btn{background:none;border:0;padding:0;margin:0;text-align:left;cursor:pointer;color:inherit;display:flex;flex-direction:column}
+.brand-btn:hover b{color:var(--gold)}
+.needlinks{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:3px}
+.needlinks a{font-family:var(--f-ui);font-size:.8rem;letter-spacing:.03em}
+.needlinks .muted{font-size:.78rem}
 footer{border-top:1px solid var(--rule);padding-block:20px;font-size:.84rem;color:var(--bone-dim);background:#050605}
 </style>
 
@@ -409,6 +434,30 @@ var NEEDED = [
   { t: "Docket activity in No. 4:25-cv-00132 after Mar. 16, 2026", why: "Not reviewed, so the evidence coverage date cannot be verified." },
   { t: "FBI victim-information page (contents)", why: "The link is provided, but the page returned an access error during review. Its contents are not described here." }
 ];
+
+/* Where to look for each missing document. Docket pages list filings; some
+   filings need a PACER account and per-page fees, and some may be sealed. */
+var L_PM = ["Case docket (PacerMonitor)","https://www.pacermonitor.com/public/case/56715765/Oliver_and_Company_et_al_v_Dr_Ronald_Zamber_et_al"];
+var L_PACER = ["Official docket (PACER; login and fees)","https://ecf.moed.uscourts.gov/"];
+var L_GOV = ["Published court opinions (GovInfo)","https://www.govinfo.gov/app/details/USCOURTS-moed-4_25-cv-00132"];
+var L_CL = ["Search filings (CourtListener)","https://www.courtlistener.com/?q=%22Oliver+and+Company%22+Zamber&type=r"];
+var NEED_LINKS = [
+  [L_PM, L_PACER, L_CL],
+  [L_PM, L_PACER],
+  [L_PM, L_PACER],
+  [L_PM, L_PACER, L_CL],
+  [["Research-lead copy (CaseMine; blocked by a captcha during review)","https://www.casemine.com/judgement/us/69bacbc4ec7cfaa310679c88"], L_PM],
+  [["Research-lead copy (CaseMine; blocked by a captcha during review)","https://www.casemine.com/judgement/us/696a2c42dbf68e3d45ed741c"], L_PM],
+  [["Appeals docket (Justia)","https://dockets.justia.com/docket/circuit-courts/ca8/25-2269"], ["Search filings (CourtListener)","https://www.courtlistener.com/?q=%2225-2269%22+Visionary&type=r"], ["Official appeals docket (PACER)","https://ecf.ca8.uscourts.gov/"]],
+  [L_PM, L_PACER],
+  [["Search the new case (CourtListener)","https://www.courtlistener.com/?q=%22JLP+Partners%22+%22Husch+Blackwell%22&type=r"], L_PACER],
+  [L_PM, L_GOV, L_CL],
+  [["FBI victim-information page","https://forms.fbi.gov/victims/seeking-victim-information-in-the-visionary-private-equity-group-investigation"]]
+];
+function NeedLinks(p){
+  var ls = NEED_LINKS[p.i] || [];
+  return html`<span className="needlinks">${ls.map(function(l, j){ return html`<a key=${j} href=${l[1]} target="_blank" rel="noopener noreferrer">${l[0]} ↗</a>`; })}</span>`;
+}
 
 /* ============================================================
    STATUSES
@@ -1579,8 +1628,8 @@ function App(){
   var header = html`
     <header className="top">
       <div className="wrap">
-        <div className="brand"><b>The Case of the Vanishing Valuation</b>
-          <span>${real ? "Case Explorer · the public record" : "Fictional Mystery · not a true story"}</span></div>
+        <div className="brand"><button className="brand-btn" title="Back to the title screen" onClick=${function(){ up(function(n){ n.started = false; }); setOpen(null); }}><b>The Case of the Vanishing Valuation</b>
+          <span>${real ? "Case Explorer · the public record" : "Fictional Mystery · not a true story"}</span></button></div>
         ${st.started && html`
         <div className="tools">
           <div className="modes" role="group" aria-label="Mode">
@@ -1641,15 +1690,71 @@ function App(){
   `;
 }
 
+function Poster(){
+  var wins = [];
+  // Manor windows: [x, y, lit]
+  [[150,560],[180,560],[150,610],[180,610],[400,560],[430,560],[400,610],[430,610],
+   [250,540],[280,540],[320,540],[350,540],[250,595],[280,595],[320,595],[350,595],[250,650],[350,650]].forEach(function(w, i){
+    var lit = [0,3,5,8,9,11,13,14,17].indexOf(i) >= 0;
+    wins.push(html`<rect key=${i} x=${w[0]} y=${w[1]} width="16" height="26" fill=${lit ? "url(#pwin)" : "#0e1410"} />`);
+  });
+  var papers = [[55,300,-18],[548,330,24],[118,415,12],[492,445,-30],[70,510,35],[548,215,-8]].map(function(p, i){
+    return html`<g key=${i} transform=${"translate(" + p[0] + " " + p[1] + ") rotate(" + p[2] + ")"} opacity=${0.55 + (i % 3) * 0.15}>
+      <rect x="-15" y="-20" width="30" height="40" fill="#ebe3d0" />
+      <rect x="-10" y="-13" width="20" height="2" fill="#5a5240" /><rect x="-10" y="-7" width="16" height="2" fill="#5a5240" /><rect x="-10" y="-1" width="20" height="2" fill="#5a5240" />
+    </g>`;
+  });
+  var trees = [[40,690,34],[90,700,26],[520,692,30],[565,700,24],[16,712,22]].map(function(t, i){
+    return html`<g key=${i}><rect x=${t[0]-3} y=${t[1]} width="6" height="40" fill="#040504" /><circle cx=${t[0]} cy=${t[1]} r=${t[2]} fill="#060807" /></g>`;
+  });
+  return html`<figure className="poster" aria-label="Movie-poster title card: The Case of the Vanishing Valuation">
+    <svg viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id="psky" cx="50%" cy="22%" r="85%"><stop offset="0" stopColor="#21402f" /><stop offset=".45" stopColor="#10201a" /><stop offset="1" stopColor="#030403" /></radialGradient>
+        <radialGradient id="pmoon" cx="50%" cy="50%" r="50%"><stop offset="0" stopColor="#c8a24a" stopOpacity=".35" /><stop offset="1" stopColor="#c8a24a" stopOpacity="0" /></radialGradient>
+        <linearGradient id="pwin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#f3d27a" /><stop offset="1" stopColor="#b8862b" /></linearGradient>
+        <linearGradient id="pbeam" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stopColor="#c8a24a" stopOpacity=".22" /><stop offset="1" stopColor="#c8a24a" stopOpacity="0" /></linearGradient>
+        <linearGradient id="pfade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#000" stopOpacity="0" /><stop offset="1" stopColor="#000" stopOpacity=".92" /></linearGradient>
+      </defs>
+      <rect width="600" height="900" fill="url(#psky)" />
+      <circle cx="505" cy="80" r="120" fill="url(#pmoon)" />
+      <circle cx="505" cy="80" r="38" fill="#e9dfc6" opacity=".9" />
+      <circle cx="520" cy="73" r="38" fill="#1a3326" opacity=".55" />
+      <polygon points="40,900 140,900 330,330 300,330" fill="url(#pbeam)" />
+      <polygon points="560,900 460,900 280,330 310,330" fill="url(#pbeam)" />
+      ${papers}
+      <g fill="#050605">
+        <rect x="130" y="530" width="80" height="190" /><polygon points="122,532 170,470 218,532" />
+        <rect x="380" y="530" width="80" height="190" /><polygon points="372,532 420,470 468,532" />
+        <rect x="225" y="505" width="150" height="215" /><polygon points="215,508 300,440 385,508" />
+        <rect x="180" y="580" width="240" height="140" />
+        <rect x="150" y="440" width="12" height="40" /><rect x="430" y="440" width="12" height="40" /><rect x="292" y="405" width="16" height="45" />
+      </g>
+      ${wins}
+      <rect x="320" y="595" width="16" height="26" fill="#b02a22" />
+      <rect x="320" y="595" width="16" height="26" fill="#ff5a3c" opacity=".35" />
+      <rect x="0" y="718" width="600" height="182" fill="#030403" />
+      ${trees}
+      <rect x="0" y="600" width="600" height="300" fill="url(#pfade)" />
+      <rect x="14" y="14" width="572" height="872" fill="none" stroke="#c8a24a" strokeOpacity=".55" strokeWidth="1.5" />
+      <rect x="22" y="22" width="556" height="856" fill="none" stroke="#c8a24a" strokeOpacity=".25" strokeWidth="1" />
+    </svg>
+    <div className="p-top">A case file in two parts</div>
+    <div className="p-title"><span>The Case of the</span><em>Vanishing Valuation</em></div>
+    <div className="p-tag">Follow the paper.</div>
+    <figcaption className="p-bill">
+      <div className="p-parts"><span>Part One · <b>The Record</b></span><span>Part Two · <b>The Fiction</b></span></div>
+      <p>Based on public court filings · and one entirely invented orchard · Case No. 4:25-cv-00132 (E.D. Mo.) · Now showing on the docket</p>
+      <div className="p-rating"><b>PL</b><span><strong>Pending litigation</strong> Allegations are not findings. Part Two is not a true story.</span></div>
+    </figcaption>
+  </figure>`;
+}
+
 function Welcome(p){
   var st = p.st, up = p.up;
   function start(m){ up(function(n){ n.started = true; n.mode = m; n.tab = m === "real" ? "brief" : "rooms"; }); }
   return html`<main style=${{paddingTop:0}}>
-    <section className="titlecard" aria-labelledby="t-title"><div className="wrap">
-      <p className="credit">A case file in two parts</p>
-      <h1 id="t-title" className="title-xl">The Case of the <em>Vanishing Valuation</em></h1>
-      <p className="credit">Featuring the public record · and an entirely invented family</p>
-    </div></section>
+    <section className="hero" aria-label="Title"><${Poster} /></section>
     <div className="wrap welcome">
       <div>
         <div className="notice" role="note">
@@ -1872,7 +1977,7 @@ function Drawer(p){
         <a href=${s.url} target="_blank" rel="noopener noreferrer" className="mono">${s.url}</a>
       </div>`; })}
     <h3 style=${{marginTop:"18px",fontFamily:"var(--f-ui)",fontSize:".9rem",textTransform:"uppercase",letterSpacing:".08em"}}>Not retrieved (no card relies on these)</h3>
-    <ul style=${{paddingLeft:"18px",fontSize:".9rem"}}>${NEEDED.map(function(x,i){ return html`<li key=${i}>${x.t}</li>`; })}</ul>
+    <ul style=${{paddingLeft:"18px",fontSize:".9rem"}}>${NEEDED.map(function(x,i){ return html`<li key=${i}>${x.t}<br/><${NeedLinks} i=${i} /></li>`; })}</ul>
   </aside>`;
 }
 
@@ -2034,7 +2139,7 @@ function SourcesView(){
     <h3 style=${{fontSize:"1.4rem",margin:"24px 0 8px"}}>Documents needed next</h3>
     <div className="tablewrap"><table>
       <thead><tr><th>Document</th><th>Why it matters / what happened</th></tr></thead>
-      <tbody>${NEEDED.map(function(n,i){ return html`<tr key=${i}><td>${n.t}</td><td>${n.why}</td></tr>`; })}</tbody>
+      <tbody>${NEEDED.map(function(n,i){ return html`<tr key=${i}><td>${n.t}</td><td>${n.why}<br/><${NeedLinks} i=${i} /></td></tr>`; })}</tbody>
     </table></div>
     <h3 style=${{fontSize:"1.4rem",margin:"24px 0 8px"}}>Corrections to the research lead found during review</h3>
     <ul className="lede">
