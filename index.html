@@ -10,154 +10,184 @@
 <title>The Case of the Vanishing Valuation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Special+Elite&family=Archivo+Narrow:wght@500;600;700&display=swap">
 <style>
-/* Layout: a drawing-room case file. Green chrome band on top, paper folders below, brass for anything you can press. */
+/* Layout: a crime drama in one look. Night-dark rooms; evidence lives on bone-colored paper laid on top.
+   Single deliberate dark world: money-old green, oxblood, tarnished gold. */
 :root{
-  --bg:#efe7d4; --paper:#f8f2e3; --paper-2:#ebe1c9; --ink:#1d2620; --ink-soft:#4c5649;
-  --green:#1d3628; --green-2:#294a37; --on-green:#f1e8d2; --brass:#94701f; --brass-soft:#d8bd76;
-  --line:#cbbd9b; --focus:#b07a12; --shadow:0 1px 0 rgba(60,45,10,.08),0 6px 18px -10px rgba(40,30,10,.35);
-  --s-court:#2c5785; --s-sworn:#674a8c; --s-plaintiff:#9a4625; --s-defense:#2f6a58; --s-receiver:#4b6a22;
-  --s-reported:#76662f; --s-unverified:#666a66; --s-fiction:#8c2d5c;
-  --ok:#2f6a3a; --warn:#8a5a12; --bad:#9a3324;
-  --f-display:"IM Fell English SC","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  color-scheme:dark;
+  --night:#0b0d0c; --night-2:#111513; --green:#13241b; --green-2:#1b3025;
+  --bone:#ebe3d0; --bone-dim:#a69e8c; --muted:var(--bone-dim); --rule:#2c3a31;
+  --paper:#eee5cf; --paper-2:#e2d6ba; --ink:#191612; --ink-soft:#5a5240; --line:#c5b593;
+  --gold:#c8a24a; --gold-dim:#8a6f2e; --blood:#7d1717; --blood-hi:#b02a22; --focus:#e6b84f;
+  --s-court:#1f4c7a; --s-sworn:#573c84; --s-plaintiff:#8a3616; --s-defense:#1f5c4b; --s-receiver:#40601a;
+  --s-reported:#665420; --s-unverified:#585b58; --s-fiction:#8a1640;
+  --ok:#2c6a36; --bad:#9a2a1c; --warn:#d9a441;
+  --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --f-body:"Source Serif 4","Iowan Old Style",Georgia,serif;
-  --f-ui:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --f-type:"Special Elite","Courier New",Courier,monospace;
+  --f-ui:"Archivo Narrow","Arial Narrow",system-ui,sans-serif;
+  --f-mono:"Special Elite","Courier New",Courier,monospace;
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.6'/></svg>");
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#122019; --paper:#1b2a21; --paper-2:#22342a; --ink:#ece3cd; --ink-soft:#b9b29e;
-  --green:#0d1912; --green-2:#1a2d22; --on-green:#efe5cc; --brass:#d6b25e; --brass-soft:#8a6d2a;
-  --line:#3b4d40; --focus:#e2b450; --shadow:0 1px 0 rgba(0,0,0,.3),0 8px 20px -12px rgba(0,0,0,.7);
-  --s-court:#86b1e0; --s-sworn:#c0a4e6; --s-plaintiff:#ec9a76; --s-defense:#7fcab2; --s-receiver:#a9cd73;
-  --s-reported:#d8c785; --s-unverified:#b2b6b2; --s-fiction:#ec8fbe; --ok:#8fd19b; --warn:#e8b765; --bad:#f09682;
-  color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#122019; --paper:#1b2a21; --paper-2:#22342a; --ink:#ece3cd; --ink-soft:#b9b29e;
-  --green:#0d1912; --green-2:#1a2d22; --on-green:#efe5cc; --brass:#d6b25e; --brass-soft:#8a6d2a;
-  --line:#3b4d40; --focus:#e2b450; --shadow:0 1px 0 rgba(0,0,0,.3),0 8px 20px -12px rgba(0,0,0,.7);
-  --s-court:#86b1e0; --s-sworn:#c0a4e6; --s-plaintiff:#ec9a76; --s-defense:#7fcab2; --s-receiver:#a9cd73;
-  --s-reported:#d8c785; --s-unverified:#b2b6b2; --s-fiction:#ec8fbe; --ok:#8fd19b; --warn:#e8b765; --bad:#f09682;
-  color-scheme:dark}
 *{box-sizing:border-box}
 html,body{min-height:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;margin:0}
+body{margin:0;color:var(--bone);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  background:radial-gradient(120% 80% at 50% 0%,var(--green-2) 0%,var(--green) 38%,var(--night) 100%) fixed,var(--night)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background-image:var(--grain);opacity:.07;mix-blend-mode:overlay;z-index:50}
 a{color:inherit}
 button,select,input,textarea{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
-h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.1;text-wrap:balance;margin:0}
 .wrap{max-width:1180px;margin:0 auto;padding-inline:16px}
-.ui{font-family:var(--f-ui);letter-spacing:.02em}
-.mono{font-family:var(--f-mono);font-size:.82rem}
-.muted{color:var(--ink-soft)}
+.ui{font-family:var(--f-ui);letter-spacing:.03em}
+.mono{font-family:var(--f-type);font-size:.8rem}
+.muted{color:var(--muted)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
+/* Paper surfaces: anything you'd hand to a detective */
+.folder,.dialog,.lane,.pts div,.chal,.assess section,.group,.person,.reveal,.src,.drawer,.screenplay,.notice,.door button,.tl-card,.sheet{
+  --muted:var(--ink-soft); --rule:var(--line); color:var(--ink);
+  background:var(--paper) var(--grain); background-blend-mode:multiply}
+
 /* Chrome */
-.top{background:var(--green);color:var(--on-green);border-bottom:3px double var(--brass)}
+.top{background:#050605;border-bottom:1px solid var(--gold-dim)}
 .top .wrap{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding-block:12px}
 .brand{display:flex;flex-direction:column;min-width:0;flex:1 1 260px}
-.brand b{font-family:var(--f-display);font-weight:400;font-size:1.35rem;letter-spacing:.01em}
-.brand span{font-family:var(--f-ui);font-size:.78rem;opacity:.85}
+.brand b{font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.45rem;letter-spacing:.01em;color:var(--bone)}
+.brand span{font-family:var(--f-ui);font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold)}
 .tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.btn{font-family:var(--f-ui);font-size:.9rem;border:1px solid var(--brass);background:transparent;color:inherit;border-radius:3px;padding:6px 11px;cursor:pointer;min-height:36px}
-.btn:hover{background:color-mix(in srgb,var(--brass) 18%,transparent)}
-.btn.solid{background:var(--brass);color:#fff8e6;border-color:var(--brass)}
-:root[data-theme="dark"] .btn.solid{color:#1a140a}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.solid{color:#1a140a}}
-.btn[aria-pressed="true"]{background:var(--brass);color:var(--green)}
-.btn:disabled{opacity:.5;cursor:not-allowed}
-.modes{display:inline-flex;border:1px solid var(--brass);border-radius:3px;overflow:hidden}
-.modes button{border:0;border-radius:0;min-height:36px;padding:6px 12px;background:transparent;color:inherit;font-family:var(--f-ui);cursor:pointer}
-.modes button[aria-pressed="true"]{background:var(--brass);color:var(--green)}
-.score{font-family:var(--f-mono);font-size:.85rem;border:1px dashed var(--brass-soft);padding:5px 9px;border-radius:3px}
-.strip{background:var(--green-2);color:var(--on-green);font-family:var(--f-ui);font-size:.82rem}
+.btn{font-family:var(--f-ui);font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;border:1px solid var(--gold-dim);background:transparent;color:var(--bone);border-radius:0;padding:6px 12px;cursor:pointer;min-height:36px}
+.btn:hover{border-color:var(--gold);color:var(--gold)}
+.btn[aria-pressed="true"]{background:var(--gold);color:#120f08;border-color:var(--gold)}
+.modes{display:inline-flex;border:1px solid var(--gold-dim)}
+.modes button{border:0;min-height:36px;padding:6px 12px;background:transparent;color:var(--bone);font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.12em;font-size:.82rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--bone);color:#120f08}
+.score{font-family:var(--f-type);font-size:.85rem;color:var(--gold);border:1px dashed var(--gold-dim);padding:5px 9px}
+.strip{background:#080a09;color:var(--bone-dim);font-family:var(--f-ui);font-size:.8rem;letter-spacing:.02em;border-bottom:1px solid var(--rule)}
 .strip .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding-block:7px;align-items:center}
-.strip a{color:var(--on-green);text-underline-offset:3px}
+.strip b{color:var(--bone)}
+.strip a{color:var(--bone);text-underline-offset:3px}
 .strip .fbi{margin-left:auto}
-.notice-bar{background:var(--paper-2);border-bottom:1px solid var(--line);font-size:.86rem}
-.notice-bar .wrap{padding-block:6px}
+.notice-bar{background:var(--blood);color:var(--bone);font-family:var(--f-ui)}
+.notice-bar .wrap{padding-block:8px}
 
-nav.tabs{border-bottom:1px solid var(--line);background:var(--paper)}
-nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto;padding-block:0}
-nav.tabs button{font-family:var(--f-ui);font-size:.95rem;border:0;background:none;padding:12px 12px 10px;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;color:var(--ink-soft)}
-nav.tabs button[aria-current="page"]{color:var(--ink);border-bottom-color:var(--brass)}
+nav.tabs{border-bottom:1px solid var(--rule);background:rgba(5,6,5,.6)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto}
+nav.tabs button{font-family:var(--f-ui);font-size:.82rem;text-transform:uppercase;letter-spacing:.16em;border:0;background:none;padding:14px 12px 11px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;color:var(--bone-dim)}
+nav.tabs button:hover{color:var(--bone)}
+nav.tabs button[aria-current="page"]{color:var(--gold);border-bottom-color:var(--gold)}
 
-main{padding-block:22px 64px}
-.lede{max-width:68ch}
-.section-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-bottom:14px}
-.section-head h2{font-size:1.75rem}
-.kicker{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:var(--brass)}
-.aside{font-family:var(--f-ui);font-size:.85rem;border-left:3px solid var(--brass-soft);padding:4px 10px;color:var(--ink-soft);margin:10px 0;max-width:68ch}
-.aside b{font-weight:600}
+main{padding-block:26px 72px}
+.lede{max-width:66ch}
+.section-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;margin-bottom:16px}
+.section-head h2{font-size:clamp(1.7rem,4vw,2.4rem);font-style:italic}
+.section-head > span{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;color:var(--gold)}
+.kicker{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.24em;font-size:.7rem;color:var(--gold)}
+.slug{font-family:var(--f-type);letter-spacing:.04em;font-size:.9rem;color:var(--bone)}
+.aside{font-family:var(--f-type);font-size:.88rem;border-left:2px solid var(--blood-hi);padding:4px 12px;color:var(--bone-dim);margin:12px 0;max-width:68ch}
+.aside b{font-family:var(--f-ui);font-weight:600;letter-spacing:.06em;color:var(--bone)}
+.folder .aside,.dialog .aside,.person .aside,.reveal .aside{color:var(--ink-soft)}
+.folder .aside b,.dialog .aside b,.person .aside b,.reveal .aside b{color:var(--ink)}
 
-/* Welcome */
-.welcome{display:grid;gap:22px;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start}
+/* Title sequence */
+.titlecard{position:relative;background:#030403;border-block:22px solid #000;text-align:center;padding-block:clamp(40px,8vw,88px);overflow:hidden}
+.titlecard::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 50% 50%,rgba(200,162,74,.12),transparent 70%);pointer-events:none}
+.credit{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.34em;font-size:.72rem;color:var(--gold);margin:0}
+.title-xl{font-size:clamp(2.3rem,7.5vw,5.2rem);margin:18px 0;color:var(--bone);letter-spacing:.01em}
+.title-xl em{display:block;font-style:italic;color:var(--gold)}
+@media (prefers-reduced-motion:no-preference){
+  .title-xl{animation:settle 2.4s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes settle{from{letter-spacing:.12em;filter:blur(1.5px)}to{letter-spacing:.01em;filter:none}}
+}
+.welcome{display:grid;gap:26px;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:start;padding-block:30px}
 @media (max-width:820px){.welcome{grid-template-columns:1fr}}
-.welcome h1{font-size:clamp(2rem,5vw,3.2rem);margin:6px 0 10px}
-.notice{border:2px solid var(--ink);background:var(--paper);padding:14px 16px;font-size:1.02rem;box-shadow:var(--shadow)}
-.notice strong{display:block;font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;margin-bottom:4px}
-.door{display:grid;gap:12px}
-.door button{text-align:left;background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--s-court);padding:14px 16px;cursor:pointer;box-shadow:var(--shadow)}
-.door button.fic{border-left-color:var(--s-fiction);background-image:repeating-linear-gradient(135deg,transparent 0 10px,color-mix(in srgb,var(--s-fiction) 7%,transparent) 10px 12px)}
-.door b{font-family:var(--f-display);font-weight:400;font-size:1.35rem;display:block}
-.door span{font-size:.92rem;color:var(--ink-soft)}
-.check{display:flex;gap:8px;align-items:center;font-family:var(--f-ui)}
+.notice{border:1px solid var(--line);padding:16px 18px;font-size:1.02rem;box-shadow:0 18px 40px -24px #000}
+.notice strong{display:block;font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;margin-bottom:6px;color:var(--blood)}
+.door{display:grid;gap:14px}
+.door button{text-align:left;border:0;border-left:6px solid var(--s-court);padding:16px 18px;cursor:pointer;box-shadow:0 18px 40px -24px #000;display:flex;flex-direction:column;gap:4px}
+.door button.fic{border-left-color:var(--blood)}
+.door button:hover{outline:1px solid var(--gold)}
+.door .reel{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.24em;font-size:.68rem;color:var(--ink-soft)}
+.door b{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:1.7rem;line-height:1.1}
+.door .mode-name{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.14em;font-size:.76rem;color:var(--ink-soft)}
+.truecard{font-family:var(--f-type);font-size:.95rem;color:var(--blood);margin-top:6px}
+.door span:last-child{font-size:.94rem;color:var(--ink-soft)}
+.check{display:flex;gap:8px;align-items:center;font-family:var(--f-ui);letter-spacing:.03em}
+
+/* Screenplay */
+.screenplay{max-width:720px;padding:22px clamp(16px,5vw,48px);font-family:var(--f-type);font-size:.95rem;line-height:1.55;box-shadow:0 24px 50px -28px #000;margin-bottom:28px}
+.screenplay p{margin:0 0 12px}
+.screenplay .sp-slug{text-transform:uppercase;font-weight:400;letter-spacing:.03em}
+.screenplay .sp-trans{text-align:right;text-transform:uppercase}
+.screenplay .sp-char{text-transform:uppercase;margin:16px 0 0 34%}
+.screenplay .sp-paren{margin:0 0 0 28%;color:var(--ink-soft)}
+.screenplay .sp-dia{margin:0 12% 12px 20%}
+@media (max-width:520px){.screenplay .sp-char{margin-left:22%}.screenplay .sp-paren{margin-left:14%}.screenplay .sp-dia{margin:0 0 12px 8%}}
 
 /* Rooms */
-.rooms{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
-.room{background:var(--paper);border:1px solid var(--line);padding:16px;text-align:left;cursor:pointer;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px;min-height:150px}
-.room:hover{border-color:var(--brass)}
-.room h3{font-size:1.3rem}
-.room .meta{margin-top:auto;font-family:var(--f-ui);font-size:.82rem;color:var(--ink-soft);display:flex;gap:12px;flex-wrap:wrap}
-.fic-band{background-image:repeating-linear-gradient(135deg,transparent 0 12px,color-mix(in srgb,var(--s-fiction) 6%,transparent) 12px 14px)}
+.rooms{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.room{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(0,0,0,.25)),var(--night-2);color:var(--bone);border:1px solid var(--rule);border-top:2px solid var(--gold-dim);padding:18px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:7px;min-height:170px}
+.room:hover{border-color:var(--gold);border-top-color:var(--gold)}
+.room h3{font-size:1.45rem;font-style:italic}
+.room .meta{margin-top:auto;font-family:var(--f-ui);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-dim);display:flex;gap:12px;flex-wrap:wrap}
+.room > span:not(.kicker):not(.meta):not(.slug){color:var(--bone-dim);font-size:.94rem}
+main.fic-band{background:linear-gradient(180deg,rgba(125,23,23,.12),rgba(125,23,23,0) 640px)}
 
-.cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
-.folder{position:relative;background:var(--paper);border:1px solid var(--line);padding:22px 14px 14px;text-align:left;cursor:pointer;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;min-width:0}
-.folder::before{content:"";position:absolute;top:-1px;left:14px;width:84px;height:9px;background:var(--paper-2);border:1px solid var(--line);border-bottom:0;transform:translateY(-8px);border-radius:3px 3px 0 0}
-.folder:hover{border-color:var(--brass)}
+.cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.folder{position:relative;border:0;padding:24px 16px 16px;text-align:left;cursor:pointer;box-shadow:0 16px 34px -22px #000;display:flex;flex-direction:column;gap:9px;min-width:0;transform:rotate(-.25deg)}
+.folder:nth-child(2n){transform:rotate(.3deg)}
+.folder::before{content:"";position:absolute;top:-9px;left:16px;width:92px;height:10px;background:var(--paper-2);clip-path:polygon(8% 0,92% 0,100% 100%,0 100%)}
+.folder:hover{outline:1px solid var(--gold);transform:none}
 .folder h3{font-family:var(--f-body);font-weight:600;font-size:1.02rem;line-height:1.3}
-.folder .cite{font-family:var(--f-mono);font-size:.75rem;color:var(--ink-soft)}
+.folder .cite{font-family:var(--f-type);font-size:.74rem;color:var(--ink-soft)}
 .folder .row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:auto}
-.empty-slot{border:2px dashed var(--line);background:transparent;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
-.empty-slot h3{font-family:var(--f-ui);font-size:.95rem;font-weight:600}
-.empty-slot p{margin:0;font-size:.9rem;color:var(--ink-soft)}
+.stamp{position:absolute;top:10px;right:12px;font-family:var(--f-ui);font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blood);border:2px solid var(--blood);padding:1px 6px;transform:rotate(4deg);opacity:.85}
+.empty-slot{border:1px dashed var(--bone-dim);background:rgba(0,0,0,.25);padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.empty-slot h3{font-family:var(--f-ui);font-size:.9rem;font-weight:600;letter-spacing:.04em}
+.empty-slot p{margin:0;font-size:.9rem;color:var(--bone-dim)}
 
-.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-ui);font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid currentColor;padding:2px 7px;border-radius:2px;white-space:nowrap}
-.chip i{font-style:normal;font-weight:500;text-transform:none;letter-spacing:0}
-.chip.fiction{background-image:repeating-linear-gradient(135deg,transparent 0 4px,color-mix(in srgb,currentColor 18%,transparent) 4px 6px)}
-.tag{font-family:var(--f-ui);font-size:.75rem;background:var(--paper-2);border:1px solid var(--line);padding:1px 7px;border-radius:10px}
-.hidden-status{font-family:var(--f-ui);font-size:.74rem;border:1.5px dashed var(--ink-soft);padding:2px 7px;color:var(--ink-soft)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-ui);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--paper);border:1.5px solid currentColor;padding:2px 7px;white-space:nowrap}
+.chip i{font-style:normal;font-weight:500;text-transform:none;letter-spacing:.02em}
+.chip.fiction{background-image:repeating-linear-gradient(135deg,transparent 0 4px,color-mix(in srgb,currentColor 16%,transparent) 4px 6px)}
+.tag{font-family:var(--f-ui);font-size:.72rem;letter-spacing:.06em;background:var(--paper-2);color:var(--ink);border:1px solid var(--line);padding:1px 7px}
+.hidden-status{font-family:var(--f-type);font-size:.74rem;border:1.5px dashed var(--ink-soft);padding:2px 7px;color:var(--ink-soft)}
 
 /* Dialog */
-.scrim{position:fixed;inset:0;background:rgba(10,16,12,.55);display:flex;justify-content:center;align-items:flex-start;padding:max(16px,env(safe-area-inset-top,0px)) 16px 16px;overflow-y:auto;z-index:20}
-.dialog{background:var(--paper);color:var(--ink);border:1px solid var(--line);border-top:6px solid var(--brass);width:min(760px,100%);padding:20px;box-shadow:0 20px 60px -20px rgba(0,0,0,.6);margin-block:12px}
-.dialog h2{font-size:1.5rem;margin:4px 0 10px}
+.scrim{position:fixed;inset:0;background:rgba(3,4,3,.78);display:flex;justify-content:center;align-items:flex-start;padding:max(16px,env(safe-area-inset-top,0px)) 16px 16px;overflow-y:auto;z-index:60}
+.dialog{border-top:6px solid var(--gold-dim);width:min(780px,100%);padding:22px;box-shadow:0 30px 80px -20px #000;margin-block:12px;position:relative}
+.dialog h2{font-size:1.65rem;margin:6px 0 10px}
+.dialog .kicker{color:var(--gold-dim)}
+.dialog .stamp ~ .kicker{padding-right:118px}
 .fieldgrid{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;font-size:.92rem;margin:12px 0}
-.fieldgrid dt{font-family:var(--f-ui);color:var(--ink-soft)}
+.fieldgrid dt{font-family:var(--f-ui);letter-spacing:.06em;text-transform:uppercase;font-size:.74rem;color:var(--ink-soft);padding-top:3px}
 .fieldgrid dd{margin:0;min-width:0;overflow-wrap:anywhere}
 @media (max-width:520px){.fieldgrid{grid-template-columns:1fr}.fieldgrid dd{margin-bottom:6px}}
-blockquote{margin:10px 0;padding:8px 14px;border-left:3px solid var(--brass);background:var(--paper-2);font-style:italic}
-.box{border:1px solid var(--line);padding:10px 12px;margin:10px 0;background:var(--paper)}
-.box h4{margin:0 0 4px;font-family:var(--f-ui);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}
-.quiz{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
-.quiz button{font-family:var(--f-ui);font-size:.85rem;border:1px solid var(--line);background:var(--paper-2);padding:6px 9px;cursor:pointer;border-radius:3px}
-.quiz button:hover{border-color:var(--brass)}
+blockquote{margin:12px 0;padding:10px 16px;border-left:3px solid var(--blood);background:var(--paper-2);font-style:italic}
+.box{border:1px solid var(--line);padding:10px 12px;margin:10px 0;background:rgba(255,255,255,.35)}
+.box h4{margin:0 0 4px;font-family:var(--f-ui);font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-soft)}
+.quiz,.opts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.quiz button,.opts button{font-family:var(--f-ui);font-size:.86rem;letter-spacing:.02em;border:1px solid var(--line);background:var(--paper-2);color:var(--ink);padding:6px 10px;cursor:pointer}
+.quiz button:hover,.opts button:hover{border-color:var(--ink)}
+.opts button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.opts button:disabled{cursor:default}
 .fb{font-family:var(--f-ui);font-size:.9rem;padding:6px 10px;border-left:4px solid}
 .fb.ok{border-color:var(--ok)} .fb.no{border-color:var(--bad)}
 .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.dlg-btn{font-family:var(--f-ui);border:1px solid var(--brass);background:var(--paper);padding:7px 12px;cursor:pointer;border-radius:3px;min-height:38px}
-.dlg-btn.primary{background:var(--green);color:var(--on-green);border-color:var(--green)}
+.dlg-btn{font-family:var(--f-ui);font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--gold-dim);background:var(--paper-2);color:var(--ink);padding:7px 12px;cursor:pointer;min-height:38px}
+.dlg-btn:hover{border-color:var(--ink)}
+.dlg-btn.primary{background:var(--blood);color:var(--bone);border-color:var(--blood)}
 .dlg-btn:disabled{opacity:.5;cursor:not-allowed}
 .tagpick{display:flex;flex-wrap:wrap;gap:6px}
-.tagpick button{font-family:var(--f-ui);font-size:.82rem;border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:3px 10px;cursor:pointer}
+.tagpick button{font-family:var(--f-ui);font-size:.8rem;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:3px 10px;cursor:pointer}
 .tagpick button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-textarea,input[type=text],select{width:100%;border:1px solid var(--line);background:var(--paper);padding:7px 9px;border-radius:3px}
+textarea,input[type=text],select{width:100%;border:1px solid var(--line);background:#f8f2e2;color:var(--ink);padding:7px 9px}
 
 /* Drawer */
-.drawer{position:fixed;top:0;right:0;bottom:0;width:min(460px,100%);background:var(--paper);border-left:3px double var(--brass);z-index:30;overflow-y:auto;padding:max(16px,env(safe-area-inset-top,0px)) 18px 24px;box-shadow:-20px 0 40px -20px rgba(0,0,0,.5)}
-.drawer h2{font-size:1.4rem}
-.src{border:1px solid var(--line);padding:10px 12px;margin:10px 0;background:var(--paper)}
-.src.hl{border:2px solid var(--brass)}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(470px,100%);border-left:3px double var(--gold-dim);z-index:70;overflow-y:auto;padding:max(16px,env(safe-area-inset-top,0px)) 18px 24px;box-shadow:-30px 0 60px -20px #000}
+.drawer h2{font-size:1.5rem;font-style:italic}
+.src{border:1px solid var(--line);padding:10px 12px;margin:10px 0}
+.src.hl{outline:2px solid var(--blood)}
 .src h3{font-family:var(--f-body);font-weight:600;font-size:.98rem}
 .src a{overflow-wrap:anywhere}
 
@@ -165,66 +195,77 @@ textarea,input[type=text],select{width:100%;border:1px solid var(--line);backgro
 .lanes{display:grid;gap:14px;grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:1000px){.lanes{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.lanes{grid-template-columns:1fr}}
-.lane{background:var(--paper-2);border:1px solid var(--line);padding:12px;min-width:0}
-.lane h3{font-family:var(--f-ui);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
-.lane > p{font-size:.82rem;color:var(--ink-soft);margin:0 0 10px}
-.lane.fic{background-image:repeating-linear-gradient(135deg,transparent 0 12px,color-mix(in srgb,var(--s-fiction) 8%,transparent) 12px 14px);border-style:dashed}
-.pin{background:var(--paper);border:1px solid var(--line);padding:8px 10px;margin-bottom:8px;font-size:.9rem}
-.pin button.linkish{background:none;border:0;padding:0;text-align:left;cursor:pointer;font:inherit;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.lane{padding:12px;min-width:0;box-shadow:0 16px 34px -22px #000;border-top:4px solid var(--ink)}
+.lane h3{font-family:var(--f-ui);font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;margin-bottom:2px}
+.lane > p{font-size:.84rem;color:var(--ink-soft);margin:0 0 10px}
+.lane.fic{border-top-color:var(--blood);background-image:var(--grain),repeating-linear-gradient(135deg,transparent 0 12px,rgba(125,23,23,.07) 12px 14px)}
+.pin{background:#f8f2e2;border:1px solid var(--line);padding:8px 10px;margin-bottom:8px;font-size:.9rem;position:relative}
+.pin::before{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;border-radius:50%;background:var(--blood-hi);box-shadow:0 2px 2px rgba(0,0,0,.4)}
+.pin button.linkish{background:none;border:0;padding:0;text-align:left;cursor:pointer;font:inherit;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .pin ul{margin:6px 0 0;padding-left:18px}
-.pts{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));margin:12px 0 20px}
-.pts div{background:var(--paper);border:1px solid var(--line);padding:8px 10px}
-.pts b{font-family:var(--f-mono);font-size:1.25rem;display:block}
-.pts span{font-family:var(--f-ui);font-size:.8rem;color:var(--ink-soft)}
+.pts{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));margin:12px 0 22px}
+.pts div{padding:9px 11px;border-top:3px solid var(--gold-dim)}
+.pts b{font-family:var(--f-display);font-size:1.6rem;display:block;line-height:1.1}
+.pts span{font-family:var(--f-ui);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
 
 /* Timeline */
-.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--brass);margin-left:6px}
-.tl li{position:relative;padding:0 0 16px 18px}
-.tl li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--brass)}
-.tl .when{font-family:var(--f-mono);font-size:.8rem;color:var(--ink-soft)}
-.tl .conf{font-family:var(--f-ui);font-size:.82rem;color:var(--warn);font-weight:600}
+.tl{list-style:none;margin:0;padding:0;border-left:1px solid var(--gold-dim);margin-left:6px}
+.tl li{position:relative;padding:0 0 18px 20px}
+.tl li::before{content:"";position:absolute;left:-6px;top:7px;width:11px;height:11px;background:var(--night);border:2px solid var(--gold)}
+.tl .when{font-family:var(--f-type);font-size:.82rem;color:var(--gold)}
+.tl .conf{font-family:var(--f-ui);font-size:.82rem;letter-spacing:.03em;color:var(--warn);font-weight:600}
+.tl .dlg-btn{min-height:28px;padding:1px 8px;font-size:.72rem}
 
-/* People */
+/* People / cast */
 .groups{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
-.group{background:var(--paper);border:1px solid var(--line);padding:14px;min-width:0}
-.group h3{font-size:1.2rem;margin-bottom:6px}
+.group{padding:14px;min-width:0;box-shadow:0 16px 34px -22px #000}
+.group h3{font-size:1.3rem;font-style:italic;margin-bottom:6px}
 .ent{border-top:1px solid var(--line);padding:8px 0}
 .ent b{font-weight:600}
 .rel{font-size:.9rem;margin:3px 0;display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}
+.rel .dlg-btn{min-height:26px;padding:0 7px;font-size:.7rem}
+.cast{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.person{padding:16px;box-shadow:0 16px 34px -22px #000;position:relative;display:flex;flex-direction:column;gap:6px}
+.crest{width:58px;height:58px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--f-display);font-style:italic;font-size:1.35rem;background:var(--paper-2);box-shadow:inset 0 0 0 4px var(--paper),inset 0 0 0 5px var(--ink)}
+.person h3{font-size:1.4rem;font-style:italic}
+.person .role{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--ink-soft)}
+.person p{margin:0}
 
 /* Challenges */
-.chal{background:var(--paper);border:1px solid var(--line);padding:16px;margin-bottom:18px}
+.chal{padding:18px;margin-bottom:20px;box-shadow:0 16px 34px -22px #000}
+.chal h3{font-style:italic}
+.chal .kicker{color:var(--blood)}
 .item{border-top:1px solid var(--line);padding:12px 0}
 .pair{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:stretch;margin:6px 0 8px}
-.pair > div{background:var(--paper-2);border:1px solid var(--line);padding:8px 10px;min-width:0}
-.pair .amt{font-family:var(--f-mono);font-size:1.05rem;font-variant-numeric:tabular-nums;display:block}
-.pair .vs{align-self:center;font-family:var(--f-display);font-size:1.4rem;color:var(--brass)}
+.pair > div{background:#f8f2e2;border:1px solid var(--line);padding:8px 10px;min-width:0}
+.pair .amt{font-family:var(--f-display);font-size:1.1rem;font-variant-numeric:tabular-nums;display:block}
+.pair .vs{align-self:center;font-family:var(--f-display);font-style:italic;font-size:1.4rem;color:var(--blood)}
 @media (max-width:620px){.pair{grid-template-columns:1fr}.pair .vs{justify-self:center}}
-.opts{display:flex;flex-wrap:wrap;gap:6px}
-.opts button{font-family:var(--f-ui);font-size:.86rem;border:1px solid var(--line);background:var(--paper-2);padding:6px 10px;cursor:pointer;border-radius:3px}
-.opts button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
-.opts button:disabled{cursor:default}
 
-/* Assessment */
+/* Assessment & tables */
 .assess{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(330px,1fr))}
-.assess section{background:var(--paper);border:1px solid var(--line);padding:14px 16px;min-width:0}
-.assess h3{font-size:1.25rem;margin-bottom:8px}
+.assess section{padding:16px 18px;min-width:0;box-shadow:0 16px 34px -22px #000;border-top:4px solid var(--s-court)}
+.assess h3{font-size:1.35rem;font-style:italic;margin-bottom:8px}
 .assess ul{margin:0;padding-left:18px}
 .assess li{margin-bottom:6px;font-size:.94rem}
+.assess .mono{color:var(--ink-soft)}
 table{border-collapse:collapse;width:100%;font-size:.88rem}
-th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
-th{font-family:var(--f-ui);font-weight:600}
-td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+th,td{border-bottom:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+th{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.1em;font-size:.74rem;font-weight:600}
+td.num{font-family:var(--f-type);font-variant-numeric:tabular-nums;white-space:nowrap}
 .tablewrap{overflow-x:auto}
+.sheet{padding:16px;box-shadow:0 16px 34px -22px #000;margin-bottom:18px}
 
-.cast{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
-.person{background:var(--paper);border:1px solid var(--line);padding:14px}
-.person h3{font-size:1.25rem}
-.reveal{background:var(--paper);border:1px solid var(--line);border-top:6px solid var(--s-fiction);padding:18px;max-width:900px}
-.reveal h3{font-size:1.3rem;margin-top:14px}
+/* Reveal */
+.reveal{padding:22px clamp(16px,4vw,36px);max-width:920px;box-shadow:0 30px 60px -30px #000;border-top:6px solid var(--blood)}
+.reveal h3{font-size:1.45rem;font-style:italic;margin-top:18px}
+.credits{background:#030403;color:var(--bone);text-align:center;padding:36px 16px;margin:24px calc(-1 * clamp(16px,4vw,36px)) -22px;border-top:1px solid var(--gold-dim)}
+.credits dl{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;max-width:560px;margin:16px auto}
+.credits dt{text-align:right;font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;color:var(--gold);padding-top:4px}
+.credits dd{text-align:left;margin:0;font-family:var(--f-display);font-style:italic}
+.credits .fine{font-family:var(--f-type);font-size:.82rem;color:var(--bone-dim);max-width:560px;margin:18px auto 0}
 
-footer{border-top:1px solid var(--line);padding-block:18px;font-size:.85rem;color:var(--ink-soft)}
-@media (prefers-reduced-motion:no-preference){.folder,.room{transition:border-color .15s}}
+footer{border-top:1px solid var(--rule);padding-block:20px;font-size:.84rem;color:var(--bone-dim);background:#050605}
 </style>
 
 <div id="root"></div>
@@ -332,29 +373,29 @@ function Chip(p){
    ROOMS
    ============================================================ */
 var ROOMS = [
-  { id:"pitch",   name:"The Pitch Room",       real:"Representations and projected returns.", fic:"Letters to members and the glossy newsletter." },
-  { id:"ledger",  name:"The Ledger Library",   real:"Inflows, outflows, fees and loans.", fic:"Bank statements and a workbook with a long memory." },
-  { id:"gallery", name:"The Portfolio Gallery",real:"Operating reality versus valuation.", fic:"The orchard, its appraisal, and the Land Registry." },
-  { id:"witness", name:"The Witness Lounge",   real:"Testimony and the limits of what each witness knew.", fic:"Interviews over cold coffee." },
-  { id:"court",   name:"The Courtroom",        real:"Orders and procedural posture.", fic:"Serving tonight as the Board Room: minutes and logs." },
-  { id:"vault",   name:"The Recovery Vault",   real:"Remaining assets and unanswered questions.", fic:"Leases, ashes, and the racing pages." }
+  { id:"pitch",   name:"The Pitch Room",       slug:"INT. MORNING ROOM — NIGHT",  real:"Representations and projected returns.", fic:"Letters to members, a newsletter, and one pitch deck." },
+  { id:"ledger",  name:"The Ledger Library",   slug:"INT. LIBRARY — NIGHT",       real:"Inflows, outflows, fees and loans.", fic:"Bank statements and a workbook with a long memory." },
+  { id:"gallery", name:"The Portfolio Gallery",slug:"INT. LONG GALLERY — NIGHT",  real:"Operating reality versus valuation.", fic:"The orchard’s appraisal, and a letter from the Land Registry." },
+  { id:"witness", name:"The Witness Lounge",   slug:"INT. BILLIARD ROOM — NIGHT", real:"Testimony and the limits of what each witness knew.", fic:"Interviews, one at a time, door closed." },
+  { id:"court",   name:"The Courtroom",        slug:"INT. BOARD ROOM — NIGHT",    real:"Orders and procedural posture.", fic:"Tonight it’s the Board Room: minutes, bylaws and the gate log." },
+  { id:"vault",   name:"The Recovery Vault",   slug:"INT. STRONG ROOM — LATE",    real:"Remaining assets and unanswered questions.", fic:"Leases, ashes, and the racing pages." }
 ];
 
 var REAL_ASIDES = {
-  pitch:   "A projection is a forecast. A forecast is not a promise, and a promise is not a bank transfer.",
-  ledger:  "Rule of the library: a valuation is not a bank balance.",
-  gallery: "“Mark-to-market” names a method. It does not tell you the mood of the market.",
-  witness: "Fun fact: “pendente lite” means “while the lawsuit is pending.” It is not a light pasta.",
-  court:   "A docket number works like a library call number, with more motions.",
-  vault:   "Before anything is recovered, it has to be found, valued and argued over, usually in that order."
+  pitch:   "A projection is a forecast, and a forecast is not a promise. Worth keeping those in separate drawers.",
+  ledger:  "House rule: a valuation is not a bank balance.",
+  gallery: "“Mark-to-market” is a method. It is not, as it turns out, a mood.",
+  witness: "“Pendente lite” means “while the lawsuit is pending.” It is not a light pasta, no.",
+  court:   "A docket number is like a library call number, only with more motions.",
+  vault:   "Before anything is recovered it has to be found, valued and argued over. Usually in that order. Usually slowly."
 };
 var FIC_ASIDES = {
   pitch:   "Projected exit date: perpetually next quarter.",
-  ledger:  "This spreadsheet has more tabs than the manor has rooms.",
-  gallery: "A valuation is not a bank balance. An orchard is not a valuation.",
-  witness: "Everyone was somewhere else. That is the trouble with somewhere else.",
-  court:   "The minutes are very thorough about the biscuits.",
-  vault:   "The fire was lit in September. Nobody lights a fire in September."
+  ledger:  "This spreadsheet has more tabs than the manor has rooms. Well, that’s a lot of tabs.",
+  gallery: "A valuation is not a bank balance. An orchard, for the record, is not a valuation either.",
+  witness: "Everyone was somewhere else. Real convenient place, somewhere else.",
+  court:   "The minutes give three paragraphs to the biscuits and none to the orchard. Huh.",
+  vault:   "Somebody lit a fire in September. Nobody lights a fire in September."
 };
 
 /* ============================================================
@@ -971,117 +1012,142 @@ var RES_ITEMS = [
 /* ============================================================
    FICTIONAL MYSTERY — invented characters, places, sums
    ============================================================ */
-var F_PREMISE = "Every September the Harrowgate Orchard Trust, a members’ fund that owns orchards and a cider house, holds its Valuation Supper at Pellingham Manor. This year’s printed report lists Southfield Orchard at 3.4 million. At eleven o’clock a courier from the County Land Registry delivers a routine extract: Southfield has belonged to Brindle Hill Farms since March. Nobody at the table admits to selling it. If it was sold, where is the money? And who kept a vanished orchard on the books?";
+var COLD_OPEN = [
+  ["trans","FADE IN:"],
+  ["slug","INT. PELLINGHAM MANOR — DINING ROOM — NIGHT"],
+  ["action","Candles. Silver. Fourteen covers laid for a family that agrees on nothing except the wine."],
+  ["action","The Vanes own the Harrowgate Orchard Trust: orchards, a cider house, and opinions. Every September they hold the Valuation Supper. Tonight’s printed report sits beside every plate. Southfield Orchard, the crown jewel: 3.4 million."],
+  ["action","A COURIER from the County Land Registry is shown in. He hands an envelope to OTTOLINE VANE (70s, immaculate, unamused), apologizes to nobody in particular, and leaves."],
+  ["char","OTTOLINE"],["paren","(reading; very still)"],["dia","It says Southfield belongs to something called Brindle Hill Farms. Since March."],
+  ["char","KIT"],["paren","(her son; forties; fleece gilet)"],["dia","That’s not possible. I’ve been trying to sell it for a year."],
+  ["char","MARGUERITE"],["paren","(her daughter; sharper)"],["dia","Well, someone managed. Congratulations to someone."],
+  ["char","LIONEL"],["paren","(the brother-in-law; checks his watch)"],["dia","Registry clerks. They’d lose a cathedral. Someone pass the port."],
+  ["action","Nobody passes the port."],
+  ["action","Somewhere between March and pudding, an orchard has gone missing. Everyone at this table would very much prefer it was somebody else’s fault."],
+  ["action","YOU are the visiting auditor. You were invited for the dessert course. You are staying for the rest."]
+];
 
 var CAST = [
-  { id:"ottoline", n:"Ottoline Vane", r:"Chair of the Trust", d:"Collects antique barometers and has never met a forecast she didn’t like. Signs the annual letter to members.", j:"Owns eleven barometers, all of them set to “Fair.”" },
-  { id:"lionel", n:"Lionel Fairweather", r:"Treasurer", d:"Punctual and precise, with a fondness for the turf. Holds the Trust’s signing authority on property transfers.", j:"Times his tea with a stopwatch." },
-  { id:"crane", n:"Bartholomew Crane", r:"Outside appraiser", d:"Values orchards by walking every row and counting every tree. Signed the Southfield appraisal.", j:"Has measured the dining table twice since the soup." },
-  { id:"desmond", n:"Desmond Achterberg", r:"Cellar master", d:"Runs the cider house. A gleaming new copper still arrived in April, and he is fiercely proud of it.", j:"Refers to the still as “she.”" },
-  { id:"priya", n:"Priya Haldane", r:"Analyst", d:"Built and maintains the Trust’s workbook. She asks a lot of questions in cell comments.", j:"Her workbook has 47 tabs. The manor has 31 rooms." },
-  { id:"marguerite", n:"Marguerite Selby-Oakes", r:"Member communications", d:"Writes the quarterly newsletter in a prose style best described as “in bloom.”", j:"Has used the word “burgeoning” fourteen times this year." }
+  { id:"ottoline", n:"Ottoline Vane", r:"Matriarch · Chair of the Trust", d:"Runs the family, the Trust and the seating plan, in that order. Collects antique barometers and has never once believed one that said “Change.”", j:"Owns eleven barometers. All of them set to “Fair.”" },
+  { id:"kit", n:"Christopher “Kit” Vane", r:"Eldest son · Heir presumptive", d:"Has a pitch deck for a cider-subscription app and a firm belief that the family Trust is his seed round. Has been trying to sell Southfield to fund it.", j:"Calls his mother “the Board” when she’s in the room. Not to her face." },
+  { id:"marguerite", n:"Marguerite Vane", r:"Daughter · Member communications", d:"Writes the quarterly newsletter in prose that could make a car park sound like Provence. Wants Kit’s job. Says so, at dinner, often.", j:"Has used “burgeoning” fourteen times this year. Fifteen, counting the Christmas card." },
+  { id:"lionel", n:"Lionel Fairweather", r:"Brother-in-law · Treasurer", d:"Married into the family thirty years ago and still says “your family” at Christmas. Holds the Trust’s signing authority. Keeps racing silks in his office.", j:"Times his tea with a stopwatch. The tea is never late." },
+  { id:"crane", n:"Bartholomew Crane", r:"Outside appraiser", d:"Values orchards by walking every row and counting every tree. Signed the 3.4 million. Doesn’t care for anybody at this table and says so with his eyebrows.", j:"Has measured the dining table twice since the soup." },
+  { id:"desmond", n:"Desmond Achterberg", r:"Cellar master", d:"Thirty years in the cider house. A gleaming new copper still arrived in April, and he refers to it as “she.”", j:"Talked about copper for eleven minutes. Nobody asked." },
+  { id:"priya", n:"Priya Haldane", r:"Analyst", d:"Built and keeps the Trust’s workbook. Leaves questions in cell comments that nobody answers. The only person in the house who has read the bylaws.", j:"Her workbook has 47 tabs. The manor has 31 rooms." }
 ];
 
 var F_CARDS = [
   { id:"fp1", room:"pitch", head:"Six chair’s letters, one prediction",
     claim:"Six consecutive quarterly letters from Ottoline Vane each say: “Southfield harvest exit expected next quarter.” Every one describes Southfield as a Trust holding.",
     joke:"Projected exit date: perpetually next quarter.",
-    note:"Overconfident, yes. But she writes about selling Southfield in the future. That fits someone who did not know it had already gone." },
+    note:"Overconfident? Oh, you bet. But she keeps talking about selling Southfield someday. That’s a funny thing to say about an orchard you know you already gave away." },
   { id:"fp2", room:"pitch", head:"The newsletter: “Southfield in glorious blossom”",
-    claim:"Marguerite’s spring newsletter shows a photograph of Southfield in flower. The credit in the corner, in tiny type, reads: “Stock image, licensed 2019.”",
-    joke:"The orchard in the photo also appears in a brochure for Norwegian fjord cruises.",
-    note:"Embarrassing and careless, but a stock photo does not move a land title." },
+    claim:"Marguerite’s spring newsletter shows Southfield in full flower. The credit in the corner, in very small type, reads: “Stock image, licensed 2019.”",
+    joke:"The same orchard appears in a brochure for Norwegian fjord cruises.",
+    note:"Embarrassing. Not criminal. A stock photo never moved a land title, far as anyone knows." },
+  { id:"fk1", room:"pitch", head:"Kit’s pitch deck for “Cidr”",
+    claim:"Dated May. Slide 9, “Funding”: “Sell Southfield Orchard (est. 3.4m) next year, subject to Mother.” Slide 10 is a photograph of a yacht.",
+    joke:"The deck says “disrupt” nine times. The cider industry remains undisrupted.",
+    note:"So in May, Kit still thought the family owned Southfield. Hard to have sold a thing in March that you’re planning to sell next year." },
   { id:"fl1", room:"ledger", head:"Bank statements, March to May",
-    claim:"No deposit from Brindle Hill Farms. Nothing near 1.1 million arrived from anyone. The largest receipt in the period is 18,400 from cider sales.",
+    claim:"No deposit from Brindle Hill Farms. Nothing near 1.1 million from anyone. The largest receipt in the period is 18,400 from cider sales.",
     joke:"",
-    note:"If Southfield was sold for cash, the cash never reached the Trust, and there is no sign it was ever paid at all." },
+    note:"No money came in. So either somebody’s very bad at selling orchards, or nobody sold it for money at all." },
   { id:"fl2", room:"ledger", head:"Workbook change log (tab 31 of 47)",
-    claim:"Cell Southfield!B4, “Appraisal date,” was changed from “14 Oct” to “30 Jun” on 9 July at 23:48, under the shared login “treasury-desk.” The value, 3,400,000, was not changed.",
+    claim:"Cell Southfield!B4, “Appraisal date,” was changed from “14 Oct” to “30 Jun” on 9 July at 23:48, under the shared login “treasury-desk.” The value, 3,400,000, was not touched.",
     joke:"This spreadsheet has more tabs than the manor has rooms.",
-    note:"Someone made an old appraisal look current. Who uses that login?" },
+    note:"Somebody made an old appraisal look like a new one. Didn’t change the number. Just the date. That’s a careful sort of person." },
   { id:"fl3", room:"ledger", head:"Login roster",
-    claim:"The shared login “treasury-desk” is used by two people: Lionel Fairweather and Priya Haldane.",
+    claim:"The shared login “treasury-desk” is used by exactly two people: Lionel Fairweather and Priya Haldane.",
     joke:"",
-    note:"That narrows the edit to two people." },
+    note:"Two names. That’s a short list." },
   { id:"fg1", room:"gallery", head:"Crane’s appraisal, original file",
-    claim:"Southfield Orchard valued at 3,400,000. The footer reads “Prepared 14 October, following site inspection.” The caveat reads “Valid as of the date of inspection only.”",
+    claim:"Southfield Orchard: 3,400,000. Footer: “Prepared 14 October, following site inspection.” Caveat: “Valid as of the date of inspection only.”",
     joke:"",
-    note:"The appraisal predates the March transfer. Crane valued an orchard the Trust still owned. Someone else carried his number forward." },
+    note:"Crane’s number was honest when he wrote it. Somebody kept serving it after it went off." },
   { id:"fg2", room:"gallery", head:"Land Registry extract",
-    claim:"Southfield was transferred to Brindle Hill Farms on 3 March. Consideration: “Nil cash. In satisfaction of obligations under side letter of the same date.” Signed for the Trust by the Treasurer.",
+    claim:"Southfield transferred to Brindle Hill Farms on 3 March. Consideration: “Nil cash. In satisfaction of obligations under side letter of the same date.” Signed for the Trust by the Treasurer.",
     joke:"A valuation is not a bank balance. An orchard is not a valuation.",
-    note:"No money changed hands. The orchard paid off something else, and the Treasurer signed." },
+    note:"“Nil cash.” “Satisfaction of obligations.” That’s the Registry’s polite way of saying an orchard paid somebody’s bill. And the Treasurer signed." },
   { id:"fg3", room:"gallery", head:"Comment thread on tab “Southfield_OLD_do_not_use”",
-    claim:"20 March, Priya: “Registry fee invoice addressed to Brindle Hill?? Is Southfield still ours?” Reply the same day, initialled L.F.: “Clerical. Ignore.”",
+    claim:"20 March, Priya: “Registry fee invoice addressed to Brindle Hill?? Is Southfield still ours?” Reply the same afternoon, initialled L.F.: “Clerical. Ignore.”",
     joke:"",
-    note:"Priya raised the alarm. The reply shows the Treasurer knew in March that there was a question." },
+    note:"Priya asked the right question in March and was told to ignore it. Initialled L.F. Huh." },
   { id:"fw1", room:"witness", head:"Interview: Desmond Achterberg",
-    claim:"“Bought the still? I leased her. It’s minute twelve of the April board meeting, and the lessor’s agreement is in the vault. Ask anyone who’s had to read the depreciation schedule.”",
+    claim:"“Bought her? I leased her. Minute twelve, April board meeting, and the lessor’s agreement is in the strong room. I’d sooner sell a kidney than an orchard.”",
     joke:"He then talked about copper for eleven minutes.",
-    note:"This can be checked against the lease in the Recovery Vault." },
+    note:"Checkable. The lease is in the Recovery Vault." },
   { id:"fw2", room:"witness", head:"Interview: Priya Haldane",
-    claim:"“On 9 July I was judging perry at the county cider fair until after midnight. The results were printed in the county paper the next day, and my name is on them.” The clipping lists her as judge, with prizes presented at 23:30.",
+    claim:"“On the ninth of July I was judging perry at the county fair until after midnight. My name’s in the paper. Nobody in this family reads the paper.” The clipping lists her as judge, prizes presented at 23:30.",
     joke:"",
-    note:"She could not have made the 23:48 edit from the manor office." },
+    note:"She can’t have made an edit at 23:48 from a fairground tent." },
   { id:"fw3", room:"witness", head:"Interview: Lionel Fairweather",
-    claim:"“Southfield? Sound as a bell. Crane valued it at year-end, it’s all in the report.”",
+    claim:"“Southfield? Sound as a bell. Crane valued it at year-end. It’s all in the report, if anyone in this family ever read one.”",
     joke:"",
-    note:"Crane’s own file says October, not year-end. Why would the Treasurer misstate the appraisal date?" },
+    note:"Crane’s own file says October, not year-end. Odd thing for the Treasurer to misremember." },
   { id:"fw4", room:"witness", head:"Interview: Ottoline Vane",
-    claim:"“I was in Lisbon for the barometer fair from 28 February to 10 March. I sent the office a postcard.” The postcard, pinned in the hall, is postmarked Lisbon, 2 March.",
+    claim:"“I was in Lisbon for the barometer fair from the twenty-eighth of February to the tenth of March. I sent the office a postcard. Nobody thanked me for it.” The postcard, pinned in the hall, is postmarked Lisbon, 2 March.",
     joke:"The postcard is of a barometer.",
-    note:"She was abroad when the transfer was signed on 3 March." },
+    note:"Out of the country when the transfer was signed on the third." },
   { id:"fw5", room:"witness", head:"Interview: Bartholomew Crane",
-    claim:"“I valued what I saw in October. If someone has kept my number past its sell-by date, that’s their spreadsheet, not my appraisal.”",
+    claim:"“I valued what I saw in October. If somebody’s kept my number on the shelf past its sell-by date, that’s their spreadsheet, not my appraisal. Good night.”",
     joke:"",
-    note:"This matches the footer on his original file." },
+    note:"Matches the footer on his file. Also, he left." },
+  { id:"fw6", room:"witness", head:"Interview: Kit Vane",
+    claim:"“Sell it? I tried. Mother keeps the deeds and Uncle Lionel keeps the pen. Nobody in this family lets me sign for so much as a pizza.”",
+    joke:"",
+    note:"Wanted to sell it. Couldn’t sign for it. The Registry agrees with him about the pen." },
   { id:"fc1", room:"court", head:"Board minutes, March meeting",
-    claim:"There is no resolution to dispose of Southfield. The bylaws require the Chair’s countersignature for any disposal over 250,000, and none is recorded.",
+    claim:"No resolution to dispose of Southfield. The bylaws require the Chair’s countersignature for any disposal over 250,000. None is recorded.",
     joke:"The minutes give three paragraphs to the biscuits.",
-    note:"The transfer bypassed the board and the Chair." },
+    note:"The transfer went around the board and around the Chair." },
   { id:"fc2", room:"court", head:"Gate log, 9 July",
     claim:"Lionel Fairweather’s badge: in at 23:31, out at 23:59. No other entries after 22:00.",
     joke:"",
-    note:"Only one of the two “treasury-desk” users was in the building at 23:48." },
+    note:"Of the two people on that login, only one was in the building at 23:48." },
   { id:"fv1", room:"vault", head:"Equipment lease for the copper still",
     claim:"A five-year lease approved at minute 12 of the April board meeting. Monthly payments run from the Trust’s operating account, and every one appears on the statements.",
     joke:"",
-    note:"The still was leased, not bought with orchard money." },
-  { id:"fv2", room:"vault", head:"A charred fragment from the vault hearth",
+    note:"Leased, not bought with orchard money. Desmond’s honor, and his still, are intact." },
+  { id:"fv2", room:"vault", head:"A charred fragment from the strong-room hearth",
     claim:"“…in full and final satisfaction of the sum owed by L.F. on account of Thunderclap, the transfer of the parcel known as Southfield…”",
     joke:"",
-    note:"This looks like the side letter. A personal debt was settled with the Trust’s orchard." },
+    note:"Looks like the side letter. A personal debt, settled with the family’s orchard. Well. That’s a heck of a thing." },
   { id:"fv3", room:"vault", head:"Racing pages, folded in a coat pocket",
     claim:"“Thunderclap (owned in partnership by L. Fairweather and the Brindle Hill syndicate) finished last at Harwick. Again.”",
     joke:"",
-    note:"This connects the Treasurer, a debt, and Brindle Hill." }
+    note:"Treasurer. Debt. Brindle Hill. Three things that shouldn’t be in one sentence." }
 ];
 
 var F_TIMELINE = [
   { d:"14 October (last year)", t:"Crane inspects Southfield and values it at 3.4 million." },
-  { d:"28 Feb – 10 March", t:"Ottoline is in Lisbon." },
+  { d:"28 Feb – 10 March", t:"Ottoline is in Lisbon, looking at barometers." },
   { d:"3 March", t:"Southfield is transferred to Brindle Hill Farms for nil cash under a side letter, signed by the Treasurer." },
-  { d:"March board meeting", t:"No disposal is approved, and there is no countersignature." },
+  { d:"March board meeting", t:"No disposal is approved, and nothing is countersigned." },
   { d:"20 March", t:"Priya asks “Is Southfield still ours?” and gets the reply “Clerical. Ignore.”" },
-  { d:"April", t:"The copper still arrives under a lease approved at minute 12." },
+  { d:"April", t:"The copper still arrives on a lease approved at minute 12." },
+  { d:"May", t:"Kit’s pitch deck still lists Southfield as something to sell “next year.”" },
   { d:"30 June", t:"Financial year ends." },
-  { d:"9 July, 23:31–23:59", t:"Lionel is in the office. At 23:48 the appraisal date is changed from “14 Oct” to “30 Jun.”" },
-  { d:"9 July, to midnight", t:"Priya is judging at the county cider fair." },
-  { d:"September", t:"Valuation Supper. The Land Registry extract arrives." }
+  { d:"9 July, 23:31–23:59", t:"Lionel is in the office. At 23:48 the appraisal date changes from “14 Oct” to “30 Jun.”" },
+  { d:"9 July, to midnight", t:"Priya is judging perry at the county fair." },
+  { d:"September", t:"The Valuation Supper. The Land Registry’s envelope arrives with the port." }
 ];
 
 var MECHS = [
   { id:"cash", t:"Sold for cash; the proceeds were skimmed from the Trust’s bank account" },
   { id:"appraiser", t:"The appraiser inflated the valuation" },
+  { id:"heir", t:"The heir sold it quietly to fund his start-up" },
   { id:"swap", t:"Swapped to settle a personal debt; an old appraisal was rolled forward to hide it" },
   { id:"still", t:"Sale proceeds secretly paid for the copper still" },
   { id:"clerical", t:"No wrongdoing: an overoptimistic forecast and a clerical error" }
 ];
 var KEY_CLUES = ["fg2","fl2","fc2","fw2","fg1","fg3","fl1","fv2","fv3","fl3","fc1"];
 var ALTS = [
-  { id:"a1", t:"“The appraiser inflated it.”", ok:["fg1","fw5","fl2"], x:"Crane’s file is dated 14 October, before the transfer, and the change log shows the date was edited later under the Treasurer’s login. His number was accurate when he made it." },
+  { id:"a1", t:"“The appraiser inflated it.”", ok:["fg1","fw5","fl2"], x:"Crane’s file is dated 14 October, before the transfer, and the change log shows the date was edited later under the treasury login. His number was accurate when he made it." },
+  { id:"a5", t:"“Kit sold it to fund his app.”", ok:["fk1","fw6","fg2"], x:"His own deck, dated May, still plans to sell Southfield “next year,” and the Registry shows the Treasurer signed in March. Kit wanted to sell it. Somebody beat him to it." },
   { id:"a2", t:"“The sale proceeds bought the still.”", ok:["fv1","fl1"], x:"The still is leased, approved at minute 12 and paid monthly. No sale proceeds ever arrived to pay for anything." },
-  { id:"a3", t:"“The cash was skimmed from the bank.”", ok:["fl1","fg2"], x:"The registry shows nil cash, and the statements show no deposit. There was never any cash to skim." },
+  { id:"a3", t:"“The cash was skimmed from the bank.”", ok:["fl1","fg2"], x:"The Registry says nil cash, and the statements show no deposit. There was never any cash to skim." },
   { id:"a4", t:"“Just a clerical error and an optimistic Chair.”", ok:["fg3","fv2","fc1"], x:"“Clerical. Ignore.” came after a direct question, the side letter shows intent, and the transfer skipped the board. The Chair was overoptimistic, but she was in Lisbon and never countersigned." }
 ];
 
@@ -1152,7 +1218,7 @@ function App(){
   var score = real ? realScore(st.real) : ficScore(st.fic);
   var tabs = real
     ? [["rooms","Rooms"],["board","Caseboard"],["timeline","Timeline"],["people","People & entities"],["challenges","Challenges"],["sources","Sources"],["assess","Evidence Assessment"]]
-    : [["rooms","Manor rooms"],["board","Caseboard"],["timeline","Timeline"],["people","Cast"],["deduce","Deduction & reveal"]];
+    : [["rooms","The rooms"],["board","Caseboard"],["timeline","Timeline"],["people","The family"],["deduce","The drawing room"]];
 
   function setMode(m){ up(function(n){ n.mode = m; n.tab = "rooms"; n.room = null; }); setOpen(null); }
   function go(tab){ up(function(n){ n.tab = tab; n.room = null; }); }
@@ -1161,7 +1227,7 @@ function App(){
     <header className="top">
       <div className="wrap">
         <div className="brand"><b>The Case of the Vanishing Valuation</b>
-          <span>${real ? "Case Explorer: the public record of the Visionary Private Equity Group receivership" : "Fictional Mystery: invented characters, invented money"}</span></div>
+          <span>${real ? "Case Explorer · the public record" : "Fictional Mystery · not a true story"}</span></div>
         ${st.started && html`
         <div className="tools">
           <div className="modes" role="group" aria-label="Mode">
@@ -1169,7 +1235,7 @@ function App(){
             <button aria-pressed=${!real} onClick=${function(){setMode("fiction");}}>Fictional Mystery</button>
           </div>
           <span className="score" aria-live="polite" title="Points come from sourcing, classification, uncertainty, double-count avoidance, and alternatives. Never from accusations.">${sum(score)} pts</span>
-          <button className="btn" aria-pressed=${st.humor} onClick=${function(){ up(function(n){ n.humor = !n.humor; }); }}>Humor: ${st.humor ? "on" : "off"}</button>
+          <button className="btn" aria-pressed=${st.humor} onClick=${function(){ up(function(n){ n.humor = !n.humor; }); }}>Dry humor: ${st.humor ? "on" : "off"}</button>
           ${real && html`<button className="btn" onClick=${function(){ setDrawer({}); }}>Source drawer</button>`}
           <button className="btn" onClick=${function(){ setConfirmReset(true); }}>Reset</button>
         </div>`}
@@ -1218,49 +1284,67 @@ function App(){
 function Welcome(p){
   var st = p.st, up = p.up;
   function start(m){ up(function(n){ n.started = true; n.mode = m; n.tab = "rooms"; }); }
-  return html`<main><div className="wrap welcome">
-    <div>
-      <div className="kicker">An evidence game in two separate modes</div>
-      <h1>The Case of the Vanishing Valuation</h1>
-      <div className="notice" role="note">
-        <strong>Before you begin</strong>
-        An independent educational experience—not legal advice, an official investigation, or an accusation of criminal guilt. Allegations are not findings. The real case may remain unresolved.
+  return html`<main style=${{paddingTop:0}}>
+    <section className="titlecard" aria-labelledby="t-title"><div className="wrap">
+      <p className="credit">A case file in two parts</p>
+      <h1 id="t-title" className="title-xl">The Case of the <em>Vanishing Valuation</em></h1>
+      <p className="credit">Featuring the public record · and an entirely invented family</p>
+    </div></section>
+    <div className="wrap welcome">
+      <div>
+        <div className="notice" role="note">
+          <strong>Before you begin</strong>
+          An independent educational experience—not legal advice, an official investigation, or an accusation of criminal guilt. Allegations are not findings. The real case may remain unresolved.
+        </div>
+        <p className="lede">Some people playing this lost money in the fund described in Part One. Part One treats that seriously. It sorts the public record into what courts ordered, what witnesses said under oath, what parties allege, and what nobody knows yet. It never asks you to decide who is guilty, and its jokes are only about jargon.</p>
+        <p className="lede muted">Part Two is a separate, invented whodunit about a posh family, an orchard trust and a missing orchard. None of its characters is based on a real person.</p>
+        <label className="check"><input type="checkbox" id="humor-toggle" checked=${st.humor} onChange=${function(ev){ var v = ev.target.checked; up(function(n){ n.humor = v; }); }} /> Include dry humor</label>
       </div>
-      <p className="lede">Some people playing this have lost money in the fund described here. The Case Explorer treats their experience as real. It sorts the public record into what courts have ordered, what witnesses said under oath, what parties allege, and what nobody knows yet. It never asks you to decide who is guilty.</p>
-      <p className="lede muted">The Fictional Mystery is a separate, invented whodunit about an orchard trust. None of its characters is based on a real person.</p>
-      <label className="check"><input type="checkbox" id="humor-toggle" checked=${st.humor} onChange=${function(ev){ var v = ev.target.checked; up(function(n){ n.humor = v; }); }} /> Include gentle humor about jargon and spreadsheets</label>
+      <div className="door">
+        <button onClick=${function(){ start("real"); }}>
+          <span className="reel">Part One</span>
+          <b>The Record</b>
+          <span className="mode-name">Case Explorer</span>
+          <span className="truecard">This is a real case. Nothing here decides it.</span>
+          <span>Six rooms of sourced evidence and three challenges. It ends in an Evidence Assessment, not a verdict. Some evidence slots are left empty on purpose.</span>
+        </button>
+        <button className="fic" onClick=${function(){ start("fiction"); }}>
+          <span className="reel">Part Two</span>
+          <b>The Fiction</b>
+          <span className="mode-name">Fictional Mystery</span>
+          <span className="truecard">This is not a true story.</span>
+          <span>Pellingham Manor. One missing orchard. Seven people who would all prefer it was somebody else. Invented from top to bottom, with a fair solution.</span>
+        </button>
+        <p className="ui muted" style=${{fontSize:".85rem",margin:0}}>Points reward sourcing, classification, spotting uncertainty, avoiding double-counting, and weighing alternatives. Accusations earn nothing.</p>
+      </div>
     </div>
-    <div className="door">
-      <button onClick=${function(){ start("real"); }}>
-        <b>Case Explorer</b>
-        <span>The real record. Six rooms of sourced evidence cards and three challenges, ending in an Evidence Assessment rather than a verdict. Some evidence slots are deliberately left empty.</span>
-      </button>
-      <button className="fic" onClick=${function(){ start("fiction"); }}>
-        <b>Fictional Mystery</b>
-        <span>Pellingham Manor, one missing orchard, six suspects. Invented from top to bottom, with a fair solution.</span>
-      </button>
-      <p className="ui muted" style=${{fontSize:".85rem",margin:0}}>Points reward sourcing, classification, spotting uncertainty, avoiding double-counting, and weighing alternatives. Accusations earn nothing.</p>
-    </div>
-  </div></main>`;
+  </main>`;
+}
+
+function ColdOpen(){
+  return html`<div className="screenplay" role="region" aria-label="Cold open (fiction)">
+    ${COLD_OPEN.map(function(l, i){ return html`<p key=${i} className=${"sp-" + l[0]}>${l[1]}</p>`; })}
+  </div>`;
 }
 
 function Rooms(p){
   var st = p.st, real = st.mode === "real";
   var list = real ? CARDS : F_CARDS;
   return html`<section>
-    <div className="section-head"><h2>${real ? "Six rooms of the public record" : "Pellingham Manor"}</h2>
-      <span className="muted ui">${real ? "Each card cites its source. Classify a card before its status is revealed." : "Every card here is fictional game material."}</span></div>
-    ${!real && html`<p className="lede">${F_PREMISE}</p>`}
+    ${!real && html`<${ColdOpen} />`}
+    <div className="section-head"><h2>${real ? "The record, in six rooms" : "Six rooms of Pellingham Manor"}</h2>
+      <span>${real ? "Each card cites its source · classify before the status is revealed" : "Every exhibit here is fictional game material"}</span></div>
     <div className="rooms">
-      ${ROOMS.map(function(r){
+      ${ROOMS.map(function(r, i){
         var cs = list.filter(function(c){ return c.room === r.id; });
         var done = cs.filter(function(c){ return real ? st.real.guess[c.id] : st.fic.seen[c.id]; }).length;
         var empty = real ? (EMPTY[r.id]||[]).length : 0;
         return html`<button key=${r.id} className="room" onClick=${function(){ p.up(function(n){ n.room = r.id; }); }}>
-          <span className="kicker">${real ? "Case Explorer" : "Fiction"}</span>
+          <span className="kicker">${real ? "File " : "Scene "}${i+1}</span>
           <h3>${r.name}</h3>
+          ${!real && html`<span className="slug">${r.slug}</span>`}
           <span>${real ? r.real : r.fic}</span>
-          <span className="meta"><span>${cs.length} cards</span><span>${done} ${real ? "classified" : "examined"}</span>${real && html`<span>${empty} empty slot${empty===1?"":"s"}</span>`}</span>
+          <span className="meta"><span>${cs.length} ${real ? "cards" : "exhibits"}</span><span>${done} ${real ? "classified" : "examined"}</span>${real && html`<span>${empty} empty slot${empty===1?"":"s"}</span>`}</span>
         </button>`;
       })}
     </div>
@@ -1268,18 +1352,24 @@ function Rooms(p){
 }
 
 function Room(p){
-  var st = p.st, real = st.mode === "real", r = ROOMS.filter(function(x){ return x.id === p.id; })[0];
+  var st = p.st, real = st.mode === "real";
+  var idx = ROOMS.map(function(x){ return x.id; }).indexOf(p.id), r = ROOMS[idx];
   var list = (real ? CARDS : F_CARDS).filter(function(c){ return c.room === p.id; });
   var aside = st.humor ? (real ? REAL_ASIDES : FIC_ASIDES)[p.id] : null;
   return html`<section>
     <button className="dlg-btn" onClick=${function(){ p.up(function(n){ n.room = null; }); }}>← All rooms</button>
-    <div className="section-head" style=${{marginTop:"12px"}}><h2>${r.name}</h2><span className="muted ui">${real ? r.real : r.fic}</span></div>
+    <div style=${{margin:"18px 0 14px"}}>
+      <div className="kicker">${real ? "File " : "Scene "}${idx+1}</div>
+      <div className="section-head" style=${{margin:"4px 0 0"}}><h2>${r.name}</h2><span>${real ? r.real : r.fic}</span></div>
+      ${!real && html`<div className="slug">${r.slug}</div>`}
+    </div>
     ${aside && html`<p className="aside"><b>${real ? "Clerk’s aside (an invented interface joke, not about the real case):" : "Aside:"}</b> ${aside}</p>`}
     <div className="cards">
       ${list.map(function(c){
         var known = real ? st.real.guess[c.id] : true;
         var onBoard = real ? st.real.board[c.id] : st.fic.board[c.id];
         return html`<button key=${c.id} className="folder" onClick=${function(){ p.openCard(c.id); if (!real) p.up(function(n){ n.fic.seen[c.id] = true; }); }}>
+          ${!real && html`<span className="stamp" aria-hidden="true">Exhibit</span>`}
           <h3>${c.head}</h3>
           <span className="cite">${real ? srcCite(c) : "Exhibit " + c.id.toUpperCase() + " · invented"}</span>
           <span className="row">
@@ -1385,12 +1475,14 @@ function CardDialog(p){
 function FicDialog(p){
   var c = p.c, st = p.st, ref = useDialogFocus(), onBoard = st.fic.board[c.id];
   var titleId = "fdlg-"+c.id;
+  var r = ROOMS.filter(function(x){ return x.id===c.room; })[0];
   return html`<div className="scrim" onClick=${function(ev){ if (ev.target === ev.currentTarget) p.close(); }}>
-    <div className="dialog fic-band" role="dialog" aria-modal="true" aria-labelledby=${titleId} tabIndex="-1" ref=${ref} style=${{borderTopColor:"var(--s-fiction)"}}>
-      <div className="kicker" style=${{color:"var(--s-fiction)"}}>Fictional exhibit ${c.id.toUpperCase()} · ${ROOMS.filter(function(x){return x.id===c.room;})[0].name}</div>
+    <div className="dialog" role="dialog" aria-modal="true" aria-labelledby=${titleId} tabIndex="-1" ref=${ref} style=${{borderTopColor:"var(--blood)"}}>
+      <span className="stamp" aria-hidden="true">Exhibit ${c.id.toUpperCase()}</span>
+      <div className="kicker">${r.name} · <span className="mono">${r.slug}</span></div>
       <h2 id=${titleId}>${c.head}</h2>
       <p><${Chip} status="fiction" /></p>
-      <p>${c.claim}</p>
+      <p style=${{fontFamily:"var(--f-type)",fontSize:".98rem"}}>${c.claim}</p>
       ${st.humor && c.joke && html`<p className="aside">${c.joke}</p>`}
       <div className="box"><h4>Auditor’s note</h4><p style=${{margin:0}}>${c.note}</p></div>
       <div className="actions">
@@ -1476,7 +1568,7 @@ function Board(p){
 
 function Timeline(p){
   if (!p.real) return html`<section>
-    <div className="section-head"><h2>Timeline</h2><span className="muted ui">Fictional Mystery: every date is invented</span></div>
+    <div className="section-head"><h2>Timeline</h2><span>Fictional Mystery · every date is invented</span></div>
     <p className="aside">Pieced together from exhibits you can find in the manor rooms.</p>
     <ol className="tl">${F_TIMELINE.map(function(t,i){ return html`<li key=${i}><div className="when">${t.d}</div><div>${t.t}</div><div><${Chip} status="fiction" /></div></li>`; })}</ol>
   </section>`;
@@ -1512,15 +1604,17 @@ function People(p){
 }
 
 function Cast(p){
+  function initials(n){ return n.replace(/“[^”]*”/g,"").split(/\s+/).filter(Boolean).map(function(w){ return w[0]; }).slice(0,2).join(""); }
   return html`<section>
-    <div className="section-head"><h2>The cast at Pellingham Manor</h2><span className="muted ui">Invented characters. None is based on a real person.</span></div>
-    <p className="lede">${F_PREMISE}</p>
-    <div className="cast">${CAST.map(function(c){ return html`<div key=${c.id} className="person fic-band">
-      <${Chip} status="fiction" />
-      <h3 style=${{marginTop:"8px"}}>${c.n}</h3>
-      <div className="ui muted">${c.r}</div>
+    <div className="section-head"><h2>The family, and the help</h2><span>Invented characters · none is based on a real person</span></div>
+    <div className="cast">${CAST.map(function(c){ return html`<div key=${c.id} className="person">
+      <div style=${{display:"flex",gap:"12px",alignItems:"center"}}>
+        <span className="crest" aria-hidden="true">${initials(c.n)}</span>
+        <div><h3>${c.n}</h3><div className="role">${c.r}</div></div>
+      </div>
       <p>${c.d}</p>
       ${p.humor && html`<p className="aside">${c.j}</p>`}
+      <div style=${{marginTop:"auto"}}><${Chip} status="fiction" /></div>
     </div>`; })}</div>
   </section>`;
 }
@@ -1658,10 +1752,10 @@ function Deduce(p){
   var ready = f.culprit && f.mech && f.picks.length >= 3;
   if (f.submitted) return html`<${Reveal} st=${p.st} up=${p.up} />`;
   return html`<section>
-    <div className="section-head"><h2>The deduction</h2><span className="muted ui">Fiction only. Points come from the evidence you cite, not from the name you choose.</span></div>
+    <div className="section-head"><h2>The drawing room</h2><span className="muted ui">Fiction only. Points come from the evidence you cite, not from the name you choose.</span></div>
     ${seen.length < 8 && html`<p className="aside">You have examined ${seen.length} of ${F_CARDS.length} exhibits. You can submit at any time, but the fair solution needs clues from several rooms.</p>`}
     <div className="chal">
-      <h3 style=${{fontSize:"1.3rem"}}>1. Who moved Southfield off the Trust’s land and kept it on the Trust’s books?</h3>
+      <h3 style=${{fontSize:"1.3rem"}}>1. Who gave Southfield away and kept it on the books?</h3>
       <div className="opts" role="radiogroup" aria-label="Suspect">${CAST.map(function(c){ return html`<button key=${c.id} role="radio" aria-checked=${f.culprit===c.id} aria-pressed=${f.culprit===c.id} onClick=${function(){ upF(function(x){ x.culprit = c.id; }); }}>${c.n}</button>`; })}</div>
       <h3 style=${{fontSize:"1.3rem",marginTop:"16px"}}>2. How was it done?</h3>
       <div className="opts" role="radiogroup" aria-label="Mechanism">${MECHS.map(function(m){ return html`<button key=${m.id} role="radio" aria-checked=${f.mech===m.id} aria-pressed=${f.mech===m.id} onClick=${function(){ upF(function(x){ x.mech = m.id; }); }}>${m.t}</button>`; })}</div>
@@ -1683,32 +1777,61 @@ function Deduce(p){
   </section>`;
 }
 
+var FINALE = [
+  ["slug","INT. PELLINGHAM MANOR — DRAWING ROOM — LATER"],
+  ["action","The family has been assembled, which none of them enjoyed. Someone has lit the fire. It is still September."],
+  ["char","YOU"],["dia","Nobody sold Southfield for money. That’s what bothered me. No deposit, no buyer’s cheque. An orchard that size goes, you’d expect a little paperwork with a number on it."],
+  ["char","OTTOLINE"],["dia","Then where did it go?"],
+  ["char","YOU"],["dia","It paid off a debt. Not the Trust’s."],
+  ["action","Six heads turn, slowly, toward LIONEL, who has become very interested in his stopwatch."],
+  ["char","LIONEL"],["dia","I’d like it noted that the horse was very promising."],
+  ["char","MARGUERITE"],["dia","Noted."],
+  ["trans","CUT TO BLACK."]
+];
+
 function Reveal(p){
   var f = p.st.fic;
   var right = f.culprit === "lionel" && f.mech === "swap";
   var name = (CAST.filter(function(c){ return c.id === f.culprit; })[0] || {}).n;
   var sc = ficScore(f);
-  return html`<section className="reveal fic-band">
-    <div className="kicker" style=${{color:"var(--s-fiction)"}}>Fictional Mystery · The reveal</div>
-    <h2 style=${{fontSize:"2rem",margin:"6px 0 10px"}}>The orchard that was paid away</h2>
+  return html`<section className="reveal">
+    <div className="kicker" style=${{color:"var(--blood)"}}>Fictional Mystery · The final scene</div>
+    <h2 style=${{fontSize:"clamp(1.9rem,5vw,2.6rem)",fontStyle:"italic",margin:"6px 0 10px"}}>The orchard that was paid away</h2>
     <p><${Chip} status="fiction" /></p>
     <p className="lede">${right
-      ? "You named Lionel Fairweather and the right mechanism. Here is how the evidence fits together."
-      : "You named " + (name || "someone") + ". The evidence points elsewhere, so it is worth checking your reasoning against what follows."}</p>
+      ? "You named Lionel Fairweather and the right mechanism. Here’s the scene, and how the evidence holds it up."
+      : "You named " + (name || "someone") + ". Not quite. Here’s how it actually went, and the exhibits that show it."}</p>
     <div className="pts">${Object.keys(sc).map(function(k){ return html`<div key=${k}><b>${sc[k]}</b><span>${k}</span></div>`; })}</div>
+
+    <div className="screenplay" style=${{boxShadow:"none",border:"1px solid var(--line)"}}>
+      ${FINALE.map(function(l, i){ return html`<p key=${i} className=${"sp-" + l[0]}>${l[1]}</p>`; })}
+    </div>
 
     <h3>What happened</h3>
     <p>Lionel Fairweather, the Treasurer, co-owned a racehorse called Thunderclap with the Brindle Hill syndicate and ran up a debt to them. On 3 March, while the Chair was in Lisbon, he signed Southfield Orchard over to Brindle Hill Farms for nil cash, under a side letter that settled his personal debt (FG2, FV2, FV3). The board never approved the disposal, and the Chair never countersigned it (FC1, FW4).</p>
-    <p>To keep the orchard on the books, he did not invent a new number. He reused an honest one. Crane’s 14 October appraisal of 3.4 million was accurate when made (FG1, FW5). At 23:48 on 9 July, under the shared “treasury-desk” login, someone changed its date to 30 June so it looked like a year-end valuation (FL2). Only two people use that login (FL3). Priya was judging perry at the county fair (FW2), and the gate log puts Lionel alone in the building from 23:31 to 23:59 (FC2). Priya had already asked “Is Southfield still ours?” in March, and the reply, initialled L.F., was “Clerical. Ignore.” (FG3). At supper he told you Crane valued it “at year-end,” which Crane’s file contradicts (FW3).</p>
+    <p>To keep the orchard on the books, he didn’t invent a new number. He reused an honest one. Crane’s 14 October appraisal of 3.4 million was accurate when made (FG1, FW5). At 23:48 on 9 July, under the shared “treasury-desk” login, its date was changed to 30 June so it looked like a year-end valuation (FL2). Only two people use that login (FL3). Priya was judging perry at the county fair (FW2), and the gate log puts Lionel alone in the building from 23:31 to 23:59 (FC2). In March Priya had asked “Is Southfield still ours?” and the reply, initialled L.F., was “Clerical. Ignore.” (FG3). At supper he told you Crane valued it “at year-end,” which Crane’s own file contradicts (FW3).</p>
 
     <h3>Why the other explanations fail</h3>
     <ul>${ALTS.map(function(a){ var mine = f.alts[a.id]; var ok = mine && a.ok.indexOf(mine) >= 0;
-      return html`<li key=${a.id}><b>${a.t}</b> ${a.x} <span className="ui" style=${{color: ok ? "var(--ok)" : "var(--bad)"}}>(${mine ? (ok ? "your pick, " + mine.toUpperCase() + ", works" : "your pick, " + mine.toUpperCase() + ", does not do the job") : "not answered"})</span></li>`; })}</ul>
+      return html`<li key=${a.id} style=${{marginBottom:"8px"}}><b>${a.t}</b> ${a.x} <span className="ui" style=${{color: ok ? "var(--ok)" : "var(--bad)"}}>(${mine ? (ok ? "your pick, " + mine.toUpperCase() + ", works" : "your pick, " + mine.toUpperCase() + ", doesn’t do the job") : "not answered"})</span></li>`; })}</ul>
 
     <h3>The fair-play check</h3>
-    <p>Every fact in this solution is on an exhibit you could open before you accused anyone. The red herrings had real evidence behind them. The Chair’s forecasts really were overconfident, the newsletter photo really was a stock image, the still really was new, and the appraiser’s signature really was on the 3.4 million figure. A good case explains every clue, including the ones that point the wrong way.</p>
-    ${p.st.humor && html`<p className="aside">Ottoline has since revised her forecast for Southfield’s exit to “not applicable.” It is the first accurate forecast in the Trust’s history.</p>`}
+    <p>Every fact in this solution was on an exhibit you could open before you accused anyone. The red herrings had real evidence behind them. The Chair’s forecasts really were overconfident. The newsletter photo really was a stock image. Kit really did want to sell. The still really was new. The appraiser’s signature really was on the 3.4 million. A good case explains every clue, including the ones that point the wrong way.</p>
+    ${p.st.humor && html`<p className="aside">Ottoline has since revised her forecast for Southfield’s exit to “not applicable.” It is the first accurate forecast in the Trust’s history. Real nice.</p>`}
     <div className="actions"><button className="dlg-btn" onClick=${function(){ p.up(function(n){ n.fic.submitted = false; }); }}>Revise my deduction</button></div>
+
+    <div className="credits" role="region" aria-label="Closing credits (fiction)">
+      <p className="credit">Closing credits</p>
+      <dl>
+        <dt>The Treasurer</dt><dd>Lionel Fairweather</dd>
+        <dt>The Orchard</dt><dd>Southfield (3.4 million, on paper)</dd>
+        <dt>The Horse</dt><dd>Thunderclap (finished last)</dd>
+        <dt>The Appraiser</dt><dd>Bartholomew Crane, who was right in October</dd>
+        <dt>The Analyst</dt><dd>Priya Haldane, who asked first</dd>
+        <dt>The Barometers</dt><dd>Eleven, all set to “Fair”</dd>
+      </dl>
+      <p className="fine">No orchards were harmed in the making of this mystery. The people, places, companies and events in Part Two are invented. Any resemblance to real persons, living or dead, or to any real fund, is coincidental.</p>
+    </div>
   </section>`;
 }
 
