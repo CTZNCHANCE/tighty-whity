@@ -1563,7 +1563,8 @@ function blank(){
 function load(){
   try { var raw = localStorage.getItem(KEY); if(!raw) return blank();
     var s = JSON.parse(raw), b = blank();
-    return Object.assign(b, s, { real:Object.assign(b.real, s.real||{}), fic:Object.assign(b.fic, s.fic||{}) });
+    // Every visit opens on the poster; saved progress is kept.
+    return Object.assign(b, s, { started:false, real:Object.assign(b.real, s.real||{}), fic:Object.assign(b.fic, s.fic||{}) });
   } catch(err){ return blank(); }
 }
 function save(s){ try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(err){} }
