@@ -256,6 +256,67 @@ td.num{font-family:var(--f-type);font-variant-numeric:tabular-nums;white-space:n
 .credits dd{text-align:left;margin:0;font-family:var(--f-display);font-style:italic}
 .credits .fine{font-family:var(--f-type);font-size:.82rem;color:var(--bone-dim);max-width:560px;margin:18px auto 0}
 
+/* Brief, case files, inquiry */
+.lens-toggle{display:inline-flex;border:1px solid var(--blood-hi)}
+.lens-toggle button{border:0;min-height:36px;padding:6px 10px;background:transparent;color:var(--bone);font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.1em;font-size:.74rem;cursor:pointer}
+.lens-toggle button[aria-pressed="true"]{background:var(--blood);color:var(--bone)}
+.lens-note{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;border:1px solid var(--rule);border-left:4px solid var(--s-court);padding:10px 14px;margin-bottom:18px;background:rgba(0,0,0,.3);font-size:.92rem}
+.lens-note.born{border-left-color:var(--blood-hi);background:rgba(125,23,23,.18)}
+.brief-lede{padding:18px 20px;font-size:1.06rem;max-width:900px}
+.brief-lede p{margin:6px 0 0}
+.brief-grid{display:grid;gap:16px;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);margin-top:16px}
+@media (max-width:820px){.brief-grid{grid-template-columns:1fr}}
+.sheet h3{font-size:1.35rem;font-style:italic;margin-bottom:10px}
+.results{margin:0;padding-left:20px}
+.results li{margin-bottom:12px}
+.results b{display:block}
+.notyet{margin:0;padding-left:18px}
+.notyet li{margin-bottom:4px}
+.rowmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:4px}
+.citebtn{font-family:var(--f-type);font-size:.74rem;background:none;border:0;border-bottom:1px dotted currentColor;padding:0;cursor:pointer;color:var(--ink-soft);text-align:left}
+.citebtn:hover{color:var(--ink)}
+.takeaways{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+.takeaway{position:relative;padding-top:20px}
+.takeaway h3{font-size:1.25rem;padding-right:34px}
+.takeaway p{margin:0 0 8px}
+.tk-no{position:absolute;top:10px;right:14px;font-family:var(--f-display);font-style:italic;font-size:2rem;line-height:1;color:var(--blood)}
+.filepick{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.filepick button{font-family:var(--f-ui);font-size:.86rem;letter-spacing:.03em;border:1px solid var(--rule);background:rgba(0,0,0,.35);color:var(--bone);padding:7px 12px;cursor:pointer}
+.filepick button[aria-selected="true"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.filepick .mono{color:var(--gold);margin-right:4px}
+.filepick button[aria-selected="true"] .mono{color:var(--blood)}
+.dossier{padding:22px clamp(16px,3vw,30px);position:relative;border-top:6px solid var(--ink)}
+.dhead{border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:6px}
+.dhead h3{font-size:clamp(1.8rem,4.5vw,2.6rem);margin:4px 0}
+.dlede{margin:0;font-style:italic;max-width:70ch}
+.dstamp{position:absolute;top:16px;right:18px;font-family:var(--f-ui);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.7rem;color:var(--blood);border:2px solid var(--blood);padding:2px 8px;transform:rotate(3deg)}
+@media (max-width:520px){.dstamp{position:static;display:inline-block;margin-bottom:8px}}
+.dgrid{display:grid;gap:4px 28px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media (max-width:820px){.dgrid{grid-template-columns:1fr}}
+.dsec{margin-top:16px}
+.dsec h4{font-family:var(--f-ui);font-size:.74rem;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-soft);margin:0 0 8px;border-bottom:1px solid var(--line);padding-bottom:4px}
+.rows{list-style:none;margin:0;padding:0}
+.rowline{padding:6px 0;border-bottom:1px dotted var(--line);font-size:.93rem}
+.kt{list-style:none;margin:0;padding:0;border-left:2px solid var(--ink);margin-left:4px}
+.kt li{position:relative;padding:0 0 12px 18px;display:grid;grid-template-columns:minmax(0,1fr);gap:2px}
+.kt li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;background:var(--blood);border-radius:50%}
+.kt-when{font-family:var(--f-type);font-size:.85rem}
+.kt-kind{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;color:var(--blood)}
+.verdict{border:1px solid var(--ink);padding:12px 14px;background:rgba(255,255,255,.35)}
+.verdict.born{border-color:var(--blood);border-width:2px}
+.optag{font-family:var(--f-ui);font-size:.66rem;letter-spacing:.14em;color:var(--paper);background:var(--blood);padding:1px 6px;margin-left:6px;vertical-align:middle}
+.read{border-top:1px dotted var(--line);padding-top:8px;margin-top:8px}
+.read-q{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;justify-content:space-between}
+.read p{margin:4px 0 0}
+.conf{font-family:var(--f-type);font-size:.78rem;color:var(--blood);border:1px solid var(--blood);padding:0 6px}
+.change{margin:12px 0 0;font-size:.92rem}
+.inq-rules{padding:14px 16px;margin-bottom:18px}
+.mystery{padding:18px;margin-bottom:16px;border-left:5px solid var(--blood)}
+.mystery h3{font-size:1.45rem;margin:2px 0 4px}
+.mq{font-weight:600;margin:0 0 8px}
+.exh{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin-bottom:6px}
+.inq-opts{flex-direction:column;align-items:stretch}
+.inq-opts button{text-align:left;font-family:var(--f-body);font-size:.95rem;line-height:1.4;padding:9px 12px}
 footer{border-top:1px solid var(--rule);padding-block:20px;font-size:.84rem;color:var(--bone-dim);background:#050605}
 </style>
 
@@ -1143,12 +1204,302 @@ var ALTS = [
 ];
 
 /* ============================================================
+   THE CASE IN BRIEF, CASE FILES, THE INQUIRY
+   Facts come from the four reviewed sources. Anything in the
+   “born on a day” lens is labeled opinion: our read of the cited
+   record, never a finding.
+   ============================================================ */
+var LENSES = {
+  facts: { name:"Stick to the facts", short:"Facts", note:"Only what the reviewed documents establish, with every status labeled." },
+  born:  { name:"I was born on a day, not yesterday", short:"Born on a day", note:"Our read of the cited record: most-likely conclusions, plainly labeled as opinion, with dry humor. Not findings. Nobody here has been found liable or charged." }
+};
+
+var BRIEF = {
+  facts:"Visionary Private Equity Group I, LP raised about $90 million from roughly 1,000 investors, as reported in testimony, and invested in more than 30 private companies. By 2024 it was behind on rent, vendors and insurance. Investors connected to the Oliver family office sued its principals in January 2025. In June 2025 a federal judge put the Fund under a court-appointed receiver after finding, at that early stage, credible evidence of apparent personal use of Fund money and credibly shown misrepresentations to investors. The investors’ fraud claims survived dismissal in March 2026. In August 2026 a separate proposed class action was filed against the law firm where the Fund’s general counsel was a partner. No trial has taken place and no judgment has been entered in the reviewed record.",
+  born:"In plain English: a fund that took in about $90 million spent years telling investors the payday was next quarter, while it fell behind on the rent, borrowed from its own investors to get by, and, per the court’s early findings, sent money to the people running it. In June 2025 a judge took the keys away and handed them to a court-appointed receiver. Nobody has been found liable yet and nobody has been charged. But the judge was born on a day too, and found the evidence credible enough to put someone else in charge of the money."
+};
+
+var RESULTS = [
+  { t:"A receiver took control of the Fund.", d:"June 4, 2025. Jason Buhlinger of Armanino LLP now controls VPEG and Visionary Fund Manager, LLC while the case is pending. The principals no longer run the money.", s:"court", c:"Doc. 88 p. 23" },
+  { t:"The court made early findings against the principals.", d:"For the receivership only: credible evidence of apparent personal use by Zamber and Cosby, misrepresentations by Zamber and Grenley “credibly shown,” and an “imminent danger of further dissipation.”", s:"court", c:"Doc. 88 p. 21" },
+  { t:"Some claims were trimmed, on jurisdiction.", d:"Claims brought on the Fund’s behalf were dismissed without prejudice for lack of jurisdiction. The investors’ own claims went ahead.", s:"court", c:"Doc. 88 p. 23" },
+  { t:"The principals appealed.", d:"The fund manager appealed the receivership, and the general partner appealed being kept out of the case. The appeals were consolidated and still pending on March 16, 2026. Later outcome unverified.", s:"court", c:"Doc. 264 pp. 6–7" },
+  { t:"The fraud claims survived.", d:"March 16, 2026. Motions to strike the complaint, dismiss the fraud claims, and end the fiduciary claims were all denied. The partnership agreement doesn’t shield fraud, gross negligence or criminal conduct.", s:"court", c:"Doc. 264 pp. 16–17" },
+  { t:"A second lawsuit targets the law firm.", d:"August 13, 2026. A proposed class action alleges Husch Blackwell aided the fraud through its partner, the Fund’s general counsel. Nothing has been decided; no class has been certified.", s:"plaintiff", c:"JLP complaint p. 1" }
+];
+var NOT_YET = ["A trial", "A judgment or finding of liability", "A damages figure or a final investor-loss number", "A claims or distribution process for investors", "Any criminal charge (none found in reviewed sources)", "The Eighth Circuit’s ruling on the appeals (unverified)"];
+
+var TAKEAWAYS = [
+  { t:"No audit, no deal.", f:"The partnership agreement called for an annual audit by an independent CPA. The operative complaint alleges the defendants “never permitted an annual audit,” and the JLP complaint says there hasn’t been one since 2011.", b:"If a fund promised you audits and can’t show you one, that is the audit.", s:"plaintiff", c:"Doc. 264 p. 4; JLP ¶ 31" },
+  { t:"Read the label on the statement.", f:"The financial documents Hart received were designated “unaudited, unreconciled, and non-tax basis.”", b:"Three disclaimers on one balance sheet is a man saying “trust me” three times.", s:"sworn", c:"Doc. 88 p. 9" },
+  { t:"Urgency plus a discount is a contradiction.", f:"Investors were told the Fund would soon close and the $1-per-share window would end. The Fund stayed open, and some new investors bought at 1.5 shares per dollar.", b:"Nobody has ever needed a clearance sale on a hot ticket.", s:"court", c:"Doc. 88 pp. 7–8" },
+  { t:"A valuation is not a bank balance.", f:"A clinic whose assets were described as seven laptops and freezers was valued at $1.7 million. At the end of 2023 the Fund had about $218,000 in its accounts.", b:"You can’t pay the rent with a mark-to-market.", s:"sworn", c:"Doc. 88 pp. 7, 9" },
+  { t:"Lending to what you already own is doubling down.", f:"Investors made $1.6 million in short-term loans on assurances that portfolio companies would be monetized “within three to six months.” None had been repaid by June 2025.", b:"When a fund holding other people’s $90 million asks you for a little something till Friday, the fund is telling you something. Listen to it.", s:"sworn", c:"Doc. 88 p. 8" },
+  { t:"Count who holds the keys.", f:"Testimony: wires from the Fund’s account needed both Zamber’s and Cosby’s signatures, and the managing director’s access was cut off for long periods starting in 2018.", b:"Two keys to the vault is a control. Two keys held by the same two partners, with the managing director locked out, is a dinner party.", s:"sworn", c:"Doc. 88 p. 6" },
+  { t:"One number, two answers, means nobody’s counting.", f:"The defendants’ own summaries, months apart, reported $5.8 million and then $9.1 million in distributions.", b:"$3.3 million is not a rounding error.", s:"court", c:"Doc. 88 p. 3" },
+  { t:"Watch which way the money flows.", f:"The JLP complaint alleges about $7.5 million went to insiders and the fund manager since 2021, against about $3 million in distributions to the other limited partners.", b:"If the people running the fund are doing better than the fund, you already know which way the money’s flowing.", s:"plaintiff", c:"JLP ¶¶ 32, 46" },
+  { t:"A famous letterhead isn’t a guarantee.", f:"The JLP complaint alleges subscription paperwork was sent to a partner at a large law firm. That case is at the complaint stage; nothing has been decided.", b:"A law firm’s address on the envelope tells you where to mail the check. It doesn’t tell you where the check goes next.", s:"plaintiff", c:"JLP ¶¶ 10–11" }
+];
+
+/* Case files. Rows: [text, status, source, pinpoint] */
+var FILES = [
+  { id:"zamber", no:"VP-01", name:"Dr. Ronald Zamber", role:"Chairman · Senior Managing Director · defendant",
+    lede:"Everything in this case runs through the Chairman’s office: the pitch, the bank account and most of the wires.",
+    roles:[
+      ["Chairman and Senior Managing Director of VPEG","court","S88","p. 2"],
+      ["Manages the Fund’s Great Southern Bank account with Cosby; wire transfers require both of their signatures (testimony)","sworn","S88","p. 6"],
+      ["One of the two sole members of the general partner, Visionary PE GP I, LLC (the court’s conclusion)","court","S264","p. 10"],
+      ["Ophthalmologist in Fairbanks, Alaska; founded the nonprofit International Vision Quest","reported","SSLM","article"]
+    ],
+    money:[
+      ["At least $1,779,462.63 wired to him, from the partial records one manager could see","sworn","S88","p. 6"],
+      ["Over $5.2 million, 2020 to present","plaintiff","S264","n. 6"],
+      ["About $4.7 million since January 2021","plaintiff","SJLP","¶ 46"],
+      ["$30,000 of Fund money “to cover payroll and other expenditures at Zamber’s eye clinic”","plaintiff","S264","p. 4"]
+    ],
+    record:[
+      ["Court: credible evidence that he and Cosby “at times, siphoned funds from VPEG’s account for their apparent personal use.”","court","S88","p. 21"],
+      ["Court: with Grenley, “repeated material misrepresentations” credibly shown","court","S88","p. 21"],
+      ["Hart: told the loans would be repaid by the end of 2024 because “he had over $50 million lined up”","sworn","S88","p. 8"],
+      ["Hart: a $100,000 loan was to be repaid four days later because he “had vetted four new investors”","sworn","S88","p. 8"],
+      ["Text quoted in a complaint: “Just got a huge surprise at the clinic, I need a $15k wire asap” (Nov. 2022)","plaintiff","SJLP","¶ 47"]
+    ],
+    defense:[
+      ["Through counsel: the wires repaid “a loan to the fund”","defense","S88","n. 5"],
+      ["Defense counsel at the hearing: the evidence was “hearsay, circumstantial, and conclusory”; bad markets and illiquidity are not mismanagement","defense","SSLM","article"],
+      ["Moved to strike the complaint and dismiss the fraud claims; denied","court","S264","pp. 16–17"]
+    ],
+    knew:[
+      ["2018 on","The managing director’s access to the bank account is cut off for long periods. The account is managed by Zamber and Cosby.","sworn","S88","p. 6","control"],
+      ["Aug. 13 & 16, 2021","Wires of $50,000 and $175,000 go to Zamber, three days apart.","sworn","S88","p. 6","payments"],
+      ["Oct. 19, 2021","Text quoted in a complaint asks for “a wire for $270k (deferred compensation) today if possible.”","plaintiff","SJLP","¶ 47","payments"],
+      ["Sept. 2022","Alleged statement to investors: “there was no debt at the Fund level.”","plaintiff","S264","p. 3","statements"],
+      ["2022–2023","Investors lend $1.6 million on assurances of monetizing portfolio companies “within three to six months.”","sworn","S88","p. 8","cash"],
+      ["End of 2023","The Fund’s own unaudited statements show $218,000 in its accounts and a net loss over $10 million.","sworn","S88","p. 9","cash"],
+      ["Mar. & July 2024","The defendants’ own summaries report $5.8 million, then $9.1 million, in distributions.","court","S88","p. 3","statements"],
+      ["Nov. 2024","Alleged: a lender’s UCC filing appears; the same day, a text asks for a “10k wire to RZ.”","plaintiff","SJLP","¶ 70","cash"],
+      ["Dec. 2024 – Apr. 2025","Last rent payment Dec. 30; the city orders the Fund to cease operation Jan. 29; insurance lapses.","court","S88","p. 4","cash"],
+      ["June 4, 2025","Receiver appointed.","court","S88","p. 23","court"]
+    ],
+    facts:"The record establishes his roles, that at least $1,779,462.63 was wired to him per partial records, and that the court, at the receivership stage, found credible evidence of apparent personal use and credibly shown misrepresentations. It does not establish his state of mind, a damages figure, or any crime.",
+    read:[
+      { q:"Did he know about the payments to himself?", conf:"As sure as the record gets", a:"Yes. He received them, and testimony says no wire left the account without his signature. The real fight isn’t about knowledge; it’s about entitlement: whether a loan or a pay agreement stood behind the money. Nobody has produced one in the reviewed record." },
+      { q:"When did he know the Fund was short of cash?", conf:"Very likely by 2022 · near certain by end of 2023", a:"Very likely by 2022, when the Fund started borrowing short-term from its own investors on promises of money “within three to six months.” Near certain by the end of 2023, when the Fund’s own statements showed $218,000 in the bank. People who are flush don’t borrow from their customers till Friday." },
+      { q:"Did he know the rosy statements were false when he made them?", conf:"Likely · for a jury", a:"That’s the case. The court found the misrepresentations “credibly shown” early on, which is a strong signal and not a verdict. Optimism isn’t fraud. Optimism after two years of unpaid bills and unreturned loans is a harder sell. We’d call it likely, and we’d still want the jury." },
+      { q:"Complicit? Conspiring? Criminal?", conf:"Not established", a:"Not established anywhere in the reviewed record, and no criminal charge was found. The judge’s “sounds criminal to me” was a remark from the bench in a civil hearing. Born on a day, not yesterday, means reading the record hard. It doesn’t mean skipping the trial." }
+    ],
+    change:"A signed loan agreement plus bank records showing he put in at least what he took out; buyer letters or term sheets showing the promised exits were real; a compensation agreement approved under the partnership agreement."
+  },
+  { id:"cosby", no:"VP-02", name:"Michael Cosby", role:"General counsel · co-signatory · defendant",
+    lede:"The Fund’s lawyer, who also co-signed the wires and, it’s alleged, did the tax filings. There is no outside accountant or auditor in the reviewed record, so on the money side, this is the closest thing the Fund had to one.",
+    roles:[
+      ["Senior Managing Director and General Counsel; has apparently resigned those positions","court","S88","p. 2 & n. 2"],
+      ["Co-manages the bank account; wires require his signature too (testimony)","sworn","S88","p. 6"],
+      ["One of the two sole members of the general partner LLC (the court’s conclusion)","court","S264","p. 10"],
+      ["Oversaw subscriptions, prepared the Fund’s tax filings, co-controlled the accounts","plaintiff","SJLP","¶ 27"],
+      ["Husch Blackwell partner in Springfield until his separation; the firm’s board decided by late 2025 he would not remain a partner (deposition excerpt as quoted)","plaintiff","SJLP","¶¶ 28, 90"]
+    ],
+    money:[
+      ["At least $128,812.50, from partial records","sworn","S88","p. 6"],
+      ["Over $1 million, 2020 to present","plaintiff","S264","n. 6"],
+      ["About $655,000 since January 2021","plaintiff","SJLP","¶ 88"]
+    ],
+    record:[
+      ["Court: with Zamber, credible evidence of funds siphoned “for their apparent personal use”","court","S88","p. 21"],
+      ["Hart: Cosby “refused to answer his questions beyond generic responses, and he refused to provide audited reports”","sworn","S88","p. 9"],
+      ["Hart: Cosby provided a summary dated Sept. 30, 2024 showing a year-to-date gross profit of $14.50","sworn","S88","p. 9"],
+      ["Bonetti (as reported): he told her he had set up a bank account Zamber didn’t know about, so funds wouldn’t be spent","reported","SSLM","article"],
+      ["Alleged: sent unaudited financial statements from his law-firm email","plaintiff","SJLP","¶ 63"]
+    ],
+    defense:[
+      ["Not among the movants on March 16, 2026. His own position on the merits is not in the reviewed sources.","court","S264","p. 1"]
+    ],
+    knew:[],
+    facts:"The record establishes his roles, that wires needed his signature per testimony, that at least $128,812.50 went to him per partial records, and the court’s early finding of credible evidence of apparent personal use. His state of mind is not established.",
+    read:[
+      { q:"Did he know where the money went?", conf:"As sure as the record gets", a:"He co-signed it. Per testimony, a wire didn’t leave without him. What he thought about it is the open question." },
+      { q:"Did he see a problem?", conf:"Likely saw it · when is unknown", a:"The separate-account story says he did. You don’t build a fence around money unless you’ve watched it wander. It cuts both ways: a gatekeeper trying to keep the gate, or one who noticed and kept it open. The dates would decide it, and we don’t have them." },
+      { q:"The lawyer problem", conf:"Opinion", a:"He’s the principal with a law license and, allegedly, the one doing the tax filings. “I didn’t realize” is a harder argument for the person who reads documents for a living. That’s our view, not a finding." }
+    ],
+    change:"Records for the separate account, with dates; anything in writing, at the time, showing he objected to transfers or warned investors."
+  },
+  { id:"grenley", no:"VP-03", name:"Robert Grenley", role:"Director of Capital Development · defendant",
+    lede:"The man who raised the money and, it’s alleged, also ran two of the companies the money went into.",
+    roles:[
+      ["Director of Capital Development","court","S88","p. 2"],
+      ["Responsible for investor relations, fundraising and marketing","plaintiff","SJLP","¶ 22"],
+      ["CEO of POP! Gourmet and Shop4E, two portfolio companies","plaintiff","SJLP","¶ 38"]
+    ],
+    money:[
+      ["Over $800,000, 2020 to present","plaintiff","S264","n. 6"],
+      ["About $734,000 since January 2021","plaintiff","SJLP","¶ 46"]
+    ],
+    record:[
+      ["Court: with Zamber, “repeated material misrepresentations” credibly shown","court","S88","p. 21"],
+      ["Hart: Grenley said the loans would be used “to invest in the Fund and for expenses”","sworn","S88","p. 8"],
+      ["Huss: Grenley and Zamber asked him to rewrite operating reports “in a more favorable light”","sworn","S88","n. 6"],
+      ["Hart: a $50,000 investment in POP! Gourmet was to buy spices and packaging; neither was bought","sworn","S88","n. 8"],
+      ["Alleged: a December 2024 spreadsheet projected $10 million from POP! Gourmet and $20 million from Shop4E","plaintiff","SJLP","¶ 38"]
+    ],
+    defense:[
+      ["Represented by the same lawyers as Zamber","reported","SSLM","article"],
+      ["Joined the motions to strike and dismiss; denied March 16, 2026","court","S264","pp. 16–17"]
+    ],
+    knew:[],
+    facts:"The record establishes his title, the court’s early finding that misrepresentations by him and Zamber were credibly shown, and testimony about his assurances and requests. His CEO roles at portfolio companies are allegations.",
+    read:[
+      { q:"Did he know what the portfolio companies were really doing?", conf:"Likely, if the CEO allegation holds", a:"If he ran POP! Gourmet and Shop4E, as alleged, he knew one hadn’t made popcorn in two years and the other had no revenue while the spreadsheet said $10 million and $20 million. That’s a big “if,” but it’s checkable, and for him it’s the whole ballgame." },
+      { q:"Salesman or schemer?", conf:"For a jury", a:"Whether he believed his own forecasts is for a jury. But the forecast was revised at least 28 times, by the complaint’s count, and each version pushed the payday back. Somebody noticed the dates moving." }
+    ],
+    change:"Evidence that he didn’t control those companies’ books, or contemporaneous documents showing the projected exits were genuinely in negotiation."
+  },
+  { id:"hart", no:"VP-04", name:"James Hart", role:"President, Oliver Family Office · plaintiff · witness",
+    lede:"The investor who asked the right questions, kept the paper, and said it under oath.",
+    roles:[
+      ["President of the Oliver Family Office; oversees investment strategy for the plaintiffs","court","S88","p. 2"],
+      ["Named plaintiff; testified at the April 28, 2025 hearing","court","S88","pp. 1–2"],
+      ["Former board member of POP! Gourmet","sworn","S88","p. 7"]
+    ],
+    money:[
+      ["The Oliver plaintiffs invested about $11 million after a 2017 presentation by Zamber and Grenley","sworn","S88","p. 8"],
+      ["They made short-term loans of $1.6 million in 2022–2023; Hart lent another $100,000 himself","sworn","S88","p. 8"],
+      ["Default described as over $2 million in loans, interest and fees","sworn","S88","p. 8"]
+    ],
+    record:[
+      ["Received statements labeled “unaudited, unreconciled, and non-tax basis”","sworn","S88","p. 9"],
+      ["Zamber refused to provide audited statements “for at least four to five years”","sworn","S88","p. 9"],
+      ["Received a Sept. 30, 2024 summary showing a year-to-date gross profit of $14.50","sworn","S88","p. 9"],
+      ["Repeated requests to Grenley for updated financials went unanswered","sworn","S88","p. 9"]
+    ],
+    defense:[
+      ["He is a plaintiff with a direct financial stake; his testimony is known here through the court’s summary","court","S88","pp. 1–2"]
+    ],
+    knew:[],
+    facts:"Hart’s testimony supplies most of the dated facts about representations, loans and financial reporting in the receivership order. He is an interested party.",
+    read:[
+      { q:"Why he matters", conf:"Opinion", a:"He’s the case’s best narrator. He asked what an investor should ask, kept the paper, and repeated it under oath. Most of the strongest dated facts in the receivership order come through him." },
+      { q:"The uncomfortable lesson", conf:"Opinion", a:"The red flags he describes, refused audits, unreconciled statements, loans that didn’t come back, showed up years before the receiver did. That’s not on him; it’s how these things go. It’s why the takeaways exist." }
+    ],
+    change:""
+  },
+  { id:"bonetti", no:"VP-05", name:"Brigitte Bonetti", role:"Managing Director, Investor Relations · witness",
+    lede:"The managing director who couldn’t see the bank account.",
+    roles:[
+      ["Managing Director and Director of Investor Relations","sworn","S88","p. 6"],
+      ["Local independent contractor hired to staff the St. Charles office","reported","SSLM","article"]
+    ],
+    money:[
+      ["She and her investor-relations colleagues said they were owed nearly $400,000 in back pay","reported","SSLM","article"]
+    ],
+    record:[
+      ["Access to the bank account “cut off for long periods of time” starting in 2018","sworn","S88","p. 6"],
+      ["From the records she could reach: wires to Zamber, Cosby, and entities she did not recognize","sworn","S88","p. 6"],
+      ["Testified that Zamber and Cosby were the only decision-makers on expenditures","plaintiff","SJLP","¶ 82"]
+    ],
+    defense:[], knew:[],
+    facts:"Her testimony establishes what she saw in the records she could access, and that her access was intermittent.",
+    read:[
+      { q:"Her key fact", conf:"Opinion", a:"It’s a negative one. She was the managing director and couldn’t see the bank account. Funds don’t usually get run that way by accident." }
+    ],
+    change:""
+  },
+  { id:"receiver", no:"VP-06", name:"Jason Buhlinger, Armanino LLP", role:"Court-appointed receiver",
+    lede:"The person now counting the money, working for the court and not for either side.",
+    roles:[
+      ["Receiver over VPEG and Visionary Fund Manager, LLC since June 4, 2025","court","S88","p. 23"],
+      ["Ordered to report the Fund’s cash receipts and disbursements for each month since January 1, 2021","court","S88","p. 27"],
+      ["Paid $575 an hour from Fund property","court","S88","p. 28"]
+    ],
+    money:[],
+    record:[
+      ["Quoted in the JLP complaint: the Fund’s valuation method “is not generally used for valuing privately held companies”","plaintiff","SJLP","¶ 60"],
+      ["The JLP complaint cites a receiver report dated Sept. 23, 2025. It was not reviewed here.","unverified","SJLP","¶ 78"]
+    ],
+    defense:[], knew:[],
+    facts:"His role and duties are set by court order. His own reports were not in the reviewed sources.",
+    read:[
+      { q:"Why he matters most", conf:"Opinion", a:"He’s the only person in this story whose job is to count, and he counts for the court. When his numbers are public, they outrank everyone’s adjectives, ours included." }
+    ],
+    change:""
+  }
+];
+
+/* The Inquiry. Each mystery accepts: facts (right in the facts lens), born (right in the born lens),
+   naive (believing the spin), over (overreach: claims the record doesn't support). */
+var MYSTERIES = [
+  { id:"m1", title:"The Case of the Two Signatures", q:"Who controlled the Fund’s money?", ex:["l1","w1","c3"],
+    opts:[
+      ["over","Zamber and Cosby stole it, and that’s been proven."],
+      ["facts","Testimony says the account was managed by Zamber and Cosby and that wires needed both signatures. The court found credible evidence of apparent personal use, at an early stage."],
+      ["naive","A team of professionals managed it collectively, as the marketing said."],
+      ["born","Zamber and Cosby ran the money. A managing director who can’t see the bank account isn’t an accident; it’s a design. Whose design, and why, is the open question."]
+    ],
+    fb:{ facts:"That’s exactly what the record supports, and no more.", born:"Two keys, two partners, everyone else locked out. That’s not a guess; it’s the org chart.", naive:"The marketing said a team. The testimony says two signatures.", over:"“Credible evidence” at a receivership hearing isn’t “proven.” Not yet." } },
+  { id:"m2", title:"The Case of the Loan Till Friday", q:"The Fund borrowed short-term from its own investors in 2022–2023. What does that tell you?", ex:["l8","p2","v2"],
+    opts:[
+      ["naive","Normal liquidity management for a growing fund."],
+      ["born","A fund sitting on other people’s $90 million doesn’t borrow from its customers till Friday unless it’s out of cash. Whoever asked knew that."],
+      ["over","The loans were a planned scheme to take $1.6 million."],
+      ["facts","Investors lent $1.6 million on assurances of monetizations within months, and the loans weren’t repaid as of June 2025."]
+    ],
+    fb:{ facts:"Accurate, dated, sourced. Also deeply unsatisfying, which is how facts often feel.", born:"The ask is the tell. Nobody borrows from the people they owe distributions to unless the till is empty.", naive:"Growing funds raise capital. Starving funds borrow it from you for four days.", over:"Not repaying a loan isn’t proof it was a scheme from the start. That’s what the trial’s for." } },
+  { id:"m3", title:"The Case of the Valuable Freezers", q:"A clinic described as seven laptops and two freezers was valued at $1.7 million. Your verdict on the number?", ex:["g1","g2","g6"],
+    opts:[
+      ["facts","Testimony describes the assets and says the clinic wasn’t operating; the Fund valued it at $1.7 million (or about $1.2 million, by another account). No valuation workpapers are in the record."],
+      ["over","This proves the whole portfolio was fake."],
+      ["born","Unless those freezers hold the cure for something, nobody honestly marks a closed clinic at $1.7 million without paperwork. The burden’s on the valuation, and there’s no paperwork."],
+      ["naive","Valuations include goodwill and future potential, so $1.7 million is plausible."]
+    ],
+    fb:{ facts:"Right, including the part where two sources disagree about the number.", born:"A valuation needs a method. This one, per the receiver as quoted by the plaintiff, used a method “not generally used.”", naive:"Goodwill is a thing. Goodwill for a clinic that stopped seeing patients two years ago is a bigger thing.", over:"One bad mark doesn’t make thirty companies fake. Some of them may be worth something; that’s the receiver’s job." } },
+  { id:"m4", title:"The Case of the $3.3 Million Rounding Error", q:"Two of the Fund’s own summaries, months apart, reported $5.8 million and $9.1 million in distributions. What do you make of it?", ex:["l9","l5"],
+    opts:[
+      ["born","When the people reporting a number can’t agree with themselves, they either don’t know it or don’t care what it is. Neither is great news from a fiduciary."],
+      ["naive","Probably more distributions happened between the two reports."],
+      ["facts","The court noted a $3.3 million discrepancy and said the amount, timing and recipients of the distribution are unclear."],
+      ["over","The missing $3.3 million was stolen."]
+    ],
+    fb:{ facts:"That’s the court’s own word: unclear.", born:"Fiduciaries are supposed to know where the money went. That’s more or less the whole job.", naive:"The record describes one distribution, in 2021. The summaries disagree about the same money.", over:"A discrepancy in a report is not money that left. It might not be missing at all; it might never have existed." } },
+  { id:"m5", title:"The Case of the Fund That Was Always Closing", q:"Investors were told the Fund would soon close. What actually happened?", ex:["p6","p4","p5"],
+    opts:[
+      ["naive","It was standard scarcity marketing, and harmless."],
+      ["over","Every investor after 2023 was legally defrauded."],
+      ["facts","Investors were told it would soon close and the $1 window would end; the Fund stayed open and sold at 1.5 shares per dollar to some new investors."],
+      ["born","Telling people it’s their last chance at $1 and then running a buy-one-get-one sale isn’t a fund closing. It’s a fund that needs the next check."]
+    ],
+    fb:{ facts:"Both halves are in the order, and together they’re the point.", born:"Scarcity that comes with a discount isn’t scarcity.", naive:"It wasn’t harmless to earlier investors: the court said the discount diluted them.", over:"Whether any particular investor was defrauded is exactly what hasn’t been decided." } },
+  { id:"m6", title:"The Case of the Surprise at the Clinic", q:"Texts quoted in a complaint ask for wires labeled “deferred compensation,” including one after “a huge surprise at the clinic.” Read it.", ex:["l7","l2","c3"],
+    opts:[
+      ["facts","A complaint quotes texts requesting wires; the court found credible evidence of apparent personal use; the defense says some wires repaid a loan, and no loan documents are in the reviewed record."],
+      ["naive","Deferred compensation is normal for fund managers. Nothing to see."],
+      ["born","If the Fund owed him money, there’s a loan or pay agreement somewhere. Until someone produces it, a wire for a surprise at his own eye clinic reads like what it sounds like."],
+      ["over","He embezzled $4.7 million. That’s a fact."]
+    ],
+    fb:{ facts:"Every piece labeled, both sides included.", born:"Paper beats adjectives. The defense can win this one with a single document. It hasn’t appeared.", naive:"Normal deferred compensation comes with an agreement and the investors’ knowledge. Neither is in the record.", over:"$4.7 million is an allegation in a complaint, and “embezzled” is a legal conclusion nobody has reached." } },
+  { id:"m7", title:"The Case of the Law Firm Letterhead", q:"Subscription paperwork allegedly went to a partner at a large law firm. What does the letterhead tell you?", ex:["c11","w8"],
+    opts:[
+      ["over","The law firm knowingly helped commit fraud."],
+      ["naive","A big firm’s involvement means the deal was vetted."],
+      ["born","A law firm’s address on the envelope tells you where to mail the check. It doesn’t tell you anyone’s watching where the check goes next."],
+      ["facts","A proposed class action alleges the firm aided the fraud through its partner; nothing has been decided, no class is certified, and the firm’s response wasn’t reviewed."]
+    ],
+    fb:{ facts:"That’s where the case stands: filed, not decided.", born:"Prestige is not a control. Somebody still has to read the bank statement.", naive:"Vetting isn’t mentioned anywhere in the record. The letterhead is.", over:"That’s the plaintiff’s claim. The firm hasn’t answered it here, and no court has ruled." } },
+  { id:"m8", title:"The Case of What He Knew, and When", q:"By when does the record make it hard to believe the Chairman didn’t know the Fund was in serious cash trouble?", ex:["l8","v2","l1","p3"],
+    opts:[
+      ["naive","Only when the receiver showed up in June 2025."],
+      ["born","By the end of 2023 at the latest. The Fund’s own statements showed $218,000 in the bank, after two years of borrowing from investors and promising money within months."],
+      ["over","Since 2010. It was a scam from day one."],
+      ["facts","The record doesn’t establish his state of mind. It shows dates when the information existed in documents the defendants prepared or received."]
+    ],
+    fb:{ facts:"Correct, and careful. A jury decides what was in his head.", born:"Borrowing from investors in 2022 and showing $218,000 in the bank at the end of 2023 is about as close as a paper record gets to “he knew.”", naive:"Receivers don’t show up first. They show up last.", over:"Nothing in the reviewed record says anything about 2010 except that the Fund was formed. Born on a day doesn’t mean making things up." } }
+];
+
+/* ============================================================
    STATE & SCORING
    ============================================================ */
 var KEY = "vanishing-valuation-v1";
 function blank(){
-  return { started:false, mode:"real", humor:true, tab:"rooms", room:null,
-    real:{ guess:{}, sourced:{}, alt:{}, board:{}, ledger:{}, wit:{}, res:{} },
+  return { started:false, mode:"real", humor:true, lens:"facts", tab:"brief", room:null,
+    real:{ guess:{}, sourced:{}, alt:{}, board:{}, ledger:{}, wit:{}, res:{}, inq:{} },
     fic:{ seen:{}, board:{}, culprit:"", mech:"", picks:[], alts:{}, submitted:false } };
 }
 function load(){
@@ -1175,7 +1526,9 @@ function realScore(r){
   LEDGER_ITEMS.forEach(function(i){ if (r.ledger[i.id] === i.ans) dbl += 10; });
   WIT_ITEMS.forEach(function(i){ if (r.wit[i.id] === i.ans) cls += 10; });
   RES_ITEMS.forEach(function(i){ if (r.res[i.id] && i.ok.indexOf(r.res[i.id])>=0) unc += 10; });
-  return { "Accurate sourcing":src, "Correct evidence classification":cls, "Identifying uncertainty":unc, "Avoiding double-counting":dbl, "Recognizing alternative explanations":alt };
+  var inqPts=0, inq=r.inq||{};
+  MYSTERIES.forEach(function(m){ ["facts","born"].forEach(function(l){ var a=inq[l+":"+m.id], o=l==="facts"?"born":"facts"; if(a===l) inqPts+=15; else if(a===o) inqPts+=5; }); });
+  return { "Reading the record (The Inquiry)":inqPts, "Accurate sourcing":src, "Correct evidence classification":cls, "Identifying uncertainty":unc, "Avoiding double-counting":dbl, "Recognizing alternative explanations":alt };
 }
 function ficScore(f){
   var ex=0, ev=0, alt=0;
@@ -1208,10 +1561,10 @@ function App(){
   var real = st.mode === "real";
   var score = real ? realScore(st.real) : ficScore(st.fic);
   var tabs = real
-    ? [["rooms","Rooms"],["board","Caseboard"],["timeline","Timeline"],["people","People & entities"],["challenges","Challenges"],["sources","Sources"],["assess","Evidence Assessment"]]
+    ? [["brief","The case in brief"],["files","Case files"],["inquiry","The Inquiry"],["rooms","Rooms"],["board","Caseboard"],["timeline","Timeline"],["people","People & entities"],["challenges","Challenges"],["sources","Sources"],["assess","Evidence Assessment"]]
     : [["rooms","The rooms"],["board","Caseboard"],["timeline","Timeline"],["people","The family"],["deduce","The drawing room"]];
 
-  function setMode(m){ up(function(n){ n.mode = m; n.tab = "rooms"; n.room = null; }); setOpen(null); }
+  function setMode(m){ up(function(n){ n.mode = m; n.tab = m === "real" ? "brief" : "rooms"; n.room = null; }); setOpen(null); }
   function go(tab){ up(function(n){ n.tab = tab; n.room = null; }); }
 
   var header = html`
@@ -1225,6 +1578,10 @@ function App(){
             <button aria-pressed=${real} onClick=${function(){setMode("real");}}>Case Explorer</button>
             <button aria-pressed=${!real} onClick=${function(){setMode("fiction");}}>Fictional Mystery</button>
           </div>
+          ${real && html`<div className="lens-toggle" role="group" aria-label="Evidence lens">
+            <button aria-pressed=${st.lens !== "born"} title=${LENSES.facts.note} onClick=${function(){ up(function(n){ n.lens = "facts"; }); }}>Stick to the facts</button>
+            <button aria-pressed=${st.lens === "born"} title=${LENSES.born.note} onClick=${function(){ up(function(n){ n.lens = "born"; }); }}>Born on a day</button>
+          </div>`}
           <span className="score" aria-live="polite" title="Points come from sourcing, classification, uncertainty, double-count avoidance, and alternatives. Never from accusations.">${sum(score)} pts</span>
           <button className="btn" aria-pressed=${st.humor} onClick=${function(){ up(function(n){ n.humor = !n.humor; }); }}>Dry humor: ${st.humor ? "on" : "off"}</button>
           ${real && html`<button className="btn" onClick=${function(){ setDrawer({}); }}>Source drawer</button>`}
@@ -1246,6 +1603,9 @@ function App(){
 
   var body;
   if (st.tab === "rooms") body = st.room ? html`<${Room} st=${st} id=${st.room} up=${up} openCard=${setOpen} />` : html`<${Rooms} st=${st} up=${up} />`;
+  else if (st.tab === "brief") body = html`<${Brief} st=${st} go=${go} />`;
+  else if (st.tab === "files") body = html`<${CaseFiles} st=${st} openSrc=${function(s){ setDrawer({src:s}); }} />`;
+  else if (st.tab === "inquiry") body = html`<${Inquiry} st=${st} up=${up} openCard=${setOpen} />`;
   else if (st.tab === "board") body = html`<${Board} st=${st} up=${up} openCard=${setOpen} score=${score} />`;
   else if (st.tab === "timeline") body = html`<${Timeline} real=${real} openSrc=${function(s){ setDrawer({src:s}); }} />`;
   else if (st.tab === "people") body = real ? html`<${People} openSrc=${function(s){ setDrawer({src:s}); }} />` : html`<${Cast} humor=${st.humor} />`;
@@ -1274,7 +1634,7 @@ function App(){
 
 function Welcome(p){
   var st = p.st, up = p.up;
-  function start(m){ up(function(n){ n.started = true; n.mode = m; n.tab = "rooms"; }); }
+  function start(m){ up(function(n){ n.started = true; n.mode = m; n.tab = m === "real" ? "brief" : "rooms"; }); }
   return html`<main style=${{paddingTop:0}}>
     <section className="titlecard" aria-labelledby="t-title"><div className="wrap">
       <p className="credit">A case file in two parts</p>
@@ -1822,6 +2182,161 @@ function Reveal(p){
         <dt>The Barometers</dt><dd>Eleven, all set to “Fair”</dd>
       </dl>
       <p className="fine">No orchards were harmed in the making of this mystery. The people, places, companies and events in Part Two are invented. Any resemblance to real persons, living or dead, or to any real fund, is coincidental.</p>
+    </div>
+  </section>`;
+}
+
+function SrcRow(p){
+  var r = p.r;
+  return html`<li className="rowline">
+    <span>${r[0]}</span>
+    <span className="rowmeta"><${Chip} status=${r[1]} />
+      <button className="citebtn" onClick=${function(){ p.openSrc(r[2]); }}>${SOURCES[r[2]].short} · ${r[3]}</button></span>
+  </li>`;
+}
+
+function LensNote(p){
+  var l = p.lens;
+  return html`<div className=${"lens-note " + l} role="note">
+    <span className="kicker">Lens · ${LENSES[l].name}</span>
+    <span>${LENSES[l].note}</span>
+  </div>`;
+}
+
+function Brief(p){
+  var lens = p.st.lens;
+  return html`<section>
+    <div className="section-head"><h2>The case in brief</h2><span>What happened · what’s been decided · what to learn</span></div>
+    <${LensNote} lens=${lens} />
+    <div className="sheet brief-lede">
+      <div className="kicker" style=${{color:"var(--blood)"}}>${lens === "born" ? "In plain English (our read)" : "Summary"}</div>
+      <p>${BRIEF[lens]}</p>
+    </div>
+
+    <div className="brief-grid">
+      <div className="sheet">
+        <h3>Actual results so far</h3>
+        <ol className="results">${RESULTS.map(function(r, i){ return html`<li key=${i}>
+          <b>${r.t}</b> ${r.d}
+          <span className="rowmeta"><${Chip} status=${r.s} /><span className="mono">${r.c}</span></span>
+        </li>`; })}</ol>
+      </div>
+      <div className="sheet">
+        <h3>Not happened yet</h3>
+        <p className="muted" style=${{marginTop:0}}>In the documents reviewed through ${REVIEW_DATE}:</p>
+        <ul className="notyet">${NOT_YET.map(function(t, i){ return html`<li key=${i}>${t}</li>`; })}</ul>
+        ${lens === "born" && html`<p className="aside">Civil cases move at the speed of motions. Bring a sandwich.</p>`}
+        <div className="actions">
+          <button className="dlg-btn primary" onClick=${function(){ p.go("files"); }}>Open the case files</button>
+          <button className="dlg-btn" onClick=${function(){ p.go("inquiry"); }}>Play The Inquiry</button>
+        </div>
+      </div>
+    </div>
+
+    <div className="section-head" style=${{marginTop:"34px"}}><h2>Common-sense takeaways</h2><span>I was born on a day, not yesterday</span></div>
+    <p className="lede muted">Lessons any investor can use, each drawn from a documented fact in this case. The lesson is ours; the fact is the record’s.</p>
+    <div className="takeaways">${TAKEAWAYS.map(function(t, i){ return html`<div key=${i} className="sheet takeaway">
+      <span className="tk-no">${i+1}</span>
+      <h3>${t.t}</h3>
+      <p>${t.f}</p>
+      ${lens === "born" && html`<p className="aside">${t.b}</p>`}
+      <span className="rowmeta"><${Chip} status=${t.s} /><span className="mono">${t.c}</span></span>
+    </div>`; })}</div>
+  </section>`;
+}
+
+var KIND_LABEL = { control:"Control", payments:"Payments", statements:"Statements", cash:"Cash", court:"Court" };
+
+function CaseFiles(p){
+  var _f = useState("zamber"), sel = _f[0], setSel = _f[1];
+  var lens = p.st.lens, f = FILES.filter(function(x){ return x.id === sel; })[0];
+  function list(title, rows){ return rows.length ? html`<div className="dsec"><h4>${title}</h4><ul className="rows">${rows.map(function(r, i){ return html`<${SrcRow} key=${i} r=${r} openSrc=${p.openSrc} />`; })}</ul></div>` : null; }
+  return html`<section>
+    <div className="section-head"><h2>Case files</h2><span>Key people · documented roles · our read, when you ask for it</span></div>
+    <${LensNote} lens=${lens} />
+    <div className="filepick" role="tablist" aria-label="Case files">
+      ${FILES.map(function(x){ return html`<button key=${x.id} role="tab" aria-selected=${x.id === sel} onClick=${function(){ setSel(x.id); }}>
+        <span className="mono">${x.no}</span> ${x.name}</button>`; })}
+    </div>
+    <article className="dossier sheet" aria-labelledby=${"df-"+f.id}>
+      <header className="dhead">
+        <div className="dstamp" aria-hidden="true">Case file ${f.no}</div>
+        <div className="kicker" style=${{color:"var(--blood)"}}>${f.role}</div>
+        <h3 id=${"df-"+f.id}>${f.name}</h3>
+        <p className="dlede">${f.lede}</p>
+      </header>
+      <div className="dgrid">
+        <div>
+          ${list("Documented roles", f.roles)}
+          ${list("Money (each figure is its own period and source; do not add them)", f.money)}
+        </div>
+        <div>
+          ${list("On the record", f.record)}
+          ${list("The other side, and limits", f.defense)}
+        </div>
+      </div>
+
+      ${f.knew.length > 0 && html`<div className="dsec">
+        <h4>What did he know, and when?</h4>
+        <p className="muted" style=${{marginTop:0,fontSize:".9rem"}}>Dates when information existed in the record: things he received, signed, said or was sent. The documents show the information existed. Whether he absorbed it is an inference${lens === "born" ? ", and ours is below." : "."}</p>
+        <ol className="kt">${f.knew.map(function(k, i){ return html`<li key=${i}>
+          <span className="kt-when">${k[0]}</span>
+          <span className="kt-kind">${KIND_LABEL[k[5]]}</span>
+          <span className="kt-text">${k[1]}</span>
+          <span className="rowmeta"><${Chip} status=${k[2]} /><button className="citebtn" onClick=${function(){ p.openSrc(k[3]); }}>${SOURCES[k[3]].short} · ${k[4]}</button></span>
+        </li>`; })}</ol>
+      </div>`}
+
+      ${lens === "facts"
+        ? html`<div className="dsec verdict facts"><h4>What the record establishes</h4><p>${f.facts}</p>
+            <p className="muted" style=${{fontSize:".88rem",margin:0}}>Switch the lens to “I was born on a day, not yesterday” for our read.</p></div>`
+        : html`<div className="dsec verdict born"><h4>Our read <span className="optag">Opinion · not a finding</span></h4>
+            ${f.read.map(function(r, i){ return html`<div key=${i} className="read">
+              <div className="read-q"><b>${r.q}</b><span className="conf">${r.conf}</span></div>
+              <p>${r.a}</p></div>`; })}
+            ${f.change && html`<p className="change"><b>What would change our mind:</b> ${f.change}</p>`}
+          </div>`}
+    </article>
+  </section>`;
+}
+
+function Inquiry(p){
+  var st = p.st, lens = st.lens, inq = st.real.inq || {};
+  var other = lens === "facts" ? "born" : "facts";
+  var solved = MYSTERIES.filter(function(m){ return inq[lens+":"+m.id]; }).length;
+  var pts = 0; MYSTERIES.forEach(function(m){ var a = inq[lens+":"+m.id]; if (a === lens) pts += 15; else if (a === other) pts += 5; });
+  function answer(m, id){ p.up(function(n){ n.real.inq = n.real.inq || {}; if (!n.real.inq[lens+":"+m.id]) n.real.inq[lens+":"+m.id] = id; }); }
+  function feedback(m, a){
+    var lead, cls;
+    if (a === lens){ lead = "Correct (+15). "; cls = "ok"; }
+    else if (a === other){ lead = lens === "born" ? "True, and safe (+5). But you were born on a day: " : "Probably right (+5). Also an opinion, and you said you’d stick to the facts. "; cls = "ok"; }
+    else if (a === "naive"){ lead = "Born yesterday. "; cls = "no"; }
+    else { lead = "Easy, counselor. "; cls = "no"; }
+    var why = a === other ? m.fb[lens] : m.fb[a];
+    return html`<p className=${"fb " + cls}>${lead}${why}</p>`;
+  }
+  return html`<section>
+    <div className="section-head"><h2>The Inquiry</h2><span>Eight puzzles from the real record · solve them with the real exhibits</span></div>
+    <${LensNote} lens=${lens} />
+    <div className="sheet inq-rules">
+      <p style=${{margin:0}}><b>How it works.</b> Open the exhibits, then choose a reading. In “Stick to the facts,” the right answer is what the record establishes. In “Born on a day,” it’s the most likely reading of that record. Believing the spin scores nothing in either lens. So does claiming more than the record supports. Switch lenses to play again.</p>
+      <p className="mono" style=${{margin:"8px 0 0"}}>${LENSES[lens].short} lens: ${solved} of ${MYSTERIES.length} answered · ${pts} points</p>
+    </div>
+    ${MYSTERIES.map(function(m, i){ var a = inq[lens+":"+m.id];
+      return html`<div key=${m.id} className="sheet mystery">
+        <div className="kicker" style=${{color:"var(--blood)"}}>Puzzle ${i+1}</div>
+        <h3>${m.title}</h3>
+        <p className="mq">${m.q}</p>
+        <div className="exh"><span className="mono">Exhibits:</span>
+          ${m.ex.map(function(id){ var c = CARDS.filter(function(x){ return x.id === id; })[0];
+            return html`<button key=${id} className="citebtn" onClick=${function(){ p.openCard(id); }}>${c.head}</button>`; })}</div>
+        <div className="opts inq-opts" role="group" aria-label=${"Answers for " + m.title}>
+          ${m.opts.map(function(o){ return html`<button key=${o[0]} aria-pressed=${a === o[0]} disabled=${!!a} onClick=${function(){ answer(m, o[0]); }}>${o[1]}</button>`; })}
+        </div>
+        ${a && feedback(m, a)}
+      </div>`; })}
+    <div className="actions">
+      <button className="dlg-btn" onClick=${function(){ p.up(function(n){ n.lens = other; }); window.scrollTo(0,0); }}>Play again in the “${LENSES[other].name}” lens</button>
     </div>
   </section>`;
 }
