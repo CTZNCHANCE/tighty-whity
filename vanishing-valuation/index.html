@@ -12,7 +12,7 @@
   --paper:#eee5cf; --paper-2:#e2d6ba; --ink:#191612; --ink-soft:#5a5240; --line:#c5b593;
   --gold:#c8a24a; --gold-dim:#8a6f2e; --blood:#7d1717; --blood-hi:#b02a22; --focus:#e6b84f;
   --s-court:#1f4c7a; --s-sworn:#573c84; --s-plaintiff:#8a3616; --s-defense:#1f5c4b; --s-receiver:#40601a;
-  --s-reported:#665420; --s-unverified:#585b58; --s-fiction:#8a1640;
+  --s-reported:#665420; --s-unverified:#585b58; --s-fiction:#8a1640; --s-docket:#2f5f6e; --s-filing:#6b4a1f;
   --ok:#2c6a36; --bad:#9a2a1c; --warn:#d9a441;
   --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --f-body:"Source Serif 4","Iowan Old Style",Georgia,serif;
@@ -342,6 +342,62 @@ td.num{font-family:var(--f-type);font-variant-numeric:tabular-nums;white-space:n
 .needlinks{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:3px}
 .needlinks a{font-family:var(--f-ui);font-size:.8rem;letter-spacing:.03em}
 .needlinks .muted{font-size:.78rem}
+/* Case timeline canvas */
+.tl-wrap{display:grid;gap:0;border:1px solid var(--gold-dim)}
+.tl-tools{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:10px 12px;background:#080a09;border-bottom:1px solid var(--rule)}
+.tl-range{color:var(--gold);min-width:12ch}
+.tl-tools .seg{display:inline-flex;border:1px solid var(--gold-dim)}
+.tl-tools .seg button{border:0;background:transparent;color:var(--bone);font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.1em;font-size:.76rem;padding:6px 10px;cursor:pointer;min-height:34px}
+.tl-tools .seg button[aria-pressed="true"]{background:var(--bone);color:#120f08}
+.tl-field{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-ui);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-dim)}
+.tl-field select,.tl-field input{background:#0b0d0c;border:1px solid var(--gold-dim);color:var(--bone);min-height:34px;padding:4px 8px;font-family:var(--f-body);font-size:.9rem;text-transform:none;letter-spacing:0;max-width:200px}
+.tl-status{display:inline-flex;flex-wrap:wrap;gap:4px}
+.tl-status button{font-family:var(--f-ui);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;padding:3px 7px;min-height:28px;cursor:pointer;background:transparent;color:var(--bone-dim);border:1px dashed var(--rule)}
+.tl-status button[aria-pressed="true"]{background:var(--paper);color:var(--c);border:1.5px solid var(--c);font-weight:700}
+.tl-count{color:var(--bone-dim);font-size:.78rem}
+.tl-stage{overflow:hidden;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;background:var(--paper)}
+.tl-stage:active{cursor:grabbing}
+.tl-stage svg{display:block}
+.tl-era{font-family:var(--f-ui);font-size:11px;letter-spacing:.16em;fill:var(--blood);font-weight:600}
+.tl-lane{font-family:var(--f-ui);font-size:10.5px;letter-spacing:.14em;fill:var(--ink-soft)}
+.tl-tick{font-family:var(--f-type);font-size:11px;fill:var(--ink-soft)}
+.tl-cut{font-family:var(--f-ui);font-size:10.5px;fill:var(--blood)}
+.tl-num{font-family:var(--f-ui);font-size:12px;font-weight:700;fill:var(--ink)}
+.tl-hit{cursor:pointer;outline:none}
+.tl-hit:focus-visible circle:nth-of-type(2){stroke:var(--focus);stroke-width:3}
+.tl-legend{display:flex;flex-wrap:wrap;gap:6px 16px;padding:8px 12px;background:#080a09;border-top:1px solid var(--rule);font-family:var(--f-ui);font-size:.78rem;color:var(--bone-dim)}
+.tl-legend i{display:inline-block;vertical-align:-1px;margin-right:6px}
+.tl-legend .dot{width:11px;height:11px;border-radius:50%}
+.tl-legend .dot.ring{border:1.5px solid var(--bone-dim);background:transparent}
+.tl-legend .dot.ghost{border:1.5px dashed var(--bone-dim);background:transparent}
+.tl-legend .bar{width:18px;height:3px;vertical-align:3px}
+.tl-legend .bar.dash{background-image:repeating-linear-gradient(90deg,transparent 0 5px,#080a09 5px 8px)!important}
+.tl-detail{--muted:var(--ink-soft);color:var(--ink);background:var(--paper) var(--grain);background-blend-mode:multiply;padding:16px 18px;border-top:3px double var(--gold-dim);display:grid;gap:8px}
+.tl-detail h3{font-size:1.35rem}
+.tl-detail .kicker{font-family:var(--f-type);font-size:.85rem;color:var(--blood)}
+.tl-detail p{margin:0;max-width:72ch}
+.tl-empty p{color:var(--ink-soft)}
+.tl-accts{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.tl-acct{border-left:4px solid;padding:4px 0 4px 12px;display:grid;gap:3px;min-width:0}
+.tl-acct-when{font-family:var(--f-type);font-size:.8rem;color:var(--ink-soft)}
+.tl-acct-tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.tl-warn{font-family:var(--f-ui);font-weight:600;color:var(--s-plaintiff);letter-spacing:.02em}
+.tl-note{font-size:.93rem;border:1px dashed var(--line);padding:8px 10px;background:rgba(255,255,255,.3)}
+.tl-links{font-size:.93rem}
+.tl-links .linkish,.tl-cluster .linkish,.tl-reading .linkish,.tl-list .linkish{background:none;border:0;padding:0;font:inherit;color:var(--blood);text-decoration:underline;text-underline-offset:3px;cursor:pointer;text-align:left}
+.tl-cluster{margin:0;padding-left:18px;display:grid;gap:4px}
+.tl-reading{border:1.5px solid var(--blood-hi);padding:8px 10px;font-size:.95rem}
+.tl-take{border-top:1px dotted var(--line);padding-top:8px;font-size:.93rem}
+.tl-list{padding:16px 14px;display:grid;gap:18px}
+.tl-era-h{font-size:1.4rem;font-style:italic;margin-bottom:10px}
+.tl-list .tl-accts{margin-top:6px}
+.tl-list .tl-acct{background:var(--paper);color:var(--ink);padding:6px 10px 6px 12px}
+.tl-list .tl-acct::before{display:none}
+.tl-list li.dim{opacity:.4}
+.tl-list li.ghost::before{background:transparent;border-style:dashed}
+.tl-list .tl-reading{background:var(--paper);color:var(--ink);margin-top:6px}
+.tl-list .tl-take{color:var(--bone-dim);border-color:var(--rule)}
+.tl-list .tl-note{color:var(--bone-dim);border-color:var(--rule);background:transparent;margin-top:6px}
 footer{border-top:1px solid var(--rule);padding-block:20px;font-size:.84rem;color:var(--bone-dim);background:#050605}
 </style>
 
@@ -418,8 +474,8 @@ var NEEDED = [
   { t: "April 28, 2025 hearing transcript (Doc. 82)", why: "Cited for most witness testimony. Only summaries in Doc. 88 and quotations in other documents were reviewed." },
   { t: "Third Amended Complaint (Doc. 177, filed Sept. 5, 2025)", why: "The operative complaint. Known here only through Doc. 264 and the JLP complaint." },
   { t: "Order on sealing of the receiver’s preliminary report (research lead: Mar. 16, 2026)", why: "Found only as a research lead. The hosting page was blocked by a captcha and the order was not read." },
-  { t: "Order on sale of Circle Internet Group shares (research lead: Jan. 13, 2026)", why: "Found only as a research lead. Not retrieved; whether any sale occurred is unknown." },
-  { t: "Eighth Circuit, No. 25-2269 (consolidated appeals): docket and any decision", why: "Doc. 264 says the appeals were pending on Mar. 16, 2026. The docket returned an access error." },
+  { t: "Order on sale of Circle Internet Group shares (Jan. 13, 2026)", why: "Located on CourtListener on Oct. 23, 2026 and added to the timeline. It authorizes a limited sale; whether any shares were actually sold, and at what price, is still unknown." },
+  { t: "Eighth Circuit, No. 25-2269 (consolidated appeals): any decision", why: "Doc. 264 says the appeals were pending on Mar. 16, 2026. A docket mirror read on Oct. 23, 2026 runs only to Dec. 18, 2025 and shows no decision." },
   { t: "Cosby deposition, Vol. 2 (Doc. 278-11, Mar. 13, 2026)", why: "Known only from a short excerpt in the JLP complaint." },
   { t: "Husch Blackwell’s response to the JLP complaint", why: "None located. The firm’s position is not represented in this game." },
   { t: "Docket activity in No. 4:25-cv-00132 after Mar. 16, 2026", why: "Not reviewed, so the evidence coverage date cannot be verified." },
@@ -460,10 +516,12 @@ var STATUS = {
   defense:    { label: "Defense position", code: "Defense", est: "Establishes only that the defense argued or asserted this." },
   receiver:   { label: "Receiver finding", code: "Receiver", est: "Establishes what the court-appointed receiver reported, once the receiver’s own document has been inspected." },
   reported:   { label: "Reported information", code: "Reported", est: "Establishes what a news outlet reported. It is not a transcript or a court record." },
+  docket:     { label: "Docket entry", code: "Docket", est: "Establishes that a document was filed, or an order entered, on that date, as the docket describes it. It says nothing about the merits." },
+  filing:     { label: "Regulatory filing", code: "Filing", est: "Establishes what the filer told a regulator, under its own signature. It does not establish that the report was accurate." },
   unverified: { label: "Unverified", code: "Unverified", est: "No reviewed source establishes this." },
   fiction:    { label: "Fictional game material", code: "Fiction", est: "Invented for the game. It says nothing about the real case." }
 };
-var STATUS_ORDER = ["court","sworn","plaintiff","defense","receiver","reported","unverified","fiction"];
+var STATUS_ORDER = ["court","sworn","filing","docket","plaintiff","defense","receiver","reported","unverified","fiction"];
 
 function Chip(p){
   var s = STATUS[p.status];
@@ -954,47 +1012,21 @@ var EMPTY = {
     { t:"Order on sealing of the receiver’s preliminary report", b:"Research lead only (reportedly March 16, 2026). The page was blocked by a captcha and the order was not read." }
   ],
   vault: [
-    { t:"Order on sale of Circle Internet Group shares", b:"Research lead only (reportedly January 13, 2026). Not retrieved. Whether any sale occurred, and for how much, is unknown." },
+    { t:"Record of any Circle Internet Group share sale", b:"The January 13, 2026 order allows a limited sale (see the Timeline). Whether any shares were sold, and for how much, is not in reviewed sources." },
     { t:"Claims or distribution plan", b:"What belongs here: any court-approved process for investors to make claims or receive recoveries. None found in reviewed sources." }
   ]
 };
 
 /* ============================================================
    REAL TIMELINE
+   Events, accounts, gaps and readings live in data/timeline.json.
    ============================================================ */
-var TIMELINE = [
-  { d:"Jan. 2010", t:"VPEG formed as a Missouri limited partnership.", s:"plaintiff", src:"SJLP", pin:"¶ 20" },
-  { d:"Late 2010 or early 2011", t:"First investors join, described as “family and friends.”", s:"court", src:"S88", pin:"p. 3" },
-  { d:"2011", t:"Last independent audit, according to the JLP complaint.", s:"plaintiff", src:"SJLP", pin:"¶¶ 31, 59" },
-  { d:"2017 / 2018–2023 / “not long after” 2010", t:"The Oliver plaintiffs’ investment of about $11 million. Doc. 88 says they decided to invest after a 2017 presentation; Doc. 264, repeating the TAC, says initial investments were made 2018–2023; the magazine says “not long after” the 2010 launch.", s:"court", src:"S88", pin:"p. 8; Doc. 264 p. 2; magazine", conflict:"Three sources, three timings." },
-  { d:"2021", t:"At least one distribution to limited partners. Its amount and recipients are unclear.", s:"court", src:"S88", pin:"p. 3" },
-  { d:"Sept. 2022", t:"South Bend meeting; alleged “no debt at the Fund level” statement.", s:"plaintiff", src:"S264", pin:"p. 3" },
-  { d:"2022–2023", t:"Short-term loans of $1.6 million from plaintiffs, plus $100,000 from Hart.", s:"sworn", src:"S88", pin:"p. 8" },
-  { d:"Mar. 2023", t:"Trustee board meeting; distribution alleged to be “right around the corner.”", s:"plaintiff", src:"S264", pin:"p. 3" },
-  { d:"May 12, 2023", t:"JLP Partners subscribes for $100,000.", s:"plaintiff", src:"SJLP", pin:"¶ 99" },
-  { d:"End of 2023", t:"Unaudited statements show $218,000 cash and a net loss over $10 million.", s:"sworn", src:"S88", pin:"p. 9" },
-  { d:"Mar. 1, 2024", t:"Executive summary reports $5.8 million in distributions.", s:"court", src:"S88", pin:"p. 3" },
-  { d:"July 23, 2024 (or June 2024)", t:"Updated report shows $9.1 million in distributions.", s:"court", src:"S88", pin:"p. 3; Doc. 264 p. 3", conflict:"Doc. 88 says July 23; Doc. 264 (TAC) says June." },
-  { d:"Sept. 30, 2024", t:"Summary document provided by Cosby shows a year-to-date gross profit of $14.50.", s:"sworn", src:"S88", pin:"p. 9" },
-  { d:"Nov. 12, 2024", t:"Lien filing naming VPEG as debtor (alleged).", s:"plaintiff", src:"S264", pin:"p. 5" },
-  { d:"Dec. 30, 2024", t:"Most recent rent payment as of the April hearing.", s:"sworn", src:"S88", pin:"p. 4" },
-  { d:"Jan. 29, 2025", t:"City of St. Charles business-license notice: “required to cease operation.”", s:"court", src:"S88", pin:"p. 4" },
-  { d:"Jan. 31, 2025", t:"Oliver and Company v. Zamber filed.", s:"court", src:"S264", pin:"p. 5" },
-  { d:"Apr. 28, 2025", t:"Consolidated hearing on jurisdiction and receivership.", s:"court", src:"S88", pin:"p. 1" },
-  { d:"June 4, 2025", t:"Receiver appointed; derivative claims dismissed without prejudice.", s:"court", src:"S88", pin:"pp. 23–31" },
-  { d:"June 24, 2025", t:"Visionary Fund Manager appeals the receivership.", s:"court", src:"S264", pin:"p. 6" },
-  { d:"Aug. 4, 2025", t:"Court denies dismissal for failure to join the GP LLC, and denies its intervention.", s:"court", src:"S264", pin:"p. 6" },
-  { d:"Aug. 2025", t:"Cash balance alleged to reach $0.", s:"plaintiff", src:"SJLP", pin:"¶ 69" },
-  { d:"Aug. 20, 2025", t:"GP LLC appeals the denial of intervention.", s:"court", src:"S264", pin:"p. 6" },
-  { d:"Aug. 27, 2025", t:"St. Louis Magazine reports on the hearing.", s:"reported", src:"SSLM", pin:"" },
-  { d:"Sept. 5, 2025", t:"Third Amended Complaint filed (adds fraud claims).", s:"court", src:"S264", pin:"p. 7" },
-  { d:"Sept. 23, 2025", t:"Eighth Circuit consolidates the appeals (No. 25-2269).", s:"court", src:"S264", pin:"pp. 6–7" },
-  { d:"Sept. 23, 2025", t:"Receiver report, as cited by the JLP complaint. Not reviewed.", s:"plaintiff", src:"SJLP", pin:"¶ 78" },
-  { d:"Late Nov./early Dec. 2025", t:"Firm board decides Cosby will no longer be a partner (per deposition excerpt).", s:"plaintiff", src:"SJLP", pin:"¶ 90" },
-  { d:"Mar. 16, 2026", t:"Three defense motions denied; appeals noted as still pending.", s:"court", src:"S264", pin:"pp. 16–17" },
-  { d:"Aug. 13, 2026", t:"JLP Partners v. Husch Blackwell filed as a proposed class action.", s:"plaintiff", src:"SJLP", pin:"p. 1" },
-  { d:"Unverified leads", t:"Reported orders on Jan. 13, 2026 (Circle shares) and Mar. 16, 2026 (sealing) could not be retrieved.", s:"unverified", src:null, pin:"" }
-];
+/* TIMELINE-DATA:BEGIN (generated from data/timeline.json by scripts/build-timeline.mjs; edit the JSON, not this block) */
+var TL = {"reviewedThrough":"2026-10-23","lanes":[{"id":"statements","name":"Statements"},{"id":"money","name":"Money"},{"id":"control","name":"Control"},{"id":"court","name":"Court and record"}],"eras":[{"id":"formation","name":"Formation","from":"2010-01","to":"2017-01"},{"id":"pitch","name":"The pitch years","from":"2017-01","to":"2022-01"},{"id":"strain","name":"Strain","from":"2022-01","to":"2025-01-31"},{"id":"lawsuit","name":"Lawsuit and receiver","from":"2025-01-31","to":"2025-06-04"},{"id":"appeals","name":"Appeals and second front","from":"2025-06-04","to":"2026-10-23"}],"people":{"zamber":"Dr. Ronald Zamber","cosby":"Michael Cosby","grenley":"Robert Grenley","hart":"James Hart","bonetti":"Brigitte Bonetti","receiver":"The receiver (Jason Buhlinger)","deleon":"Kevin DeLeon","husch":"Husch Blackwell LLP"},"sources":{"SJAN13":{"short":"Jan. 13, 2026 order","title":"Memorandum and Order on the receiver's motion to sell publicly traded securities (Doc. 222), Oliver and Company et al. v. Zamber et al., No. 4:25-cv-00132-MTS (E.D. Mo.)","date":"January 13, 2026","url":"https://www.courtlistener.com/opinion/10775751/oliver-and-company-et-al-v-dr-ronald-zamber-et-al/","kind":"Court order (primary source; CourtListener copy)","status":"Read through an automated reader on Oct. 23, 2026. Wording is paraphrased; quotations not yet checked against the PDF.","note":"Previously a research lead only. Rules on the receiver's motion to sell Circle Internet Group stock and to borrow from plaintiffs. Cites the November 2025 monthly operating report (Doc. 240-1) and a Dec. 23, 2025 hearing (Doc. 239)."},"DKTD":{"short":"District docket (Justia)","title":"Docket, Oliver and Company et al. v. Zamber et al., No. 4:25-cv-00132 (E.D. Mo.), as mirrored by Justia Dockets","date":"Entries Jan. 31 to Mar. 31, 2025","url":"https://dockets.justia.com/docket/missouri/moedce/4:2025cv00132/217693","kind":"Docket listing (court record, third-party mirror)","status":"Listing read Oct. 23, 2026. The mirror stops at Mar. 31, 2025; the filings themselves were not opened.","note":"A docket entry shows that a document was filed or an order entered on a date. It says nothing about whether the document is right."},"DKT8":{"short":"Eighth Circuit docket (Justia)","title":"Docket, Oliver and Company et al. v. Visionary Fund Manager, No. 25-2269 (8th Cir.), consolidated with No. 25-2659, as mirrored by Justia Dockets","date":"Entries June 25 to Dec. 18, 2025","url":"https://dockets.justia.com/docket/circuit-courts/ca8/25-2269","kind":"Docket listing (court record, third-party mirror)","status":"Listing read Oct. 23, 2026. The mirror was last updated Dec. 18, 2025; the filings themselves were not opened.","note":"Shows the appeal's procedural history. No decision on the merits appears through Dec. 18, 2025."},"SEC13D":{"short":"SEC Schedule 13D (Feb. 2017)","title":"Schedule 13D on Victory Energy Corp., filed jointly by Visionary Private Equity Group I, LP, Visionary PE GP I, LLC, Ronald Zamber and Michael Cosby (SEC accession 0001477932-17-000983)","date":"Signed Feb. 28, 2017; filed Mar. 1, 2017","url":"https://www.sec.gov/Archives/edgar/data/0000700764/000147793217000983/vyey_sc13d.htm","kind":"Regulatory filing (primary source)","status":"Read through an automated reader on Oct. 23, 2026. Figures as reported in the filing; wording paraphrased.","note":"A filing made by the Fund, its general partner, Zamber and Cosby themselves, about a public company the Fund invested in."},"SECD":{"short":"SEC Form D (Jan. 2018)","title":"Form D notice of exempt offering, Visionary Private Equity Group I, LP (CIK 0001588490; accession 0001588490-18-000001)","date":"January 26, 2018","url":"https://www.sec.gov/Archives/edgar/data/1588490/000158849018000001/primary_doc.xml","kind":"Regulatory filing (primary source)","status":"Structured fields read Oct. 23, 2026. EDGAR lists three filings for this filer in total (Form D, Schedule 13D, Form 3).","note":"The Fund's only Form D on EDGAR. It is an original notice, never amended, signed by Ronald W. Zamber as Managing Director."},"SEC14F":{"short":"SEC Schedule 14F-1 (Dec. 2023)","title":"Schedule 14F-1, Victory Oilfield Tech, Inc., on its merger with H2EG (SEC accession 0001213900-23-092251)","date":"Filed December 4, 2023","url":"https://www.sec.gov/Archives/edgar/data/700764/000121390023092251/ea189404-sc14f1_victory.htm","kind":"Regulatory filing (primary source; filed by the portfolio company)","status":"Read through an automated reader on Oct. 23, 2026. Figures as reported in the filing; wording paraphrased.","note":"Victory's own account of its loans from the Fund and of the people on its board. The filing is Victory's statement, not the Fund's."}},"events":[{"id":"formed","lane":"control","title":"VPEG formed as a Missouri limited partnership.","people":[],"accounts":[{"src":"SJLP","pin":"¶ 20","status":"plaintiff","date":{"month":"2010-01"},"label":"Jan. 2010","text":"The JLP complaint says the Fund was formed in January 2010."}]},{"id":"first-investors","lane":"money","title":"First investors join, described as “family and friends.”","people":["zamber"],"accounts":[{"src":"S88","pin":"p. 3","status":"court","date":{"from":"2010-10","to":"2011-03"},"label":"Late 2010 or early 2011","text":"The court describes the first investors as family and friends, joining in late 2010 or early 2011."}],"related":["form-d"]},{"id":"audit-2011","lane":"control","title":"Last independent audit, according to the JLP complaint.","tags":["audit"],"accounts":[{"src":"SJLP","pin":"¶¶ 31, 59","status":"plaintiff","date":{"year":"2011"},"label":"2011","text":"Alleged: no independent audit since 2011."}]},{"id":"oliver-invest","lane":"money","title":"The Oliver plaintiffs invest about $11 million.","people":["hart"],"accounts":[{"src":"S88","pin":"p. 8","status":"court","date":{"year":"2017"},"label":"2017","text":"Decided to invest after a 2017 presentation."},{"src":"S264","pin":"p. 2 (reciting the TAC)","status":"plaintiff","date":{"from":"2018-01","to":"2023-12"},"label":"2018–2023","text":"Initial investments made from 2018 to 2023."},{"src":"SSLM","pin":"article text","status":"reported","date":{"from":"2010-06","to":"2011-12"},"label":"“Not long after” 2010","text":"Invested “not long after” the Fund's 2010 launch."}]},{"id":"victory-unit","lane":"money","title":"The Fund buys a $320,000 note-and-warrant unit in Victory Energy.","people":["zamber","cosby"],"tags":["portfolio"],"accounts":[{"src":"SEC13D","pin":"Items 3–5","status":"filing","date":{"on":"2017-02-03"},"label":"Feb. 3, 2017","text":"A 12% six-month promissory note plus a warrant for 5,203,252 shares at $0.0923, paid from the Fund's working capital."}],"related":["sec-13d","victory-note-2017"]},{"id":"sec-13d","lane":"control","title":"SEC filing: Zamber and Cosby sign as managers of the general partner.","people":["zamber","cosby"],"tags":["control"],"accounts":[{"src":"SEC13D","pin":"Item 2","status":"filing","date":{"on":"2017-02-28"},"label":"Feb. 28, 2017","text":"The Fund, Visionary PE GP I, LLC, Zamber and Cosby file jointly. Zamber and Cosby are described as the managers of the general partner and the managing directors of the Fund. Zamber reports 36.5% of Victory's stock."},{"src":"S264","pin":"p. 10","status":"court","date":{"on":"2026-03-16"},"label":"Mar. 16, 2026 (the court's conclusion)","text":"The court concluded Zamber and Cosby are the sole members of the general partner.","said":true}],"note":"Two sources, nine years apart, describe the same control structure. The later date is when the court said it, not when it began."},{"id":"victory-note-2017","lane":"money","title":"The Fund lends to Victory on a secured convertible note.","people":[],"tags":["portfolio","loans"],"accounts":[{"src":"SEC14F","pin":"related-party section","status":"filing","date":{"on":"2017-08-21"},"label":"Aug. 21, 2017","text":"Victory reports a secured convertible original-issue-discount note with the Fund."}]},{"id":"form-d","lane":"statements","title":"Form D: a $25 million offering, with nothing sold yet.","people":["zamber"],"tags":["offering"],"accounts":[{"src":"SECD","pin":"Items 9–14","status":"filing","date":{"on":"2018-01-26"},"label":"Jan. 26, 2018","text":"The Fund notifies the SEC of a $25,000,000 equity offering under Rule 506(b). It reports $0 sold, the first sale “yet to occur,” no investors yet, and no non-accredited investors. Signed by Zamber as Managing Director."}],"related":["first-investors","oliver-invest"],"note":"The court record has investors joining from late 2010, and about $90 million raised by the time of the 2025 hearing. A Form D can cover one new offering, and this one does not say whether earlier sales happened under other offerings. EDGAR shows no amendment reporting later sales."},{"id":"bank-access","lane":"control","title":"The managing director's view of the bank account is cut off for long periods.","people":["zamber","cosby","bonetti"],"tags":["bank access"],"accounts":[{"src":"S88","pin":"p. 6","status":"sworn","date":{"from":"2018-01","to":"2025-04"},"label":"2018 on","text":"Testimony: access was cut off for long periods starting in 2018; the account is managed by Zamber and Cosby, and wires need both signatures.","card":"w1"}]},{"id":"victory-settle","lane":"money","title":"Victory settles the first note in stock and borrows $2 million more from the Fund.","people":[],"tags":["portfolio","loans"],"accounts":[{"src":"SEC14F","pin":"related-party section","status":"filing","date":{"on":"2018-04-10"},"label":"Apr. 10, 2018","text":"$1,410,200 of debt is satisfied for 1,880,267 shares and a warrant. The Fund then lends $2,000,000 on a new note with a 10% original issue discount."}]},{"id":"victory-increase","lane":"money","title":"The Victory loan is raised to $4 million in three steps.","people":[],"tags":["portfolio","loans"],"accounts":[{"src":"SEC14F","pin":"related-party section","status":"filing","date":{"from":"2020-10-30","to":"2021-09-03"},"label":"Oct. 2020 – Sept. 2021","text":"To $3,000,000 (Oct. 30, 2020), $3,500,000 (Jan. 31, 2021) and $4,000,000 (Sept. 3, 2021)."}]},{"id":"distribution-2021","lane":"money","title":"At least one distribution to limited partners.","tags":["distributions"],"accounts":[{"src":"S88","pin":"p. 3","status":"court","date":{"year":"2021"},"label":"2021","text":"At least one distribution was made. Its amount and recipients are unclear."}]},{"id":"wires-2021","lane":"money","title":"Wires of $50,000 and $175,000 go to Zamber, three days apart.","people":["zamber"],"tags":["payments"],"accounts":[{"src":"S88","pin":"p. 6","status":"sworn","date":{"from":"2021-08-13","to":"2021-08-16"},"label":"Aug. 13 & 16, 2021","text":"Testimony describing two wires from the Fund's account.","card":"l1"}]},{"id":"text-270k","lane":"money","title":"A text asks for “a wire for $270k (deferred compensation) today if possible.”","people":["zamber"],"tags":["payments"],"accounts":[{"src":"SJLP","pin":"¶ 47","status":"plaintiff","date":{"on":"2021-10-19"},"label":"Oct. 19, 2021","text":"A text message quoted in the JLP complaint.","card":"l7"}]},{"id":"south-bend","lane":"statements","title":"South Bend meeting: “no debt at the Fund level.”","people":["zamber","grenley"],"tags":["debt"],"accounts":[{"src":"S264","pin":"p. 3 (reciting TAC ¶ 46)","status":"plaintiff","date":{"month":"2022-09"},"label":"Sept. 2022","text":"Alleged statement that there was no debt at the Fund level, and that a distribution was coming.","card":"p3"}],"related":["lien"]},{"id":"loans","lane":"money","title":"Investors lend $1.6 million on promises of a quick sale of portfolio companies.","people":["hart","zamber"],"tags":["loans"],"accounts":[{"src":"S88","pin":"p. 8","status":"sworn","date":{"from":"2022-01","to":"2023-12"},"label":"2022–2023","text":"Short-term loans of $1.6 million from plaintiffs, plus $100,000 from Hart, on assurances of monetization “within three to six months.” None repaid by June 2025.","card":"l8"}]},{"id":"board-2023","lane":"statements","title":"Trustee board meeting: a distribution “right around the corner.”","people":["zamber"],"tags":["distributions"],"accounts":[{"src":"S264","pin":"p. 3","status":"plaintiff","date":{"month":"2023-03"},"label":"Mar. 2023","text":"Alleged statement at a trustee board meeting."}]},{"id":"harvest-2023","lane":"statements","title":"A May 2023 “harvest season” presentation.","people":["zamber"],"tags":["projections"],"accounts":[{"src":"SJLP","pin":"¶ 95, p. 21","status":"plaintiff","date":{"month":"2023-05"},"label":"May 2023","text":"Alleged investor presentation.","card":"p5"}]},{"id":"jlp-subscribes","lane":"money","title":"JLP Partners subscribes for $100,000.","people":[],"accounts":[{"src":"SJLP","pin":"¶ 99","status":"plaintiff","date":{"on":"2023-05-12"},"label":"May 12, 2023","text":"The later class plaintiff's own investment."}]},{"id":"victory-balance","lane":"money","title":"Victory owes the Fund $3,815,926.","people":[],"tags":["portfolio","loans"],"accounts":[{"src":"SEC14F","pin":"related-party section","status":"filing","date":{"on":"2023-06-30"},"label":"June 30, 2023","text":"Balance described as “including principal and accrued interest,” though the same filing says the notes bear no interest beyond the original issue discount."}]},{"id":"victory-merger","lane":"control","title":"Victory merges with H2EG; the Fund's loan becomes stock.","people":["zamber","grenley","deleon"],"tags":["portfolio"],"accounts":[{"src":"SEC14F","pin":"Schedule 14F-1","status":"filing","date":{"on":"2023-12-01"},"label":"Dec. 1, 2023","text":"The Fund's note converts at $0.075914 into 7,866,034 shares plus 43,095,923 prefunded warrants. Zamber and Grenley leave Victory's board. H2EG holders end up with about 81%."}],"related":["deleon-gp"]},{"id":"deleon-gp","lane":"control","title":"Victory's filing calls Kevin DeLeon a “General Partner” of the Fund.","people":["deleon","grenley"],"tags":["control"],"accounts":[{"src":"SEC14F","pin":"directors section","status":"filing","date":{"on":"2023-12-04"},"label":"Dec. 4, 2023","text":"DeLeon, Victory's CEO, is described as a “General Partner and Director of Corporate Strategy” of the Fund. Grenley is described as Director of Capital Development, with the Fund since 2012."},{"src":"S88","pin":"p. 3 n.3","status":"sworn","date":{"on":"2025-06-04"},"label":"June 4, 2025 (as summarized)","text":"DeLeon, for Highgate Capital, LLC, denied signing papers identifying LLC membership.","said":true}],"note":"A title in a portfolio company's filing is not the same as membership in Visionary PE GP I, LLC. The two statements are about different questions, and neither settles the other."},{"id":"unaudited-2023","lane":"statements","title":"Unaudited statements: $218,000 cash and a net loss over $10 million.","people":["hart"],"tags":["audit"],"accounts":[{"src":"S88","pin":"p. 9","status":"sworn","date":{"on":"2023-12-31"},"label":"End of 2023","text":"Statements marked “unaudited, unreconciled, and non-tax basis.”","card":"v2"}]},{"id":"dist-mar2024","lane":"statements","title":"Executive summary reports $5.8 million in distributions.","people":["zamber"],"tags":["distributions"],"accounts":[{"src":"S88","pin":"p. 3","status":"court","date":{"on":"2024-03-01"},"label":"Mar. 1, 2024","text":"The defendants' own summary.","card":"l9","amount":5800000}]},{"id":"dist-jul2024","lane":"statements","title":"Updated report shows $9.1 million in distributions.","people":["zamber"],"tags":["distributions"],"versionOf":"dist-mar2024","accounts":[{"src":"S88","pin":"p. 3","status":"court","date":{"on":"2024-07-23"},"label":"July 23, 2024","text":"The updated report, as described by the court.","card":"l9","amount":9100000},{"src":"S264","pin":"p. 3 (reciting the TAC)","status":"plaintiff","date":{"month":"2024-06"},"label":"June 2024","text":"The same report, dated June 2024.","amount":9100000}],"note":"Same kind of figure, two editions: $9.1 million minus $5.8 million is $3.3 million."},{"id":"gross-profit","lane":"statements","title":"A summary from Cosby shows year-to-date gross profit of $14.50.","people":["cosby"],"accounts":[{"src":"S88","pin":"p. 9","status":"sworn","date":{"on":"2024-09-30"},"label":"Sept. 30, 2024","text":"Testimony about a summary document."}]},{"id":"lien","lane":"money","title":"A lien filing names the Fund as debtor.","people":["zamber"],"tags":["debt"],"accounts":[{"src":"S264","pin":"p. 5 (reciting TAC ¶ 85)","status":"plaintiff","date":{"on":"2024-11-12"},"label":"Nov. 12, 2024","text":"Alleged lien over all assets.","card":"v5"},{"src":"SJLP","pin":"¶ 70","status":"plaintiff","date":{"month":"2024-11"},"label":"Nov. 2024","text":"A lender's UCC filing appears; the same day, a text asks for a “10k wire to RZ.”"}]},{"id":"last-rent","lane":"money","title":"Most recent rent payment as of the April hearing.","accounts":[{"src":"S88","pin":"p. 4","status":"sworn","date":{"on":"2024-12-30"},"label":"Dec. 30, 2024","text":"Testimony at the April 28, 2025 hearing."}]},{"id":"license","lane":"control","title":"City business-license notice: “required to cease operation.”","accounts":[{"src":"S88","pin":"p. 4","status":"court","date":{"on":"2025-01-29"},"label":"Jan. 29, 2025","text":"City of St. Charles notice."}]},{"id":"complaint","lane":"court","title":"Oliver and Company v. Zamber filed.","people":["hart"],"tags":["pleadings"],"accounts":[{"src":"S264","pin":"p. 5","status":"court","date":{"on":"2025-01-31"},"label":"Jan. 31, 2025","text":"The original complaint."},{"src":"DKTD","pin":"Doc. 1","status":"docket","date":{"on":"2025-01-31"},"label":"Jan. 31, 2025","text":"Complaint with jury demand and Exhibits A–F."}]},{"id":"pleadings-feb","lane":"court","title":"The complaint is amended twice in ten days.","tags":["pleadings"],"accounts":[{"src":"DKTD","pin":"Doc. 10","status":"docket","date":{"on":"2025-02-10"},"label":"Feb. 10, 2025","text":"Amended complaint."},{"src":"DKTD","pin":"Doc. 11","status":"docket","date":{"on":"2025-02-11"},"label":"Feb. 11, 2025","text":"Order requiring a second amended complaint that establishes subject-matter jurisdiction."},{"src":"DKTD","pin":"Doc. 12","status":"docket","date":{"on":"2025-02-20"},"label":"Feb. 20, 2025","text":"Second Amended Complaint, with a motion to expedite discovery."}],"related":["complaint","tac"]},{"id":"default-motion","lane":"court","title":"Plaintiffs ask for a clerk's default against three defendants.","people":["zamber","grenley"],"accounts":[{"src":"DKTD","pin":"Doc. 37","status":"docket","date":{"on":"2025-03-20"},"label":"Mar. 20, 2025","text":"Motion for clerk's default against Visionary Fund Manager, Zamber and Grenley. The mirror shows no ruling."}]},{"id":"discovery-hearing","lane":"court","title":"Hearing: expedited discovery granted.","accounts":[{"src":"DKTD","pin":"Doc. 39","status":"docket","date":{"on":"2025-03-24"},"label":"Mar. 24, 2025","text":"Minute entry: motions to expedite discovery granted."}]},{"id":"hearing","lane":"court","title":"Consolidated hearing on jurisdiction and receivership.","people":["hart","bonetti"],"accounts":[{"src":"S88","pin":"p. 1","status":"court","date":{"on":"2025-04-28"},"label":"Apr. 28, 2025","text":"The hearing the June 4 order rests on."},{"src":"S88","pin":"p. 22 (quoting Doc. 82 at 15)","status":"defense","date":{"on":"2025-04-28"},"label":"Apr. 28, 2025","text":"Defense counsel: a receivership would be “a kill shot to the company.”","card":"c9"}]},{"id":"receiver","lane":"court","title":"Receiver appointed; derivative claims dismissed without prejudice.","people":["receiver","zamber","cosby","grenley"],"accounts":[{"src":"S88","pin":"pp. 23–31","status":"court","date":{"on":"2025-06-04"},"label":"June 4, 2025","text":"Jason Buhlinger of Armanino LLP takes control of the Fund and its manager.","card":"c1"}]},{"id":"appeal-vfm","lane":"court","title":"The fund manager appeals the receivership.","accounts":[{"src":"S264","pin":"p. 6","status":"court","date":{"on":"2025-06-24"},"label":"June 24, 2025","text":"Visionary Fund Manager appeals."},{"src":"DKT8","pin":"docketing entry","status":"docket","date":{"on":"2025-06-25"},"label":"June 25, 2025","text":"Appeal docketed in the Eighth Circuit as No. 25-2269."}]},{"id":"intervention","lane":"court","title":"Dismissal for failure to join the general partner denied; its intervention denied.","accounts":[{"src":"S264","pin":"p. 6","status":"court","date":{"on":"2025-08-04"},"label":"Aug. 4, 2025","text":"The court keeps the general partner out of the case."}]},{"id":"cash-zero","lane":"money","title":"Cash balance alleged to reach $0.","accounts":[{"src":"SJLP","pin":"¶ 69","status":"plaintiff","date":{"month":"2025-08"},"label":"Aug. 2025","text":"Allegation in the JLP complaint.","card":"v3"}]},{"id":"appeal-gp","lane":"court","title":"The general partner appeals the denial of intervention.","accounts":[{"src":"S264","pin":"p. 6","status":"court","date":{"on":"2025-08-20"},"label":"Aug. 20, 2025","text":"Second appeal, later No. 25-2659."}]},{"id":"stay-denied-1","lane":"court","title":"Eighth Circuit refuses to pause the receivership.","accounts":[{"src":"DKT8","pin":"Aug. 28 entry","status":"docket","date":{"on":"2025-08-28"},"label":"Aug. 28, 2025","text":"Administrative stay denied."},{"src":"DKT8","pin":"Sept. 4 entry","status":"docket","date":{"on":"2025-09-04"},"label":"Sept. 4, 2025","text":"Motion for stay pending appeal denied."}]},{"id":"magazine","lane":"court","title":"St. Louis Magazine reports on the hearing.","accounts":[{"src":"SSLM","pin":"article","status":"reported","date":{"on":"2025-08-27"},"label":"Aug. 27, 2025","text":"News report, including a reported remark from the bench.","card":"c10"}]},{"id":"tac","lane":"court","title":"Third Amended Complaint filed, adding fraud claims.","tags":["pleadings"],"accounts":[{"src":"S264","pin":"p. 7","status":"court","date":{"on":"2025-09-05"},"label":"Sept. 5, 2025","text":"Now the operative complaint (Doc. 177)."}]},{"id":"consolidated","lane":"court","title":"Eighth Circuit consolidates the two appeals.","accounts":[{"src":"S264","pin":"pp. 6–7","status":"court","date":{"on":"2025-09-23"},"label":"Sept. 23, 2025","text":"Nos. 25-2269 and 25-2659 consolidated.","card":"c5"},{"src":"DKT8","pin":"Sept. 23 entry","status":"docket","date":{"on":"2025-09-23"},"label":"Sept. 23, 2025","text":"Clerk order granting consolidation."}]},{"id":"appeal-briefs","lane":"court","title":"Appellants' brief filed; hearing transcripts lodged on appeal.","accounts":[{"src":"DKT8","pin":"Oct. 14 entry","status":"docket","date":{"on":"2025-10-14"},"label":"Oct. 14, 2025","text":"Appellants' brief (12,993 words) and addendum."},{"src":"DKT8","pin":"Oct. 20 entries","status":"docket","date":{"on":"2025-10-20"},"label":"Oct. 20, 2025","text":"Transcripts of the Apr. 28, 2025 hearing (Doc. 82, 205 pages) and an Aug. 7, 2025 hearing (Doc. 170, 105 pages)."}],"related":["gap-transcript"]},{"id":"cosby-out","lane":"control","title":"Cosby's law firm decides he will no longer be a partner.","people":["cosby","husch"],"accounts":[{"src":"SJLP","pin":"¶ 90 (deposition excerpt)","status":"plaintiff","date":{"from":"2025-11-20","to":"2025-12-05"},"label":"Late Nov. or early Dec. 2025","text":"As quoted from a deposition excerpt.","card":"w8"}]},{"id":"stay-2","lane":"court","title":"A brief pause, then the stay is denied again.","accounts":[{"src":"DKT8","pin":"Dec. 2 entry","status":"docket","date":{"on":"2025-12-02"},"label":"Dec. 2, 2025","text":"Temporary administrative stay of district court proceedings granted."},{"src":"DKT8","pin":"Dec. 18 entry","status":"docket","date":{"on":"2025-12-18"},"label":"Dec. 18, 2025","text":"Stay pending appeal denied; administrative stay lifted. Appellees' brief due Jan. 20, 2026."}]},{"id":"circle-sale","lane":"money","title":"Court lets the receiver sell some Circle stock and borrow from plaintiffs.","people":["receiver"],"tags":["recovery"],"accounts":[{"src":"SJAN13","pin":"order","status":"court","date":{"on":"2026-01-13"},"label":"Jan. 13, 2026","text":"Up to $265,000 of Circle Internet Group stock may be sold, only at $82 a share or more. A $275,000 unsecured loan from plaintiffs is approved, for a $540,000 fund used for the 2024 and 2025 required minimum distributions. The court holds it keeps supervising the receivership despite the appeal."}]},{"id":"motions-denied","lane":"court","title":"Three defense motions denied; the fraud claims go ahead.","people":["zamber","cosby","grenley"],"accounts":[{"src":"S264","pin":"pp. 16–17","status":"court","date":{"on":"2026-03-16"},"label":"Mar. 16, 2026","text":"Motions to strike, to dismiss the fraud claims and to end the fiduciary claims all denied.","card":"c6"}]},{"id":"jlp-case","lane":"court","title":"JLP Partners v. Husch Blackwell filed as a proposed class action.","people":["husch","cosby"],"accounts":[{"src":"SJLP","pin":"p. 1","status":"plaintiff","date":{"on":"2026-08-13"},"label":"Aug. 13, 2026","text":"A separate case against the law firm.","card":"c11"}]}],"gaps":[{"id":"gap-transcript","lane":"court","need":2,"date":{"on":"2025-04-28"},"label":"Apr. 28, 2025","title":"Hearing transcript (Doc. 82)","found":"Lodged with the Eighth Circuit on Oct. 20, 2025 (205 pages), so it should be on the appellate docket."},{"id":"gap-tac","lane":"court","need":3,"date":{"on":"2025-09-05"},"label":"Sept. 5, 2025","title":"Third Amended Complaint (Doc. 177)"},{"id":"gap-report","lane":"control","need":0,"date":{"on":"2025-09-23"},"label":"Sept. 23, 2025","title":"Receiver's investigative report"},{"id":"gap-mor","lane":"money","need":1,"date":{"month":"2025-12"},"label":"Filed before Jan. 13, 2026","title":"Receiver's monthly reports","found":"The Jan. 13, 2026 order cites the November 2025 monthly operating report as Doc. 240-1."},{"id":"gap-cosby-depo","lane":"control","need":7,"date":{"on":"2026-03-13"},"label":"Mar. 13, 2026","title":"Cosby deposition, Vol. 2 (Doc. 278-11)"},{"id":"gap-sealing","lane":"court","need":4,"date":{"on":"2026-03-16"},"label":"Mar. 16, 2026 (research lead)","title":"Order on sealing the receiver's preliminary report"}],"overlaps":[{"id":"zamber-payments","lane":"money","title":"Payments to Zamber: three measurements of overlapping money","people":["zamber"],"members":[{"src":"S88","pin":"p. 6","status":"sworn","from":"2021-08","to":"2025-04","fuzzy":true,"label":"At least $1,779,462.63","text":"From the partial bank records one manager could see. Period not stated; the example wires are from August 2021.","card":"l1"},{"src":"SJLP","pin":"¶ 46","status":"plaintiff","from":"2021-01","to":"2026-08","label":"About $4.7 million","text":"Since January 2021.","card":"l5"},{"src":"S264","pin":"n.6 (reciting the TAC)","status":"plaintiff","from":"2020-01","to":"2025-09","label":"Over $5.2 million","text":"2020 to the present.","card":"l4"}],"note":"Do not add these. They describe the same person's receipts over overlapping periods, measured three ways. The Ledger challenge scores this."}],"readings":[{"id":"r-two-answers","events":["dist-mar2024","dist-jul2024"],"takeaway":6},{"id":"r-lending","events":["loans","receiver"],"takeaway":4},{"id":"r-audit","events":["audit-2011","unaudited-2023"],"takeaway":0},{"id":"r-keys","events":["bank-access","wires-2021"],"takeaway":5},{"id":"r-flow","events":["wires-2021","distribution-2021"],"takeaway":7},{"id":"r-letterhead","events":["cosby-out","jlp-case"],"takeaway":8}]};
+/* TIMELINE-DATA:END */
+Object.keys(TL.sources).forEach(function(k){ SOURCES[k] = TL.sources[k]; });
+var CORE_SOURCES = ["S88","S264","SJLP","SSLM"];
+var TL_SOURCES = Object.keys(TL.sources);
 
 /* ============================================================
    PEOPLE & ENTITIES — documented roles only
@@ -1602,6 +1634,8 @@ function App(){
   var _o = useState(null), open = _o[0], setOpen = _o[1];       // card id
   var _r = useState(false), confirmReset = _r[0], setConfirmReset = _r[1];
   useEffect(function(){ save(st); }, [st]);
+  // A shared timeline link (#timeline/from:…/to:…) skips the poster and opens the timeline.
+  useEffect(function(){ if (tlParseHash()) up(function(n){ n.started = true; n.mode = "real"; n.tab = "timeline"; n.room = null; }); }, []);
   useEffect(function(){
     function onKey(ev){ if (ev.key === "Escape"){ if (drawer) setDrawer(null); else if (open) setOpen(null); } }
     window.addEventListener("keydown", onKey); return function(){ window.removeEventListener("keydown", onKey); };
@@ -1657,7 +1691,7 @@ function App(){
   else if (st.tab === "files") body = html`<${CaseFiles} st=${st} openSrc=${function(s){ setDrawer({src:s}); }} />`;
   else if (st.tab === "inquiry") body = html`<${Inquiry} st=${st} up=${up} openCard=${setOpen} />`;
   else if (st.tab === "board") body = html`<${Board} st=${st} up=${up} openCard=${setOpen} score=${score} />`;
-  else if (st.tab === "timeline") body = html`<${Timeline} real=${real} openSrc=${function(s){ setDrawer({src:s}); }} />`;
+  else if (st.tab === "timeline") body = html`<${Timeline} real=${real} st=${st} go=${go} openCard=${setOpen} openSrc=${function(s){ setDrawer({src:s}); }} />`;
   else if (st.tab === "people") body = real ? html`<${People} openSrc=${function(s){ setDrawer({src:s}); }} />` : html`<${Cast} humor=${st.humor} />`;
   else if (st.tab === "challenges") body = html`<${Challenges} st=${st} up=${up} />`;
   else if (st.tab === "sources") body = html`<${SourcesView} />`;
@@ -1673,7 +1707,7 @@ function App(){
     </div></nav>
     <main className=${real ? "" : "fic-band"}><div className="wrap">${body}</div></main>
     <footer><div className="wrap">
-      An independent educational experience: not legal advice, not an official investigation, and not an accusation of criminal guilt. Allegations are not findings. The real case may remain unresolved. Built from documents reviewed on ${REVIEW_DATE}; not reviewed by a lawyer. Progress is saved only in this browser.
+      An independent educational experience: not legal advice, not an official investigation, and not an accusation of criminal guilt. Allegations are not findings. The real case may remain unresolved. Built from documents reviewed on ${REVIEW_DATE}, plus public filings and dockets added to the timeline on October 23, 2026; not reviewed by a lawyer. Progress is saved only in this browser.
     </div></footer>
     ${card && (real
       ? html`<${CardDialog} c=${card} st=${st} up=${up} close=${function(){ setOpen(null); }} openSrc=${function(){ up(function(n){ n.real.sourced[card.id] = true; }); setDrawer({src:card.src, card:card}); }} />`
@@ -1958,8 +1992,8 @@ function Drawer(p){
     </div>
     ${d.card && html`<div className="box"><h4>Basis for this card</h4>
       <p style=${{margin:0}}><b>${d.card.head}</b><br/><span className="mono">${SOURCES[d.card.src].short} · ${d.card.pin}</span><br/>${d.card.wording === "exact" ? "Exact quotation." : "Paraphrase."}</p></div>`}
-    <p className="muted" style=${{fontSize:".9rem"}}>Every factual statement in the Case Explorer rests on one of these four documents. Nothing else, including earlier research notes, is treated as a source.</p>
-    ${["S88","S264","SJLP","SSLM"].map(function(k){ var s = SOURCES[k];
+    <p className="muted" style=${{fontSize:".9rem"}}>Every evidence card rests on one of the first four documents. The timeline also uses the public filings and dockets listed after them, each labeled with how it was read. Nothing else, including earlier research notes, is treated as a source.</p>
+    ${CORE_SOURCES.concat(TL_SOURCES).map(function(k){ var s = SOURCES[k];
       var n = CARDS.filter(function(c){ return c.src === k; }).length;
       return html`<div key=${k} className=${"src" + (d.src === k ? " hl" : "")}>
         <h3>${s.title}</h3>
@@ -2023,6 +2057,314 @@ function Board(p){
   </section>`;
 }
 
+/* ---------- Case timeline: data helpers ---------- */
+function tlYear(s){ var p = s.split("-"); return +p[0] + ((p[1] ? +p[1] : 1) - 1) / 12 + ((p[2] ? +p[2] : 1) - 1) / 365; }
+function tlEnd(s){ return s.length === 4 ? +s + 0.999 : s.length === 7 ? tlYear(s) + 1/12 - 0.002 : tlYear(s); }
+function tlSpan(d){
+  if (d.on) { var x = tlYear(d.on); return [x, x]; }
+  if (d.month) return [tlYear(d.month), tlEnd(d.month)];
+  if (d.year) return [+d.year, +d.year + 0.999];
+  return [tlYear(d.from), tlEnd(d.to)];
+}
+function tlRank(s){ var i = STATUS_ORDER.indexOf(s); return i < 0 ? 99 : i; }
+function tlBest(list){ return list.slice().sort(function(a, b){ return tlRank(a) - tlRank(b); })[0]; }
+var TL_MONTHS = ["Jan.","Feb.","Mar.","Apr.","May","June","July","Aug.","Sept.","Oct.","Nov.","Dec."];
+function tlFmt(x){ var y = Math.floor(x + 1e-6), m = Math.min(11, Math.floor((x - y) * 12 + 1e-6)); return TL_MONTHS[m] + " " + y; }
+function tlYM(x){ var y = Math.floor(x + 1e-6), m = Math.min(11, Math.floor((x - y) * 12 + 1e-6)) + 1; return y + "-" + (m < 10 ? "0" : "") + m; }
+var TL_MIN = 2009.5, TL_MAX = tlYear(TL.reviewedThrough) + 0.2;
+
+var TL_ITEMS = (function(){
+  var out = [];
+  TL.events.forEach(function(e){
+    var dated = e.accounts.filter(function(a){ return !a.said; });
+    var spans = dated.map(function(a){ return tlSpan(a.date); });
+    var lo = Math.min.apply(null, spans.map(function(s){ return s[0]; }));
+    var hi = Math.max.apply(null, spans.map(function(s){ return s[1]; }));
+    var lead = spans[0];
+    var x = lead[1] - lead[0] > 1/6 ? lead[0] : (lead[0] + lead[1]) / 2;
+    var disagree = spans.length > 1 && Math.max.apply(null, spans.map(function(s){ return s[0]; })) > Math.min.apply(null, spans.map(function(s){ return s[1]; })) + 0.01;
+    var statuses = e.accounts.map(function(a){ return a.status; });
+    var text = (e.title + " " + e.accounts.map(function(a){ return a.text + " " + a.label + " " + SOURCES[a.src].short; }).join(" ")).toLowerCase();
+    out.push({ kind:"event", id:e.id, lane:e.lane, x:x, lo:lo, hi:hi, spans:spans, dated:dated, disagree:disagree, status:tlBest(statuses), statuses:statuses, people:e.people || [], e:e, text:text });
+  });
+  TL.gaps.forEach(function(g){
+    var sp = tlSpan(g.date);
+    out.push({ kind:"gap", id:g.id, lane:g.lane, x:(sp[0] + sp[1]) / 2, lo:sp[0], hi:sp[1], status:"unverified", statuses:["unverified"], people:[], g:g,
+      text:(g.title + " " + NEEDED[g.need].t + " " + NEEDED[g.need].why).toLowerCase() });
+  });
+  return out.sort(function(a, b){ return a.x - b.x; });
+})();
+function tlItem(id){ return TL_ITEMS.filter(function(i){ return i.id === id; })[0]; }
+TL.overlaps.forEach(function(o){
+  o.lo = Math.min.apply(null, o.members.map(function(m){ return tlYear(m.from); }));
+  o.hi = Math.max.apply(null, o.members.map(function(m){ return tlEnd(m.to); }));
+});
+function tlOverlap(id){ return TL.overlaps.filter(function(o){ return o.id === id; })[0]; }
+function tlEra(x){ return TL.eras.filter(function(e){ return x >= tlYear(e.from) && x < tlEnd(e.to); })[0] || TL.eras[TL.eras.length - 1]; }
+function tlInquiry(e){
+  var cards = e.accounts.map(function(a){ return a.card; }).filter(Boolean);
+  return MYSTERIES.filter(function(m){ return m.ex.some(function(id){ return cards.indexOf(id) >= 0; }); });
+}
+function tlReadings(id){ return TL.readings.filter(function(r){ return r.events.indexOf(id) >= 0; }); }
+function tlParseHash(){
+  var h = (location.hash || "").replace(/^#/, ""), out = {};
+  if (h.indexOf("timeline") !== 0) return null;
+  h.split("/").forEach(function(part){
+    var m = part.match(/^(from|to):(\d{4}(?:-\d{2})?)$/); if (m) out[m[1]] = tlYear(m[2]);
+    var ev = part.match(/^ev:([a-z0-9-]+)$/); if (ev) out.ev = ev[1];
+  });
+  return out;
+}
+
+/* ---------- Case timeline: pieces ---------- */
+function SrcBtn(p){
+  return html`<button className="dlg-btn" style=${{minHeight:"28px",padding:"1px 8px",fontSize:".74rem"}} onClick=${function(){ p.openSrc(p.src); }}>${SOURCES[p.src].short}${p.pin ? " · " + p.pin : ""}</button>`;
+}
+function AccountRow(p){
+  var a = p.a;
+  return html`<li className="tl-acct" style=${{borderLeftColor:"var(--s-"+a.status+")"}}>
+    <div className="tl-acct-when">${a.label}${a.said ? " · the date this source said it" : ""}</div>
+    <div>${a.text}</div>
+    <div className="tl-acct-tools"><${Chip} status=${a.status} /><${SrcBtn} src=${a.src} pin=${a.pin} openSrc=${p.openSrc} />
+      ${a.card && html`<button className="dlg-btn" style=${{minHeight:"28px",padding:"1px 8px",fontSize:".74rem"}} onClick=${function(){ p.openCard(a.card); }}>Open evidence card</button>`}</div>
+  </li>`;
+}
+function ReadingBox(p){
+  var t = TAKEAWAYS[p.r.takeaway], others = p.r.events.filter(function(id){ return id !== p.from; }).map(tlItem);
+  if (p.lens !== "born") return html`<div className="tl-take"><b>Takeaway: ${t.t}</b> ${t.f} <${Chip} status=${t.s} /> <span className="mono">${t.c}</span></div>`;
+  return html`<div className="tl-reading"><span className="optag" style=${{marginLeft:0}}>OPINION</span> <b>${t.t}</b> ${t.b}
+    <div className="muted" style=${{fontSize:".85rem",marginTop:"4px"}}>Our read, resting on: ${others.map(function(o, i){ return html`<span key=${o.id}>${i ? "; " : ""}<button className="linkish" onClick=${function(){ p.select(o.id); }}>${o.e.title}</button></span>`; })} (${t.c}). Not a finding.</div></div>`;
+}
+function TLDetail(p){
+  var sel = p.sel, lens = p.lens;
+  if (!sel) return html`<div className="tl-detail tl-empty"><p>Select a marker to see every account of that event, with its source and status. Rings mark events with more than one account. A bracket under a marker means the sources disagree on the date. Hollow dashed markers are documents that should exist but were not reviewed.</p></div>`;
+  var ov = tlOverlap(sel);
+  if (ov) return html`<div className="tl-detail">
+    <div className="kicker">Same money, measured three ways</div><h3>${ov.title}</h3>
+    <p className="tl-note">${ov.note}</p>
+    <ul className="tl-accts">${ov.members.map(function(m, i){ return html`<${AccountRow} key=${i} a=${{label:m.label, text:m.text, status:m.status, src:m.src, pin:m.pin, card:m.card}} openSrc=${p.openSrc} openCard=${p.openCard} />`; })}</ul>
+    <button className="dlg-btn" onClick=${function(){ p.go("challenges"); }}>Try the Ledger challenge</button>
+  </div>`;
+  if (Array.isArray(sel)) return html`<div className="tl-detail">
+    <div className="kicker">${sel.length} entries close together</div>
+    <ul className="tl-cluster">${sel.map(function(id){ var it = tlItem(id); return html`<li key=${id}><button className="linkish" onClick=${function(){ p.select(id); }}>${it.kind === "gap" ? it.g.label : it.dated[0].label}: ${it.kind === "gap" ? it.g.title + " (not reviewed)" : it.e.title}</button></li>`; })}</ul>
+  </div>`;
+  var it = tlItem(sel); if (!it) return null;
+  if (it.kind === "gap"){ var n = NEEDED[it.g.need];
+    return html`<div className="tl-detail">
+      <div className="kicker">${it.g.label} · not reviewed</div><h3>${it.g.title}</h3><${Chip} status="unverified" />
+      <p>${n.why}</p>
+      ${it.g.found && html`<p className="tl-note"><b>New lead:</b> ${it.g.found}</p>`}
+      <p className="muted" style=${{fontSize:".88rem",margin:"6px 0 2px"}}>Where to look:</p><${NeedLinks} i=${it.g.need} />
+    </div>`; }
+  var e = it.e;
+  var editions = TL_ITEMS.filter(function(o){ return o.kind === "event" && (o.e.versionOf === e.id || e.versionOf === o.id); });
+  var inq = tlInquiry(e), reads = tlReadings(e.id);
+  return html`<div className="tl-detail">
+    <div className="kicker">${it.dated.map(function(a){ return a.label; }).filter(function(v, i, arr){ return arr.indexOf(v) === i; }).join(" / ")} · ${tlEra(it.x).name}</div>
+    <h3>${e.title}</h3>
+    ${it.disagree && html`<p className="tl-warn">Sources disagree on the date. Each account is shown; none is preferred.</p>`}
+    ${e.accounts.length > 1 && !it.disagree && html`<p className="muted" style=${{fontSize:".88rem"}}>${e.accounts.length} accounts of this event.</p>`}
+    <ul className="tl-accts">${e.accounts.map(function(a, i){ return html`<${AccountRow} key=${i} a=${a} openSrc=${p.openSrc} openCard=${p.openCard} />`; })}</ul>
+    ${e.note && html`<p className="tl-note">${e.note}</p>`}
+    ${editions.length > 0 && html`<p className="tl-links">Other edition: ${editions.map(function(o){ return html`<button key=${o.id} className="linkish" onClick=${function(){ p.select(o.id); }}>${o.dated[0].label}: ${o.e.title}</button>`; })}</p>`}
+    ${(e.related || []).length > 0 && html`<p className="tl-links">Related: ${e.related.map(function(id, i){ var o = tlItem(id); return html`<span key=${id}>${i ? " · " : ""}<button className="linkish" onClick=${function(){ p.select(id); }}>${o.kind === "gap" ? o.g.title : o.e.title}</button></span>`; })}</p>`}
+    ${inq.length > 0 && html`<p className="tl-links">Used in The Inquiry: ${inq.map(function(m, i){ return html`<span key=${m.id}>${i ? " · " : ""}<button className="linkish" onClick=${function(){ p.go("inquiry"); }}>${m.title}</button></span>`; })}</p>`}
+    ${reads.map(function(r){ return html`<${ReadingBox} key=${r.id} r=${r} from=${e.id} lens=${lens} select=${p.select} />`; })}
+  </div>`;
+}
+
+/* ---------- Case timeline: the canvas ---------- */
+var TL_LANE_H = 66, TL_TOP = 40, TL_AXIS = 26;
+function CaseTimeline(p){
+  var lens = p.st.lens;
+  var init = useState(function(){ var h = tlParseHash(); var a = h && h.from ? h.from : TL_MIN, b = h && h.to ? h.to + 1/12 : TL_MAX; return { a:a, b:Math.max(b, a + 0.05), sel:h && h.ev ? h.ev : null }; })[0];
+  var _v = useState([init.a, init.b]), view = _v[0], setView = _v[1];
+  var _s = useState(init.sel), sel = _s[0], setSel = _s[1];
+  var _w = useState(900), W = _w[0], setW = _w[1];
+  var _m = useState("canvas"), mode = _m[0], setMode = _m[1];
+  var _pe = useState(""), person = _pe[0], setPerson = _pe[1];
+  var _q = useState(""), q = _q[0], setQ = _q[1];
+  var _h = useState({}), hidden = _h[0], setHidden = _h[1];
+  var wrap = useRef(null), drag = useRef(null), moved = useRef(false);
+
+  useEffect(function(){
+    if (!wrap.current) return;
+    function measure(){ if (wrap.current) setW(Math.max(300, wrap.current.clientWidth)); }
+    measure();
+    if (window.ResizeObserver){ var ro = new ResizeObserver(measure); ro.observe(wrap.current); return function(){ ro.disconnect(); }; }
+    window.addEventListener("resize", measure); return function(){ window.removeEventListener("resize", measure); };
+  }, [mode]);
+  useEffect(function(){ return function(){ try { history.replaceState(null, "", location.pathname + location.search); } catch(err){} }; }, []);
+  useEffect(function(){
+    var h = "#timeline/from:" + tlYM(view[0]) + "/to:" + tlYM(view[1]) + (typeof sel === "string" ? "/ev:" + sel : "");
+    try { history.replaceState(null, "", h); } catch(err){}
+  }, [view[0], view[1], sel]);
+
+  function clamp(a, b){
+    var s = Math.max(0.02, Math.min(TL_MAX - TL_MIN, b - a));
+    if (a < TL_MIN) a = TL_MIN; if (a + s > TL_MAX) a = TL_MAX - s;
+    return [a, a + s];
+  }
+  function setRange(a, b){ setView(clamp(a, b)); }
+  function zoom(f, c){ var a = view[0], b = view[1], ctr = c == null ? (a + b) / 2 : c; setRange(ctr - (ctr - a) * f, ctr - (ctr - a) * f + (b - a) * f); }
+  function pan(frac){ var s = view[1] - view[0]; setRange(view[0] + s * frac, view[1] + s * frac); }
+  function select(id){
+    setSel(id);
+    var it = typeof id === "string" && tlItem(id);
+    if (it && (it.x < view[0] || it.x > view[1])){ var s = view[1] - view[0]; setRange(it.x - s / 2, it.x + s / 2); }
+  }
+
+  var pq = q.trim().toLowerCase();
+  function match(it){
+    if (it.statuses.every(function(s){ return hidden[s]; })) return "hide";
+    if (person && it.people.indexOf(person) < 0) return "dim";
+    if (pq && it.text.indexOf(pq) < 0) return "dim";
+    return "on";
+  }
+  var shown = TL_ITEMS.filter(function(it){ return match(it) !== "hide"; });
+  var lit = shown.filter(function(it){ return match(it) === "on"; }).length;
+
+  var head = html`<div className="tl-tools">
+    <div className="tl-range mono" aria-live="polite">${tlFmt(view[0])} – ${tlFmt(view[1])}</div>
+    <div className="seg" role="group" aria-label="Zoom">
+      <button onClick=${function(){ zoom(2); }} aria-label="Zoom out">−</button>
+      <button onClick=${function(){ setRange(TL_MIN, TL_MAX); }}>All</button>
+      <button onClick=${function(){ zoom(0.5); }} aria-label="Zoom in">+</button>
+    </div>
+    <div className="seg" role="group" aria-label="View">
+      <button aria-pressed=${mode === "canvas"} onClick=${function(){ setMode("canvas"); }}>Timeline</button>
+      <button aria-pressed=${mode === "list"} onClick=${function(){ setMode("list"); }}>List</button>
+    </div>
+    <label className="tl-field"><span>Person</span>
+      <select id="tl-person" value=${person} onChange=${function(ev){ setPerson(ev.target.value); }}>
+        <option value="">Everyone</option>
+        ${Object.keys(TL.people).map(function(k){ return html`<option key=${k} value=${k}>${TL.people[k]}</option>`; })}
+      </select></label>
+    <label className="tl-field"><span>Search</span><input id="tl-q" type="search" value=${q} placeholder="e.g. distributions" onInput=${function(ev){ setQ(ev.target.value); }} /></label>
+    <div className="tl-status" role="group" aria-label="Show statuses">
+      ${["court","sworn","filing","docket","plaintiff","defense","reported","unverified"].map(function(s){ return html`<button key=${s} aria-pressed=${!hidden[s]} title=${STATUS[s].label} style=${{"--c":"var(--s-"+s+")"}} onClick=${function(){ var n = Object.assign({}, hidden); n[s] = !n[s]; setHidden(n); }}>${STATUS[s].code}</button>`; })}
+    </div>
+    <span className="tl-count mono">${lit} of ${TL_ITEMS.length} entries</span>
+  </div>`;
+
+  var detail = html`<${TLDetail} sel=${sel} lens=${lens} select=${select} openSrc=${p.openSrc} openCard=${p.openCard} go=${p.go} />`;
+
+  if (mode === "list"){
+    var byEra = TL.eras.map(function(er){ return { er:er, items:shown.filter(function(it){ return tlEra(it.x).id === er.id; }) }; });
+    return html`<div className="tl-wrap">${head}
+      <div className="tl-list">${byEra.map(function(g){ return g.items.length > 0 && html`<section key=${g.er.id}><h3 className="tl-era-h">${g.er.name}</h3>
+        <ol className="tl">${g.items.map(function(it){ var m = match(it);
+          if (it.kind === "gap") return html`<li key=${it.id} className=${"ghost" + (m === "dim" ? " dim" : "")}><div className="when">${it.g.label} · not reviewed</div><div><b>${it.g.title}</b></div><div className="muted" style=${{fontSize:".9rem"}}>${NEEDED[it.g.need].why}${it.g.found ? " " + it.g.found : ""}</div><${NeedLinks} i=${it.g.need} /></li>`;
+          return html`<li key=${it.id} className=${m === "dim" ? "dim" : ""}>
+            <div className="when">${it.dated.map(function(a){ return a.label; }).filter(function(v, i, arr){ return arr.indexOf(v) === i; }).join(" / ")}</div>
+            <div><b>${it.e.title}</b></div>
+            ${it.disagree && html`<div className="conf">Sources disagree on the date.</div>`}
+            <ul className="tl-accts">${it.e.accounts.map(function(a, i){ return html`<${AccountRow} key=${i} a=${a} openSrc=${p.openSrc} openCard=${p.openCard} />`; })}</ul>
+            ${it.e.note && html`<p className="tl-note">${it.e.note}</p>`}
+            ${tlReadings(it.id).filter(function(r){ return r.events[0] === it.id; }).map(function(r){ return html`<${ReadingBox} key=${r.id} r=${r} from=${it.id} lens=${lens} select=${function(id){ setMode("canvas"); select(id); }} />`; })}
+          </li>`; })}</ol></section>`; })}
+        ${shown.length === 0 && html`<p>No entries match. Turn a status back on, or clear the search.</p>`}
+      </div></div>`;
+  }
+
+  var a = view[0], b = view[1], span = b - a;
+  function sx(x){ return (x - a) / span * W; }
+  var laneIdx = {}; TL.lanes.forEach(function(l, i){ laneIdx[l.id] = i; });
+  function ly(lane){ return TL_TOP + laneIdx[lane] * TL_LANE_H + TL_LANE_H / 2; }
+  var H = TL_TOP + TL.lanes.length * TL_LANE_H + TL_AXIS;
+
+  var step = span > 10 ? 2 : span > 4 ? 1 : span > 1.5 ? 0.25 : span > 0.4 ? 1/12 : 1/52;
+  var ticks = []; for (var t = Math.ceil(a / step) * step; t <= b + 1e-9; t += step) ticks.push(t);
+  function tickLabel(t){ if (step >= 1) return String(Math.round(t)); if (step >= 1/12) return tlFmt(t + 0.001); var y = Math.floor(t), d = new Date(Date.UTC(y, 0, 1) + (t - y) * 365 * 864e5); return TL_MONTHS[d.getUTCMonth()] + " " + d.getUTCDate(); }
+
+  // Group markers that would overlap into clusters.
+  var buckets = {}, order = [];
+  shown.forEach(function(it){ var x = sx(it.x); if (x < -12 || x > W + 12) return;
+    var k = it.lane + ":" + Math.floor(x / 26); if (!buckets[k]){ buckets[k] = []; order.push(k); } buckets[k].push(it); });
+  var pos = {}; shown.forEach(function(it){ pos[it.id] = [sx(it.x), ly(it.lane)]; });
+
+  function onDown(ev){ if (ev.button !== undefined && ev.button !== 0) return; drag.current = { x:ev.clientX, a:a, b:b }; moved.current = false; }
+  function onMove(ev){ var d = drag.current; if (!d) return; var dx = ev.clientX - d.x; if (Math.abs(dx) > 4) moved.current = true;
+    if (moved.current){ var dt = dx / W * (d.b - d.a); setView(clamp(d.a - dt, d.b - dt)); } }
+  function onUp(){ drag.current = null; setTimeout(function(){ moved.current = false; }, 0); }
+  function onKey(ev){
+    var k = ev.key;
+    if (k === "ArrowLeft"){ pan(ev.shiftKey ? -0.3 : -0.08); ev.preventDefault(); }
+    else if (k === "ArrowRight"){ pan(ev.shiftKey ? 0.3 : 0.08); ev.preventDefault(); }
+    else if (k === "+" || k === "="){ zoom(0.5); ev.preventDefault(); }
+    else if (k === "-" || k === "_"){ zoom(2); ev.preventDefault(); }
+    else if (k === "Home"){ setRange(TL_MIN, TL_MAX); ev.preventDefault(); }
+  }
+  function onWheel(ev){ if (!ev.ctrlKey && !ev.metaKey) return; ev.preventDefault(); var r = ev.currentTarget.getBoundingClientRect(); zoom(ev.deltaY > 0 ? 1.25 : 0.8, a + (ev.clientX - r.left) / W * span); }
+  function act(fn){ return { onClick:function(){ if (!moved.current) fn(); }, onKeyDown:function(ev){ if (ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); ev.stopPropagation(); fn(); } } }; }
+  function openCluster(g){
+    if (g.length >= 10){ var lo = g[0].x, hi = g[g.length - 1].x, pad = Math.max(0.03, (hi - lo) * 0.3); setRange(lo - pad, hi + pad); }
+    else setSel(g.map(function(it){ return it.id; }));
+  }
+
+  var cut = sx(tlYear(TL.reviewedThrough));
+  var selId = typeof sel === "string" ? sel : null;
+  var svg = html`<svg width=${W} height=${H} viewBox=${"0 0 " + W + " " + H} role="img" aria-label=${"Case timeline from " + tlFmt(a) + " to " + tlFmt(b) + ". Use the List view for a text version."}>
+    ${TL.eras.map(function(er, i){ var x1 = Math.max(0, sx(tlYear(er.from))), x2 = Math.min(W, sx(tlEnd(er.to))); if (x2 <= 0 || x1 >= W) return null;
+      return html`<g key=${er.id}><rect x=${x1} y=${0} width=${x2 - x1} height=${H} fill=${i % 2 ? "var(--paper-2)" : "var(--paper)"} />
+        ${x2 - x1 > er.name.length * 8.5 + 16 && html`<text x=${x1 + 8} y=${16} className="tl-era">${er.name.toUpperCase()}</text>`}</g>`; })}
+    ${ticks.map(function(t){ var x = sx(t); return html`<g key=${"t" + t}><line x1=${x} x2=${x} y1=${24} y2=${H - TL_AXIS + 4} stroke="var(--line)" strokeWidth="1" /><text x=${x + 3} y=${H - 8} className="tl-tick">${tickLabel(t)}</text></g>`; })}
+    ${TL.lanes.map(function(l, i){ var y = TL_TOP + i * TL_LANE_H; return html`<g key=${l.id}><line x1=${0} x2=${W} y1=${y + TL_LANE_H / 2} y2=${y + TL_LANE_H / 2} stroke="var(--ink-soft)" strokeOpacity=".35" strokeDasharray="2 4" /><text x=${6} y=${y + 11} className="tl-lane">${l.name.toUpperCase()}</text></g>`; })}
+    ${cut > 0 && cut < W && html`<g><line x1=${cut} x2=${cut} y1=${22} y2=${H - TL_AXIS + 4} stroke="var(--blood)" strokeWidth="1.5" strokeDasharray="4 3" /><text x=${cut - 5} y=${H - TL_AXIS - 4} textAnchor="end" className="tl-cut">Record reviewed to Oct. 23, 2026</text></g>`}
+    ${TL.overlaps.map(function(o){ var y0 = ly(o.lane) + 22, dim = person && (o.people || []).indexOf(person) < 0;
+      return html`<g key=${o.id} className=${"tl-hit" + (selId === o.id ? " on" : "")} opacity=${dim ? .25 : 1} tabIndex="0" role="button" aria-label=${o.title + ". Select for details."} ...${act(function(){ setSel(o.id); })}>
+        ${o.members.map(function(m, i){ var x1 = sx(tlYear(m.from)), x2 = sx(tlEnd(m.to)); return html`<line key=${i} x1=${x1} x2=${x2} y1=${y0 + i * 4} y2=${y0 + i * 4} stroke=${"var(--s-" + m.status + ")"} strokeWidth="3" strokeDasharray=${m.fuzzy ? "6 3" : ""} />`; })}
+        <rect x=${sx(o.lo)} y=${y0 - 4} width=${Math.max(10, sx(o.hi) - sx(o.lo))} height=${o.members.length * 4 + 6} fill="transparent" />
+      </g>`; })}
+    ${shown.map(function(it){ if (it.kind !== "event") return null; var y = ly(it.lane);
+      if (it.disagree) return html`<g key=${"b" + it.id} opacity=${match(it) === "dim" ? .2 : 1}>
+        <line x1=${sx(it.lo)} x2=${sx(it.hi)} y1=${y + 12} y2=${y + 12} stroke="var(--s-plaintiff)" strokeWidth="2" />
+        ${it.spans.map(function(s, i){ return html`<rect key=${i} x=${sx(s[0]) - 2} y=${y + 8} width=${Math.max(4, sx(s[1]) - sx(s[0]) + 4)} height="8" fill=${"var(--s-" + it.dated[i].status + ")"} />`; })}</g>`;
+      if (it.hi - it.lo > 0.08) return html`<line key=${"r" + it.id} x1=${sx(it.lo)} x2=${sx(it.hi)} y1=${y + 12} y2=${y + 12} stroke="var(--ink-soft)" strokeOpacity=${match(it) === "dim" ? .15 : .6} strokeWidth="2" />`;
+      return null; })}
+    ${shown.map(function(it){ if (it.kind !== "event" || !it.e.versionOf || !pos[it.e.versionOf]) return null; var p1 = pos[it.e.versionOf], p2 = pos[it.id];
+      return html`<path key=${"v" + it.id} d=${"M" + p1[0] + "," + p1[1] + " Q" + (p1[0] + p2[0]) / 2 + "," + (p1[1] - 22) + " " + p2[0] + "," + p2[1]} fill="none" stroke="var(--gold-dim)" strokeWidth="1.6" strokeDasharray="2 3" />`; })}
+    ${lens === "born" && TL.readings.map(function(r){ var pts = r.events.map(function(id){ return pos[id]; }).filter(Boolean); if (pts.length < 2) return null;
+      var p1 = pts[0], p2 = pts[pts.length - 1], my = Math.min(p1[1], p2[1]) - 30;
+      return html`<path key=${r.id} d=${"M" + p1[0] + "," + p1[1] + " Q" + (p1[0] + p2[0]) / 2 + "," + my + " " + p2[0] + "," + p2[1]} fill="none" stroke="var(--blood-hi)" strokeWidth="1.8" strokeDasharray="5 4" />`; })}
+    ${order.map(function(k){ var g = buckets[k]; var y = ly(g[0].lane);
+      if (g.length === 1){ var it = g[0], x = sx(it.x), c = "var(--s-" + it.status + ")", on = selId === it.id, dim = match(it) === "dim";
+        var label = (it.kind === "gap" ? it.g.label + ": " + it.g.title + " (not reviewed)" : it.dated[0].label + ": " + it.e.title) + (it.disagree ? ". Sources disagree on the date." : "");
+        return html`<g key=${it.id} className=${"tl-hit" + (on ? " on" : "")} tabIndex="0" role="button" aria-label=${label} opacity=${dim ? .22 : 1} ...${act(function(){ setSel(it.id); })}>
+          <title>${label}</title>
+          <circle cx=${x} cy=${y} r="13" fill="transparent" />
+          ${it.kind === "gap"
+            ? html`<circle cx=${x} cy=${y} r="7" fill="var(--paper)" stroke=${c} strokeWidth="1.8" strokeDasharray="3 2" />`
+            : html`<circle cx=${x} cy=${y} r="7" fill=${c} stroke=${on ? "var(--ink)" : "var(--paper)"} strokeWidth=${on ? 3 : 2} />`}
+          ${it.kind === "event" && it.e.accounts.length > 1 && html`<circle cx=${x} cy=${y} r="11" fill="none" stroke=${c} strokeWidth="1.3" />`}
+        </g>`; }
+      var xs = g.map(function(it){ return sx(it.x); }), cx = xs.reduce(function(s, v){ return s + v; }, 0) / xs.length;
+      var best = tlBest(g.map(function(it){ return it.status; }));
+      var clabel = g.length + " entries, " + tlFmt(g[0].x) + " to " + tlFmt(g[g.length - 1].x) + (g.length >= 10 ? ". Select to zoom in." : ". Select to list them.");
+      return html`<g key=${k} className="tl-hit" tabIndex="0" role="button" aria-label=${clabel} ...${act(function(){ openCluster(g); })}>
+        <title>${clabel}</title>
+        <circle cx=${cx} cy=${y} r="13" fill="var(--paper)" stroke=${"var(--s-" + best + ")"} strokeWidth="2.5" />
+        <text x=${cx} y=${y + 4} textAnchor="middle" className="tl-num">${g.length}</text>
+      </g>`; })}
+  </svg>`;
+
+  return html`<div className="tl-wrap">${head}
+    <div className="tl-stage" ref=${wrap} tabIndex="0" aria-label="Timeline canvas. Arrow keys move, Shift moves faster, plus and minus zoom, Home shows everything."
+      onPointerDown=${onDown} onPointerMove=${onMove} onPointerUp=${onUp} onPointerLeave=${onUp} onKeyDown=${onKey} onWheel=${onWheel}>${svg}</div>
+    <div className="tl-legend">
+      <span><i className="dot" style=${{background:"var(--s-court)"}}></i>Strongest status among an event's accounts</span>
+      <span><i className="dot ring"></i>Several accounts</span>
+      <span><i className="bar" style=${{background:"var(--s-plaintiff)"}}></i>Sources disagree on the date</span>
+      <span><i className="dot ghost"></i>Should exist, not reviewed</span>
+      <span><i className="bar dash" style=${{background:"var(--s-sworn)"}}></i>Overlapping amounts: do not add</span>
+      ${lens === "born" && html`<span><i className="bar dash" style=${{background:"var(--blood-hi)"}}></i>Our read (opinion)</span>`}
+      <span className="muted">Drag to move. Ctrl + scroll or the buttons to zoom.</span>
+    </div>
+    ${detail}
+  </div>`;
+}
+
 function Timeline(p){
   if (!p.real) return html`<section>
     <div className="section-head"><h2>Timeline</h2><span>Fictional Mystery · every date is invented</span></div>
@@ -2030,18 +2372,10 @@ function Timeline(p){
     <ol className="tl">${F_TIMELINE.map(function(t,i){ return html`<li key=${i}><div className="when">${t.d}</div><div>${t.t}</div><div><${Chip} status="fiction" /></div></li>`; })}</ol>
   </section>`;
   return html`<section>
-    <div className="section-head"><h2>Timeline</h2><span className="muted ui">Each entry carries the status of its source</span></div>
-    <ol className="tl">
-      ${TIMELINE.map(function(t,i){ return html`<li key=${i}>
-        <div className="when">${t.d}</div>
-        <div>${t.t}</div>
-        ${t.conflict && html`<div className="conf">Sources disagree: ${t.conflict}</div>`}
-        <div style=${{display:"flex",gap:"8px",flexWrap:"wrap",alignItems:"center",marginTop:"3px"}}>
-          <${Chip} status=${t.s} />
-          ${t.src && html`<button className="dlg-btn" style=${{minHeight:"28px",padding:"1px 8px",fontSize:".8rem"}} onClick=${function(){ p.openSrc(t.src); }}>${SOURCES[t.src].short}${t.pin ? " · " + t.pin : ""}</button>`}
-        </div>
-      </li>`; })}
-    </ol>
+    <div className="section-head"><h2>Timeline</h2><span className="muted ui">Every account, on the date it claims</span></div>
+    <${LensNote} lens=${p.st.lens} />
+    <p className="aside">Each marker is an event. Open it to see every source's version, with its status and pinpoint. Where sources disagree, all versions stay on the record and none is preferred. Share a view by copying the address: it keeps the date range and the open event.</p>
+    <${CaseTimeline} st=${p.st} openSrc=${p.openSrc} openCard=${p.openCard} go=${p.go} />
   </section>`;
 }
 
@@ -2127,6 +2461,12 @@ function SourcesView(){
     <div className="tablewrap"><table>
       <thead><tr><th>Document</th><th>Date</th><th>Kind</th><th>Review</th></tr></thead>
       <tbody>${["S88","S264","SJLP","SSLM"].map(function(k){ var s = SOURCES[k]; return html`<tr key=${k}><td><a href=${s.url} target="_blank" rel="noopener noreferrer">${s.title}</a><div className="muted" style=${{fontSize:".85rem"}}>${s.note}</div></td><td className="num">${s.date}</td><td>${s.kind}</td><td>${s.status}</td></tr>`; })}</tbody>
+    </table></div>
+    <h3 style=${{fontSize:"1.4rem",margin:"24px 0 8px"}}>Added for the timeline (October 23, 2026)</h3>
+    <p className="lede">These public records back timeline entries only. No evidence card or Inquiry puzzle relies on them. Each one says how closely it was read.</p>
+    <div className="tablewrap"><table>
+      <thead><tr><th>Document</th><th>Date</th><th>Kind</th><th>Review</th></tr></thead>
+      <tbody>${TL_SOURCES.map(function(k){ var s = SOURCES[k]; return html`<tr key=${k}><td><a href=${s.url} target="_blank" rel="noopener noreferrer">${s.title}</a><div className="muted" style=${{fontSize:".85rem"}}>${s.note}</div></td><td className="num">${s.date}</td><td>${s.kind}</td><td>${s.status}</td></tr>`; })}</tbody>
     </table></div>
     <h3 style=${{fontSize:"1.4rem",margin:"24px 0 8px"}}>Documents needed next</h3>
     <div className="tablewrap"><table>
