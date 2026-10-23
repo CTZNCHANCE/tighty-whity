@@ -1,0 +1,782 @@
+Oliver and Company et al v. Zamber et al Doc. 88
+ UNITED STATES DISTRICT COURT
+ EASTERN DISTRICT OF MISSOURI
+ EASTERN DIVISION
+ OLIVER AND COMPANY, et al., )
+ )
+ Plaintiffs, )
+ )
+ vs. ) Case No. 4:25-cv-00132-MTS
+ )
+ DR. RONALD ZAMBER, et al., )
+ )
+ Defendants. )
+ MEMORANDUM AND ORDER
+ This matter is before the Court on Defendant Dr. Ronald Zamber, Defendant Michael
+ Cosby, Defendant Robert Grenley, Defendant Visionary Fund Manager, LLC, and Defendant
+ Visionary Private Equity Group I, LP (together, “Defendants”)’s Motion to Dismiss for Lack of
+ Subject Matter Jurisdiction, Doc. [55],1 as well as Plaintiff Oliver and Company, Plaintiff Barbara
+ Indra, Plaintiff Susan Delmanowski, Plaintiff Oliver Family Holdings LLC, Plaintiff J. Oliver
+ Cunningham, Jr. Revocable Trust, Plaintiff John Oliver Teem Trust, Plaintiff Rachelle L. Indra
+ Revocable Trust, Plaintiff Jane Warriner 1971 Trust, Plaintiff James Hart, and Plaintiff Donald
+ Riggs (together, “Plaintiffs”)’s Motion to Appoint a Receiver Pendente Lite, Doc. [47]. The Court
+ is in receipt of the parties’ respective responses in opposition and their replies in support of their
+ motions. The Court heard argument and received testimony concerning these motions on April
+ 28, 2025, and permitted the parties to submit supplemental briefing with respect to each. For the
+ reasons that follow, the Court finds that it has subject matter jurisdiction over a subset of Plaintiffs’
+ claims, and the Court will therefore grant Defendants’ Motion in part and deny it in part. The
+ 1
+ Defendant Visionary Private Equity Group I, LP originally filed its Motion to Dismiss on April 11, 2025. Doc. [55].
+ Since that time, Defendants Zamber, Cosby, Grenley, and Visionary Fund Manager, LLC, have fully joined in that
+ Motion. Doc. [82] at 11.
+ Dockets.Justia.com
+Court also finds that, pursuant to federal equitable principles, the circumstances in this case are
+sufficiently extraordinary to warrant appointing a receiver over Visionary Private Equity Group I,
+LP and Visionary Fund Manager, LLC. Accordingly, the Court will appoint Mr. Jason Buhlinger
+of Armanino LLP, as receiver over Visionary Private Equity Group I, LP, and Visionary Fund
+Manager, LLC, while this action is pending, as set forth below.
+ FACTUAL BACKGROUND
+ Visionary Private Equity Group I, LP (“VPEG” or “the Fund”) is a limited partnership that
+operates as a private equity fund “of some 32-plus portfolio companies.” Doc. [82] at 49. VPEG
+takes in limited partners, each of whom invests a certain amount of capital in exchange for a
+limited-partnership interest, and VPEG uses that capital to invest in the portfolio companies to
+provide a return on its limited partners’ investments. Id. Defendant Ronald Zamber is the
+Chairman and Senior Managing Director of VPEG, Defendant Robert Grenley is the Director of
+Capital Development, Defendant Michael Cosby has served as VPEG’s Senior Managing Director
+and General Counsel,2 and Defendant Visionary Fund Manager, LLC, is an entity that is
+empowered to “manage and direct” VPEG’s portfolio investments pursuant to the Limited
+Partnership Agreement (“LPA”). Doc. [12-4] at 6.
+ Plaintiffs are a series of individuals, trusts, and entities associated with the Oliver Estate, a
+family office that manages the assets of seven generations of Oliver family members. Doc. [48–
+1] ¶ 3; Doc. [82] at 150. Plaintiff James Hart is the President of the Oliver Family Office and
+oversees the general investment strategy for the Plaintiffs enumerated above. Doc. [48–1] ¶ 3. As
+limited partners of the Fund, each Plaintiff has invested significant capital in VPEG by purchasing
+a limited-partner interest in the entity, see, e.g., Doc. [12-3] at 22 (“Subscription Agreement”), and
+2
+ Defendant Cosby has apparently resigned from these positions. Doc. [12] ¶ 29; Doc. [82] at 90–91.
+ -2-
+some have contributed additional funds to VPEG in the form of short-term loans, see, e.g., Doc.
+[48-4].
+ VPEG brought in its first group of investors in late 2010 or early 2011. Doc. [82] at 101.
+Although these initial investors were “family and friends” of VPEG’s founding partners and staff,
+id. at 114, VPEG now has “almost 1,000 limited partners,” id. at 72, who reportedly have invested
+“approximately $90 million” in the Fund to date, id. at 190. The LPA vests VPEG’s general
+partner, Visionary PE GP I, LLC,3 with the “right, power, and authority” to manage the Fund’s
+business and affairs. Doc. [12-4] at 6. To attract additional limited partners, VPEG boasts a
+management team that “consists of highly respected professionals with a unique blend of private
+equity, investment banking, legal, medical, oil & gas, internet technology and operating experience
+that play an active role ensuring [the] portfolio have a sound operating and capital strategy.” Doc.
+[70-12] at 2. VPEG also allows for possible distributions paid to its limited partners, at the general
+partner’s discretion, pursuant to a schedule of payment contained in the LPA. Doc. [82] at 49;
+Doc. [12-4] at 9, 25–26. At least one distribution was paid out to the limited partners in 2021, id.
+at 141, but the exact amount of funds distributed, when they were distributed, and to whom is
+unclear. An executive summary prepared by Defendants reported distribution payments to limited
+partners totaling $5.8 million as of March 01, 2024, but an updated report dated July 23, 2024,
+indicates that limited partners have received distributions totaling $9.1 million—a discrepancy of
+$3.3 million. Compare Doc. [12-1] at 5, with [12-2] at 5.
+3
+ It does not appear that the members of this limited liability company have been formally disclosed. Defendants have
+provided a list of individuals who are labeled as VPEG’s general partners, see e.g., Doc. [63-1] at 1, but several of
+these individuals have denied knowing about Visionary PE GP I, LLC, see, e.g., Doc. [82] at 132 (Brigitte Bonetti),
+and others have denied signing any papers that would identify them as limited-liability-company members, see Doc.
+[73-2] at 5 (Kevin DeLeon on behalf of Highgate Capital, LLC); Doc. [82] at 90 (Patrick Lepski). Plaintiffs allege
+“on information and belief” that Defendants Zamber and Cosby are the sole members of Visionary PE GP I, LLC.
+Doc. [12] ¶ 42. Testimony given at the April 28, 2025, hearing indicates that Defendants Zamber and Cosby are
+“making the decisions on behalf of Visionary Private Equity Group.” Doc. [82] at 90–91.
+ -3-
+ In the last several years, it appears that the financial health of VPEG has been quite dire
+because the Fund has been unable to pay its contractors or basic business expenses. To illustrate,
+multiple independent contractors hired by the Fund have testified or submitted signed declarations
+asserting that they are owed many thousands of dollars in back pay, see, e.g., Doc. [82] at 41
+($96,000); id. at 119 ($181,278); id. at 88 (approximately $120,000); Doc. [73-2] at 5 ($75,000);
+Doc. [48-8] at 4 ($220,000), some of whom have not received any payment at all for several
+months to a year. Doc. [82] at 122–23. Additionally, as of the April 28, 2025, hearing in this
+matter, VPEG owed over $21,000 in unpaid rent for its corporate office located in the City of St.
+Charles, Missouri. Id. at 77. As of the hearing, VPEG made its most recent rent payment on
+December 30, 2024. Id. According to a notice sent by the City of St. Charles on January 29,
+2025, VPEG was operating without a valid business license and was “required to cease operation”
+until such time as VPEG came “into full compliance with the [City’s] business license
+requirements” and paid “the license fee plus applicable late fees.”4 Hearing Exhibit 4; Doc. [82]
+79–80. VPEG also received a notice from its landlord on April 10, 2025, informing it that its
+General Liability and Property Insurance policies had expired and that new insurance coverage
+was required. Id. at 81–82. Relatedly, VPEG received a Cancelation Notice from its property-
+insurance carrier on March 03, 2025, notifying it that VPEG’s $1,055 insurance premium was past
+due. Hearing Exhibit 6; Doc. [82] at 83–84.
+ VPEG is in arrears with several vendors as well. For example, VPEG contracts with
+Dynamo Software to run its investment portal, through which the Fund’s partners “can see their
+K-1 statements, . . . news updates, and . . . how much they’re owed.” Id. at 84–85. A June 26,
+2024, invoice indicates that, at that time, VPEG owed Dynamo $23,000, and VPEG staff members
+4
+ A VPEG contractor cured the deficiency by paying the applicable fees out of pocket with no reimbursement. Doc.
+[82] at 80.
+ -4-
+do not know whether this invoice was ever paid. Id. Indeed, the investment portal has been
+inaccessible for periods of time because of nonpayment, most recently around April 01, 2025. Id.
+at 85. VPEG also uses a company called Inspira to manage its self-directed Individual Retirement
+Account (“IRA”) program, which enables VPEG partners “to invest their IRA money into a self-
+directed IRA . . . [and allows them to] put that money towards VPEG.” Id. at 86. An April 16,
+2025, Inspira invoice shows that VPEG owes it $39,020, and of that amount, $5,700 is 90-days
+past due. Id. at 87. Again, as of the Court’s April 28, 2025, hearing, VPEG staff could not say
+whether the invoice had been paid. Id. Given these difficulties and the fact that VPEG’s bank
+account often has “little or nothing in it,” Patrick Lepski, VPEG’s Assistant Director of Investment
+Relations, testified he that does not believe that the Fund has sufficient resources to pay these
+current bills. Id. at 87–88.
+ Indeed, it appears that VPEG’s leadership quickly uses the funds at its disposal, even if the
+funds are earmarked for other purposes. For example, VPEG often acts as an intermediary between
+current limited partners seeking to sell their shares to outside buyers and thereby exit the Fund.
+Id. 113–14. In the normal course, the buyer and seller can exchange the purchase amounts directly.
+Id. at 114. But, when the shares being sold are invested through the IRA program discussed above,
+the prospective buyers must send the purchase amounts to VPEG, which facilitates the transaction
+through Inspira so that the requisite amount can be taken out of the relevant account and sent to
+the seller. Id. In “many instances,” the limited-partner seller in these transactions never received
+the funds from the purported sale. Id. Instead, Defendants collected the purchase amounts and
+put them to other uses instead of “cashing out” the limited-partner seller. Id. at 115. Some of
+these limited partners have yet to be paid. Id.
+ -5-
+ VPEG’s bank records—at least to the extent they have been made a part of the record—
+reveal indiscriminate wire transfers of VPEG funds to Defendant Zamber, Defendant Cosby, and
+other individuals, entities, and accounts. Defendants Zamber and Cosby manage VPEG’s bank
+account at Great Southern Bank, id. at 108, and wire transfers from that account require both of
+their signatures. Id. at 47, 113. Brigitte Bonetti, VPEG’s Managing Director and Director of
+Investor Relations has at-least-intermittent access to this bank account while working for the Fund.
+Id. at 106–07 (explaining that access would be “cut off for long periods of time” starting in 2018).
+According to the records that she can access, at least $1,779,462.63 has been wired from VPEG
+directly to Defendant Zamber, sometimes in varied increments mere days apart, see, e.g., Hearing
+Exhibit 9; Hearing Exhibit 12 at 21–22 (indicating a wire of $50,000 sent on August 13, 2021, and
+a wire of $175,000 sent on August 16, 2021); see also Doc. [82] at 106.5 Similarly, Defendant
+Cosby has received at least $128,812.50. Doc. [82] at 109. In addition to those amounts,
+Defendant Visionary Fund, LLC, of which Defendants Zamber and Cosby are the sole members,
+see Doc. [60], has received transfers of at least $705,000, Doc. [82] at 109. The records also show
+significant funds paid to entities and accounts that Ms. Bonetti does not recognize, including
+$422,788.55 to Visionary Private DST BIZ 1 and $895,040.06 to Visionary Private DST IND 1.
+Id. at 112–13; Hearing Exhibit 9 at 4.
+ Several of VPEG’s portfolio companies are struggling or defunct at this time. Take, for
+example, Visionary Vaccination & Health Services, LLC, which operated as a vaccination clinic
+during the COVID-19 pandemic. Doc. [82] at 43, 57. Although the clinic has not formally closed,
+it stopped providing services “some two years ago” and has not earned revenue since then. Id. at
+5
+ At the hearing, Defendant Zamber’s counsel explained, based on statements made to him by Defendant Zamber, that
+these funds were wired because “Mr. Zamber made a loan to the fund, and it was repaid to him.” Doc. [82] at 199–
+200.
+ -6-
+44. According to Kevin Huss, the clinic’s former Director of Operations, 6 its current assets are
+limited to seven laptops, a medical freezer, and a medical deep freezer. Id. at 59. Despite these
+circumstances, Defendants value Visionary Vaccination & Health Services, LLC at $1.7 million.
+Id. at 59. Visionary Media Group is another example. Despite VPEG’s significant investment
+ranging between $13 million and $15 million, Doc. [48-8] at 57; Doc. [48-1] ¶ 14, Great Southern
+Bank has sent multiple notices of insufficient funds showing that, over the course of the last several
+months, Visionary Media Group has repeatedly had negative balances in its account. Doc. [82] at
+126–27; Hearing Exhibit 17.7 In addition, at least one Visionary Media Group contractor has not
+received payment for services rendered dating back to 2024. Doc. [48-8] at 70 ¶ 5–6. One final
+example is Pop! Gourmet, a popcorn company that has not manufactured popcorn in over two
+years. Doc. [82] at 180. According to Plaintiff James Hart, a former Pop! Gourmet board member,
+Doc. [82] at 180, the company has “failed to pay its employees . . . and vendors among other bills.”
+Doc. [48-1] ¶ 13; see also Doc. [82] at 183 (explaining that the national sales manager and
+controller each had missed seven payroll periods). At least as of April 02, 2025, Pop! Gourmet’s
+phone number and website were inoperative due to apparent lack of payment. Doc. [48-1] ¶ 14.
+ Despite these circumstances, Defendants have regularly touted VPEG’s financial health,
+the imminence of “liquidity events” for the limited partners, and increased investment values. See,
+e.g., Doc. [48-8] at 10 ¶ 5. To create an atmosphere of urgency when recruiting additional
+investors, Defendants have made statements indicating that the Fund would soon close and that
+the one-dollar-per-share investment window would soon cease. See, e.g., id. at 23 ¶ 8; id at 72 ¶ 5;
+6
+ Mr. Huss explains that he left this role because Defendants Grenley and Zamber asked him to rewrite his monthly
+operating reports “in a more favorable light,” making them “inaccurate.” Doc. [82] at 44–45.
+7
+ This comports with former-senior-advisor Anastasia Brown’s sworn statement that she regularly raised the issue of
+Visionary Media Group’s failure “to set or comply with a budget.” Doc. [48-8] at 14.
+ -7-
+id. at 90 ¶ 5. On the contrary, the Fund remains open, and at least some new investors have been
+able to buy into the Fund at 1.5 shares per dollar, effectively diluting the investments of previous
+limited partners. Id. at 24 ¶ 9.
+ Plaintiffs, for their part, decided to invest approximately $11 million in the Fund after
+hearing a presentation made by Defendants Zamber and Grenley in 2017. Doc. [48-1] ¶ 8. During
+that presentation, Defendants Zamber and Grenley explained that VPEG “invests in early stage,
+high growth companies that have strong management teams and the potential for significant
+upside” and that “VPEG’s team of highly respected professionals” would “play an active role in
+ensuring that [the] portfolio companies have a sound operating and capital strategy.” Id. ¶ 6.
+Moreover, based on representations made by Defendant Zamber and Defendant Grenley to
+Plaintiffs and their representatives in 2022 and 2023—namely that liquidity events were
+forthcoming and that Defendants “anticipated monetizing a few of the portfolio companies within
+three to six months”—Plaintiffs agreed to make short term loans to VPEG totaling $1.6 million.
+Doc. [48-1] ¶ 9; Doc. [82] at 155, 157. Defendant Grenley assured Plaintiffs that the amounts
+would be used “to invest in the Fund and for expenses.” Doc. [48-1] ¶ 9. Plaintiff Hart loaned
+VPEG an additional $100,000, which Defendant Zamber promised to repay four days later because
+“he had vetted four new investors” who would provide VPEG additional capital. Doc. [48-1] ¶ 10;
+Doc. [82] at 159. In a meeting to discuss these loans, Defendant Zamber assured Plaintiff Hart
+that the short-term loans would be repaid by the end of 2024 because “he had over $50 million
+lined up” and that $4 million to $5 million were “guaranteed” to come into the Fund. Doc. [82] at
+166, 169–70. None of these loans has been repaid. Doc. [48-1] ¶ 11 (explaining that VPEG has
+been in default for over $2 million in loans, interest, and fees owed to Plaintiffs).8
+8
+ Plaintiff Hart also testified to making a $50,000 investment in Pop! Gourmet that, according to promises made by
+Defendant Grenley, would “be used, in part, to purchase spices and packaging” necessary to begin production of co-
+ -8-
+ In connection with those investments and loans, Plaintiff Hart requested reports from
+Defendants that would detail VPEG’s finances. He received a collection of documents, including
+a “portfolio cost basis,” “balance sheet,” and a “profit-and-loss statement” designated “unaudited,
+unreconciled, and non-tax basis.” Doc. [82] at 168; Hearing Exhibit 21. Notwithstanding concerns
+regarding the accuracy of the documents, Doc. [82] at 168–69, they indicate that, by the end of
+2023, VPEG possessed $218,000 in its accounts and had suffered a net loss of over $10 million.
+Meanwhile, Defendants Grenley, Zamber, and Cosby “continu[ed] to make reports that there were
+million[s] of new investor dollars coming in or imminently coming in.” Id. at 169. Plaintiff Hart
+met with Defendant Cosby to discuss these disclosures, but Defendant Cosby refused to answer
+his questions beyond generic responses, and he refused to provide audited reports. Id. at 172–73
+(explaining that, in addition to Defendant Cosby’s refusal, Defendant Zamber refused to provide
+audited financial statements for at least four to five years). Defendant Cosby provided a similar
+summary document dated September 30, 2024, showing that VPEG had earned a gross profit of
+$14.50 to that point in the year. Doc. [82] at 176, 179. Since that time Plaintiff Hart has
+persistently requested updated financial information from Defendant Grenley but has received
+none. Doc. [82] at 177.
+ Plaintiffs bring this lawsuit asserting direct and, alternatively, derivative claims against
+Defendants for breach of their fiduciary duties as well as a claim against Zamber, Grenley, and
+Cosby for an equitable accounting because, inter alia, they have “failed to make distributions, keep
+or provide accurate or complete financial records, have those records properly audited, and
+branded chips and popcorn. Doc. [48-1] ¶ 13; Doc. [82] at 181–82. Those funds were apparently put to other uses;
+neither the spices and packaging were purchased, and the food items were never produced or sold. Doc. [82] at 183.
+Indeed, in the past, funds belonging to Pop! Gourmet have been diverted to pay costs incurred by a separate, unrelated
+portfolio company within the Fund. Doc. [82] at 62–63 (explaining that an invoice issued to Visionary Vaccination
+Clinic was at-least partially paid by a wire transfer from Pop! Gourmet).
+ -9-
+properly account to Plaintiffs about the status of their money.” Doc. [12] ¶ 144. Plaintiffs also
+bring a negligent misrepresentation claim against all Defendants, asserting that Plaintiffs
+reasonably relied on Defendants’ false and misleading statements “in furtherance of investing in
+[VPEG] and lending it money.” Id. ¶ 128. In addition, Plaintiffs have filed a Motion seeking the
+appointment of a receiver over Visionary Private Equity Group I, LP and Visionary Fund Manager,
+LLC, pending this litigation. Doc. [47]. Plaintiffs contend that the Court has authority to appoint
+a receiver over the limited partnership because the evidence placed in the record and adduced at
+the hearing demonstrates that Plaintiffs will suffer irreparable harm without one—that is, Plaintiffs
+argue there is a high likelihood that their property will be lost or diminished due to Defendants’
+gross mismanagement, self-dealing, and the Fund’s apparent insolvency. Doc. [48] at 6; Doc. [84]
+at 5–6. To that end, Plaintiffs ask the Court to appoint as receiver Mr. Jason Buhlinger of
+Armanino, LLP. Doc. [48] at 11.
+ Defendants, in turn, move the Court to dismiss this action for lack of subject matter
+jurisdiction. Doc. [55]. In their Motion, they challenge both the jurisdictional allegations that
+Plaintiffs assert in their operative complaint as well as the jurisdictional facts that underpin them.
+Defendants argue that Visionary Private Equity Group I, LP, cannot be considered a nominal
+defendant in this action; rather, it must be considered a real party in interest such that the Court
+must consider its citizenship for purposes of this Court’s diversity jurisdiction under 28 U.S.C.
+§ 1332(a). And, once considered, complete diversity between Plaintiffs and Defendants is
+destroyed because, as limited partners, Plaintiffs and the Fund are citizens of the same states. Doc.
+[55] ¶ 5–9. Defendants also oppose the appointment of a receiver and argue that such an
+exceptional remedy is not warranted under the circumstances, doing so is premature and is more
+ - 10 -
+appropriate after an adjudication on the merits, and that the appointment would be void for lack of
+subject matter jurisdiction. Doc. [71].
+ LEGAL STANDARD
+ Under Federal Rule of Civil Procedure 12(b)(1), a party may move to dismiss a case for
+lack of subject matter jurisdiction. The movant can either challenge the complaint “on its face or
+on the factual truthfulness of its averments.” Titus v. Sulivan, 4 F.3d 590, 593 (8th Cir. 1993).
+With respect to a facial attack, the motion “is subject to the same standard as a motion brought
+under Rule 12(b)(6).” Mattes v. ABC Plastics, Inc., 323 F.3d 695, 698 (8th Cir. 2003). This means
+that the Court limits itself to the allegations made in the complaint, and it accepts the factual
+allegations as true. See Ashcroft v. Iqbal, 556 U.S. 662, 678 (2009). However, “[a] factual attack
+occurs ‘when the defendant challenges the veracity of the facts underpinning subject matter
+jurisdiction,’” and “the court considers matters outside the pleadings.” Davis v. Anthony, 886 F.3d
+674, 679 (8th Cir. 2018) (quoting Kerns v. United States, 585 F.3d 187, 193 (4th Cir. 2009)).
+ Where, as here, the plaintiff invokes the Court’s diversity jurisdiction under 28 U.S.C.
+§ 1332(a), the plaintiff has the burden to establish that the amount in controversy is greater than
+$75,000 and there is complete diversity of citizenship among the litigants. “Complete diversity of
+citizenship exists where no defendant holds citizenship in the same state where any plaintiff holds
+citizenship.” OnePoint Sols., LLC v. Borchert, 486 F.3d 342, 346 (8th Cir. 2007). Diversity
+jurisdiction rests “only upon the citizenship of real parties to the controversy.” Navarro Sav. Ass’n
+v. Lee, 446 U.S. 458, 461 (1980). Therefore, “[t]he presence of a nondiverse party who is nominal
+may be ignored in determining whether diversity jurisdiction exists.” Slater v. Republic-Vanguard
+Ins. Co., 650 F.3d 1132, 1134 (8th Cir. 2011) (internal quotations omitted). A nominal defendant
+is generally one “against whom no real relief is sought.” Thorn v. Amalgamated Transit Union,
+ - 11 -
+305 F.3d 826, 833 (8th Cir. 2002); see also GE Betz, Inc. v. Zee Co., 718 F.3d 615, 631 (7th Cir.
+2013) (“[D]efendant is nominal if there is no reasonable basis for predicting that it will be held
+liable.”); accord Nominal Party, Black’s Law Dictionary (12th ed. 2024) (“[A] party who has some
+immaterial interest in the subject matter of a lawsuit and who will not be affected by any judgment,
+but who is nonetheless joined in the lawsuit to avoid procedural defects.”).
+ The Court of Appeals for the Eighth Circuit has held that “the appointment of a receiver in
+a diversity case is a procedural matter governed by federal law and federal equitable principles.”
+Morgan Stanley Smith Barney LLC v. Johnson, 952 F.3d 978, 980 (8th Cir. 2020).
+ Although there is no precise formula for determining when a receiver may be
+ appointed, factors typically warranting appointment are a valid claim by the party
+ seeking the appointment; the probability that fraudulent conduct has occurred or
+ will occur to frustrate that claim; imminent danger that property will be concealed,
+ lost, or diminished in value; inadequacy of legal remedies; lack of a less drastic
+ equitable remedy; and likelihood that appointing the receiver will do more good
+ than harm.
+Aviation Supply Corp. v. R.S.B.I. Aerospace, Inc., 999 F.2d 314, 316–17 (8th Cir. 1999). The
+decision to appoint a receiver is within the district court’s sound discretion. See Morgan Stanley,
+952 F.3d at 980.
+ DISCUSSION
+ A. Subject Matter Jurisdiction
+ Defendants’ arguments concerning the facial sufficiency of Plaintiffs’ jurisdictional
+allegations are easily dispensed with. In sum, Defendants argue that Plaintiffs’ complaint does not
+sufficiently establish this Court’s diversity jurisdiction because Plaintiffs fail to “allege the state
+citizenship of any party, listing only the states where each party ‘resides.’” Doc. [55] ¶ 5 (citing
+Doc. [12] ¶¶ 16–30). But the Eighth Circuit has explained that the verb, “reside,” sufficiently
+captures the “permanence” required to establish an individual’s citizenship. See Reece v. Bank of
+ - 12 -
+N.Y. Mellon, 760 F.3d 771, 778 (8th Cir. 2014) (noting that “[c]itizenship requires permanence”
+and “[t]o reside . . . means to have one’s permanent home in a particular place”). Accordingly, on
+the face of the operative complaint, Plaintiffs’ jurisdictional allegations properly establish this
+Court’s diversity jurisdiction.
+ Whether complete diversity in fact exists between the pertinent parties is a more difficult
+question. Defendants’ arguments on this score are rooted in two general principles: (1) diversity
+jurisdiction “depends on the citizenship of the real parties to the controversy,” Jakoubek v. Fortis
+Benefits Ins. Co., 301 F. Supp. 2d 1045, 1049 (D. Neb. 2003); and (2) that a limited partnership’s
+citizenship, for purposes of federal subject matter jurisdiction, is equivalent to that of its partners,
+see Carden v. Arkoma Assocs., 494 U.S. 185, 195–96 (1990). Defendants argue that, because
+VPEG is a real party in interest and cannot be considered a “nominal defendant” as currently styled
+in the complaint, the Court must consider VPEG’s citizenship as part of its jurisdictional analysis.
+Once VPEG’s citizenship is properly accounted for, so the argument goes, complete diversity does
+not exist, and the action must be dismissed without prejudice because VPEG’s citizenship is
+equivalent to that of Plaintiffs. Doc. [55] ¶¶ 7–9. The Court agrees, but only with respect to
+Plaintiffs’ derivative claims.
+ Plaintiffs assert two categories of claims in their complaint: direct claims and derivative
+claims. Compare, e.g., Doc. [12] ¶¶ 131–45 (direct), with id. ¶¶ 146–62 (derivative). Whether a
+claim is characterized as direct or derivative is a matter of state law. See Popp Telecom, Inc. v.
+Am. Sharecom, Inc., 361 F.3d 482, 492 (8th Cir. 2004). “A derivative action is a suit by the
+[corporate entity] conducted by the shareholders as the corporation’s representative.” Nickell v.
+Shanahan, 439 S.W.3d 223, 227 (Mo. banc 2014).9 “Derivative actions are aimed at vindicating
+9
+ Unless contested, a district court sitting in diversity applies the substantive law of the state in which it sits by
+default. See BBSerCo, Inc. v. Metrix Co., 324 F.3d 955, 960 n.3 (8th Cir. 2003) (citing R.E. Wood v. Mid-Valley,
+ - 13 -
+injuries to the corporation—to the shareholders collectively—and not the shareholders
+individually.” Id. (citation omitted). “Shareholders cannot in their own right and for their own
+personal use and benefit maintain an action for the recovery of corporate funds or property
+improperly diverted or appropriated by the corporation’s officers and directors.” Id. By contrast,
+“direct, individual shareholder claims are available to redress individual wrongs.” Id. An action
+is appropriately characterized as direct when it asserts violations of the shareholder’s individual
+rights. See Centerre Bank of Kan. City, Nat. Ass’n v. Angle, 976 S.W.2d 608, 614 (Mo. Ct. App.
+1998).
+ This distinction is crucial for present purposes because, in typical derivative actions, a
+“shareholder is only a nominal plaintiff, and the corporation is the real party in interest.” Goldstein
+v. Studley, 452 S.W.2d 75, 78 (Mo. 1970). And where, as here, the “the corporation is under the
+control of officers who are the target of the derivative suit,” such that the corporation is
+antagonistic to the shareholder’s interest, “the corporation in [the] derivative suit should be aligned
+as a defendant.” Knop v. Mackall, 645 F.3d 381, 382 (D.C. Cir. 2011) (Kavanaugh, J.) (citing
+Koster v. (Am.) Lumbermens Mut. Casualty Co., 330 U.S. 518 (1947)).10 Applying these principles
+to Plaintiffs’ derivative claims, the Court concludes that it must regard VPEG as a real party in
+interest, and it must realign VPEG as a defendant given the antagonism that is present here. See
+Inc., 942 F.2d 425, 426 (7th Cir. 1991) (“[W]hen neither party raises a conflict of law issue in a diversity case, the
+federal court simply applies the law of the state in which the federal court sits.”)).
+10
+ Contrary to Plaintiffs arguments, this antagonism rule does not operate as an “exception to the general rule that
+corporate entities are the real party in interest in derivative actions.” Doc. [84] at 9. True, the Supreme Court in
+Koster v. (American) Lumbermens Mutual Casualty Co. observed that federal subject matter jurisdiction can be
+“saved” when “the corporation is in antagonistic hands,” but this occurs only as a result of realigning the corporation
+from plaintiff to defendant when antagonism is present. 330 U.S. at 523 (explaining that, if the corporation in that
+case remained aligned as a plaintiff “Illinois corporations would then appear among plaintiffs and among defendants,
+and jurisdiction would be ousted”); see also 13E Charles A. Wright & Arthur R. Miller, Federal Practice and
+Procedure, § 3607 (3d ed.) (“[T]he test usually applied is that antagonistic parties are aligned on opposite sides.”).
+ - 14 -
+Smith v. Sperling, 341 U.S. 91, 97 (1957) (explaining that antagonism is present when corporate
+managers are “hostile . . . to the enforcement of the claim”). Under these circumstances, complete
+diversity does not exist between Plaintiffs and VPEG because their respective citizenships are
+coextensive. See Buckley v. Control Data Corp., 923 F.2d 96, 97–98 (8th Cir. 1991) (finding no
+diversity in a derivative action between limited-partner plaintiffs and the limited partnership as a
+defendant).
+ But the same is not true of Plaintiffs’ direct claims, which seek to enforce their individual
+rights or redress individual wrongs. See Nickell, 439 S.W.3d at 227. After all, “[i]n a suit in which
+the stockholders are suing directly to enforce their own interests in the corporation under
+circumstances in which the corporation has no rights to assert as no wrong had been done to it, the
+corporation need not join.” 7 Charles A. Wright & Arthur R. Miller, Federal Practice and
+Procedure § 1615 (3d ed.). It follows that a corporate entity named in a direct action is often one
+“against whom no real relief is sought,” Thorn, 305 F.3d at 833, and one for whom “there is no
+reasonable basis for predicting that it will be held liable,” GE Betz, 718 F.3d at 631. Under those
+circumstances the corporate entity is properly regarded as a nominal defendant, to the extent it is
+named in the action at all.
+ The same is true here. Plaintiffs’ claim for negligent misrepresentation is undoubtedly a
+direct claim because Plaintiffs seek redress for damages caused by false statements made to them
+as a discrete group. See Doc. [12] ¶ 126; see also Nickell, 439 S.W.3d at 227 (“A common theme
+in [derivative actions] is that individual actions were permitted so that individual shareholders or
+discrete groups of shareholders could redress injuries unique to them.”); see also Renaissance
+Leasing, LLC v. Vermeer Mfg. Co., 322 S.W.3d 112, 134 (Mo. banc 2010) (setting forth the
+elements of a negligent misrepresentation claim). Plaintiffs also assert their claim against the
+ - 15 -
+individual corporate officers who made those material misrepresentations. Doc. [12] ¶¶ 125–28.
+Accordingly, VPEG is properly regarded as a nominal defendant with respect to this claim because
+Plaintiffs seek no real relief from it. Thus, its “presence . . . may be ignored in determining whether
+diversity jurisdiction exists.” Slater v. Republic-Vanguard Ins. Co., 650 F.3d 1132, 1134 (8th Cir.
+2011).
+ Plaintiffs also assert a direct claim against Defendants for breach of fiduciary duty.
+Although “the fiduciary duty of a director or officer of a corporation is generally held to be between
+the directors and the shareholders as a whole,” and a “derivative action is generally required”
+where “the directors or officers of a corporation have breached their fiduciary duty,” Nickell, 439
+S.W.3d at 227, “[a]ctions based upon torts where the injury is done directly to an individual
+shareholder or officer as such, depriving him of his rights . . . are actions which may be brought
+by shareholders as individuals.” Robinson v. Langenbach, 599 S.W.3d 167, 177 (Mo. banc 2020)
+(citing Pepper v. Litton, 308 U.S. 295, 307 & n.15 (1939) (“While normally . . . fiduciary obligation
+is enforceable . . . through a stockholder’s derivative action, . . . [i]t is also clear that breach of
+fiduciary duty may also give rise to direct actions by stockholders in their own right.”)). Because
+Plaintiffs allege that Defendants’ breaches of their fiduciary duties caused them individual harm,
+see, e.g., Doc. [12] ¶¶ 95, 99, Plaintiffs’ properly assert a direct claim against Defendants and, like
+the negligent misrepresentation claim above, VPEG’s citizenship is properly disregarded because
+it is a nominal defendant “against whom no real relief is sought,” Thorn, 305 F.3d at 833.
+ Likewise, VPEG is a nominal defendant with respect to Plaintiffs’ direct claim for an
+equitable accounting. Plaintiffs bring this equitable claim to vindicate their own rights and recoup
+funds that are owed to them rather than the Fund. Compare, id. ¶¶ 138–39, 143 (seeking an
+accounting to ensure, inter alia, that Plaintiffs “have been paid what they are owed”), with Dawson
+ - 16 -
+v. Dawson, 645 S.W.2d 120, 126 (Mo. Ct. App. 1982) (explaining that an equitable action for
+accounting is a derivative action “when brought in connection with a corporation’s right to recover
+corporate funds” (emphasis added)). Accordingly, with respect to this claim, the Court concludes
+that VPEG “holds the subject matter of the litigation in a subordinate or possessory capacity as to
+which there is no dispute,” and is appropriately considered a nominal defendant. S.E.C. v. Colello,
+139 F.3d 674, 676 (9th Cir. 1998). Indeed, its role is more akin to that of a depository or
+stakeholder of the funds at issue, and as such, VPEG is a nominal or formal party whose citizenship
+is disregarded. See Cramer v. Phoenix Mut. Life Ins. Co., 91 F.2d 141, 146 (8th Cir. 1937) (“A
+custodian or stakeholder of property is usually held to be a merely nominal party whose citizenship
+does not affect the question of federal jurisdiction.”). See also Argo Glob. Special Situations Fund
+v. Wells Fargo Bank, N.A., 810 F. Supp. 2d. 906, 911 (D. Minn. 2011) (“[T]he issue [in
+determining nominal-defendant status] is whether Plaintiffs assert any claim of wrongdoing
+against [the depository].”). The Court will therefore grant Defendants’ Motion with respect to
+Plaintiffs’ derivative claims and deny the Motion with respect to Plaintiffs’ direct claims.
+ B. Receivership
+ Assured of its subject matter jurisdiction over a portion of Plaintiffs’ claims, the Court
+proceeds to the question of whether it should appoint a receiver over Visionary Private Equity
+Group I, LP and Visionary Fund Manager, LLC, as Plaintiffs request in their Motion and in their
+post-hearing supplemental brief. Doc. [47]; Doc. [84]. In considering the matter, the Court is
+mindful of the broad, inherently flexible equitable powers that are at its disposal, at least when
+those powers are properly invoked. See Brown v. Plata, 563 U.S. 493, 538 (2011) (“Once invoked,
+the scope of a district court’s equitable powers is broad, for breadth and flexibility are inherent in
+equitable remedies.” (cleaned up)). These qualities have long been recognized. See Union Pac.
+ - 17 -
+Ry. Co. v. Chi. R.I. & P.R. Co., 163 U.S. 601 (1896) (“Equity . . . has always preserved the elements
+of flexibility and expansiveness . . . in order to meet the requirements of every case.”); see also
+Seymour v. Freer, 75 U.S. 202, 218 (1869) (explaining that “a court of equity had unquestionable
+authority to apply its flexible and comprehensive jurisdiction in such manner as might be necessary
+to the right administration of justice between the parties”). Notwithstanding the breadth of these
+powers, appointing a receiver remains “an extraordinary equitable remedy that is only justified in
+extreme situations.” Aviation Supply, 999 F.2d at 316.
+ The circumstances in this case are plainly extraordinary, and they lead the Court to the firm
+belief that the appointment of a receiver is warranted and necessary pending this litigation. To
+begin its analysis under the relevant factors outlined above, the Court finds that Plaintiffs have put
+forth a valid, direct claim for an equitable accounting as to the assets, obligations, and debts of
+VPEG to aid in the recovery of funds that they are likely owed. See Shaner v. Sys. Integrators,
+Inc., 63 S.W.3d 674, 677 (Mo. Ct. App. 2001) (setting forth four elements for an accounting,
+including the existence of a fiduciary or trust relationship, the complicated nature of the accounts,
+the need for discovery, and the inadequacy of legal remedies). Of the four elements, “the existence
+of a fiduciary relationship is the most critical element to support the exercise of equitable
+jurisdiction.” Tobias v. Korman, 141 S.W.3d 468, 474 (Mo. Ct. App. 2004). “Neither the need
+for discovery nor the complicated character of the accounts will alone establish the inadequacy of
+the legal remedy, but instead there must be shown a fiduciary or trust relationship between the
+plaintiff and the defendant which will serve as a foundation for seeking equitable relief.” Am.
+Button Co. v. Weishaar, 170 S.W.2d 147, 152 (Mo. Ct. App. 1943); accord Dahlberg v. Fisse, 40
+S.W.2d 606, 609 (Mo. 1931) (explaining that equitable accounting is “particularly applicable to
+. . . cases where a confidential or fiduciary relationship exists”).
+ - 18 -
+ It is undisputed that Plaintiffs, through their respective Subscription Agreements, possess
+limited partnership interests in the Fund. In addition, evidence in the record demonstrates that
+VPEG is under Defendants’ complete control. See, e.g., Doc. [82] at 90, 133–34. Under such
+circumstances, Defendants occupy “the same position to the limited partners as a trustee stands to
+the beneficiary of a trust.” Ebest v. Bruce, 734 S.W.2d 915, 922 (Mo. Ct. App. 1987). Through
+their limited-partnership interests, Plaintiffs enjoy the right to receive distributions that are issued
+by the general partner. Although the parties agree that the Fund’s limited partners have received
+one distribution, Plaintiffs have not been able to access any information detailing those payments.11
+ Summary reports that have been circulated raise more questions than they answer.
+Executive summaries issued mere months apart in 2024 reveal a $3.3 million discrepancy in
+distribution payments made to the limited partners. Compare Doc. [12-1] at 5, with Doc. [12-2]
+at 5. Indeed, it appears that at least some limited partners never received a distribution payment.
+Doc. [82] at 140–42. Given VPEG’s status as a fund made up of approximately $90 million in
+invested capital across dozens of portfolio companies, the fact that some of those companies have
+been overvalued and have had their assets put to outside uses, and the indiscriminate, likely covert
+ways in which Defendants have drawn on VPEG’s account, the Court concludes the relevant
+accounts are sufficiently complex and that discovery will be required to: (1) disentangle VPEG’s
+past assets, (2) accurately track the amounts paid to the limited partners during the 2021
+distribution, and (3) ascertain whether Plaintiffs have received all the amounts that they were due
+at that time or, especially given the $3.3 million discrepancy described above, whether Plaintiffs
+11
+ More broadly, Plaintiffs have shown that Defendants have repeatedly resisted limited partners’ requests for fulsome,
+detailed, and audited reports of VPEG’s financial status, as required by the LPA, Doc. [12-4] at 8, and Missouri law,
+Mo. Rev. Stat. § 359.221.2(a) (enumerating a limited partner’s right to information), and the promissory note that
+governs the loans that Plaintiffs have extended to VPEG. Doc. [82] at 177. To the extent Defendants have circulated
+information to the limited partners, the information provided is misleading—if not an outright falsification—because
+the financial health and the assets of the Fund’s portfolio companies appear to be overstated. See id. at 59–60, 180.
+ - 19 -
+should have received additional funds.12 Cf. Dahlberg, 40 S.W.2d at 609 (explaining that the relief
+given in this type of action “is an accounting and a judgment for the balance found due on taking
+the account”). The Court similarly finds that the inaccurate, misleading, and inflated financial
+information that Defendants have put forth to date demonstrates that Defendants have and very
+likely will frustrate Plaintiffs’ claim going forward and that a receiver—as a disinterested third
+party—is needed to accurately review VPEG’s finances.
+ Further, a district court’s ability to appoint “at least a temporary receiver [over a corporate
+entity] in order to prevent threatened diversion or loss of assets through gross fraud and
+mismanagement of its officers” has long been established. Burnrite Coal Briquette Co. v. Riggs,
+274 U.S. 208, 212 (1927). Although general shareholder dissatisfaction with existing
+management and general allegations of mismanagement are insufficient bases on which to appoint
+a receiver, a court in equity “has power to appoint a receiver where there is such fraud or dissension
+as to make it impossible for the corporation to carry on its business honestly and to the advantage
+of its stockholders.” Ashton v. Penfield, 135 S.W. 938, 947 (Mo. 1911); cf. Morgan Stanley, 952
+F.3d at 983 (“[I]n the absence of substantial federal precedent in a particular context, federal courts
+are quite likely to look to state law for guidance.”).
+ Plaintiffs have put forth a trove of evidence demonstrating Defendants’ gross
+mismanagement of VPEG, including the fact that the Fund has been unable to pay its rent, satisfy
+long-outstanding contractor and vendor invoices, and pay the premiums of now-lapsed insurance
+policies; further, under their stewardship, the Fund has defaulted on its loans, over-drafted its
+12
+ Despite applicable provisions in the LPA, Doc. [12-4] at 9, 25–27, and the arguable availability of a breach of
+contract claim, see Armistead v. A.L.W. Group, 60 S.W.3d 25, 27 (Mo. Ct. App. 2001) (discussing a breach of contract
+claim in the context of a partnership agreement), the Court finds that legal remedies are inadequate here. See Dairy
+Queen, Inc. v. Wood, 369 U.S. 492, 478 (1962) (explaining that a suit for an equitable accounting can be maintained
+“on a cause of action cognizable at law” where plaintiff can show that the relevant accounts “are of such a complicated
+nature that only a court of equity can satisfactorily unravel them” (internal quotations omitted)).
+ - 20 -
+accounts, and suffered losses in excess of $10 million.13 Plaintiffs have also introduced credible
+evidence indicating that Defendants Zamber and Cosby have, at times, siphoned funds from
+VPEG’s account for their apparent personal use. See Doc. [82] at 107, 109; cf. Emergency Patient
+Services, Inc. v. Crisp, 602 S.W.2d 26, 28 (Mo. Ct. App. 1980) (“[N]either the executive officers
+nor the directors of [a corporate entity] have a right to convert its assets to their own use.”).
+Accordingly, the Court finds that there is an imminent danger of further dissipation.
+ Plaintiffs have also credibly shown that Defendants Zamber and Grenley have made
+repeated material misrepresentations as to the financial health of VPEG, the likelihood of liquidity
+events, the amount of incoming capital contributions, and the imminent closure of the Fund, all in
+an effort to induce individuals to make initial investments in the fund and to garner additional
+funds in the form of subsequent loans. See, e.g., id. at 61, 157. Such conduct generally constitutes
+fraud. See State v. Becker, 938 S.W.2d 267, 269 (Mo. banc 1997) (“In its ordinary and usual sense,
+fraud includes an intent by the speaker that the hearer rely on the misrepresentation or that the
+purpose of the one making the misrepresentation is ‘to get an advantage over another.’”). For all
+these reasons the Court finds that appointing a receiver is necessary, not only to halt continued
+mismanagement and dissipation, but to prevent Defendants from perpetrating additional fraud on
+current investors as well as prospective ones. See Macon Lumber Co. v. Bishop & Collins, 229
+F.2d 305, 307 (6th Cir. 1956) (noting that the appointment of a receiver is proper when “necessary
+. . . to prevent fraud”); see also Matter of McGaughey, 24 F.3d 904, 907 (7th Cir. 1994) (“The
+appointment of a receiver is an especially appropriate remedy in cases involving fraud and the
+possible dissipation of assets.”); State ex rel. Hadly v. People’s U.S. Bank, 94 S.W. 953, 958 (Mo.
+13
+ Under Missouri law, such facts typically denote a party’s insolvency. See Adams v. Richardson, 337 S.W.2d 911,
+916 (Mo. 1960) (“Insolvency means inability to pay debts as they become due in the ordinary course of business.”
+(cleaned up)).
+ - 21 -
+1906) (“[F]raud or mismanagement of the affairs of a corporation authorizes a court of equity to
+appoint a receiver for the property of the corporation.” (emphasis added)). The Court discerns no
+less drastic equitable remedy that will adequately achieve these aims.
+ Finally, the Court concludes that, for the same reasons discussed above, the appointment
+of a receiver “will do more good than harm.” Aviation Supply, 999 F.2d at 317. Defendants assert
+this cannot be the case because appointing a receiver over VPEG and Visionary Fund Manager,
+LLC, will trigger the partnership-dissolution provisions contained in the LPA. See Doc. [82] at
+15 (“It’s a kill shot to the company.”). Based on the plain meaning of the relevant LPA provisions,
+the Court disagrees.
+ The Missouri Limited Partnership Law provides, as relevant here, that “[a] limited
+partnership is dissolved and its affairs shall be wound up . . . [u]pon the happening of events
+specified in writing in the partnership agreement.” Mo. Rev. Stat. § 359.451(2). As set forth in
+the LPA: “[t]he Partnership shall be dissolved . . . [i]f within sixty (60) days after the appointment
+(without the General Partner’s consent or acquiescence) of a trustee, receiver or liquidating trustee
+of the General Partner or of all or any substantial part of its property.” Doc. [12-4] at 14–15.
+Importantly, the LPA designates Visionary PE GP I, LLC, “as the sole general partner.” Id. at 4.
+When interpreting contract provisions such as these, “[i]t is a court’s duty to give effect to the plain
+and ordinary meaning of contractual terms when possible.” Green Street 2900 Invs. v. St. Louis
+Woodworks, Inc., 654 S.W.3d 380, 388 (Mo. Ct. App. 2022). Here, because the Court will appoint
+a receiver over Visionary Private Equity Group I, LP, and Visionary Fund Manager, LLC, and it
+will not appoint a receiver over Visionary PE GP I, LLC, or the property belonging to that limited
+liability company, the Court concludes that the relevant dissolution provision in the LPA is not
+triggered.
+ - 22 -
+ CONCLUSION
+ The Court will dismiss without prejudice Plaintiffs’ derivative claims for lack of subject
+matter jurisdiction, but the Court retains jurisdiction over Plaintiffs’ direct claims as described
+above. Pursuant to federal equitable principles, the Court will exercise its discretion and appoint
+Jason Buhlinger of Armanino LLP as receiver for Visionary Private Equity Group I, LP and
+Visionary Fund Manager, LLC, while this litigation remains pending.14
+ Accordingly,
+ IT IS HEREBY ORDERED that Defendants’ Motion to Dismiss for Lack of Subject
+Matter Jurisdiction, Doc. [55], is GRANTED in part and DENIED in part. An Order of Partial
+Dismissal that dismisses Plaintiff’s derivative claims without prejudice will be filed
+contemporaneously with this Memorandum and Order.
+ IT IS FURTHER ORDERED that Plaintiffs’ Motion to Appoint Receiver Pendente Lite,
+Doc. [47], is GRANTED.
+ IT IS FURTHER ORDERED that Jason Buhlinger (the “Receiver”) is appointed receiver
+for Visionary Private Equity Group I, LP and Visionary Fund Manager, LLC along with their
+holdings in any portfolio companies (collectively, “the Fund”) during the pendency of the above
+captioned action (the “Action”).
+ IT IS FURTHER ORDERED that the Receiver is hereby authorized and directed to take
+possession and control of Property belonging to the Fund including without limitation all cash,
+collateral and bank accounts (“Receivership Property”) wherever located; to protect the Fund from
+loss and waste; to take such other actions as Receiver deems reasonable and appropriate in order to
+take such possession and to exercise such control over the Fund in order to prevent waste and
+14
+ The Court has reviewed the information Plaintiffs provided as to Mr. Buhlinger’s work and educational history, and
+the Court finds him sufficiently qualified to act as a receiver in this matter. Doc. [48-10].
+ - 23 -
+preserve, manage, secure, and safeguard it. In addition, the Receiver is authorized to (1) gain access
+to Defendants’ communications on e-mail accounts associated with the Fund for purposes of
+assessing the Fund’s financial condition and (2) take over any negotiations that may be in progress
+regarding any pending financial transactions with the Fund.
+ IT IS FURTHER ORDERED that Receiver shall have the powers vested, conferred,
+enjoyed, and exercised by receivers, including, without limitation, the following:
+ a. To take possession and control of Receivership Property for purposes of preserving
+ the value thereof;
+ b. To incur or pay expenses incidental to the Receiver’s preservation and use of
+ Receivership Property, and otherwise in the performance of the Receiver’s duties
+ including the power to pay obligations incurred before the Receiver’s appointment if
+ and to the extent that payment is determined by the Receiver to be prudent to preserve
+ the value of the Receivership Property and the funds used for this purpose are not
+ subject to any lien or right of setoff in favor of a creditor who has not consented to
+ the payment and whose interest is not otherwise adequately protected;
+ c. To do all the things that the Receiver may do in the exercise of ordinary business
+ judgment, or in the ordinary course of the possession and control of Receivership
+ Property including, without limitation, the purchase and sale of goods or services in
+ the ordinary course of such business, and the incurring and payment of expenses of
+ the business or property in the ordinary course;
+ d. To obtain unsecured credit and incur unsecured debt in the ordinary course of
+ business as an administrative expense of the Receiver without further order of this
+ Court;
+ - 24 -
+ e. To intervene in any action in which a claim is asserted with respect to Receivership
+ Property, for the purpose of monitoring, prosecuting or defending the claim;
+ f. To assert rights, claims, or causes of action of the Receiver arising out of transactions
+ in which the Receiver is a participant;
+ g. To seek and obtain advice or instruction from the Court regarding any course of
+ action with respect to which the Receiver is uncertain in the exercise of the Receiver’s
+ powers or the discharge of the Receiver’s duties;
+ h. To obtain appraisals with respect to Receivership Property.
+ IT IS FURTHER ORDERED that Receiver shall not enter into any transactions that are
+not in the ordinary course of the Fund’s business, or otherwise authorized in this Order, without
+Court approval and after Notice and a Hearing as may be required under applicable law.
+ IT IS FURTHER ORDERED that Receiver shall take any necessary steps to locate and
+secure the Receivership Property and verify the operational integrity of the Receivership Property.
+ IT IS FURTHER ORDERED that Receiver shall be responsible for the preparation and
+filing of any tax returns for the Fund, including, without limitation, income, personal property,
+commercial activity, gross receipts, sales and use, or other tax returns.
+ IT IS FURTHER ORDERED that Defendants’ duties shall include, without limitation,
+the following:
+ a. Assist and cooperate fully with Receiver in the administration of the Receivership and
+ the discharge of Receiver’s duties and comply with all orders of this Court;
+ b. Supply to Receiver information necessary to enable Receiver to complete any
+ schedules or reports that Receiver may be required to file with the Court, and otherwise
+ assist Receiver in the completion of such schedules;
+ - 25 -
+c. Deliver into Receiver’s possession all Receivership Property and related items,
+ documents, and information in Defendants’ possession, custody, or control, including,
+ without limitation, all:
+ i. accounts, books, papers, records, and other documents;
+ ii. property;
+ iii. books of account;
+ iv. keys;
+ v. assets;
+ vi. access codes;
+ vii. passwords;
+ viii. notices of any local, state, and federal health, building, or other violations;
+ ix. list of utilities and utility accounts, equipment, furniture, vehicles, and
+ x. supplies;
+ xi. existing service contracts;
+ xii. pending bids for contractor work;
+ xiii. insurance policies for the Receivership Property;
+ xiv. such other data, documents and records pertaining to the management of the
+ Receivership Property as may be reasonably required by the Receiver; and
+ xv. other personal property in their possession, custody, or control pertaining to
+ xvi. the Receivership Property.
+d. Submit to examination by Receiver, Plaintiffs, or any other person upon order of
+ the Court, under oath, concerning the acts, conduct, property, liabilities, or any
+ matter relating to Receiver’s administration of the Receivership.
+ - 26 -
+ e. Defendants’ officers, directors, managers, members, partners, or other individuals
+ exercising or having the power to exercise control over the affairs of Defendants
+ are subject to the requirements of this section of the Order.
+ IT IS FURTHER ORDERED that Defendants and their agents, servants, employees,
+representatives, attorneys, officers, directors, managers, members, partners, or other individuals
+exercising or having the power to exercise control over the affairs of Defendants are hereby
+enjoined from:
+ a. Collecting or attempting to collect proceeds from Receivership Property, and are
+ hereby further directed to deliver to Receiver all proceeds from Receivership
+ Property that has or may come into their possession;
+ b. Interfering in any way with Receiver in the performance of Receiver’s
+ responsibilities and duties; and
+ c. Using, selling, transferring, or relocating any Receivership Property unless
+ specifically permitted by Receiver in writing.
+ IT IS FURTHER ORDERED that Receiver shall prepare a report that contains for each
+month from January 1, 2021, to the present a statement of cash receipts and disbursements by
+Defendants (including all disbursements to or for the benefit of Defendants and their affiliates).
+Upon further order of the Court, Receiver shall file such schedules and reports of assets, liabilities,
+or inventories that are necessary and proper. Whenever a list or schedule required pursuant to this
+Order is not prepared and filed by Defendants, Receiver shall prepare and file such list or schedule
+with Defendants’ full cooperation.
+ IT IS FURTHER ORDERED that Receiver’s monthly operating report will contain the
+following: (a) a statement of cash receipts and disbursements by Receiver; (b) a statement of
+ - 27 -
+accrued accounts receivable of Receiver; (c) a statement of accrued rents related to the
+Receivership Property; and (d) a statement of accounts payable to Receiver. The operating reports
+shall be filed with the Court and a copy shall be provided to Plaintiffs, Defendants and all other
+current limited partners in Visionary Private Equity Group I, LP.
+ IT IS FURTHER ORDERED that Receiver’s compensation shall be $575 per hour. In
+addition to such rate, Receiver shall be entitled to the reimbursement of reasonable out-of-pocket
+expenses. Receiver’s compensation shall be paid from any proceeds from the Receivership
+Property. Plaintiffs shall create an escrow fund which holds $50,000.00 to the extent that
+proceeds from the Receivership Property are insufficient to pay Receiver’s compensation.
+ IT IS FURTHER ORDERED that Receiver is authorized and empowered, without
+further leave of the Court, to employ any assistants, agents, managers, or other persons and
+entities deemed necessary and proper to assist Receiver in diligently executing the duties imposed
+by this Order including, but not limited to, managing, insuring, maintaining, preserving, and
+protecting the Receivership Property that is in the possession or under the care and control of
+Receiver, upon such terms and conditions as Receiver deems just and beneficial to the
+performance of Receiver’s duties. Receiver is further authorized and empowered to employ
+attorneys, accountants, agents, tax-appeal consultants, and other professionals as Receiver may
+from time to time deem appropriate and on such terms as Receiver deems appropriate.
+Management Personnel and Professionals may seek monthly compensation by serving a monthly
+statement for payment for services rendered and reimbursement of expenses incurred during the
+immediately preceding month (a “Monthly Fee Statement”) on: (a) Receiver, and (b) Plaintiffs.
+Monthly Fee Statements are not required to be filed with the Court, and the Receiver is authorized
+to promptly pay each Monthly Fee Statement (i) from any proceeds from the Receivership
+ - 28 -
+Property, and (ii) from funds provided by Plaintiffs to the extent that proceeds from the
+Receivership Property are insufficient.
+ IT IS FURTHER ORDERED that Parties given notice of the Receivership or otherwise
+appearing and participating in the Action are bound by the actions of Receiver and the orders of
+this Court relating to the Receivership whether or not the person is a party to the Receivership
+Action.
+ IT IS FURTHER ORDERED that Defendants shall cooperate with all reasonable
+requests for information from Receiver for purposes of assisting Receiver in providing notice
+required by this Order. The failure of Defendants to cooperate with any reasonable request for
+information may be punished, among other ways, as a contempt of court.
+ IT IS FURTHER ORDERED that Parties and Parties in Interest have a right to Notice
+and a Hearing as provided in this Order whether or not the person is a Party to the Action. Any
+Party in Interest may appear and be heard in the Action. Notwithstanding the foregoing, whenever
+notice is not specifically required to be given under this Order or otherwise by court rule or
+applicable law, the Court may consider motions and grant or deny relief without notice or hearing,
+unless a party to this action or Party in Interest would be prejudiced or harmed by the relief
+requested.
+ IT IS FURTHER ORDERED that the following general provisions are in effect:
+ a. Receiver and his employees, agents, and attorneys will have no personal liability in
+ connection with any liabilities, obligations, liens, or amounts owed to any of
+ Defendants’ creditors because of his duties as Receiver.
+ b. Receiver and his employees, agents, and attorneys will have no personal liability,
+ and they will have no claim asserted against them relating to Receiver’s duties
+ - 29 -
+ under this Order, except for claims due to their gross negligence, gross or willful
+ misconduct, malicious acts, and/or the failure to comply with the Court’s orders.
+ c. The Receiver, the Receiver’s attorneys and their agents (i) may rely on any and all
+ outstanding court orders, judgments, decrees and rules of law, and shall not be
+ liable to anyone for their own good-faith compliance with any such order,
+ judgment, decree or rule of law; (ii) may rely on, and shall be protected in any
+ action upon, any resolution, certificate, statement, opinion, report, notice, consent, or
+ other documents believed by them to be genuine and to have been signed or
+ presented by the proper parties; (iii) shall not be liable to anyone for their good-
+ faith compliance with their duties and responsibilities as Receiver, or as attorneys or
+ agents for Receiver; and (iv) shall not be liable to anyone for their acts or omissions,
+ unless such acts or omissions were outside the scope of their duties or were grossly
+ negligent. Except for acts or omissions that were outside the scope of the duties of
+ Receiver, the Receiver’s attorneys, or their agents, or that were grossly negligent,
+ persons dealing with Receiver shall only look to the Receivership Property and the
+ bond posted by the Receiver, if any, to satisfy any liability, and neither the Receiver
+ nor his attorneys or his agents shall have any personal liability to satisfy such
+ obligations.
+ IT IS FURTHER ORDERED that this Receivership shall continue until resignation or
+termination by further Order of the Court. Immediately upon termination of the Receivership,
+Receiver shall turn over to Plaintiffs all of the Receivership Property in which Plaintiffs assert a
+valid ownership or security interest or lien, unless otherwise ordered by the Court. All such other
+Receivership Property shall be turned over as further directed by the Court.
+ - 30 -
+ IT IS FURTHER ORDERED that Receiver shall submit a final report (with copies to
+counsel for all parties and Defendants or attorneys of record) to the Court within 30 days after
+the termination of the Receivership or Receiver’s removal or resignation.
+ IT IS FURTHER ORDERED that the termination of the Receivership will discharge
+Receiver. Receiver may be discharged from further duties and responsibilities only after the
+Court, after Notice and a Hearing, approves Receiver’s final report and, to the extent applicable,
+Receiver has turned over to a successor receiver all Receivership Property in Receiver’s
+possession or control.
+ IT IS FINALLY ORDERED that the Court may modify this Order as it deems
+appropriate. Receiver, during the pendency of this action, shall have the right to apply to this
+Court for further instructions or directions. To the extent that modification of this Order is sought,
+reasonable notice to Plaintiffs, Defendants, and Receiver is required, and the moving party shall
+have the burden of proof.
+ Dated this 4th day of June 2025.
+ MATTHEW T. SCHELP
+ UNITED STATES DISTRICT JUDGE
+ - 31 -

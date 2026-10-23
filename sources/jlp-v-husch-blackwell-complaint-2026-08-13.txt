@@ -1,0 +1,1908 @@
+      Case: 4:26-cv-01298       Doc. #: 1      Filed: 08/13/26       Page: 1 of 36 PageID #: 1
+
+
+
+
+                        IN THE UNITED STATES DISTRICT COURT
+                       FOR THE EASTERN DISTRICT OF MISSOURI
+                                  EASTERN DIVISION
+
+ JLP PARTNERS, LLC, individually and on
+ behalf of all others similarly situated,
+
+         Plaintiff,
+
+ v.                                                  Case No.:
+
+ HUSCH BLACKWELL LLP, a Wisconsin
+ limited liability partnership,
+                                                     JURY TRIAL DEMANDED
+         Defendant.
+
+
+                                 CLASS ACTION COMPLAINT
+
+        Plaintiff JLP Partners, LLC (“Plaintiff” or “JLP”), individually and on behalf of all others
+
+similarly situated, brings this Class Action Complaint against Defendant Husch Blackwell LLP
+
+(“Defendant” and/or “Husch Blackwell”) and alleges as follows:
+
+                                         INTRODUCTION
+
+        1.      This class action concerns the gross mismanagement of Visionary Private Equity
+
+Group I, LP (“VPEG” or the “Fund”), a private equity fund that was a vehicle for self-dealing and
+
+fraud by its principals. As a result, Plaintiff and the class suffered substantial losses.
+
+        2.      VPEG raised approximately $90 million from approximately 1,000 investors, many
+
+of whom were retail investors who invested their retirement savings through self-directed IRA
+
+accounts.
+
+        3.      VPEG represented to its investors that the company would deploy their capital into
+
+a portfolio of promising private companies in diverse sectors. In reality, VPEG misappropriated
+
+millions of dollars of investor money to its principals and to affiliated companies, and misused
+
+investor funds to cover payments to other investors in Ponzi-like fashion.
+   Case: 4:26-cv-01298        Doc. #: 1      Filed: 08/13/26     Page: 2 of 36 PageID #: 2
+
+
+
+
+       4.      To conceal VPEG’s misconduct and further induce prospective and current
+
+investors to contribute new capital to VPEG or maintain their investments in the Fund, VPEG
+
+disseminated inflated valuations of its portfolio companies and inflated projected receipts from
+
+said companies based on bogus methodologies.
+
+       5.      Since 2021, VPEG paid approximately $1.6 million to Visionary Fund Manager,
+
+LLC (“VFM”), an affiliated entity owned and controlled by VPEG principals Dr. Ronald Zamber
+
+(“Zamber”) and Michael Cosby (“Cosby”), in purported management fees. The basis, calculation,
+
+and ultimate disposition of those payments were not adequately disclosed to investors.
+
+       6.      VPEG’s misconduct could not have succeeded but for the material aid of Husch
+
+Blackwell and its partner, Cosby.
+
+       7.      Cosby served as VPEG’s General Counsel.
+
+       8.      But Cosby was far more than a passive advisor to the Fund. He also served as
+
+VPEG’s Senior Managing Director, and in this capacity was responsible for and materially
+
+involved in the subscription process through which VPEG obtained new investors—and by
+
+extension, new capital.
+
+       9.      Cosby was also in charge of the Fund’s finances. He prepared the Fund’s tax returns,
+
+and he co-controlled the Fund’s bank accounts. Over the years he executed numerous wire transfers
+
+misappropriating millions of dollars in investor capital to a variety of improper destinations.
+
+Simply put, Cosby was intimately embedded in VPEG’s operations and misconduct.
+
+       10.     Cosby’s law firm, Husch Blackwell, served as outside counsel to VPEG. The VPEG
+
+subscription booklet provided to JLP identified Husch Blackwell as the Fund’s legal counsel “in
+
+connection with the management and operation of the Partnership, including, without limitation,
+
+making, holding, and disposing of investments.”
+
+
+                                                2
+   Case: 4:26-cv-01298           Doc. #: 1   Filed: 08/13/26    Page: 3 of 36 PageID #: 3
+
+
+
+
+       11.     Husch Blackwell played a central and substantial role in the subscription process
+
+necessary to complete JLP’s and others’ VPEG investments. The subscription booklet used to
+
+complete JLP’s investment directed potential investors to submit their completed subscription
+
+paperwork to “Husch Blackwell LLP, 901 St. Louis, Ste. 1800, Springfield, MO 65806, Attn.:
+
+Michael A. Cosby” and instructed investors to direct questions to “Michael A. Cosby ((417) 268-
+
+4000) of Husch Blackwell LLP.” The subscription booklet further stated that, following acceptance
+
+of a subscription, the investor would receive a copy of an opinion from Husch Blackwell in
+
+connection with the investment.
+
+       12.     Through its representation of VPEG, its participation in the subscription process
+
+described below, and the knowledge of its partner Cosby attributable to the firm as alleged below,
+
+Husch Blackwell acquired actual knowledge of VPEG’s fraud and breaches of fiduciary duty.
+
+       13.     In spite of this knowledge, Husch Blackwell substantially assisted VPEG’s
+
+misconduct, all the while collecting legal fees from VPEG.
+
+       14.     VPEG’s misconduct came to a head when its bogus projected company valuations
+
+failed to materialize, its undisclosed debts came due, and VPEG failed to pay hundreds of
+
+thousands of dollars of obligations to, among others, its landlord, insurance carrier, and various
+
+other contractors and vendors.
+
+       15.     In June 2025, a receiver (the “Receiver”) was appointed over VPEG and VFM. See
+
+Oliver and Co. v. Zamber, E.D. Mo. No. 25-cv-132 (hereafter, “Oliver Dkt.”) at ECF No. 88 (Mem.
+
+and Order dated June 4, 2025). Amongst other findings of gross misconduct at VPEG, the presiding
+
+judge stated that the VPEG principals’ conduct “sounds criminal to me.” See Oliver Dkt. at ECF
+
+No. 82 at 193:25 (Hrg. Tr. dated April 28, 2025).
+
+
+
+
+                                                3
+   Case: 4:26-cv-01298          Doc. #: 1      Filed: 08/13/26     Page: 4 of 36 PageID #: 4
+
+
+
+
+                                             PARTIES
+
+        16.      Plaintiff JLP Partners, LLC (“JLP”) is a limited liability company formed under the
+
+laws of the State of Washington. JLP’s members are Laurie Benezra-Arron, an individual
+
+domiciled in the State of Texas, and Paul Benezra, an individual domiciled in the State of
+
+Washington.
+
+        17.      Defendant Husch Blackwell is a Wisconsin limited liability partnership with its
+
+principal place of business in St. Louis, Missouri. Defendant may be served through its
+
+registered agent C T CORPORATION SYSTEM, located at 5661 Telegraph Rd Ste 4B, St. Louis,
+
+MO 63129-4275.
+
+                                  JURISDICTION AND VENUE
+
+        18.      This Court has subject matter jurisdiction pursuant to 28 U.S.C. § 1332(d)(2), as
+
+amended by the Class Action Fairness Act of 2005, because this is a class action in which: (a) the
+
+amount in controversy exceeds $5,000,000, exclusive of interest and costs; (b) there are more than
+
+100 members of the proposed class; and (c) at least one member of the proposed class is a citizen
+
+of a state different from the Defendant.
+
+        19.      Venue is proper in the district under 28 U.S.C. § 1391(b) because a substantial part
+
+of the events and omissions giving rise to the claims occurred in this District, including the Fund’s
+
+operations and Husch Blackwell’s activities in connection therewith. Additionally, Defendant
+
+Husch Blackwell operates its principal place of business in this District.
+
+                                   FACTUAL ALLEGATIONS
+
+   I.         VPEG’s Formation, Structure, and Key Personnel
+
+        20.      VPEG is a Missouri limited partnership formed in January 2010. The Fund was
+
+formed as a private equity vehicle that purported to pool investor capital and deploy it across a
+
+
+                                                  4
+    Case: 4:26-cv-01298          Doc. #: 1    Filed: 08/13/26    Page: 5 of 36 PageID #: 5
+
+
+
+
+diversified portfolio of private companies in sectors including technology, healthcare, energy,
+
+consumer products, and entertainment.
+
+        21.     VPEG was managed by Robert Grenley, Dr. Ronald Zamber, and Cosby.
+
+        22.     Grenley was the Fund’s Director of Capital Development. Grenley was responsible
+
+for investor relations, fundraising, and marketing the Fund to prospective and current investors.
+
+Grenley communicated directly with investors, including Plaintiff, regarding the Fund’s
+
+performance, anticipated liquidity events, and purported urgency of investment opportunities.
+
+        23.     Zamber and Cosby controlled and directed VPEG’s activities primarily through
+
+VPEG’s general partner, Visionary PE GP I, LLC, and through VPEG’s manager, VFM, both of
+
+which were themselves owned and controlled by Zamber and Cosby.
+
+        24.     Zamber is an ophthalmologist who resides in Fairbanks, Alaska, where he operates
+
+the “Eye Clinic of Fairbanks.”
+
+        25.     Zamber was VPEG’s Chairman and Senior Managing Director. He directed the
+
+Fund’s investment strategy, and together with Cosby, co-controlled its bank accounts and
+
+authorized transfers of the Fund’s assets.
+
+        26.     Zamber was the primary decision-maker when it came to the Fund’s operations. He
+
+had authority to direct Cosby to execute wire transfers, and he frequently exercised that authority
+
+to direct Cosby to transfer investor money from the Fund’s bank accounts for his personal benefit
+
+and for the benefit of affiliated entities.
+
+        27.     Cosby was VPEG’s Senior Managing Director and General Counsel. In this
+
+capacity Cosby oversaw VPEG’s subscription process through which new investments were made
+
+and new capital was raised. He also managed the Fund’s legal affairs, prepared its tax filings, and
+
+as noted above, co-controlled the Fund’s bank accounts with Zamber.
+
+
+                                                 5
+    Case: 4:26-cv-01298          Doc. #: 1     Filed: 08/13/26     Page: 6 of 36 PageID #: 6
+
+
+
+
+         28.      Cosby was a partner of law firm Husch Blackwell in its Springfield, Missouri office
+
+until his separation from the firm following the events described below. Husch Blackwell employs
+
+over 1,000 attorneys, maintains locations in over 20 cities across the United States, and claims that
+
+it is ranked one of the “Top 100” law firms in the country according to the 2025 Am Law 100
+
+rankings.
+
+         29.      The VPEG subscription materials provided to JLP and others emphasized Husch
+
+Blackwell’s involvement with the Fund. Cosby held himself out as a Husch Blackwell partner, and
+
+the subscription booklet used in connection with JLP’s investment identified Husch Blackwell’s
+
+office, contact information, and firm name.
+
+   II.         VPEG’s Obligations Under its Limited Partnership Agreement (“LPA”)
+
+         30.      VPEG was governed by an LPA that vested its general partner, Visionary PE GP I,
+
+LLC, with broad authority, granting it the “right, power, and authority” in managing the Fund’s
+
+business affairs.
+
+         31.      The LPA required VPEG’s books and records to be maintained in accordance with
+
+generally accepted accounting principles and required an annual audit by an independent certified
+
+public accountant. VPEG’s private placement memorandum (the “PPM”) likewise represented that
+
+the General Partner would use its best efforts to provide limited partners with quarterly fair value
+
+statements and, within 120 days after the close of each fiscal year, annual financial statements
+
+audited by an independent public accountant. The PPM also assigned the Fund Manager
+
+responsibility for quarterly reporting and annual audit coordination. Despite these requirements
+
+and representations, VPEG has not been subject to an independent audit since 2011.
+
+         32.      The LPA also contained provisions governing distributions to limited partner
+
+investors, requiring that they follow a three-step waterfall: first, to limited partners (investors);
+
+
+                                                   6
+   Case: 4:26-cv-01298            Doc. #: 1     Filed: 08/13/26     Page: 7 of 36 PageID #: 7
+
+
+
+
+second, to the general partner; and third, residual proceeds to be split 80% to limited partners and
+
+20% to the general partner. Since 2021, non-insider limited partners received only approximately
+
+$3 million in distributions, while VPEG separately paid approximately $7.5 million to Zamber,
+
+Grenley, Cosby, and VFM. As alleged below, many of those payments were undisclosed and were
+
+made for personal or affiliated purposes.
+
+          33.      The LPA provided for a consulting fee payable quarterly to VPEG’s general partner,
+
+calculated at an annual rate of 1.5% of the value of the limited partners’ capital accounts. The PPM
+
+separately stated that the general partner would pay VFM a quarterly consulting fee under terms
+
+established between those entities. The PPM also represented that, on an ongoing basis, the general
+
+partner and VFM would bear their own overhead expenses without reimbursement from the Fund,
+
+while the Fund would remain responsible for specified legal, audit, valuation, and other
+
+professional expenses incurred in managing the Fund and evaluating investments. Since 2021,
+
+VPEG paid approximately $1.6 million to VFM in purported management fees, but the basis,
+
+calculation, classification, and ultimate disposition of those payments were not adequately
+
+disclosed to investors.
+
+   III.         VPEG’s Representations to Investors
+
+          34.      VPEG made materially similar representations and omissions to prospective
+
+investors to induce their investments in the Fund. These representations misstated and/or omitted
+
+material information concerning VPEG’s operations and performance, as described in more detail
+
+below.
+
+          35.      In VPEG’s PPM, among other places, VPEG represented to investors that the Fund
+
+used investor capital to invest in a diversified portfolio of investments in promising private
+
+
+
+
+                                                   7
+   Case: 4:26-cv-01298          Doc. #: 1     Filed: 08/13/26     Page: 8 of 36 PageID #: 8
+
+
+
+
+companies across multiple sectors including healthcare, technology, energy, and consumer
+
+products.
+
+       36.      VPEG represented to investors that the Fund’s portfolio investments were
+
+performing well and that liquidity events, including anticipated distributions from portfolio
+
+company exits, were imminent. To the extent the communications and projections alleged below
+
+postdate JLP’s May 2023 investment, they are included as evidence of the continuing fraudulent
+
+scheme, the principals’ knowledge and concealment of VPEG’s true condition, and the solicitation
+
+of later Class members, rather than as statements on which JLP relied in making its May 2023
+
+investment.
+
+       37.      In support of such representations, between 2024 and 2025, Zamber and Grenley
+
+prepared at least 28 versions of a spreadsheet projecting purported distributions from portfolio
+
+companies. These projections were sent to prospective and current investors, including Plaintiff.
+
+With each successive version, projected liquidity events were pushed farther into the future and
+
+expected returns shrank, while near-term projections never materialized.
+
+       38.      The projected distributions were wildly unrealistic. For example, Version 19 of the
+
+spreadsheet, dated December 2024, projected:
+
+             a. $10 million from POP! Gourmet LLC (“POP! Gourmet”)—a company for which
+                Grenley served as CEO. In reality, POP! Gourmet was in the process of a sheriff’s
+                sale to satisfy a judgment, had no employees, and had no manufacturing operations;
+
+             b. $20 million from Shop4E Inc. (“Shop4E”)—a company for which Grenley was also
+                CEO. This projection was made despite the fact that Shop4E had zero revenue for
+                three consecutive years and its bank account had been closed for inactivity in April
+                2024; and
+
+             c. $50 million from Visionary Media Group, which had zero revenue and millions in
+                accumulated losses.
+
+
+
+
+                                                  8
+    Case: 4:26-cv-01298        Doc. #: 1      Filed: 08/13/26      Page: 9 of 36 PageID #: 9
+
+
+
+
+       39.      The most recent version of the spreadsheet still projected $10 million from POP!
+
+Gourmet in 2027, $10 million from Shop4E in 2027, and $10 million from a company named
+
+“Victory Clean Energy” in 2025—plus another $50 million from Victory Clean Energy supposedly
+
+to be realized in 2026-2027. At this same time, Victory Clean Energy’s SEC filings expressed
+
+doubt about its ability to continue as a going concern.
+
+       40.      In addition to the spreadsheets, VPEG circulated other marketing materials with
+
+grossly inflated or false claims about portfolio companies. For example:
+
+             a. A 2023 investor update represented to investors that portfolio company “Fortior
+                Solutions” had “$12M+ in ARR from government contracts” and that “at scale,
+                each shipyard account will generate $8M in ARR,” with a total pipeline that could
+                result in Fortior approaching “$1B in value.” The government contracts that were
+                claimed to exist in this update never in fact materialized.
+
+             b. A 2023 investor update represented to investors that portfolio company Victory
+                Clean Energy was in the “late stages of a reverse merger with largest, low-cost
+                green hydrogen producer in North America” and that each hydrogen facility would
+                yield “$50-60M in value for VPEG” with “16 facilities planned over next 7+ years”
+                with a market value of “$500M-1.8B+ per facility.” Despite the claims of a “late
+                stage” merger, no profits from Victory Clean Energy were ever realized for VPEG
+                investors.
+
+             c. A 2023 investor update represented to investors that portfolio company Visionary
+                Media Group’s subsidiary “Evernova” was “expected to add several hundred
+                million dollars in value.” This projection was entirely without basis and likewise
+                never materialized.
+
+       41.      All the while, investors were repeatedly told that the Fund would “soon close” and
+
+that the window to invest at $1.00 per share was ending, creating a false sense of urgency to
+
+pressure investors into investing and/or committing additional capital.
+
+       42.      In reality, VPEG continued to accept new investors well after such representations
+
+were made, and starting in 2023 or 2024, offered shares to investors at a rate of 1.5 units per dollar
+
+(effectively $0.67 per share) through “buy-one-get-one” promotions offered to Plaintiff and others.
+
+This course of conduct directly contradicted the Fund’s previous representations that had expressed
+
+                                                  9
+  Case: 4:26-cv-01298            Doc. #: 1     Filed: 08/13/26     Page: 10 of 36 PageID #: 10
+
+
+
+
+supposed urgency to invest. Moreover, soliciting additional investment in this fashion improperly
+
+diluted the interests of earlier investors, including Plaintiff, without consent and in violation of the
+
+terms of VPEG’s offering and marketing materials. VPEG relied upon these dilutive offerings to,
+
+in part, redeem complaining investors to silence negative chatter and cover for VPEG’s principals’
+
+misconduct.
+
+    IV.         VPEG’s Principals Misappropriated the Fund’s Assets
+
+          43.       VPEG diverted a significant portion of investor capital for the benefit of VPEG’s
+
+principals and affiliated entities they owned or controlled. These diversions were not disclosed to
+
+investors and were contrary to VPEG’s stated claims as to how investor capital would be deployed.
+
+          44.       Since January 2021, VPEG has received approximately $55 million in cash
+
+receipts, including but not limited to approximately $43.5 million from external investments and
+
+an additional $8.1 million in distributions from portfolio companies.
+
+          45.       During that same time period, VPEG’s cash expenditures totaled $57.4 million,
+
+meaning VPEG spent approximately $2 million more than it took in.
+
+          46.       Of those expenditures, approximately $4.7 million was paid directly to Zamber,
+
+$734,000 to Grenley, and $655,000 to Cosby. The approximately 1,000 limited partner investors,
+
+however, received only approximately $3 million in distributions during the same period—less
+
+than half of the amount paid to VPEG’s insiders.
+
+          47.       The payments to Zamber were often ad hoc and were made following text message
+
+exchanges with Cosby, who co-controlled the Fund’s bank accounts with Zamber. Examples of
+
+Zamber’s text messages to Cosby include:
+
+                •   “I will need a wire for $270k (deferred compensation) today if possible” (October
+
+                    19, 2021);
+
+
+                                                   10
+  Case: 4:26-cv-01298          Doc. #: 1      Filed: 08/13/26     Page: 11 of 36 PageID #: 11
+
+
+
+
+             •   “I need a $30k wire today for deferred compensation to cover payroll” (February
+
+                 9, 2022);
+
+             •   “I need a $25k wire today” (August 24, 2022);
+
+             •   “Just got a huge surprise at the clinic, I need a $15k wire asap” (November 9, 2022);
+
+             •   “Will need $12k wire for Grenley and $15k wire for RZ” (January 18, 2024); and
+
+             •   “Please set up a $10k wire to RZ. Will revert if funding happens today or
+
+                 tomorrow.” (November 12, 2024).
+
+VPEG’s bank records labeled these transfers as “Director Fees” or “Consulting Fees,”
+
+notwithstanding the personal purposes reflected in the contemporaneous text messages.
+
+       48.       New investor capital was often distributed to VPEG’s principals almost
+
+immediately upon its arrival into the Fund’s coffers. For example, a $25,000 investor deposit
+
+arrived in VPEG’s account from IRA custodian NuView IRA and, on the same day, Zamber texted
+
+Cosby directing payments of $15,000 to Zamber, $500 to Grenley, and $5,000 to a third party,
+
+leaving less than 20% of the investor’s funds available for deployment into VPEG’s supposed
+
+investment strategies.
+
+       49.       Fund investors’ capital was misused in other fashions, too. For example, Zamber
+
+used Fund capital to pay individuals with whom he had personal relationships, even though those
+
+individuals provided no services to the Fund.
+
+       50.       According to the Receiver appointed over VPEG, Zamber paid “exorbitant ‘advisor
+
+fees’” ranging from $10,000 to $20,000 per month to associates in the media industry to cultivate
+
+a reputation as a media mogul and set up connections and opportunities in the entertainment
+
+industry for his son. These payments had no connection to VPEG’s supposed investment strategy.
+
+
+
+
+                                                  11
+  Case: 4:26-cv-01298        Doc. #: 1     Filed: 08/13/26      Page: 12 of 36 PageID #: 12
+
+
+
+
+       51.     VPEG also expended investor capital on services untethered to any legitimate Fund
+
+purpose. For example, VPEG paid the public-affairs firm Bose Public Affairs Group a retainer of
+
+$25,000 per month beginning in November 2018 (later reduced to $16,250 per month in January
+
+2020) for purported lobbying on behalf of an unidentified portfolio company. VPEG’s own
+
+personnel could not determine why the Fund, rather than the portfolio company, was footing the
+
+bill, and Zamber directed that the invoices be routed to Cosby. See Oliver Dkt. at ECF No. 82, Hrg.
+
+Tr., at 116:6–118:19.
+
+       52.     Zamber’s misappropriation of Fund assets for personal use also extended to his
+
+private medical practice in Fairbanks. In February 2022, Zamber texted Cosby directing that
+
+$15,000 be wired to cover payroll obligations for Zamber’s medical clinic. In November 2022,
+
+Zamber again texted Cosby “[j]ust got a huge surprise at the clinic. I need a $15k wire asap.”
+
+       53.     Cosby executed both transfers using his signatory authority over VPEG’s bank
+
+account, without any documented inquiry into the purpose or legitimacy of such transfers.
+
+       54.     In addition to direct payments to VPEG principals, VPEG also funneled over $10
+
+million to its affiliates, including “Visionary Entertainment and Media” and “Visionary Media
+
+Group.” VPEG also paid an additional $1.2 million in expenses on behalf of these entities.
+
+       55.     When VPEG personnel questioned payments to these affiliated entities, Cosby
+
+refused to provide an explanation. See Oliver Dkt. at ECF No. 82, Hrg. Tr., at 112:16–113:9.
+
+       56.     On other occasions, new investor money that VPEG received was used to fund
+
+payment obligations to VPEG’s existing investors. For example, on the same day that two
+
+$500,000 investments were deposited in VPEG’s account, $82,000 was immediately paid to prior
+
+investors in Ponzi-like fashion.
+
+
+
+
+                                                12
+  Case: 4:26-cv-01298         Doc. #: 1     Filed: 08/13/26    Page: 13 of 36 PageID #: 13
+
+
+
+
+        57.      VPEG also commingled funds among its portfolio companies, using one company’s
+
+accounts to satisfy another company’s obligations. For example, funds belonging to portfolio
+
+company POP! Gourmet were used to pay the payroll obligations of a separate portfolio company,
+
+Visionary Vaccination and Health Services, a practice that VPEG personnel flagged to Cosby
+
+because it distorted the accounting and tax reporting of both companies. See Oliver Dkt. at ECF
+
+No. 82, Hrg. Tr., at 62:14–64:8.
+
+        58.      At one point, Cosby opened a separate VPEG bank account to keep funds beyond
+
+Zamber’s immediate reach because of concerns that Zamber would spend them. Although this step
+
+reflected Cosby’s awareness of Zamber’s use of Fund assets, Cosby did not disclose that conduct
+
+to investors or prevent the continued transfers described above. See Oliver Dkt. at ECF No. 82,
+
+Hrg. Tr., at 114:16–115:21.
+
+   V.         VPEG’s Inflated Portfolio Company Valuations
+
+        59.      VPEG’s LPA requires that the Fund undergo annual audits by independent certified
+
+public accountants. Despite this mandate, VPEG has not been independently audited since 2011.
+
+        60.      In the absence of these required audits, VPEG’s investor updates reported the
+
+estimated value of its portfolio companies using a self-created, self-serving “mark to market”
+
+method that essentially valued the portfolio companies at multiples of VPEG’s invested basis.
+
+According to the Receiver, this methodology “is not generally used for valuing privately held
+
+companies” and did not appear to be supported by independent third-party analysis or market-
+
+based metrics.
+
+        61.      As a result, the valuations and projections VPEG shared with investors bore no
+
+relationship to the actual condition of the underlying companies:
+
+              a. POP! Gourmet: VPEG’s insider Grenley was CEO of POP! Gourmet. VPEG has
+                 invested approximately $2.2 million of investor capital in POP! Gourmet since
+
+                                                13
+Case: 4:26-cv-01298      Doc. #: 1      Filed: 08/13/26     Page: 14 of 36 PageID #: 14
+
+
+
+
+          January 2021. VPEG improperly valued its position in POP! Gourmet at $5 million
+          and projected $10 million in distributions from POP! Gourmet in 2027. In reality,
+          POP! Gourmet underwent a bankruptcy proceeding in 2020, had no employees (the
+          result of missing multiple payroll periods for several employees), had no
+          manufacturing operations for over two years, and was in the process of a sheriff’s
+          sale to satisfy an approximate $353,000 judgment at the time of the VPEG
+          Receiver’s appointment. Around this same time it was revealed that POP!
+          Gourmet’s website and its QuickBooks had been shut down due to financial
+          difficulties, that the company had under $10,000 cash, owed VPEG approximately
+          $5.4 million, and had negative equity of $6.4 million.
+
+       b. Victory Clean Energy: VPEG invested approximately $840,500 in Victory Clean
+          Energy, a publicly-traded over-the-counter stock with a last known price of $0.0002
+          per share. VPEG marketed this company as a major component of its internal
+          valuation, valuing its position at approximately $19 million – more than 22x what
+          VPEG invested – and projecting distributions from Victory Clean Energy of $5
+          million to $50 million per year from 2025-2027. In 2024 Victory Clean Energy
+          reported nearly $7.8 million in accumulated losses and expressed doubt about its
+          ability to continue as a going concern.
+
+       c. Shop4E: VPEG invested approximately $376,000 in Shop4E, another company for
+          which Grenley served as CEO. In 2021, 2022, and 2023, Shop4E had zero revenue
+          and over $2.5 million in negative retained earnings. Its bank account was closed for
+          inactivity in April 2024. Nonetheless, VPEG valued its position in Shop4E at $4.1
+          million (more than 10x the amount that VPEG invested) and projected $10 million
+          in distributions from Shop4E in 2027.
+
+       d. Visionary Vaccination and Health Services (“VVHS”): VPEG invested
+          approximately $1 million in VVHS since January 2021. VVHS was a vaccination
+          clinic that generated little, if any revenue, possessed assets consisting primarily of
+          seven laptops and two freezers, and was not operating at the time the VPEG
+          Receiver was appointed. As of December 2024, VPEG valued its position in VVHS
+          to be approximately $1.2 million, apparently reflecting valuations of nearly
+          $150,000 per laptop or freezer.
+
+       e. Visionary Media Group and Visionary Entertainment and Media: VPEG
+          invested at least $10.2 million in these two companies since January 2021. VPEG
+          valued its position in Visionary Media Group at approximately $15.7 million and
+          projected distributions to be approximately $10 million in 2026 and $60 million in
+          2027. These VPEG affiliates combined for losses exceeding $7.8 million with
+          minimal revenue. Visionary Media Group’s former Director of Operations, Kevin
+          Huss, confirmed that the company “failed to pay its employees” and vendors.
+
+       f. Navitus Energy Group: VPEG invested over $5 million in this company, yet the
+          Fund’s principals provided no substantial reporting to investors about this major
+          investment.
+
+                                            14
+  Case: 4:26-cv-01298           Doc. #: 1     Filed: 08/13/26     Page: 15 of 36 PageID #: 15
+
+
+
+
+         62.      The pattern is clear: VPEG systematically inflated the value of its portfolio using
+
+unsupported, if not entirely bogus, valuation methodologies that ignored the actual financial
+
+condition and operational status of these companies, and disseminated projected distribution
+
+timelines and amounts that were entirely disconnected from reality. This was not mere puffery;
+
+VPEG’s statements and actions were designed to induce investors to contribute capital and/or
+
+maintain their investments in the Fund.
+
+         63.      As an attorney, Cosby was well aware that VPEG’s presentation of its financials,
+
+including the values of its portfolio companies, was not defensible. He was also well aware of the
+
+need to maintain separation between VPEG’s finances and those of its owners, its portfolio
+
+companies, and affiliates. Cosby routinely disregarded this separation and actively concealed this
+
+commingling from investors. In spite of this knowledge, Cosby personally disseminated unaudited,
+
+non-compliant financial “statements” (using his Husch Blackwell email). See Oliver Dkt. at ECF
+
+No. 82, Hrg. Tr., at 168:20–173:22.
+
+   VI.         VPEG’s Collapse
+
+         64.      As a result of the mismanagement and misappropriation of Fund assets detailed
+
+above, VPEG’s financial condition deteriorated until the Fund was effectively insolvent.
+
+         65.      By the end of 2023, VPEG had only approximately $218,000 in its bank accounts
+
+and had suffered net losses exceeding $10 million.
+
+         66.      VPEG soon became unable to pay even the most basic operating expenses. By the
+
+time the Receiver was appointed, VPEG owed hundreds of thousands of dollars to contractors and
+
+vendors. VPEG’s rent at its St. Charles, Missouri office space was in arrears by at least $35,000,
+
+and its insurance coverage lapsed.
+
+
+
+
+                                                  15
+  Case: 4:26-cv-01298        Doc. #: 1     Filed: 08/13/26     Page: 16 of 36 PageID #: 16
+
+
+
+
+       67.      VPEG also failed to meet its obligations to IRA investors, who were owed
+
+approximately $100,000 in required minimum distributions in 2024 and approximately $81,000,
+
+along with approximately $14,000 in accumulated penalties, in 2025.
+
+       68.      On January 29, 2025, the City of St. Charles, Missouri issued a notice that VPEG
+
+was operating without a valid business license, ordering VPEG to “cease operation.”
+
+       69.      By August 2025, VPEG’s cash balance reached $0.
+
+       70.      VPEG incurred substantial debt to conceal its failing operations. Although Zamber
+
+and Grenley spent years telling investors that VPEG carried “no debt at the Fund level,” this was
+
+not true, as a lender named “The Funding Family” disclosed in a UCC financial statement in
+
+November 2024 that VPEG had taken on institutional debt obligations. Remarkably, on the same
+
+date this lien was publicly recorded, Zamber texted Cosby to extract another “10k wire to RZ”
+
+[i.e., Ronald Zamber].
+
+       71.      Throughout this time, and despite VPEG’s dire financial condition, VPEG
+
+continued to solicit new investors. The VPEG subscription booklet provided to JLP in connection
+
+with its VPEG investment prominently identified Husch Blackwell and directed completed
+
+subscription documents and investor questions to Cosby at Husch Blackwell’s Springfield,
+
+Missouri office.
+
+   VII.      VPEG Concealed its Collapse from Current and Prospective Investors
+
+       72.      VPEG took steps to conceal the Fund’s true financial condition from investors and
+
+other stakeholders.
+
+       73.      According to the Receiver, VPEG’s Managing Director and Director of Investor
+
+Relations, Brigette Bonetti, had her access to financial information and the Fund’s bank account
+
+“cut off for long periods of time” beginning in 2018. According to the Receiver, Visionary Media
+
+
+                                               16
+  Case: 4:26-cv-01298          Doc. #: 1      Filed: 08/13/26    Page: 17 of 36 PageID #: 17
+
+
+
+
+Group’s former Director of Operations, Kevin Huss, ultimately departed because he was asked to
+
+rewrite reports “in a more favorable light” so as to mislead investors.
+
+        74.     Likewise, contractors who previously had access to VPEG and portfolio company
+
+financials had their access removed around 2021.
+
+        75.     VPEG has also been sued by a group of investors alleging, amongst other things,
+
+that VPEG’s principals, including Cosby, “have refused to provide financial information about the
+
+Fund, and when such information is provided, it has been incomplete and deficient such that it
+
+fails to even show the payments that the Individual Defendants have received and other pertinent
+
+details.” See Oliver Dkt. at ECF No. 177 at ¶ 2 (Third Am. Compl., filed Sept. 5, 2025).
+
+    VIII. Appointment of a Receiver over VPEG
+
+        76.     On June 4, 2025, a Receiver was appointed over VPEG and Visionary Fund
+
+Manager, LLC following findings of “gross mismanagement, self-dealing, and the Fund’s apparent
+
+insolvency.” Oliver Dkt. at ECF No. 88, p. 10. The Court specifically found an “imminent danger
+
+of further dissipation” of Fund assets. Id. at p. 21.
+
+        77.     The Court also found that Zamber and Cosby had siphoned funds from VPEG’s
+
+accounts for apparent personal use through indiscriminate and likely covert methods. See id. The
+
+Court likewise determined that Zamber and Grenley made “repeated material misrepresentations
+
+to investors regarding the financial health of VPEG, the likelihood of liquidity events, the amount
+
+of incoming capital contributions, and the imminent closure of the fund.” See id. Presiding Judge
+
+Matthew T. Schelp stated on the record that the VPEG principals’ conduct “sounds criminal to
+
+me.” Oliver Dkt. at ECF No. 82 at 193:25 (Hrg. Tr. dated April 28, 2025).
+
+        78.     The Receiver’s subsequent investigation, detailed in a September 23, 2025 report,
+
+confirmed and expanded upon these findings. Among other conclusions, the Receiver found that a
+
+
+                                                  17
+  Case: 4:26-cv-01298           Doc. #: 1     Filed: 08/13/26      Page: 18 of 36 PageID #: 18
+
+
+
+
+significant portion of VPEG investors’ capital was used to pay VPEG’s principals and to cover
+
+losses in affiliated companies.
+
+   IX.         Cosby’s and Husch Blackwell’s Intimate and Direct Involvement in VPEG’s
+               Misconduct
+
+         79.      As VPEG’s Senior Managing Director and General Counsel, Cosby’s involvement
+
+in the Fund’s operations was far from limited to providing legal advice to the Fund.
+
+         80.      Cosby played a central role in the Fund’s operations including, but not limited to:
+
+                  a. co-managing and co-controlling VPEG’s bank accounts with Zamber, including
+                     exercising signatory authority over such accounts;
+
+                  b. executing illicit wire transfers at Zamber’s direction, including transfers of
+                     investor funds to Zamber for personal expenditures as well as improper
+                     transfers to other VPEG affiliates;
+
+                  c. preparing VPEG’s tax filings and overseeing preparation of VPEG’s financial
+                     records; and
+
+                  d. serving as the designated “Phone Advisor” for investor wires, with Cosby’s
+                     contact information at Husch Blackwell listed in the subscription booklet used
+                     for JLP’s and others’ VPEG investments.
+
+         81.      Husch Blackwell, through Cosby and the use of its office and systems, played a
+
+central and substantial role in connection with JLP’s and others’ investments in VPEG. The
+
+subscription booklet directed completed subscription materials and investor questions to Cosby at
+
+Husch Blackwell’s Springfield, Missouri office.
+
+         82.      VPEG’s former Managing Director and Director of Investor Relations, Brigette
+
+Bonetti, has testified under oath that Zamber and Cosby were the only decision-makers regarding
+
+VPEG’s expenditures, and further, that nobody else in the company ever had visibility into those
+
+expenses. See Oliver Dkt. at ECF No. 82, Hrg. Tr., at 108:9–14.
+
+         83.      Disgruntled investors contacted Cosby directly on his Husch Blackwell phone
+
+number and email address to voice their complaints concerning VPEG. Those complaints were
+
+                                                   18
+  Case: 4:26-cv-01298        Doc. #: 1     Filed: 08/13/26     Page: 19 of 36 PageID #: 19
+
+
+
+
+received by Cosby through Husch Blackwell’s communications systems. See Oliver Dkt. at ECF
+
+No. 82, Hrg. Tr., at 140:19–22.
+
+       84.     Husch Blackwell knew of and permitted Cosby’s involvement in VPEG. That
+
+inference is supported by Husch Blackwell’s representation of VPEG, its receipt of legal fees from
+
+the Fund, Cosby’s public and disclosed VPEG roles, and his use of Husch Blackwell’s offices,
+
+communications systems, and other resources to conduct VPEG business.
+
+       85.     Cosby’s subscription-related and legal activities for VPEG were undertaken as part
+
+of, or at a minimum apparently as part of, his work as a Husch Blackwell partner. Cosby openly
+
+held himself out as a Husch Blackwell partner, and the subscription booklet used for JLP’s and
+
+others’ investments identified the firm’s name, office, and contact information and directed
+
+investors to Cosby at Husch Blackwell.
+
+       86.     Cosby even conducted his VPEG-related activities on his Husch Blackwell-issued
+
+cell phone. Consistent therewith, the Receiver’s investigation later established that Husch
+
+Blackwell possessed the above-referenced text messages between Zamber and Cosby, confirming
+
+that those communications were maintained within firm-controlled systems.
+
+       87.     VPEG raised approximately $90 million from approximately 1,000 investors. At
+
+least by May 2023, VPEG’s subscription booklet directed completed subscription documents and
+
+investor questions to Cosby at Husch Blackwell’s Springfield, Missouri office.
+
+       88.     Cosby profited personally from these investments. Since January 2021, Cosby has
+
+received approximately $655,000 in direct payments from VPEG. As co-owner of VFM, Cosby
+
+also had a financial interest in the approximately $1.6 million that VPEG paid to VFM since 2021.
+
+       89.     Husch Blackwell’s relationship to VPEG was not limited to Cosby’s use of firm
+
+resources. The VPEG subscription booklet provided to JLP and others expressly identified Husch
+
+
+                                               19
+  Case: 4:26-cv-01298         Doc. #: 1        Filed: 08/13/26    Page: 20 of 36 PageID #: 20
+
+
+
+
+Blackwell as the Fund’s “legal counsel in connection with the management and operation of the
+
+Partnership, including, without limitation, making, holding, and disposing of investments.” The
+
+Receiver’s September 23, 2025 report also identifies at least fourteen payments from VPEG to
+
+Husch Blackwell categorized as legal fees.
+
+        90.      After VPEG’s misconduct was exposed, Ryan Mitchem of Husch Blackwell’s
+
+General Counsel’s office sent Cosby eleven messages concerning his VPEG involvement. By late
+
+November or early December 2025, Husch Blackwell’s executive board had decided that Cosby
+
+would no longer remain a partner of the firm. Cosby testified that Joe Glynias informed him of
+
+that decision by telephone and that subsequent communications concerning his departure date
+
+occurred through Husch Blackwell’s email server. See Oliver Dkt. at ECF No. 278-11, Cosby Dep.
+
+Tr. Vol. 2, at 277:9–279:6 (Mar. 13, 2026).
+
+   X.         Husch Blackwell Is Bound by and Liable for Cosby’s Conduct as Its Partner and
+              Agent
+
+        91.      Cosby was at all relevant times a partner of Husch Blackwell. Under applicable
+
+partnership and agency law, a partner acts as an agent of the partnership with respect to partnership
+
+business. A partnership may be liable for the wrongful acts, omissions, or other actionable conduct
+
+of a partner undertaken in the ordinary course of the partnership’s business or with the partnership’s
+
+actual or apparent authority. A partner’s knowledge of facts relating to partnership matters may
+
+likewise be attributable to the partnership.
+
+        92.      Husch Blackwell served as VPEG’s operational counsel. The subscription booklet
+
+used for JLP’s and others’ VPEG investments identified Husch Blackwell as legal counsel in
+
+connection with the management and operation of the Fund, directed completed subscription
+
+materials to Cosby at Husch Blackwell’s Springfield, Missouri office, and represented that
+
+accepted subscribers would receive an opinion from Husch Blackwell. The Receiver’s records also
+
+                                                  20
+  Case: 4:26-cv-01298        Doc. #: 1     Filed: 08/13/26      Page: 21 of 36 PageID #: 21
+
+
+
+
+identify payments from VPEG to Husch Blackwell categorized as legal fees. Cosby, in turn,
+
+conducted his VPEG activities using Husch Blackwell’s office, address, telephone, email, and
+
+systems, and held himself out to investors as a Husch Blackwell partner.
+
+       93.     At minimum, Cosby’s VPEG subscription-related and legal activities were
+
+undertaken in the ordinary course of Husch Blackwell’s business or within the actual or apparent
+
+authority of Husch Blackwell. Husch Blackwell knew of and permitted Cosby’s VPEG role,
+
+maintained the VPEG legal engagement, permitted Cosby to use the firm’s name, office, and
+
+communications systems in connection with VPEG, and received legal fees from the Fund.
+
+Accordingly, Cosby’s actionable conduct undertaken in that capacity is attributable to Husch
+
+Blackwell under applicable partnership and agency law.
+
+                                PLAINTIFF’S ALLEGATIONS
+
+       94.     In the spring of 2023, Plaintiff, through member Benezra-Arron, was introduced
+
+directly to VPEG’s Director of Capital Development, Robert Grenley. The two became friendly,
+
+and Grenley eventually extended Plaintiff an “opportunity” to invest in VPEG.
+
+       95.     Among the materials Grenley provided to JLP before its investment was a May
+
+2023 presentation titled “Why VPEG? Why Now?” That presentation represented that, as of the
+
+first quarter of 2023, VPEG’s portfolio had a mark-to-market valuation equal to 1.72 times invested
+
+capital and an estimated fair market value equal to 3.23 times invested capital. It also described
+
+the Fund as “mature, well into its ‘harvest season,’” and represented that the next distribution to
+
+limited partners was expected in the fourth quarter of 2023.
+
+       96.     These representations were materially misleading when made. The stated valuation
+
+multiples were unaudited and were derived from VPEG’s internally created valuation methodology
+
+without disclosing that VPEG had not undergone an independent audit since 2011. The
+
+
+                                                21
+    Case: 4:26-cv-01298            Doc. #: 1         Filed: 08/13/26         Page: 22 of 36 PageID #: 22
+
+
+
+
+presentation also failed to disclose the transfers of Fund assets to insiders and affiliated entities,
+
+the absence of reliable independent valuation support, and the financial and operational conditions
+
+affecting portfolio companies that undermined the stated valuations and anticipated liquidity
+
+events.
+
+          97.     JLP also received VPEG’s PPM, dated February 12, 2010 and supplemented
+
+through May 15, 2013. VPEG did not provide JLP with any later amendment or supplement. The
+
+PPM stated that it would be amended or supplemented appropriately if a material change in the
+
+Fund’s affairs occurred while the PPM was required to be delivered. Nevertheless, the PPM
+
+provided to JLP in 2023 was not updated to disclose the absence of independent audits since 2011,
+
+VPEG’s unsupported valuation practices, the transfers of Fund assets to insiders and affiliated
+
+entities, or the basis and classification of payments to VFM in light of the PPM’s provisions
+
+governing reporting, audit coordination, overhead, and Fund expenses.
+
+          98.     VPEG is not a public company, and the information provided by Grenley and
+
+contained in VPEG’s offering and marketing materials was therefore the principal information
+
+available to Plaintiff in making its investment decision.
+
+          99.     In reliance on the foregoing, on May 12, 2023, Laurie Benezra-Arron, as a member
+
+of JLP, executed a subscription agreement identifying JLP as the subscriber for a $100,000
+
+investment in VPEG. JLP also submitted a Form W-9 identifying JLP as the taxpayer. JLP
+
+submitted its signed subscription materials to Cosby at Husch Blackwell’s Springfield, Missouri
+
+office, and tendered the required funds.1
+
+
+
+
+1
+  Laurie Benezra-Arron, a member of JLP, separately invested $100,000 in VPEG in her individual capacity. That
+separate investment is not asserted as part of JLP’s individual claim in this action, although Benezra-Arron is a member
+of the proposed Class with respect to that investment.
+
+                                                          22
+  Case: 4:26-cv-01298          Doc. #: 1      Filed: 08/13/26      Page: 23 of 36 PageID #: 23
+
+
+
+
+        100.    Plaintiff’s investment in VPEG was subject to the obligations and duties imposed
+
+by the LPA and applicable law. Prior to the appointment of the VPEG Receiver, Plaintiff was not
+
+aware that VPEG was breaching its obligations and duties to Plaintiff and other VPEG investors
+
+and otherwise misleading them as discussed at length supra.
+
+        101.    Plaintiff has received a single distribution from VPEG. Given VPEG’s receivership
+
+and financial condition, there is no reasonable path for Plaintiff to recoup its investment.
+
+        102.    JLP has standing to assert the claims alleged herein. JLP made the $100,000
+
+investment described above through its member Laurie Benezra-Arron and owns, and has at all
+
+relevant times owned, the resulting limited partnership interest in VPEG. Consistent with that
+
+ownership, VPEG issued a 2024 Schedule K-1 identifying JLP as a limited partner and reflecting
+
+JLP’s partnership interest and capital account. JLP seeks relief for the losses it sustained as a result
+
+of the conduct alleged herein, and its claims are typical of those of the Class it seeks to represent.
+
+                                CLASS ACTION ALLEGATIONS
+
+        103.    Plaintiff brings this action individually and on behalf of all others similarly situated
+
+pursuant to Federal Rules of Civil Procedure 23(a) and 23(b)(3).
+
+        104.    The proposed class Plaintiff seeks to represent (the “Class”) is defined as:
+
+        All persons and entities that purchased or acquired limited partnership interests in
+        VPEG during the period from VPEG’s formation through June 4, 2025, by means
+        of subscription materials that were directed to, processed through, and/or bore the
+        name of Husch Blackwell.
+
+Excluded from the Class are Defendant and its affiliates, partners, officers, and directors, VPEG’s
+
+principals (Zamber, Grenley, and Cosby) and their immediate family members, and any judge
+
+assigned to this matter.
+
+        105.    Numerosity: VPEG had approximately 1,000 investors. The Class consists of those
+
+investors whose purchases satisfy the Husch Blackwell-related criteria stated in the Class
+
+                                                  23
+  Case: 4:26-cv-01298         Doc. #: 1      Filed: 08/13/26      Page: 24 of 36 PageID #: 24
+
+
+
+
+definition. The precise number of Class members is ascertainable from VPEG’s and Husch
+
+Blackwell’s records, and the Class is sufficiently numerous that joinder is impracticable.
+
+       106.    Commonality: Common questions of law and fact include:
+
+           a. the nature and extent of Husch Blackwell’s role in VPEG’s offering and
+              subscription process;
+
+           b. whether Cosby knew of and affirmatively assisted VPEG’s alleged fraud and
+              fiduciary breaches;
+
+           c. whether Cosby’s knowledge and conduct are attributable to Husch Blackwell
+              under applicable partnership and agency law;
+
+           d. whether Husch Blackwell knowingly and substantially assisted the alleged
+              misconduct; and
+
+           e. whether Husch Blackwell directly or indirectly controlled Cosby’s conduct in
+              offering and selling VPEG interests under Mo. Rev. Stat. § 409.5-509(g)(1).
+
+       107.    Typicality: Plaintiff’s claims are typical of the Class because Plaintiff purchased a
+
+VPEG limited partnership interest through a subscription process that satisfied the Husch
+
+Blackwell-related criteria stated in the Class definition and was exposed to the same core
+
+omissions concerning VPEG’s use of investor capital, insider payments, lack of independent
+
+audits, and unsupported financial reporting.
+
+       108.    Adequacy: Plaintiff will fairly and adequately represent the interests of the Class.
+
+Plaintiff has no conflicts of interest with other Class members, and has retained counsel with
+
+extensive experience representing victims of investment fraud in complex, high-profile class and
+
+other large group actions and arbitrations across the country.
+
+       109.    Predominance and Superiority: Common questions of law and fact predominate
+
+over individual issues. A class action is superior to other methods of adjudication because the
+
+claims of individual investors, while substantial in the aggregate, may be insufficient to justify the
+
+cost of individual litigation against a defendant of Husch Blackwell’s size and resources. The
+
+
+                                                 24
+  Case: 4:26-cv-01298          Doc. #: 1      Filed: 08/13/26     Page: 25 of 36 PageID #: 25
+
+
+
+
+median individual investment in VPEG was approximately $30,000, and over 80% of investors
+
+contributed less than $100,000.
+
+                                       CAUSES OF ACTION
+
+                                            COUNT I
+                                   AIDING AND ABETTING FRAUD
+
+        110.    Plaintiff realleges and incorporates by reference the preceding paragraphs as if fully
+
+set forth herein.
+
+        111.    VPEG defrauded Plaintiff and the Class in numerous ways described below.
+
+        112.    In connection with its solicitations and sales of limited partnership investments to
+
+investors, VPEG misrepresented that investor capital would be directed to a portfolio of promising
+
+private companies in diverse sectors. VPEG further misrepresented that said portfolio was
+
+performing well, with substantial valuations based on sound accounting principles, and was poised
+
+to return distributions of tens, if not hundreds, of millions of dollars to VPEG’s investors, as all
+
+described in more detail above.
+
+        113.    Likewise, in connection with these same sales and solicitations, VPEG omitted to
+
+disclose that at all relevant times hereto the Fund’s principals were in fact misappropriating
+
+investor money by misdirecting VPEG’s capital to themselves and/or to other entities they owned
+
+or controlled for their personal benefit. VPEG likewise failed to disclose that its financials were
+
+not audited, and that its portfolio company valuations and projections were not based on sound
+
+accounting principles and were thus grossly and improperly inflated, again as described in more
+
+detail above.
+
+        114.    VPEG knew these misleading representations were false, and/or made them with
+
+reckless disregard for their truth or veracity.
+
+
+
+
+                                                  25
+  Case: 4:26-cv-01298         Doc. #: 1    Filed: 08/13/26      Page: 26 of 36 PageID #: 26
+
+
+
+
+       115.    VPEG made these misrepresentations and omissions with the intent to induce
+
+Plaintiff and the Class to purchase limited partnership interests and, where applicable, contribute
+
+additional capital.
+
+       116.    Such misrepresentations and omissions, which were made and/or carried out by
+
+VPEG through its offering and marketing materials, and also through its principals Zamber,
+
+Grenley, and Cosby through their statements, actions, and inactions, were material. Disclosure of
+
+any of the misleading information about how funds were spent, portfolio companies were valued,
+
+or otherwise, would have affected investors’ decisions to invest in VPEG.
+
+       117.    Plaintiff and the Class justifiably relied on such misstatements and omissions
+
+described herein when purchasing their investments in VPEG.
+
+       118.    Husch Blackwell had actual knowledge of VPEG’s and its principals’ fraud on the
+
+basis of the facts alleged above and summarized below.
+
+       119.    Husch Blackwell’s partner, Cosby, prepared VPEG’s tax filings, co-controlled
+
+VPEG’s bank accounts with Zamber, and executed wire transfers of investor funds to VPEG’s
+
+principals and entities they controlled. Cosby therefore had actual knowledge of VPEG’s and its
+
+principals’ fraud. The facts known to Cosby concerning that misconduct related to Husch
+
+Blackwell’s representation of VPEG and to the VPEG matters in which Cosby acted through the
+
+firm. Accordingly, Cosby’s knowledge is attributable to Husch Blackwell under applicable
+
+partnership and agency law.
+
+       120.    Husch Blackwell had actual knowledge of the nature and scope of its own VPEG
+
+engagement and knew that VPEG’s subscription booklet identified the firm as operational counsel,
+
+directed completed subscription materials and investor questions to Cosby at the firm’s Springfield
+
+office, and represented that accepted subscribers would receive an opinion from Husch Blackwell.
+
+
+                                                26
+  Case: 4:26-cv-01298        Doc. #: 1        Filed: 08/13/26   Page: 27 of 36 PageID #: 27
+
+
+
+
+       121.    Husch Blackwell also had actual knowledge of the misconduct alleged above
+
+through Cosby, whose knowledge is attributable to the firm as alleged above. Cosby possessed that
+
+knowledge while simultaneously performing work on Husch Blackwell’s VPEG engagement and
+
+managing VPEG’s finances, accounts, reporting, and subscription process.
+
+       122.    In spite of this knowledge, Husch Blackwell substantially assisted VPEG’s and its
+
+principals in the commission of their fraud by permitting Cosby to use the firm’s name, office, and
+
+communications systems in VPEG’s subscription process. Throughout this time, Husch Blackwell
+
+allowed its name and institutional standing to be used by VPEG and its principals, including Cosby,
+
+to lend legitimacy to VPEG’s investment offerings.
+
+       123.    Husch Blackwell’s partner, Cosby, likewise substantially assisted VPEG and its
+
+other principals in carrying out and concealing their fraud. While using Husch Blackwell-provided
+
+communications systems and resources, Cosby executed and facilitated transfers of VPEG’s funds
+
+to its principals and affiliates, prepared and disseminated financial information, and participated
+
+in the subscription process through which VPEG obtained additional investor capital.
+
+       124.    Husch Blackwell’s and Cosby’s assistance was active and affirmative, and did not
+
+consist of mere inaction or the passive provision of routine professional services. Among other
+
+things, Cosby personally executed wire transfers dissipating investor funds, co-controlled the
+
+Fund’s bank accounts and opened a separate account to keep investor funds beyond Zamber’s
+
+immediate reach, prepared and personally disseminated false and misleading financial statements,
+
+and operated the subscription machinery through which VPEG raised investor capital. This
+
+affirmative conduct materially distinguishes the claim from one based solely on inaction or the
+
+routine provision of professional services.
+
+
+
+
+                                                 27
+  Case: 4:26-cv-01298         Doc. #: 1      Filed: 08/13/26      Page: 28 of 36 PageID #: 28
+
+
+
+
+        125.    In addition, Cosby knowingly and substantially assisted VPEG’s and its principals’
+
+fraud through the affirmative conduct alleged above. To the extent that Cosby undertook that
+
+conduct in the ordinary course of Husch Blackwell’s business or with the actual or apparent
+
+authority of Husch Blackwell, his wrongful acts of assistance are attributable to Husch Blackwell
+
+under applicable partnership and agency law.
+
+        126.    Husch Blackwell’s knowing and substantial assistance of VPEG’s and its
+
+principals’ fraud as described above was a direct and proximate cause of Plaintiff’s and the Class’s
+
+damages. Husch Blackwell’s assistance enabled VPEG to present itself as a legitimate investment
+
+fund, complete investor subscriptions, obtain additional capital, divert investor funds, and continue
+
+concealing its fraud. Husch Blackwell’s involvement and assistance were not incidental, but rather
+
+were foundational to VPEG’s fraudulent operations and Plaintiff’s and the Class’s inability to
+
+detect them.
+
+        127.    As a direct and proximate result of Husch Blackwell’s aiding and abetting VPEG’s
+
+and its principals’ fraud, Plaintiff and the Class suffered damages.
+
+                                        COUNT II
+                      AIDING AND ABETTING BREACH OF FIDUCIARY DUTY
+
+        128.    Plaintiff realleges and incorporates by reference the preceding paragraphs as if fully
+
+set forth herein.
+
+        129.    Visionary PE GP I, LLC, as VPEG’s general partner, and the persons and entities
+
+controlling and managing VPEG, including VFM, Zamber, and Cosby to the extent applicable to
+
+their respective roles, owed fiduciary duties to VPEG’s limited partners, including the duties of
+
+loyalty, care, and candor.
+
+        130.    The fiduciaries identified above further breached their fiduciary duties by
+
+misrepresenting that investor capital would be directed to a portfolio of promising private
+
+                                                 28
+  Case: 4:26-cv-01298         Doc. #: 1     Filed: 08/13/26      Page: 29 of 36 PageID #: 29
+
+
+
+
+companies in diverse sectors. They further misrepresented that said portfolio was performing well,
+
+with substantial valuations based on sound accounting principles, and was poised to return
+
+distributions of tens, if not hundreds, of millions of dollars to VPEG’s investors, as all described
+
+in more detail above. The fiduciaries perpetrated these breaches through the dissemination of
+
+VPEG’s marketing materials and also through the statements and actions of principals Zamber,
+
+Grenley, and Cosby.
+
+       131.    Additionally, the fiduciaries identified above breached their fiduciary duties by
+
+omitting to disclose that at all relevant times hereto the Fund’s principals were in fact
+
+misappropriating investor money by misdirecting VPEG’s capital to themselves and/or to other
+
+entities they owned or controlled for their personal benefit. The fiduciaries also failed to disclose
+
+that the Fund’s financials were not audited, and that its portfolio company valuations and
+
+projections were not based on sound accounting principles and were thus grossly and improperly
+
+inflated, again as described in more detail above. They perpetrated these breaches through the
+
+dissemination of VPEG’s marketing materials and also through the statements and actions of
+
+principals Zamber, Grenley, and Cosby.
+
+       132.    The fiduciaries identified above further breached their fiduciary duties to investors
+
+by misappropriating VPEG assets for the benefit of the Fund’s principals and entities owned or
+
+controlled by them, and by disseminating unsupported valuations and projections designed to
+
+conceal VPEG’s deterioration and collapse, as described above.
+
+       133.    Plaintiff and the Class seek relief in this Count for the direct injury caused by the
+
+fiduciaries’ material misrepresentations, omissions, and concealment from limited partners. The
+
+allegations concerning the diversion of Fund assets also demonstrate the underlying breaches and
+
+
+
+
+                                                 29
+  Case: 4:26-cv-01298         Doc. #: 1    Filed: 08/13/26       Page: 30 of 36 PageID #: 30
+
+
+
+
+Husch Blackwell’s knowledge and assistance; Plaintiff and the Class do not seek in this action to
+
+recover assets belonging to VPEG.
+
+       134.   Husch Blackwell had actual knowledge of the fiduciary breaches alleged above and
+
+summarized below.
+
+       135.   Husch Blackwell’s partner, Cosby, prepared VPEG’s tax filings, co-controlled
+
+VPEG’s bank accounts with Zamber, and executed wire transfers of investor funds to VPEG’s
+
+principals and entities they controlled. Cosby therefore had actual knowledge of the fiduciary
+
+breaches alleged above. The facts known to Cosby concerning those breaches related to Husch
+
+Blackwell’s representation of VPEG and to the VPEG matters in which Cosby acted through the
+
+firm. Accordingly, Cosby’s knowledge is attributable to Husch Blackwell under applicable
+
+partnership and agency law.
+
+       136.   Husch Blackwell had actual knowledge of the nature and scope of its own VPEG
+
+engagement and knew that VPEG’s subscription booklet identified the firm as operational counsel
+
+and placed the firm and Cosby within the subscription process.
+
+       137.   Husch Blackwell also had actual knowledge of the fiduciary breaches alleged above
+
+through Cosby, whose knowledge is attributable to the firm as alleged above. Cosby possessed that
+
+knowledge while simultaneously performing work on Husch Blackwell’s VPEG engagement and
+
+managing VPEG’s finances, accounts, reporting, and subscription process.
+
+       138.   Husch Blackwell substantially assisted the fiduciary breaches by permitting Cosby
+
+to use the firm’s name, office, and communications systems in VPEG’s subscription process.
+
+Throughout this time, Husch Blackwell allowed its name and institutional standing to be used to
+
+lend legitimacy to VPEG’s investment offerings.
+
+
+
+
+                                               30
+  Case: 4:26-cv-01298         Doc. #: 1      Filed: 08/13/26      Page: 31 of 36 PageID #: 31
+
+
+
+
+        139.    Husch Blackwell’s partner, Cosby, also substantially assisted the fiduciary breaches
+
+by executing wire transfers from VPEG’s accounts to VPEG’s principals and affiliates.
+
+        140.    As with the fraud alleged above, Husch Blackwell’s and Cosby’s assistance in
+
+VPEG’s breaches of fiduciary duty was active and affirmative rather than passive. Cosby exercised
+
+signatory control over the Fund’s accounts, executed the wire transfers that effected the breaches,
+
+prepared and disseminated misleading financial information, and administered the subscription
+
+process—conduct amounting to knowing and substantial participation in the breaches.
+
+        141.    In addition, Cosby knowingly and substantially assisted the fiduciary breaches
+
+alleged above through his affirmative conduct. To the extent that Cosby undertook that conduct in
+
+the ordinary course of Husch Blackwell’s business or with the actual or apparent authority of
+
+Husch Blackwell, his wrongful acts of assistance are attributable to Husch Blackwell under
+
+applicable partnership and agency law.
+
+        142.    Husch Blackwell’s knowing and substantial assistance of the fiduciary breaches
+
+alleged above was a direct and proximate cause of Plaintiff’s and the Class’s damages. Husch
+
+Blackwell’s assistance enabled VPEG to present itself as a legitimate investment fund, complete
+
+investor subscriptions, obtain additional capital, divert investor funds, and continue concealing the
+
+fiduciary breaches. Husch Blackwell’s involvement and assistance were not incidental, but were
+
+foundational to the breaches and to Plaintiff’s and the Class’s inability to detect them.
+
+        143.    As a direct and proximate result of Husch Blackwell’s aiding and abetting VPEG’s
+
+and its principals’ breaches of fiduciary duty, Plaintiff and the Class suffered damages.
+
+                                     COUNT III
+          VIOLATION OF THE MISSOURI SECURITIES ACT, MO. REV. STAT. § 409.5-509
+
+        144.    Plaintiff realleges and incorporates by reference the preceding paragraphs as if fully
+
+set forth herein.
+
+                                                 31
+  Case: 4:26-cv-01298          Doc. #: 1      Filed: 08/13/26    Page: 32 of 36 PageID #: 32
+
+
+
+
+        145.    Pursuant to Mo. Rev. Stat. § 409.5-509(b), a person is liable to the purchaser if the
+
+person sells a security “by means of an untrue statement of a material fact or an omission to state
+
+a material fact necessary in order to make the statement made, in light of the circumstances under
+
+which it is made, not misleading, the purchaser not knowing the untruth or omission and the seller
+
+not sustaining the burden of proof that the seller did not know and, in the exercise of reasonable
+
+care, could not have known of the untruth or omission.”
+
+        146.    Cosby was the primary violator and a “seller” of VPEG securities within the
+
+meaning of § 409.5-509(b). As VPEG’s Senior Managing Director and the person designated to
+
+oversee its subscription process, Cosby participated in effecting the sales of VPEG limited
+
+partnership interests. He was the designated recipient of completed subscription materials, the
+
+designated contact for investor questions, and the designated “Phone Advisor” for investor wires.
+
+Consistent with those responsibilities, JLP submitted its signed subscription materials to Cosby at
+
+Husch Blackwell’s Springfield, Missouri office. Cosby performed these functions for the financial
+
+benefit of himself, VPEG, and entities he owned or controlled and was directly and materially
+
+involved in the offer and sale of the securities at issue.
+
+        147.    In the alternative, VPEG was itself a primary violator and “seller” of the securities
+
+at issue. As the issuer of the limited partnership interests, VPEG sold those interests to Plaintiff
+
+and the Class by means of the untrue statements of material fact and material omissions contained
+
+in its offering and marketing materials, as described above. Plaintiff therefore alleges, in the
+
+alternative, that Cosby and VPEG are each persons liable as sellers under § 409.5-509(b). Husch
+
+Blackwell’s alleged control-person liability under § 409.5-509(g)(1), however, is predicated on its
+
+direct or indirect control of Cosby, as alleged below, and not on control of VPEG.
+
+
+
+
+                                                  32
+  Case: 4:26-cv-01298          Doc. #: 1    Filed: 08/13/26      Page: 33 of 36 PageID #: 33
+
+
+
+
+       148.    The sales alleged above were made by means of offering and marketing materials
+
+that misrepresented how investor contributions would be used by the Fund. Investors were told
+
+that VPEG would use their funds to invest in promising companies, while the materials omitted
+
+that investor funds were being and would continue to be transferred to VPEG’s principals and
+
+affiliated entities for personal or inadequately disclosed purposes.
+
+       149.    The sales were also made by means of materially misleading valuation statements
+
+and distribution projections. Those statements and projections lacked a reasonable basis and
+
+omitted material facts concerning the portfolio companies’ operations, profitability, and ability to
+
+generate the projected liquidity events, as alleged above.
+
+       150.    These statements and omissions were material because a reasonable investor would
+
+consider them important in deciding whether to purchase a VPEG limited partnership interest. JLP
+
+did not know of the untruths and omissions when it purchased its interest.
+
+       151.    Pursuant to Mo. Rev. Stat. § 409.5-509(g), “[a] person that directly or indirectly
+
+controls a person liable under subsections (b) through (f)” is liable jointly and severally with and
+
+to the same extent as Cosby.
+
+       152.    Husch Blackwell possessed the right, power, and practical ability to supervise and
+
+control Cosby in connection with work he performed through the firm for VPEG, including his
+
+use of the firm’s name, office, personnel, communications systems, legal work product, and client
+
+engagement in connection with the offer and sale of VPEG interests. Husch Blackwell exercised
+
+institutional control over Cosby’s firm-based conduct by maintaining the VPEG legal engagement
+
+and permitting Cosby to use the firm’s name, office, personnel, communications systems, and other
+
+resources in the subscription process.
+
+
+
+
+                                                 33
+  Case: 4:26-cv-01298        Doc. #: 1     Filed: 08/13/26      Page: 34 of 36 PageID #: 34
+
+
+
+
+       153.    Husch Blackwell also possessed the authority to restrict Cosby’s use of those firm
+
+resources, prohibit the use of the firm’s name and office in VPEG’s offerings, cease receiving
+
+subscription materials through its office, limit or terminate the firm’s VPEG engagement, and
+
+terminate Cosby’s status as a firm partner. Husch Blackwell’s executive board ultimately exercised
+
+that authority by deciding that Cosby would no longer remain a partner.
+
+       154.    Through these powers and its institutional role, Husch Blackwell directly or
+
+indirectly controlled   Cosby’s participation in the offer and sale of VPEG interests. The
+
+subscription booklet used for JLP’s and others’ investments directed completed subscription
+
+materials and investor questions to Cosby at the firm’s Springfield, Missouri office. Cosby
+
+participated in effecting the offer and sale of VPEG interests while acting as a Husch Blackwell
+
+partner and using the firm’s office and communications systems.
+
+       155.    Husch Blackwell cannot sustain the burden of proof that it did not know and, in the
+
+exercise of reasonable care, could not have known, of the existence of conduct by reason of which
+
+the liability is alleged to exist. As described herein, VPEG’s subscription booklet placed the firm
+
+and Cosby within the subscription process, and Cosby carried out much of the misconduct that
+
+harmed investors.
+
+       156.    JLP’s offer to purchase was made in Missouri within the meaning of Mo. Rev. Stat.
+
+§ 409.6-610 because the subscription booklet directed JLP to submit its completed subscription
+
+materials to Cosby at Husch Blackwell’s Springfield, Missouri office, and JLP submitted its signed
+
+materials through that process. VPEG thereafter accepted JLP as a limited partner, as confirmed
+
+by the 2024 Schedule K-1 issued in JLP’s name. Upon information and belief, based on the
+
+designated Springfield submission process and Cosby’s role in administering subscriptions, JLP’s
+
+
+
+
+                                                34
+  Case: 4:26-cv-01298         Doc. #: 1     Filed: 08/13/26      Page: 35 of 36 PageID #: 35
+
+
+
+
+offer was accepted in Missouri. Plaintiff asserts this Count only on behalf of those Class members
+
+whose transactions satisfy the jurisdictional requirements of Mo. Rev. Stat. § 409.6-610.
+
+       157.    JLP’s claim is timely under Mo. Rev. Stat. § 409.5-509(j) because this action is
+
+brought within two years after JLP discovered the facts constituting the violation—which JLP did
+
+not discover, and in the exercise of reasonable care could not have discovered, until the Receiver’s
+
+appointment and investigation in 2025—and within five years after JLP’s purchase. Plaintiff
+
+asserts this Count only on behalf of those Class members who purchased VPEG limited partnership
+
+interests during the five-year period preceding the filing of this action through June 4, 2025.
+
+       158.    JLP continues to own its VPEG limited partnership interest and hereby tenders, and
+
+remains willing to tender, that interest in exchange for the consideration recoverable under Mo.
+
+Rev. Stat. § 409.5-509(b)(1). To the extent any Class member has disposed of his or her VPEG
+
+interest, that member seeks actual damages as provided in Mo. Rev. Stat. § 409.5-509(b)(3).
+
+       159.    Accordingly, Plaintiff and those Class members covered by this Count are entitled
+
+to rescission, damages, reasonable attorneys’ fees, and costs under Mo. Rev. Stat. § 409.5-509(b).
+
+                                    PRAYER FOR RELIEF
+
+       WHEREFORE, Plaintiff, individually and on behalf of the Class as defined herein,
+
+respectfully requests that this Court enter judgment against Husch Blackwell LLP as follows:
+
+           a. Certify this action as a class action under Federal Rule of Civil Procedure 23,
+              appoint Plaintiff as Class Representative, and appoint Plaintiff’s counsel as Class
+              Counsel;
+
+           b. Award compensatory damages in an amount to be determined at trial, and statutory
+              rescission or actual damages under Mo. Rev. Stat. § 409.5-509(b), as applicable,
+              subject to deductions for income received, other applicable offsets, and the
+              avoidance of duplicative recovery;
+
+           c. Award interest pursuant to Mo. Rev. Stat. § 409.5-509(b)(1);
+
+           d. Award costs pursuant to Mo. Rev. Stat. § 409.5-509(b)(1);
+
+                                                 35
+  Case: 4:26-cv-01298       Doc. #: 1      Filed: 08/13/26          Page: 36 of 36 PageID #: 36
+
+
+
+
+          e. Award reasonable attorneys’ fees pursuant to Mo. Rev. Stat. § 409.5-509(b)(1);
+
+          f. Award punitive and all other damages to the extent permitted by law;
+
+          g. Award such other and further relief as the Court deems just and proper.
+
+                                       JURY DEMAND
+
+      Plaintiff demands a trial by jury on all claims so triable.
+
+Dated: August 13, 2026                       Respectfully submitted,
+
+                                             By: /s/ Brandon M. Wise
+                                             Brandon M. Wise – MO Bar #67242
+                                             Domenica Russo – MO Bar #74819
+                                             PEIFFER WOLF CARR
+                                             KANE CONWAY & WISE, LLP
+                                             One US Bank Plaza, Suite 1950
+                                             St. Louis, MO 63101
+                                             T: 314-833-4825
+                                             bwise@peifferwolf.com
+
+                                             Daniel Centner*
+                                             Carson Kern*
+                                             PEIFFER WOLF CARR
+                                             KANE CONWAY & WISE, LLP
+                                             935 Gravier Street, Suite 1600
+                                             New Orleans, Louisiana 70112
+                                             T: 504-605-2234
+                                             dcentner@peifferwolf.com
+                                             ckern@peifferwolf.com
+
+                                             Scott Silver*
+                                             Ryan Schwamm*
+                                             Peter Spett*
+                                             SILVER LAW GROUP
+                                             11780 W. Sample Road
+                                             Coral Springs, Florida 33065
+                                             T: 954-755-4799
+                                             ssilver@silverlaw.com
+                                             rschwamm@silverlaw.com
+                                             pspett@silverlaw.com
+
+                                             *(pro hac vice forthcoming)
+
+                                                36
+
