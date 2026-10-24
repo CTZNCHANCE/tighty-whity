@@ -1,7 +1,7 @@
 <title>The Case of the Vanishing Valuation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Special+Elite&family=Archivo+Narrow:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Special+Elite&family=Archivo+Narrow:wght@500;600;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,300;1,400;1,700&display=swap">
 <style>
 /* Layout: a crime drama in one look. Night-dark rooms; evidence lives on bone-colored paper laid on top.
    Single deliberate dark world: money-old green, oxblood, tarnished gold. */
@@ -12,7 +12,7 @@
   --paper:#eee5cf; --paper-2:#e2d6ba; --ink:#191612; --ink-soft:#5a5240; --line:#c5b593;
   --gold:#c8a24a; --gold-dim:#8a6f2e; --blood:#7d1717; --blood-hi:#b02a22; --focus:#e6b84f;
   --s-court:#1f4c7a; --s-sworn:#573c84; --s-plaintiff:#8a3616; --s-defense:#1f5c4b; --s-receiver:#40601a;
-  --s-reported:#665420; --s-unverified:#585b58; --s-fiction:#8a1640;
+  --s-reported:#665420; --s-unverified:#585b58; --s-fiction:#8a1640; --s-docket:#2f5f6e; --s-filing:#6b4a1f;
   --ok:#2c6a36; --bad:#9a2a1c; --warn:#d9a441;
   --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --f-body:"Source Serif 4","Iowan Old Style",Georgia,serif;
@@ -41,33 +41,71 @@ h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.1;text-wrap:
   --muted:var(--ink-soft); --rule:var(--line); color:var(--ink);
   background:var(--paper) var(--grain); background-blend-mode:multiply}
 
-/* Chrome */
-.top{background:#050605;border-bottom:1px solid var(--gold-dim)}
-.top .wrap{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding-block:12px}
-.brand{display:flex;flex-direction:column;min-width:0;flex:1 1 260px}
-.brand b{font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.45rem;letter-spacing:.01em;color:var(--bone)}
-.brand span{font-family:var(--f-ui);font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold)}
+/* Chrome: one quiet bar in the timeline's language (hairline pills, sliding switches, italic voice).
+   Dark over the rooms; cream when the timeline is open, so the page reads as one surface. */
+.chrome{--c-bg:#070908;--c-ink:var(--bone);--c-soft:var(--bone-dim);--c-line:rgba(235,227,208,.16);--c-pill:var(--bone);--c-pill-ink:#14120e;--c-hover:rgba(235,227,208,.07);--c-born:var(--blood-hi);
+  --f-c:"Alegreya Sans","Gill Sans","Trebuchet MS",system-ui,sans-serif;background:var(--c-bg);color:var(--c-ink);font-family:var(--f-c)}
+.chrome.cream{--c-bg:#FBF6F1;--c-ink:#34312F;--c-soft:#89827B;--c-line:#E8DDD8;--c-pill:#353433;--c-pill-ink:#FBF6F1;--c-hover:rgba(52,49,47,.05);--c-born:#8a1640;color-scheme:light}
+.chrome :focus-visible{outline:2px solid var(--c-ink);outline-offset:2px}
+.chrome button{font-family:var(--f-c)}
+.top{border-bottom:1px solid var(--c-line)}
+.top .wrap{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;padding-block:16px}
+.brand{display:flex;flex-direction:column;min-width:0;flex:1 1 280px}
+.brand b{font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.5rem;line-height:1.15;color:var(--c-ink);transition:color .2s}
+.chrome.cream .brand b{font-family:var(--f-c);font-weight:700;font-size:1.45rem}
+.brand span{font-style:italic;font-size:.95rem;color:var(--c-soft)}
+.brand-btn{background:none;border:0;padding:0;margin:0;text-align:left;cursor:pointer;color:inherit;display:flex;flex-direction:column}
+.brand-btn:hover b{opacity:.75}
 .tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.btn{font-family:var(--f-ui);font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;border:1px solid var(--gold-dim);background:transparent;color:var(--bone);border-radius:0;padding:6px 12px;cursor:pointer;min-height:36px}
-.btn:hover{border-color:var(--gold);color:var(--gold)}
-.btn[aria-pressed="true"]{background:var(--gold);color:#120f08;border-color:var(--gold)}
-.modes{display:inline-flex;border:1px solid var(--gold-dim)}
-.modes button{border:0;min-height:36px;padding:6px 12px;background:transparent;color:var(--bone);font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.12em;font-size:.82rem;cursor:pointer}
-.modes button[aria-pressed="true"]{background:var(--bone);color:#120f08}
-.score{font-family:var(--f-type);font-size:.85rem;color:var(--gold);border:1px dashed var(--gold-dim);padding:5px 9px}
-.strip{background:#080a09;color:var(--bone-dim);font-family:var(--f-ui);font-size:.8rem;letter-spacing:.02em;border-bottom:1px solid var(--rule)}
-.strip .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding-block:7px;align-items:center}
-.strip b{color:var(--bone)}
-.strip a{color:var(--bone);text-underline-offset:3px}
-.strip .fbi{margin-left:auto}
+.btn{display:inline-flex;align-items:center;gap:7px;font-size:.92rem;border:1px solid var(--c-line);background:transparent;color:var(--c-ink);border-radius:999px;padding:6px 14px;cursor:pointer;min-height:36px;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{border-color:var(--c-ink)}
+.btn[aria-pressed]{padding-left:11px}
+.btn[aria-pressed] i{width:9px;height:9px;border-radius:50%;border:1.5px solid currentColor;transition:background .2s}
+.btn[aria-pressed="true"] i{background:currentColor}
+.btn.round{width:36px;padding:0;justify-content:center}
+.btn.round:hover{background:var(--c-pill);color:var(--c-pill-ink);border-color:var(--c-pill)}
+.pill-switch{position:relative;display:inline-grid;grid-auto-flow:column;grid-auto-columns:1fr;border:1px solid var(--c-line);border-radius:999px;padding:3px}
+.pill-switch button{position:relative;z-index:1;border:0;background:none;color:var(--c-ink);font-size:.92rem;padding:5px 14px;min-height:30px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:color .3s}
+.pill-switch button[aria-pressed="true"]{color:var(--c-pill-ink)}
+.pill-switch button[aria-pressed="false"]:hover{background:var(--c-hover)}
+.pill-switch span{position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);border-radius:999px;background:var(--c-pill);transition:transform .35s cubic-bezier(.65,0,.35,1),background .35s}
+.pill-switch[data-on="1"] span{transform:translateX(100%)}
+.pill-switch.lens.born span{background:var(--c-born)}
+.pill-switch.lens.born button[aria-pressed="true"]{color:#fff}
+.score{font-style:italic;font-size:.95rem;color:var(--c-soft);padding:0 6px;white-space:nowrap}
+.score b{font-style:normal;font-weight:700;color:var(--c-ink);font-size:1.05rem}
+.strip{font-size:.88rem;border-bottom:1px solid var(--c-line);color:var(--c-soft)}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:2px 28px;padding-block:8px;align-items:center}
+.strip b{color:var(--c-ink);font-weight:500}
+.strip a{color:var(--c-ink);text-decoration-color:var(--c-line);text-underline-offset:3px}
+.strip a:hover{text-decoration-color:currentColor}
+.strip .soft{opacity:.85;font-style:italic}
 .notice-bar{background:var(--blood);color:var(--bone);font-family:var(--f-ui)}
 .notice-bar .wrap{padding-block:8px}
-
-nav.tabs{border-bottom:1px solid var(--rule);background:rgba(5,6,5,.6)}
-nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto}
-nav.tabs button{font-family:var(--f-ui);font-size:.82rem;text-transform:uppercase;letter-spacing:.16em;border:0;background:none;padding:14px 12px 11px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;color:var(--bone-dim)}
-nav.tabs button:hover{color:var(--bone)}
-nav.tabs button[aria-current="page"]{color:var(--gold);border-bottom-color:var(--gold)}
+nav.tabs{border-bottom:1px solid var(--c-line)}
+nav.tabs .wrap{position:relative;display:flex;gap:2px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+nav.tabs .wrap::-webkit-scrollbar{display:none}
+nav.tabs button{position:relative;z-index:1;font-size:1rem;border:0;background:none;padding:7px 15px;border-radius:999px;cursor:pointer;white-space:nowrap;color:var(--c-soft);transition:color .3s,background .2s}
+nav.tabs button:hover{color:var(--c-ink);background:var(--c-hover)}
+nav.tabs button[aria-current="page"]{color:var(--c-pill-ink);background:transparent}
+nav.tabs .tab-ink{position:absolute;left:0;top:10px;bottom:10px;border-radius:999px;background:var(--c-pill);transition:transform .4s cubic-bezier(.65,0,.35,1),width .4s cubic-bezier(.65,0,.35,1)}
+nav.tabs .tab-ink:not([style]){display:none}
+/* The timeline page: cream from the top bar down, with the intro set in the timeline's voice */
+main.cream{background:#FBF6F1;color:#34312F;padding-top:34px;padding-bottom:0;--f-c:"Alegreya Sans","Gill Sans","Trebuchet MS",system-ui,sans-serif}
+main.cream .section-head{gap:4px 18px;margin-bottom:12px}
+main.cream .section-head h2{font-family:var(--f-c);font-style:italic;font-weight:300;font-size:clamp(2.4rem,5vw,3.6rem);letter-spacing:-.01em;color:#34312F}
+main.cream .section-head > span{font-family:var(--f-c);text-transform:none;letter-spacing:0;font-style:italic;font-size:1.15rem;color:#89827B}
+main.cream .lens-note{font-family:var(--f-c);display:inline-flex;gap:10px;align-items:center;background:transparent;border:1px solid #E8DDD8;border-radius:22px;padding:6px 16px 6px 8px;flex-wrap:wrap;margin:0 0 14px;font-size:.98rem;color:#34312F}
+main.cream .lens-note .kicker{font-family:var(--f-c);text-transform:none;letter-spacing:0;font-size:.9rem;background:#353433;color:#FBF6F1;border-radius:999px;padding:3px 11px}
+main.cream .lens-note.born .kicker{background:#8a1640}
+main.cream .aside{font-family:var(--f-c);font-size:1.08rem;line-height:1.55;border:0;padding:0;margin:0;color:#5f5953;max-width:62ch}
+main.cream .optag{border-radius:999px;padding:1px 8px}
+@media (max-width:640px){
+  .top .wrap{padding-block:12px}
+  .tools{gap:6px}
+  .pill-switch button{padding:5px 10px;font-size:.86rem}
+  main.cream{padding-top:24px}
+}
 
 main{padding-block:26px 72px}
 .lede{max-width:66ch}
@@ -257,9 +295,6 @@ td.num{font-family:var(--f-type);font-variant-numeric:tabular-nums;white-space:n
 .credits .fine{font-family:var(--f-type);font-size:.82rem;color:var(--bone-dim);max-width:560px;margin:18px auto 0}
 
 /* Brief, case files, inquiry */
-.lens-toggle{display:inline-flex;border:1px solid var(--blood-hi)}
-.lens-toggle button{border:0;min-height:36px;padding:6px 10px;background:transparent;color:var(--bone);font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.1em;font-size:.74rem;cursor:pointer}
-.lens-toggle button[aria-pressed="true"]{background:var(--blood);color:var(--bone)}
 .lens-note{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;border:1px solid var(--rule);border-left:4px solid var(--s-court);padding:10px 14px;margin-bottom:18px;background:rgba(0,0,0,.3);font-size:.92rem}
 .lens-note.born{border-left-color:var(--blood-hi);background:rgba(125,23,23,.18)}
 .brief-lede{padding:18px 20px;font-size:1.06rem;max-width:900px}
@@ -337,11 +372,241 @@ td.num{font-family:var(--f-type);font-variant-numeric:tabular-nums;white-space:n
 .p-rating span{font-family:var(--f-ui);font-size:max(8px,2cqi);line-height:1.3;padding:.35em .6em;color:var(--bone-dim);letter-spacing:.03em}
 .p-rating strong{display:block;color:var(--bone);text-transform:uppercase;letter-spacing:.14em}
 @media (prefers-reduced-motion:no-preference){.p-title em{animation:settle 2.4s cubic-bezier(.2,.7,.2,1) both}}
-.brand-btn{background:none;border:0;padding:0;margin:0;text-align:left;cursor:pointer;color:inherit;display:flex;flex-direction:column}
-.brand-btn:hover b{color:var(--gold)}
 .needlinks{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:3px}
 .needlinks a{font-family:var(--f-ui);font-size:.8rem;letter-spacing:.03em}
 .needlinks .muted{font-size:.78rem}
+/* Case timeline: a cream stage in its own light, set apart from the dark rooms around it */
+body:has(.dt){overflow-x:clip}
+.dt{--dt-bg:#FBF6F1;--dt-ink:#34312F;--dt-pill:#353433;--dt-soft:#89827B;--dt-line:#E8DDD8;--f-dt:"Alegreya Sans","Gill Sans","Trebuchet MS",system-ui,sans-serif;
+  --dt-s-court:var(--s-court);--dt-s-sworn:var(--s-sworn);--dt-s-filing:var(--s-filing);--dt-s-docket:var(--s-docket);--dt-s-plaintiff:var(--s-plaintiff);--dt-s-defense:var(--s-defense);--dt-s-receiver:var(--s-receiver);--dt-s-reported:var(--s-reported);--dt-s-unverified:var(--s-unverified);
+  position:relative;width:100vw;margin-inline:calc(50% - 50vw);margin-top:22px;background:var(--dt-bg);color:var(--dt-ink);font-family:var(--f-dt);font-size:17px;line-height:1.5;color-scheme:light}
+.dt :focus-visible{outline:2px solid var(--dt-ink);outline-offset:3px}
+.dt button{font-family:var(--f-dt)}
+.dt-stage{position:relative;height:max(620px,min(88vh,900px));overflow:hidden;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;outline:none}
+.dt-stage.dragging{cursor:grabbing}
+.dt-stage:focus-visible{box-shadow:inset 0 0 0 2px var(--dt-ink)}
+.dt-dust,.dt-svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.dt-dust{opacity:.5;pointer-events:none}
+.dt-band{fill:none;stroke-linecap:round;mix-blend-mode:multiply;stroke-opacity:.9;transition:stroke-width .5s ease}
+.dt-lane{transition:transform .7s cubic-bezier(.65,0,.35,1),opacity .45s ease;transform-box:view-box;transform-origin:50% 50%}
+.dt-lane.off{opacity:0;transform:scale(.8)}
+.dt-axis{fill:none;stroke:#fff;stroke-width:1}
+.dt-axis.base{stroke:rgba(112,112,112,.3)}
+.dt-lane-label{font-family:var(--f-dt);font-style:italic;font-size:17px;fill:var(--dt-ink);opacity:.75;transition:transform .5s ease,opacity .5s ease}
+.dt-stage.intro .dt-lane-label{opacity:0;transform:translateX(30px)}
+.dt-threads,.dt-marks,.dt-arcs,.dt-cursor,.dt-years{transition:opacity .35s ease}
+.dt-stage.is-open .dt-threads,.dt-stage.is-open .dt-marks,.dt-stage.is-open .dt-arcs,.dt-stage.is-open .dt-cursor,.dt-stage.is-open .dt-years,.dt-stage.is-open .dt-pill{opacity:0;pointer-events:none}
+.dt-stage.is-open .dt-lane-label{opacity:0;transform:translateX(160px)}
+.dt-stage.is-open .dt-bar{opacity:.25;pointer-events:none}
+.dt-stage.is-open{cursor:default}
+/* markers */
+.dt-mark,.dt-cluster,.dt-overlap{cursor:pointer;outline:none}
+.dt-mark .hit{fill:transparent}
+.dt-mark .dot{fill:#fff;transition:transform .2s ease;transform-box:fill-box;transform-origin:center}
+.dt-mark.base .dot{fill:var(--dt-ink)}
+.dt-mark .halo{fill:none;stroke:#fff;stroke-width:1.2;opacity:.85}
+.dt-mark.base .halo{stroke:var(--dt-ink);opacity:.45}
+.dt-mark.gap .dot{fill:var(--dt-bg);stroke:var(--dt-ink);stroke-width:1.4;stroke-dasharray:2.5 2.5;fill-opacity:.6}
+.dt-mark:hover .dot,.dt-mark:focus-visible .dot,.dt-mark.on .dot{transform:scale(1.6)}
+.dt-mark:focus-visible .hit{stroke:var(--dt-ink);stroke-width:1.5}
+.dt-mark.ghost,.dt-cluster.ghost{opacity:.25;pointer-events:none}
+.dt-mark.dim{opacity:.28}
+.dt-cluster circle{fill:#fff;stroke:rgba(52,49,47,.1);transition:fill .2s ease}
+.dt-cluster text{font-family:var(--f-dt);font-style:italic;font-size:15px;fill:var(--dt-ink);pointer-events:none}
+.dt-cluster:hover circle,.dt-cluster:focus-visible circle{fill:var(--dt-pill)}
+.dt-cluster:hover text,.dt-cluster:focus-visible text{fill:#FBF6F1}
+.dt-badge{cursor:pointer;outline:none}
+.dt-badge circle{fill:#fff;stroke:rgba(52,49,47,.25);transition:fill .2s}
+.dt-badge text{font-family:var(--f-dt);font-style:italic;font-weight:500;font-size:11px;fill:var(--dt-ink);pointer-events:none}
+.dt-badge:hover circle,.dt-badge:focus-visible circle{fill:var(--dt-pill)}
+.dt-badge:hover text,.dt-badge:focus-visible text{fill:#FBF6F1}
+.dt-cluster.key circle{fill:var(--dt-pill);stroke:#fff;stroke-width:3}
+.dt-cluster.key text{fill:#FBF6F1;font-weight:700}
+.dt-cluster.key:hover circle{fill:#000}
+.dt-who{max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* Emblems and monograms */
+.em{flex:none;color:currentColor;display:inline-block;vertical-align:middle}
+.av{flex:none;display:inline-grid;place-items:center;border-radius:50%;padding:2px;vertical-align:middle}
+.av i{width:100%;height:100%;display:grid;place-items:center;border-radius:inherit;background:#FBF6F1;color:#34312F;font-family:"Alegreya Sans","Gill Sans",system-ui,sans-serif;font-style:italic;font-weight:700;letter-spacing:-.01em;line-height:1}
+.av.ent-av{border-radius:28%}
+.ent-h{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+.filepick button{display:inline-flex;align-items:center;gap:8px}
+.dname{display:flex;align-items:center;gap:16px;margin:4px 0}
+.dname h3{margin:0}
+.dt-people-row{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px}
+.dt-person{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--dt-line,#E8DDD8);border-radius:999px;padding:2px 12px 2px 2px;font-size:14px;background:rgba(251,246,241,.6)}
+.dt-mark.bead .ring{fill:#fff;stroke-width:2.5}
+.dt-mark.bead .core{fill:#FBF6F1;transition:fill .2s ease}
+.dt-mark.bead .em{color:var(--dt-ink);transition:color .2s ease}
+.dt-mark.bead:hover .core,.dt-mark.bead:focus-visible .core,.dt-mark.bead.on .core{fill:var(--dt-pill)}
+.dt-mark.bead:hover .em,.dt-mark.bead:focus-visible .em,.dt-mark.bead.on .em{color:#FBF6F1}
+.dt-mark.bead .yr{stroke:#fff;stroke-width:1.5}
+.dt-mark.bead text{font-family:var(--f-dt);font-style:italic;font-weight:700;font-size:11px;fill:#FBF6F1;pointer-events:none}
+.dt-pill-em{position:absolute;left:17px;top:17px;color:#FBF6F1}
+.dt .dt-pill .m{padding-left:56px}
+.dt-medal-in .em{justify-self:center;color:var(--dt-ink);opacity:.85}
+.dt-li-dot{display:grid;place-items:center;width:30px!important;height:30px!important;left:-15px!important;top:0!important}
+.dt-li-dot .em{color:#34312F;background:#FBF6F1;border-radius:50%;padding:3px;width:22px;height:22px}
+.dt-list li.gap .dt-li-dot .em{background:transparent}
+.dt-disagree{stroke:var(--dt-ink);stroke-width:1.6;stroke-dasharray:1 5;stroke-linecap:round;opacity:.7}
+.dt-disagree.dim{opacity:.2}
+.dt-alt{stroke:#fff;stroke-width:1.5}
+.dt-ov-line{stroke:#fff;stroke-width:2;stroke-linecap:round;opacity:.75;transition:opacity .2s,stroke-width .2s}
+.dt-ov-line.fuzzy{stroke-dasharray:7 5}
+.dt-overlap:hover .dt-ov-line,.dt-overlap:focus-visible .dt-ov-line{opacity:1;stroke-width:3}
+.dt-edition{fill:none;stroke:var(--dt-ink);stroke-width:1.2;stroke-dasharray:3 4;opacity:.4}
+.dt-reading{fill:none;stroke:#8a1640;stroke-width:1.6;stroke-dasharray:7 5;opacity:.8}
+/* hover pill: a dot grows into a capsule, then speaks */
+.dt-pill{position:absolute;left:0;top:0;height:56px;width:56px;border-radius:28px;background:var(--dt-pill);color:#FBF6F1;pointer-events:none;z-index:4;
+  transform:scale(0);transform-origin:28px 28px;transition:transform .2s ease,width .15s ease}
+.dt-pill.in{transform:scale(1);width:var(--w);transition:transform .25s cubic-bezier(.2,.8,.2,1),width .2s ease .3s}
+.dt-pill .m{height:100%;padding:0 28px;display:flex;flex-direction:column;justify-content:center;white-space:nowrap;overflow:hidden;opacity:0;transition:opacity .1s}
+.dt-pill.in .m{opacity:1;transition:opacity .25s ease .35s}
+.dt-pill .t{font-size:18px;line-height:1.15;overflow:hidden;text-overflow:ellipsis}
+.dt-pill .d{font-size:14px;font-style:italic;opacity:.7;line-height:1.2}
+.dt-cursor{position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(52,49,47,.16);pointer-events:none;transition:transform .12s ease-out,opacity .3s;z-index:1}
+.dt-cursor.off{opacity:0}
+.dt-cursor b{position:absolute;bottom:88px;left:0;transform:translateX(-50%);background:var(--dt-pill);color:#FBF6F1;font-style:italic;font-weight:400;font-size:14px;padding:3px 12px;border-radius:999px;white-space:nowrap}
+.dt-years{position:absolute;left:32px;right:32px;top:108px;display:flex;justify-content:space-between;pointer-events:none;font-style:italic;font-weight:300;font-size:clamp(34px,4.4vw,56px);line-height:1;letter-spacing:-.01em;color:var(--dt-ink);z-index:2}
+/* chrome */
+.dt-chrome{position:absolute;left:0;right:0;top:0;z-index:5;display:grid;grid-template-columns:auto 1fr auto;gap:12px 24px;align-items:center;padding:18px 32px}
+.dt-brand{display:grid;line-height:1.2}
+.dt-brand b{font-style:italic;font-weight:700;font-size:22px}
+.dt-brand span{font-size:14px;color:var(--dt-soft)}
+.dt-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.dt-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--dt-line);border-radius:20px;background:rgba(251,246,241,.75);color:var(--dt-ink);font-size:14px;line-height:1;padding:7px 12px;cursor:pointer;transition:background .2s,border-color .2s,opacity .2s,color .2s;min-height:32px}
+.dt-chip i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.dt-chip:hover{border-color:var(--dt-ink)}
+.dt-chips .dt-chip[aria-pressed="false"]{opacity:.45;text-decoration:line-through;text-decoration-thickness:1px}
+.dt-chip.set{background:var(--dt-pill);color:#FBF6F1;border-color:var(--dt-pill)}
+.dt-reset{font-style:italic}
+.dt-tools{display:flex;gap:10px;align-items:center}
+.dt-round{width:56px;height:56px;border-radius:50%;border:1px solid var(--dt-line);background:var(--dt-bg);color:var(--dt-ink);display:inline-grid;place-items:center;cursor:pointer;padding:0;font-size:22px;line-height:1;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.dt-round.sm{width:40px;height:40px}
+.dt-round:hover,.dt-round.set{background:var(--dt-pill);color:#FBF6F1;border-color:var(--dt-pill)}
+.dt-switch{position:relative;display:inline-flex;border:1px solid var(--dt-line);border-radius:999px;padding:3px;background:var(--dt-bg)}
+.dt-switch button{position:relative;z-index:1;width:84px;border:0;background:none;padding:7px 0;font-size:15px;color:var(--dt-ink);cursor:pointer;border-radius:999px;transition:color .3s}
+.dt-switch button[aria-pressed="true"]{color:#FBF6F1}
+.dt-switch span{position:absolute;top:3px;bottom:3px;left:3px;width:84px;border-radius:999px;background:var(--dt-pill);transition:transform .35s cubic-bezier(.65,0,.35,1)}
+.dt-switch[data-on="list"] span{transform:translateX(84px)}
+.dt-panel{grid-column:1/-1;justify-self:end;width:min(440px,100%);background:var(--dt-pill);color:#FBF6F1;border-radius:24px;padding:18px 22px;animation:dtFade .25s ease}
+.dt-panel input{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(251,246,241,.35);color:#FBF6F1;font-family:var(--f-dt);font-style:italic;font-size:22px;padding:4px 0 8px}
+.dt-panel input::-webkit-search-cancel-button{filter:invert(1) grayscale(1) brightness(1.6)}
+.dt-panel input::placeholder{color:rgba(251,246,241,.5)}
+.dt-panel input:focus{outline:none;border-bottom-color:#FBF6F1}
+.dt-panel p{margin:10px 0 0;font-size:14px;opacity:.75}
+.dt-people{display:flex;flex-wrap:wrap;gap:6px}
+.dt-people .dt-chip{background:transparent;color:#FBF6F1;border-color:rgba(251,246,241,.25)}
+.dt-people .dt-chip[aria-pressed="true"]{background:#FBF6F1;color:var(--dt-ink)}
+.dt-people .dt-chip:hover{border-color:#FBF6F1}
+/* cluster menu */
+.dt-menu{position:absolute;z-index:6;width:min(340px,80vw);transform:translate(-50%,calc(-100% - 28px));background:var(--dt-pill);color:#FBF6F1;border-radius:22px;padding:10px;box-shadow:0 20px 50px -20px rgba(52,49,47,.6);animation:dtFade .2s ease}
+.dt-menu ul{list-style:none;margin:0;padding:0 30px 0 0;max-height:300px;overflow:auto;display:grid;gap:2px}
+.dt-menu li button{display:block;width:100%;text-align:left;background:none;border:0;color:inherit;padding:8px 12px;border-radius:14px;cursor:pointer}
+.dt-menu li button:hover,.dt-menu li button:focus-visible{background:rgba(251,246,241,.1)}
+.dt-menu b{display:block;font-style:italic;font-weight:500;font-size:16px;line-height:1.25}
+.dt-menu span{font-size:13px;opacity:.65}
+.dt-menu-x{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;border:0;background:rgba(251,246,241,.12);color:#FBF6F1;cursor:pointer;font-size:18px}
+.dt-menu :focus-visible{outline-color:#FBF6F1}
+/* the open event */
+.dt-capsule-wrap{position:absolute;inset:0;z-index:7;display:grid;place-items:center;pointer-events:none}
+.dt-thread{position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.7)}
+.dt-capsule{pointer-events:auto;position:relative;width:min(1000px,calc(100% - 220px));height:min(460px,calc(100% - 210px));border-radius:999px;background:rgba(251,246,241,.9);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 40px 90px -40px rgba(52,49,47,.45);display:grid;grid-template-columns:auto 1fr;overflow:hidden;animation:dtIn .55s cubic-bezier(.2,.75,.2,1) both}
+.dt-medal{height:100%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center}
+.dt-medal-in{width:74%;aspect-ratio:1;border-radius:50%;background:rgba(251,246,241,.94);display:grid;place-content:center;text-align:center;gap:6px;padding:12px}
+.dt-medal-big{font-style:italic;font-weight:300;font-size:clamp(40px,5vw,66px);line-height:1;letter-spacing:-.01em}
+.dt-medal-k{font-style:italic;font-size:15px;color:var(--dt-soft);line-height:1.2}
+.dt-text{overflow-y:auto;padding:52px 128px 52px 44px;scrollbar-width:thin;scrollbar-color:rgba(52,49,47,.25) transparent;outline:none;user-select:text;-webkit-user-select:text;cursor:auto}
+.dt-text:focus-visible{box-shadow:inset 0 0 0 2px var(--dt-ink);border-radius:24px}
+.dt-title{font-family:var(--f-dt);font-style:italic;font-weight:700;font-size:clamp(24px,2.4vw,32px);line-height:1.12;margin:0;text-wrap:balance}
+.dt-when{font-style:italic;font-size:clamp(20px,2vw,27px);color:var(--dt-soft);margin:6px 0 16px;line-height:1.2}
+.dt-lede{font-size:18px;margin:0 0 14px}
+.dt-warn{font-weight:500;color:var(--s-plaintiff);margin:0 0 12px}
+.dt-note{font-size:16px;margin:14px 0 0;padding:12px 16px;border-radius:16px;background:rgba(52,49,47,.05)}
+.dt-k{font-style:italic;color:var(--dt-soft);margin:16px 0 4px}
+.dt-btn{margin-top:16px;border:1px solid var(--dt-ink);background:transparent;color:var(--dt-ink);border-radius:999px;padding:9px 18px;font-size:15px;cursor:pointer;transition:background .2s,color .2s}
+.dt-btn:hover{background:var(--dt-pill);color:#FBF6F1}
+.dt .tl-accts,.dt-accts{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.dt .tl-acct{border-left:3px solid;padding:2px 0 2px 16px;display:grid;gap:5px;min-width:0}
+.dt .tl-acct-when{font-style:italic;font-size:15px;color:var(--dt-soft)}
+.dt .tl-acct-tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.dt .chip{border-radius:999px;background:transparent;border-width:1px;padding:3px 10px}
+.dt .dlg-btn{font-family:var(--f-dt)!important;text-transform:none!important;letter-spacing:0!important;font-size:14px!important;border:1px solid var(--dt-line)!important;background:transparent!important;color:var(--dt-ink)!important;border-radius:999px;padding:3px 12px!important;min-height:30px!important;transition:background .2s,color .2s}
+.dt .dlg-btn:hover{background:var(--dt-pill)!important;color:#FBF6F1!important;border-color:var(--dt-pill)!important}
+.dt .tl-take{margin-top:16px;padding-top:12px;border-top:1px solid var(--dt-line);font-size:16px}
+.dt .tl-reading{margin-top:16px;padding:12px 16px;border:1px dashed #8a1640;border-radius:16px;font-size:16px}
+.dt .muted{color:var(--dt-soft)}
+.dt .needlinks a{color:var(--dt-ink);font-family:var(--f-dt);font-size:15px;letter-spacing:0}
+.dt .linkish{background:none;border:0;padding:0;font:inherit;color:var(--dt-ink);text-decoration:underline;text-decoration-color:rgba(52,49,47,.35);text-underline-offset:3px;cursor:pointer;text-align:left}
+.dt .linkish:hover{text-decoration-color:var(--dt-ink)}
+.dt-rel{margin-top:18px;border-top:1px solid var(--dt-line);padding-top:10px}
+.dt-rel summary{font-style:italic;color:var(--dt-soft);cursor:pointer}
+.dt-rel ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
+.dt-rel li span{display:block;font-size:14px;color:var(--dt-soft)}
+.dt-prev,.dt-next{pointer-events:auto;position:absolute;top:50%;transform:translateY(-50%)}
+.dt-prev{left:32px}.dt-next{right:32px}
+.dt-close{pointer-events:auto;position:absolute;bottom:38px;left:50%;transform:translateX(-50%);font-size:26px}
+.dt-prev i,.dt-next i{position:absolute;top:66px;width:170px;font-size:14px;font-style:italic;line-height:1.25;color:var(--dt-ink);opacity:0;transition:opacity .2s;pointer-events:none}
+.dt-prev i{left:0;text-align:left}.dt-next i{right:0;text-align:right}
+.dt-prev:hover i,.dt-next:hover i,.dt-prev:focus-visible i,.dt-next:focus-visible i{opacity:.8}
+/* range bar */
+.dt-bar{position:absolute;left:32px;right:32px;bottom:18px;height:24px;z-index:4;transition:height .3s ease,opacity .3s}
+.dt-bar:hover,.dt-bar.held,.dt-bar:focus-within{height:48px}
+.dt-bar-track{position:relative;height:100%;border-radius:999px;background:rgba(52,49,47,.06)}
+.dt-era{position:absolute;top:22%;bottom:22%;display:flex;align-items:center;padding-left:10px;border-left:1px solid rgba(52,49,47,.18);font-style:italic;font-size:13px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s}
+.dt-bar:hover .dt-era,.dt-bar.held .dt-era,.dt-bar:focus-within .dt-era{opacity:.45}
+.dt-bar:hover .dt-era.on,.dt-bar.held .dt-era.on,.dt-bar:focus-within .dt-era.on{opacity:.95}
+.dt-win{position:absolute;top:0;bottom:0;min-width:8px;border-radius:999px;cursor:grab;touch-action:none}
+.dt-win::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,#F2BE4E,#E9665C,#8F4C7C);opacity:.5}
+.dt-handle{position:absolute;top:50%;width:16px;height:16px;border-radius:50%;border:1.5px solid var(--dt-ink);background:#fff;transform:translate(-50%,-50%);cursor:ew-resize;padding:0;z-index:1;transition:width .2s,height .2s;touch-action:none}
+.dt-handle.a{left:0}.dt-handle.b{left:100%}
+.dt-bar:hover .dt-handle,.dt-bar.held .dt-handle,.dt-handle:focus-visible{width:22px;height:22px}
+@keyframes dtIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes dtFade{from{opacity:0;transform:translateY(-4px)}}
+/* list view: the same entries as reading text */
+.dt-listmode{padding-bottom:40px}
+.dt-listmode .dt-chrome{position:relative}
+.dt-list{max-width:820px;margin:0 auto;padding:12px 24px 24px}
+.dt-era-h{font-family:var(--f-dt);font-style:italic;font-weight:300;font-size:clamp(30px,4vw,44px);margin:28px 0 14px}
+.dt-list ol{list-style:none;margin:0;padding:0 0 0 14px;border-left:1px solid var(--dt-line)}
+.dt-list li{position:relative;padding:0 0 30px 30px}
+.dt-li-dot{position:absolute;left:-10px;top:5px;width:19px;height:19px;border-radius:50%;box-shadow:0 0 0 4px var(--dt-bg)}
+.dt-list li.gap .dt-li-dot{background:var(--dt-bg);border:2px dashed}
+.dt-list .dt-when{font-size:16px;margin:0 0 2px}
+.dt-list h4{font-family:var(--f-dt);font-style:italic;font-weight:700;font-size:22px;line-height:1.2;margin:0 0 10px}
+.dt-list li > p{margin:0 0 8px}
+.dt-list li.dim{opacity:.35}
+@media (max-width:1560px){
+  .dt-chrome{grid-template-columns:1fr auto}
+  .dt-chips{grid-column:1/-1;grid-row:2;justify-content:flex-start}
+  .dt-years{top:128px}
+}
+@media (max-width:900px){
+  .dt-chrome{padding:16px 20px}
+  .dt-capsule{width:calc(100% - 40px);border-radius:40px;grid-template-columns:1fr;grid-template-rows:auto 1fr;height:auto;max-height:calc(100% - 250px)}
+  .dt-capsule-wrap{place-items:start center;padding-top:130px}
+  .dt-medal{height:auto;aspect-ratio:auto;border-radius:40px 40px 0 0;padding:14px}
+  .dt-medal-in{width:auto;aspect-ratio:auto;border-radius:999px;grid-auto-flow:column;align-items:baseline;gap:12px;padding:8px 20px}
+  .dt-medal-big{font-size:32px}
+  .dt-text{padding:22px 26px 30px}
+  .dt-prev,.dt-next{top:auto;bottom:38px;transform:none;width:48px;height:48px}
+  .dt-prev{left:calc(50% - 100px)}.dt-next{right:calc(50% - 100px)}
+  .dt-prev i,.dt-next i{display:none}
+  .dt-close{width:48px;height:48px}
+  .dt-years{top:auto;bottom:56px}
+}
+@media (max-width:640px){
+  .dt-switch{display:none}
+  .dt-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-20px;padding-inline:20px}
+  .dt-chip{flex:none}
+  .dt-list{padding:4px 16px 16px}
+  .dt-list li{padding-left:24px}
+  .dt-panel{justify-self:stretch}
+}
+@media (prefers-reduced-motion:reduce){
+  .dt *,.dt *::before{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
 footer{border-top:1px solid var(--rule);padding-block:20px;font-size:.84rem;color:var(--bone-dim);background:#050605}
 </style>
 
@@ -418,8 +683,8 @@ var NEEDED = [
   { t: "April 28, 2025 hearing transcript (Doc. 82)", why: "Cited for most witness testimony. Only summaries in Doc. 88 and quotations in other documents were reviewed." },
   { t: "Third Amended Complaint (Doc. 177, filed Sept. 5, 2025)", why: "The operative complaint. Known here only through Doc. 264 and the JLP complaint." },
   { t: "Order on sealing of the receiver’s preliminary report (research lead: Mar. 16, 2026)", why: "Found only as a research lead. The hosting page was blocked by a captcha and the order was not read." },
-  { t: "Order on sale of Circle Internet Group shares (research lead: Jan. 13, 2026)", why: "Found only as a research lead. Not retrieved; whether any sale occurred is unknown." },
-  { t: "Eighth Circuit, No. 25-2269 (consolidated appeals): docket and any decision", why: "Doc. 264 says the appeals were pending on Mar. 16, 2026. The docket returned an access error." },
+  { t: "Order on sale of Circle Internet Group shares (Jan. 13, 2026)", why: "Located on CourtListener on Oct. 23, 2026 and added to the timeline. It authorizes a limited sale; whether any shares were actually sold, and at what price, is still unknown." },
+  { t: "Eighth Circuit, No. 25-2269 (consolidated appeals): any decision", why: "Doc. 264 says the appeals were pending on Mar. 16, 2026. A docket mirror read on Oct. 23, 2026 runs only to Dec. 18, 2025 and shows no decision." },
   { t: "Cosby deposition, Vol. 2 (Doc. 278-11, Mar. 13, 2026)", why: "Known only from a short excerpt in the JLP complaint." },
   { t: "Husch Blackwell’s response to the JLP complaint", why: "None located. The firm’s position is not represented in this game." },
   { t: "Docket activity in No. 4:25-cv-00132 after Mar. 16, 2026", why: "Not reviewed, so the evidence coverage date cannot be verified." },
@@ -460,10 +725,12 @@ var STATUS = {
   defense:    { label: "Defense position", code: "Defense", est: "Establishes only that the defense argued or asserted this." },
   receiver:   { label: "Receiver finding", code: "Receiver", est: "Establishes what the court-appointed receiver reported, once the receiver’s own document has been inspected." },
   reported:   { label: "Reported information", code: "Reported", est: "Establishes what a news outlet reported. It is not a transcript or a court record." },
+  docket:     { label: "Docket entry", code: "Docket", est: "Establishes that a document was filed, or an order entered, on that date, as the docket describes it. It says nothing about the merits." },
+  filing:     { label: "Regulatory filing", code: "Filing", est: "Establishes what the filer told a regulator, under its own signature. It does not establish that the report was accurate." },
   unverified: { label: "Unverified", code: "Unverified", est: "No reviewed source establishes this." },
   fiction:    { label: "Fictional game material", code: "Fiction", est: "Invented for the game. It says nothing about the real case." }
 };
-var STATUS_ORDER = ["court","sworn","plaintiff","defense","receiver","reported","unverified","fiction"];
+var STATUS_ORDER = ["court","sworn","filing","docket","plaintiff","defense","receiver","reported","unverified","fiction"];
 
 function Chip(p){
   var s = STATUS[p.status];
@@ -954,47 +1221,21 @@ var EMPTY = {
     { t:"Order on sealing of the receiver’s preliminary report", b:"Research lead only (reportedly March 16, 2026). The page was blocked by a captcha and the order was not read." }
   ],
   vault: [
-    { t:"Order on sale of Circle Internet Group shares", b:"Research lead only (reportedly January 13, 2026). Not retrieved. Whether any sale occurred, and for how much, is unknown." },
+    { t:"Record of any Circle Internet Group share sale", b:"The January 13, 2026 order allows a limited sale (see the Timeline). Whether any shares were sold, and for how much, is not in reviewed sources." },
     { t:"Claims or distribution plan", b:"What belongs here: any court-approved process for investors to make claims or receive recoveries. None found in reviewed sources." }
   ]
 };
 
 /* ============================================================
    REAL TIMELINE
+   Events, accounts, gaps and readings live in data/timeline.json.
    ============================================================ */
-var TIMELINE = [
-  { d:"Jan. 2010", t:"VPEG formed as a Missouri limited partnership.", s:"plaintiff", src:"SJLP", pin:"¶ 20" },
-  { d:"Late 2010 or early 2011", t:"First investors join, described as “family and friends.”", s:"court", src:"S88", pin:"p. 3" },
-  { d:"2011", t:"Last independent audit, according to the JLP complaint.", s:"plaintiff", src:"SJLP", pin:"¶¶ 31, 59" },
-  { d:"2017 / 2018–2023 / “not long after” 2010", t:"The Oliver plaintiffs’ investment of about $11 million. Doc. 88 says they decided to invest after a 2017 presentation; Doc. 264, repeating the TAC, says initial investments were made 2018–2023; the magazine says “not long after” the 2010 launch.", s:"court", src:"S88", pin:"p. 8; Doc. 264 p. 2; magazine", conflict:"Three sources, three timings." },
-  { d:"2021", t:"At least one distribution to limited partners. Its amount and recipients are unclear.", s:"court", src:"S88", pin:"p. 3" },
-  { d:"Sept. 2022", t:"South Bend meeting; alleged “no debt at the Fund level” statement.", s:"plaintiff", src:"S264", pin:"p. 3" },
-  { d:"2022–2023", t:"Short-term loans of $1.6 million from plaintiffs, plus $100,000 from Hart.", s:"sworn", src:"S88", pin:"p. 8" },
-  { d:"Mar. 2023", t:"Trustee board meeting; distribution alleged to be “right around the corner.”", s:"plaintiff", src:"S264", pin:"p. 3" },
-  { d:"May 12, 2023", t:"JLP Partners subscribes for $100,000.", s:"plaintiff", src:"SJLP", pin:"¶ 99" },
-  { d:"End of 2023", t:"Unaudited statements show $218,000 cash and a net loss over $10 million.", s:"sworn", src:"S88", pin:"p. 9" },
-  { d:"Mar. 1, 2024", t:"Executive summary reports $5.8 million in distributions.", s:"court", src:"S88", pin:"p. 3" },
-  { d:"July 23, 2024 (or June 2024)", t:"Updated report shows $9.1 million in distributions.", s:"court", src:"S88", pin:"p. 3; Doc. 264 p. 3", conflict:"Doc. 88 says July 23; Doc. 264 (TAC) says June." },
-  { d:"Sept. 30, 2024", t:"Summary document provided by Cosby shows a year-to-date gross profit of $14.50.", s:"sworn", src:"S88", pin:"p. 9" },
-  { d:"Nov. 12, 2024", t:"Lien filing naming VPEG as debtor (alleged).", s:"plaintiff", src:"S264", pin:"p. 5" },
-  { d:"Dec. 30, 2024", t:"Most recent rent payment as of the April hearing.", s:"sworn", src:"S88", pin:"p. 4" },
-  { d:"Jan. 29, 2025", t:"City of St. Charles business-license notice: “required to cease operation.”", s:"court", src:"S88", pin:"p. 4" },
-  { d:"Jan. 31, 2025", t:"Oliver and Company v. Zamber filed.", s:"court", src:"S264", pin:"p. 5" },
-  { d:"Apr. 28, 2025", t:"Consolidated hearing on jurisdiction and receivership.", s:"court", src:"S88", pin:"p. 1" },
-  { d:"June 4, 2025", t:"Receiver appointed; derivative claims dismissed without prejudice.", s:"court", src:"S88", pin:"pp. 23–31" },
-  { d:"June 24, 2025", t:"Visionary Fund Manager appeals the receivership.", s:"court", src:"S264", pin:"p. 6" },
-  { d:"Aug. 4, 2025", t:"Court denies dismissal for failure to join the GP LLC, and denies its intervention.", s:"court", src:"S264", pin:"p. 6" },
-  { d:"Aug. 2025", t:"Cash balance alleged to reach $0.", s:"plaintiff", src:"SJLP", pin:"¶ 69" },
-  { d:"Aug. 20, 2025", t:"GP LLC appeals the denial of intervention.", s:"court", src:"S264", pin:"p. 6" },
-  { d:"Aug. 27, 2025", t:"St. Louis Magazine reports on the hearing.", s:"reported", src:"SSLM", pin:"" },
-  { d:"Sept. 5, 2025", t:"Third Amended Complaint filed (adds fraud claims).", s:"court", src:"S264", pin:"p. 7" },
-  { d:"Sept. 23, 2025", t:"Eighth Circuit consolidates the appeals (No. 25-2269).", s:"court", src:"S264", pin:"pp. 6–7" },
-  { d:"Sept. 23, 2025", t:"Receiver report, as cited by the JLP complaint. Not reviewed.", s:"plaintiff", src:"SJLP", pin:"¶ 78" },
-  { d:"Late Nov./early Dec. 2025", t:"Firm board decides Cosby will no longer be a partner (per deposition excerpt).", s:"plaintiff", src:"SJLP", pin:"¶ 90" },
-  { d:"Mar. 16, 2026", t:"Three defense motions denied; appeals noted as still pending.", s:"court", src:"S264", pin:"pp. 16–17" },
-  { d:"Aug. 13, 2026", t:"JLP Partners v. Husch Blackwell filed as a proposed class action.", s:"plaintiff", src:"SJLP", pin:"p. 1" },
-  { d:"Unverified leads", t:"Reported orders on Jan. 13, 2026 (Circle shares) and Mar. 16, 2026 (sealing) could not be retrieved.", s:"unverified", src:null, pin:"" }
-];
+/* TIMELINE-DATA:BEGIN (generated from data/timeline.json by scripts/build-timeline.mjs; edit the JSON, not this block) */
+var TL = {"reviewedThrough":"2026-10-23","lanes":[{"id":"statements","name":"Statements"},{"id":"money","name":"Money"},{"id":"control","name":"Control"},{"id":"court","name":"Court and record"}],"eras":[{"id":"formation","name":"Formation","from":"2010-01","to":"2017-01"},{"id":"pitch","name":"The pitch years","from":"2017-01","to":"2022-01"},{"id":"strain","name":"Strain","from":"2022-01","to":"2025-01-31"},{"id":"lawsuit","name":"Lawsuit and receiver","from":"2025-01-31","to":"2025-06-04"},{"id":"appeals","name":"Appeals and second front","from":"2025-06-04","to":"2026-10-23"}],"people":{"zamber":"Dr. Ronald Zamber","cosby":"Michael Cosby","grenley":"Robert Grenley","hart":"James Hart","bonetti":"Brigitte Bonetti","receiver":"The receiver (Jason Buhlinger)","deleon":"Kevin DeLeon","husch":"Husch Blackwell LLP"},"sources":{"SJAN13":{"short":"Jan. 13, 2026 order","title":"Memorandum and Order on the receiver's motion to sell publicly traded securities (Doc. 222), Oliver and Company et al. v. Zamber et al., No. 4:25-cv-00132-MTS (E.D. Mo.)","date":"January 13, 2026","url":"https://www.courtlistener.com/opinion/10775751/oliver-and-company-et-al-v-dr-ronald-zamber-et-al/","kind":"Court order (primary source; CourtListener copy)","status":"Read through an automated reader on Oct. 23, 2026. Wording is paraphrased; quotations not yet checked against the PDF.","note":"Previously a research lead only. Rules on the receiver's motion to sell Circle Internet Group stock and to borrow from plaintiffs. Cites the November 2025 monthly operating report (Doc. 240-1) and a Dec. 23, 2025 hearing (Doc. 239)."},"DKTD":{"short":"District docket (Justia)","title":"Docket, Oliver and Company et al. v. Zamber et al., No. 4:25-cv-00132 (E.D. Mo.), as mirrored by Justia Dockets","date":"Entries Jan. 31 to Mar. 31, 2025","url":"https://dockets.justia.com/docket/missouri/moedce/4:2025cv00132/217693","kind":"Docket listing (court record, third-party mirror)","status":"Listing read Oct. 23, 2026. The mirror stops at Mar. 31, 2025; the filings themselves were not opened.","note":"A docket entry shows that a document was filed or an order entered on a date. It says nothing about whether the document is right."},"DKT8":{"short":"Eighth Circuit docket (Justia)","title":"Docket, Oliver and Company et al. v. Visionary Fund Manager, No. 25-2269 (8th Cir.), consolidated with No. 25-2659, as mirrored by Justia Dockets","date":"Entries June 25 to Dec. 18, 2025","url":"https://dockets.justia.com/docket/circuit-courts/ca8/25-2269","kind":"Docket listing (court record, third-party mirror)","status":"Listing read Oct. 23, 2026. The mirror was last updated Dec. 18, 2025; the filings themselves were not opened.","note":"Shows the appeal's procedural history. No decision on the merits appears through Dec. 18, 2025."},"SEC13D":{"short":"SEC Schedule 13D (Feb. 2017)","title":"Schedule 13D on Victory Energy Corp., filed jointly by Visionary Private Equity Group I, LP, Visionary PE GP I, LLC, Ronald Zamber and Michael Cosby (SEC accession 0001477932-17-000983)","date":"Signed Feb. 28, 2017; filed Mar. 1, 2017","url":"https://www.sec.gov/Archives/edgar/data/0000700764/000147793217000983/vyey_sc13d.htm","kind":"Regulatory filing (primary source)","status":"Read through an automated reader on Oct. 23, 2026. Figures as reported in the filing; wording paraphrased.","note":"A filing made by the Fund, its general partner, Zamber and Cosby themselves, about a public company the Fund invested in."},"SECD":{"short":"SEC Form D (Jan. 2018)","title":"Form D notice of exempt offering, Visionary Private Equity Group I, LP (CIK 0001588490; accession 0001588490-18-000001)","date":"January 26, 2018","url":"https://www.sec.gov/Archives/edgar/data/1588490/000158849018000001/primary_doc.xml","kind":"Regulatory filing (primary source)","status":"Structured fields read Oct. 23, 2026. EDGAR lists three filings for this filer in total (Form D, Schedule 13D, Form 3).","note":"The Fund's only Form D on EDGAR. It is an original notice, never amended, signed by Ronald W. Zamber as Managing Director."},"SEC14F":{"short":"SEC Schedule 14F-1 (Dec. 2023)","title":"Schedule 14F-1, Victory Oilfield Tech, Inc., on its merger with H2EG (SEC accession 0001213900-23-092251)","date":"Filed December 4, 2023","url":"https://www.sec.gov/Archives/edgar/data/700764/000121390023092251/ea189404-sc14f1_victory.htm","kind":"Regulatory filing (primary source; filed by the portfolio company)","status":"Read through an automated reader on Oct. 23, 2026. Figures as reported in the filing; wording paraphrased.","note":"Victory's own account of its loans from the Fund and of the people on its board. The filing is Victory's statement, not the Fund's."}},"events":[{"id":"formed","lane":"control","title":"VPEG formed as a Missouri limited partnership.","people":[],"accounts":[{"src":"SJLP","pin":"¶ 20","status":"plaintiff","date":{"month":"2010-01"},"label":"Jan. 2010","text":"The JLP complaint says the Fund was formed in January 2010."}]},{"id":"first-investors","lane":"money","title":"First investors join, described as “family and friends.”","people":["zamber"],"accounts":[{"src":"S88","pin":"p. 3","status":"court","date":{"from":"2010-10","to":"2011-03"},"label":"Late 2010 or early 2011","text":"The court describes the first investors as family and friends, joining in late 2010 or early 2011."}],"related":["form-d"],"highlight":true},{"id":"audit-2011","lane":"control","title":"Last independent audit, according to the JLP complaint.","tags":["audit"],"accounts":[{"src":"SJLP","pin":"¶¶ 31, 59","status":"plaintiff","date":{"year":"2011"},"label":"2011","text":"Alleged: no independent audit since 2011."}]},{"id":"oliver-invest","lane":"money","title":"The Oliver plaintiffs invest about $11 million.","people":["hart"],"accounts":[{"src":"S88","pin":"p. 8","status":"court","date":{"year":"2017"},"label":"2017","text":"Decided to invest after a 2017 presentation."},{"src":"S264","pin":"p. 2 (reciting the TAC)","status":"plaintiff","date":{"from":"2018-01","to":"2023-12"},"label":"2018–2023","text":"Initial investments made from 2018 to 2023."},{"src":"SSLM","pin":"article text","status":"reported","date":{"from":"2010-06","to":"2011-12"},"label":"“Not long after” 2010","text":"Invested “not long after” the Fund's 2010 launch."}],"highlight":true},{"id":"victory-unit","lane":"money","title":"The Fund buys a $320,000 note-and-warrant unit in Victory Energy.","people":["zamber","cosby"],"tags":["portfolio"],"accounts":[{"src":"SEC13D","pin":"Items 3–5","status":"filing","date":{"on":"2017-02-03"},"label":"Feb. 3, 2017","text":"A 12% six-month promissory note plus a warrant for 5,203,252 shares at $0.0923, paid from the Fund's working capital."}],"related":["sec-13d","victory-note-2017"]},{"id":"sec-13d","lane":"control","title":"SEC filing: Zamber and Cosby sign as managers of the general partner.","people":["zamber","cosby"],"tags":["control"],"accounts":[{"src":"SEC13D","pin":"Item 2","status":"filing","date":{"on":"2017-02-28"},"label":"Feb. 28, 2017","text":"The Fund, Visionary PE GP I, LLC, Zamber and Cosby file jointly. Zamber and Cosby are described as the managers of the general partner and the managing directors of the Fund. Zamber reports 36.5% of Victory's stock."},{"src":"S264","pin":"p. 10","status":"court","date":{"on":"2026-03-16"},"label":"Mar. 16, 2026 (the court's conclusion)","text":"The court concluded Zamber and Cosby are the sole members of the general partner.","said":true}],"note":"Two sources, nine years apart, describe the same control structure. The later date is when the court said it, not when it began.","highlight":true},{"id":"victory-note-2017","lane":"money","title":"The Fund lends to Victory on a secured convertible note.","people":[],"tags":["portfolio","loans"],"accounts":[{"src":"SEC14F","pin":"related-party section","status":"filing","date":{"on":"2017-08-21"},"label":"Aug. 21, 2017","text":"Victory reports a secured convertible original-issue-discount note with the Fund."}]},{"id":"form-d","lane":"statements","title":"Form D: a $25 million offering, with nothing sold yet.","people":["zamber"],"tags":["offering"],"accounts":[{"src":"SECD","pin":"Items 9–14","status":"filing","date":{"on":"2018-01-26"},"label":"Jan. 26, 2018","text":"The Fund notifies the SEC of a $25,000,000 equity offering under Rule 506(b). It reports $0 sold, the first sale “yet to occur,” no investors yet, and no non-accredited investors. Signed by Zamber as Managing Director."}],"related":["first-investors","oliver-invest"],"note":"The court record has investors joining from late 2010, and about $90 million raised by the time of the 2025 hearing. A Form D can cover one new offering, and this one does not say whether earlier sales happened under other offerings. EDGAR shows no amendment reporting later sales.","highlight":true},{"id":"bank-access","lane":"control","title":"The managing director's view of the bank account is cut off for long periods.","people":["zamber","cosby","bonetti"],"tags":["bank access"],"accounts":[{"src":"S88","pin":"p. 6","status":"sworn","date":{"from":"2018-01","to":"2025-04"},"label":"2018 on","text":"Testimony: access was cut off for long periods starting in 2018; the account is managed by Zamber and Cosby, and wires need both signatures.","card":"w1"}]},{"id":"victory-settle","lane":"money","title":"Victory settles the first note in stock and borrows $2 million more from the Fund.","people":[],"tags":["portfolio","loans"],"accounts":[{"src":"SEC14F","pin":"related-party section","status":"filing","date":{"on":"2018-04-10"},"label":"Apr. 10, 2018","text":"$1,410,200 of debt is satisfied for 1,880,267 shares and a warrant. The Fund then lends $2,000,000 on a new note with a 10% original issue discount."}]},{"id":"victory-increase","lane":"money","title":"The Victory loan is raised to $4 million in three steps.","people":[],"tags":["portfolio","loans"],"accounts":[{"src":"SEC14F","pin":"related-party section","status":"filing","date":{"from":"2020-10-30","to":"2021-09-03"},"label":"Oct. 2020 – Sept. 2021","text":"To $3,000,000 (Oct. 30, 2020), $3,500,000 (Jan. 31, 2021) and $4,000,000 (Sept. 3, 2021)."}]},{"id":"distribution-2021","lane":"money","title":"At least one distribution to limited partners.","tags":["distributions"],"accounts":[{"src":"S88","pin":"p. 3","status":"court","date":{"year":"2021"},"label":"2021","text":"At least one distribution was made. Its amount and recipients are unclear."}]},{"id":"wires-2021","lane":"money","title":"Wires of $50,000 and $175,000 go to Zamber, three days apart.","people":["zamber"],"tags":["payments"],"accounts":[{"src":"S88","pin":"p. 6","status":"sworn","date":{"from":"2021-08-13","to":"2021-08-16"},"label":"Aug. 13 & 16, 2021","text":"Testimony describing two wires from the Fund's account.","card":"l1"}]},{"id":"text-270k","lane":"money","title":"A text asks for “a wire for $270k (deferred compensation) today if possible.”","people":["zamber"],"tags":["payments"],"accounts":[{"src":"SJLP","pin":"¶ 47","status":"plaintiff","date":{"on":"2021-10-19"},"label":"Oct. 19, 2021","text":"A text message quoted in the JLP complaint.","card":"l7"}]},{"id":"south-bend","lane":"statements","title":"South Bend meeting: “no debt at the Fund level.”","people":["zamber","grenley"],"tags":["debt"],"accounts":[{"src":"S264","pin":"p. 3 (reciting TAC ¶ 46)","status":"plaintiff","date":{"month":"2022-09"},"label":"Sept. 2022","text":"Alleged statement that there was no debt at the Fund level, and that a distribution was coming.","card":"p3"}],"related":["lien"],"highlight":true},{"id":"loans","lane":"money","title":"Investors lend $1.6 million on promises of a quick sale of portfolio companies.","people":["hart","zamber"],"tags":["loans"],"accounts":[{"src":"S88","pin":"p. 8","status":"sworn","date":{"from":"2022-01","to":"2023-12"},"label":"2022–2023","text":"Short-term loans of $1.6 million from plaintiffs, plus $100,000 from Hart, on assurances of monetization “within three to six months.” None repaid by June 2025.","card":"l8"}],"highlight":true},{"id":"board-2023","lane":"statements","title":"Trustee board meeting: a distribution “right around the corner.”","people":["zamber"],"tags":["distributions"],"accounts":[{"src":"S264","pin":"p. 3","status":"plaintiff","date":{"month":"2023-03"},"label":"Mar. 2023","text":"Alleged statement at a trustee board meeting."}]},{"id":"harvest-2023","lane":"statements","title":"A May 2023 “harvest season” presentation.","people":["zamber"],"tags":["projections"],"accounts":[{"src":"SJLP","pin":"¶ 95, p. 21","status":"plaintiff","date":{"month":"2023-05"},"label":"May 2023","text":"Alleged investor presentation.","card":"p5"}]},{"id":"jlp-subscribes","lane":"money","title":"JLP Partners subscribes for $100,000.","people":[],"accounts":[{"src":"SJLP","pin":"¶ 99","status":"plaintiff","date":{"on":"2023-05-12"},"label":"May 12, 2023","text":"The later class plaintiff's own investment."}]},{"id":"victory-balance","lane":"money","title":"Victory owes the Fund $3,815,926.","people":[],"tags":["portfolio","loans"],"accounts":[{"src":"SEC14F","pin":"related-party section","status":"filing","date":{"on":"2023-06-30"},"label":"June 30, 2023","text":"Balance described as “including principal and accrued interest,” though the same filing says the notes bear no interest beyond the original issue discount."}]},{"id":"victory-merger","lane":"control","title":"Victory merges with H2EG; the Fund's loan becomes stock.","people":["zamber","grenley","deleon"],"tags":["portfolio"],"accounts":[{"src":"SEC14F","pin":"Schedule 14F-1","status":"filing","date":{"on":"2023-12-01"},"label":"Dec. 1, 2023","text":"The Fund's note converts at $0.075914 into 7,866,034 shares plus 43,095,923 prefunded warrants. Zamber and Grenley leave Victory's board. H2EG holders end up with about 81%."}],"related":["deleon-gp"],"highlight":true},{"id":"deleon-gp","lane":"control","title":"Victory's filing calls Kevin DeLeon a “General Partner” of the Fund.","people":["deleon","grenley"],"tags":["control"],"accounts":[{"src":"SEC14F","pin":"directors section","status":"filing","date":{"on":"2023-12-04"},"label":"Dec. 4, 2023","text":"DeLeon, Victory's CEO, is described as a “General Partner and Director of Corporate Strategy” of the Fund. Grenley is described as Director of Capital Development, with the Fund since 2012."},{"src":"S88","pin":"p. 3 n.3","status":"sworn","date":{"on":"2025-06-04"},"label":"June 4, 2025 (as summarized)","text":"DeLeon, for Highgate Capital, LLC, denied signing papers identifying LLC membership.","said":true}],"note":"A title in a portfolio company's filing is not the same as membership in Visionary PE GP I, LLC. The two statements are about different questions, and neither settles the other."},{"id":"unaudited-2023","lane":"statements","title":"Unaudited statements: $218,000 cash and a net loss over $10 million.","people":["hart"],"tags":["audit"],"accounts":[{"src":"S88","pin":"p. 9","status":"sworn","date":{"on":"2023-12-31"},"label":"End of 2023","text":"Statements marked “unaudited, unreconciled, and non-tax basis.”","card":"v2"}],"highlight":true},{"id":"dist-mar2024","lane":"statements","title":"Executive summary reports $5.8 million in distributions.","people":["zamber"],"tags":["distributions"],"accounts":[{"src":"S88","pin":"p. 3","status":"court","date":{"on":"2024-03-01"},"label":"Mar. 1, 2024","text":"The defendants' own summary.","card":"l9","amount":5800000}]},{"id":"dist-jul2024","lane":"statements","title":"Updated report shows $9.1 million in distributions.","people":["zamber"],"tags":["distributions"],"versionOf":"dist-mar2024","accounts":[{"src":"S88","pin":"p. 3","status":"court","date":{"on":"2024-07-23"},"label":"July 23, 2024","text":"The updated report, as described by the court.","card":"l9","amount":9100000},{"src":"S264","pin":"p. 3 (reciting the TAC)","status":"plaintiff","date":{"month":"2024-06"},"label":"June 2024","text":"The same report, dated June 2024.","amount":9100000}],"note":"Same kind of figure, two editions: $9.1 million minus $5.8 million is $3.3 million.","highlight":true},{"id":"gross-profit","lane":"statements","title":"A summary from Cosby shows year-to-date gross profit of $14.50.","people":["cosby"],"accounts":[{"src":"S88","pin":"p. 9","status":"sworn","date":{"on":"2024-09-30"},"label":"Sept. 30, 2024","text":"Testimony about a summary document."}]},{"id":"lien","lane":"money","title":"A lien filing names the Fund as debtor.","people":["zamber"],"tags":["debt"],"accounts":[{"src":"S264","pin":"p. 5 (reciting TAC ¶ 85)","status":"plaintiff","date":{"on":"2024-11-12"},"label":"Nov. 12, 2024","text":"Alleged lien over all assets.","card":"v5"},{"src":"SJLP","pin":"¶ 70","status":"plaintiff","date":{"month":"2024-11"},"label":"Nov. 2024","text":"A lender's UCC filing appears; the same day, a text asks for a “10k wire to RZ.”"}],"highlight":true},{"id":"last-rent","lane":"money","title":"Most recent rent payment as of the April hearing.","accounts":[{"src":"S88","pin":"p. 4","status":"sworn","date":{"on":"2024-12-30"},"label":"Dec. 30, 2024","text":"Testimony at the April 28, 2025 hearing."}]},{"id":"license","lane":"control","title":"City business-license notice: “required to cease operation.”","accounts":[{"src":"S88","pin":"p. 4","status":"court","date":{"on":"2025-01-29"},"label":"Jan. 29, 2025","text":"City of St. Charles notice."}]},{"id":"complaint","lane":"court","title":"Oliver and Company v. Zamber filed.","people":["hart"],"tags":["pleadings"],"accounts":[{"src":"S264","pin":"p. 5","status":"court","date":{"on":"2025-01-31"},"label":"Jan. 31, 2025","text":"The original complaint."},{"src":"DKTD","pin":"Doc. 1","status":"docket","date":{"on":"2025-01-31"},"label":"Jan. 31, 2025","text":"Complaint with jury demand and Exhibits A–F."}],"highlight":true},{"id":"pleadings-feb","lane":"court","title":"The complaint is amended twice in ten days.","tags":["pleadings"],"accounts":[{"src":"DKTD","pin":"Doc. 10","status":"docket","date":{"on":"2025-02-10"},"label":"Feb. 10, 2025","text":"Amended complaint."},{"src":"DKTD","pin":"Doc. 11","status":"docket","date":{"on":"2025-02-11"},"label":"Feb. 11, 2025","text":"Order requiring a second amended complaint that establishes subject-matter jurisdiction."},{"src":"DKTD","pin":"Doc. 12","status":"docket","date":{"on":"2025-02-20"},"label":"Feb. 20, 2025","text":"Second Amended Complaint, with a motion to expedite discovery."}],"related":["complaint","tac"]},{"id":"default-motion","lane":"court","title":"Plaintiffs ask for a clerk's default against three defendants.","people":["zamber","grenley"],"accounts":[{"src":"DKTD","pin":"Doc. 37","status":"docket","date":{"on":"2025-03-20"},"label":"Mar. 20, 2025","text":"Motion for clerk's default against Visionary Fund Manager, Zamber and Grenley. The mirror shows no ruling."}]},{"id":"discovery-hearing","lane":"court","title":"Hearing: expedited discovery granted.","accounts":[{"src":"DKTD","pin":"Doc. 39","status":"docket","date":{"on":"2025-03-24"},"label":"Mar. 24, 2025","text":"Minute entry: motions to expedite discovery granted."}]},{"id":"hearing","lane":"court","title":"Consolidated hearing on jurisdiction and receivership.","people":["hart","bonetti"],"accounts":[{"src":"S88","pin":"p. 1","status":"court","date":{"on":"2025-04-28"},"label":"Apr. 28, 2025","text":"The hearing the June 4 order rests on."},{"src":"S88","pin":"p. 22 (quoting Doc. 82 at 15)","status":"defense","date":{"on":"2025-04-28"},"label":"Apr. 28, 2025","text":"Defense counsel: a receivership would be “a kill shot to the company.”","card":"c9"}]},{"id":"receiver","lane":"court","title":"Receiver appointed; derivative claims dismissed without prejudice.","people":["receiver","zamber","cosby","grenley"],"accounts":[{"src":"S88","pin":"pp. 23–31","status":"court","date":{"on":"2025-06-04"},"label":"June 4, 2025","text":"Jason Buhlinger of Armanino LLP takes control of the Fund and its manager.","card":"c1"}],"highlight":true},{"id":"appeal-vfm","lane":"court","title":"The fund manager appeals the receivership.","accounts":[{"src":"S264","pin":"p. 6","status":"court","date":{"on":"2025-06-24"},"label":"June 24, 2025","text":"Visionary Fund Manager appeals."},{"src":"DKT8","pin":"docketing entry","status":"docket","date":{"on":"2025-06-25"},"label":"June 25, 2025","text":"Appeal docketed in the Eighth Circuit as No. 25-2269."}]},{"id":"intervention","lane":"court","title":"Dismissal for failure to join the general partner denied; its intervention denied.","accounts":[{"src":"S264","pin":"p. 6","status":"court","date":{"on":"2025-08-04"},"label":"Aug. 4, 2025","text":"The court keeps the general partner out of the case."}]},{"id":"cash-zero","lane":"money","title":"Cash balance alleged to reach $0.","accounts":[{"src":"SJLP","pin":"¶ 69","status":"plaintiff","date":{"month":"2025-08"},"label":"Aug. 2025","text":"Allegation in the JLP complaint.","card":"v3"}]},{"id":"appeal-gp","lane":"court","title":"The general partner appeals the denial of intervention.","accounts":[{"src":"S264","pin":"p. 6","status":"court","date":{"on":"2025-08-20"},"label":"Aug. 20, 2025","text":"Second appeal, later No. 25-2659."}]},{"id":"stay-denied-1","lane":"court","title":"Eighth Circuit refuses to pause the receivership.","accounts":[{"src":"DKT8","pin":"Aug. 28 entry","status":"docket","date":{"on":"2025-08-28"},"label":"Aug. 28, 2025","text":"Administrative stay denied."},{"src":"DKT8","pin":"Sept. 4 entry","status":"docket","date":{"on":"2025-09-04"},"label":"Sept. 4, 2025","text":"Motion for stay pending appeal denied."}]},{"id":"magazine","lane":"court","title":"St. Louis Magazine reports on the hearing.","accounts":[{"src":"SSLM","pin":"article","status":"reported","date":{"on":"2025-08-27"},"label":"Aug. 27, 2025","text":"News report, including a reported remark from the bench.","card":"c10"}]},{"id":"tac","lane":"court","title":"Third Amended Complaint filed, adding fraud claims.","tags":["pleadings"],"accounts":[{"src":"S264","pin":"p. 7","status":"court","date":{"on":"2025-09-05"},"label":"Sept. 5, 2025","text":"Now the operative complaint (Doc. 177)."}]},{"id":"consolidated","lane":"court","title":"Eighth Circuit consolidates the two appeals.","accounts":[{"src":"S264","pin":"pp. 6–7","status":"court","date":{"on":"2025-09-23"},"label":"Sept. 23, 2025","text":"Nos. 25-2269 and 25-2659 consolidated.","card":"c5"},{"src":"DKT8","pin":"Sept. 23 entry","status":"docket","date":{"on":"2025-09-23"},"label":"Sept. 23, 2025","text":"Clerk order granting consolidation."}]},{"id":"appeal-briefs","lane":"court","title":"Appellants' brief filed; hearing transcripts lodged on appeal.","accounts":[{"src":"DKT8","pin":"Oct. 14 entry","status":"docket","date":{"on":"2025-10-14"},"label":"Oct. 14, 2025","text":"Appellants' brief (12,993 words) and addendum."},{"src":"DKT8","pin":"Oct. 20 entries","status":"docket","date":{"on":"2025-10-20"},"label":"Oct. 20, 2025","text":"Transcripts of the Apr. 28, 2025 hearing (Doc. 82, 205 pages) and an Aug. 7, 2025 hearing (Doc. 170, 105 pages)."}],"related":["gap-transcript"]},{"id":"cosby-out","lane":"control","title":"Cosby's law firm decides he will no longer be a partner.","people":["cosby","husch"],"accounts":[{"src":"SJLP","pin":"¶ 90 (deposition excerpt)","status":"plaintiff","date":{"from":"2025-11-20","to":"2025-12-05"},"label":"Late Nov. or early Dec. 2025","text":"As quoted from a deposition excerpt.","card":"w8"}]},{"id":"stay-2","lane":"court","title":"A brief pause, then the stay is denied again.","accounts":[{"src":"DKT8","pin":"Dec. 2 entry","status":"docket","date":{"on":"2025-12-02"},"label":"Dec. 2, 2025","text":"Temporary administrative stay of district court proceedings granted."},{"src":"DKT8","pin":"Dec. 18 entry","status":"docket","date":{"on":"2025-12-18"},"label":"Dec. 18, 2025","text":"Stay pending appeal denied; administrative stay lifted. Appellees' brief due Jan. 20, 2026."}]},{"id":"circle-sale","lane":"money","title":"Court lets the receiver sell some Circle stock and borrow from plaintiffs.","people":["receiver"],"tags":["recovery"],"accounts":[{"src":"SJAN13","pin":"order","status":"court","date":{"on":"2026-01-13"},"label":"Jan. 13, 2026","text":"Up to $265,000 of Circle Internet Group stock may be sold, only at $82 a share or more. A $275,000 unsecured loan from plaintiffs is approved, for a $540,000 fund used for the 2024 and 2025 required minimum distributions. The court holds it keeps supervising the receivership despite the appeal."}],"highlight":true},{"id":"motions-denied","lane":"court","title":"Three defense motions denied; the fraud claims go ahead.","people":["zamber","cosby","grenley"],"accounts":[{"src":"S264","pin":"pp. 16–17","status":"court","date":{"on":"2026-03-16"},"label":"Mar. 16, 2026","text":"Motions to strike, to dismiss the fraud claims and to end the fiduciary claims all denied.","card":"c6"}],"highlight":true},{"id":"jlp-case","lane":"court","title":"JLP Partners v. Husch Blackwell filed as a proposed class action.","people":["husch","cosby"],"accounts":[{"src":"SJLP","pin":"p. 1","status":"plaintiff","date":{"on":"2026-08-13"},"label":"Aug. 13, 2026","text":"A separate case against the law firm.","card":"c11"}],"highlight":true}],"gaps":[{"id":"gap-transcript","lane":"court","need":2,"date":{"on":"2025-04-28"},"label":"Apr. 28, 2025","title":"Hearing transcript (Doc. 82)","found":"Lodged with the Eighth Circuit on Oct. 20, 2025 (205 pages), so it should be on the appellate docket."},{"id":"gap-tac","lane":"court","need":3,"date":{"on":"2025-09-05"},"label":"Sept. 5, 2025","title":"Third Amended Complaint (Doc. 177)"},{"id":"gap-report","lane":"control","need":0,"date":{"on":"2025-09-23"},"label":"Sept. 23, 2025","title":"Receiver's investigative report"},{"id":"gap-mor","lane":"money","need":1,"date":{"month":"2025-12"},"label":"Filed before Jan. 13, 2026","title":"Receiver's monthly reports","found":"The Jan. 13, 2026 order cites the November 2025 monthly operating report as Doc. 240-1."},{"id":"gap-cosby-depo","lane":"control","need":7,"date":{"on":"2026-03-13"},"label":"Mar. 13, 2026","title":"Cosby deposition, Vol. 2 (Doc. 278-11)"},{"id":"gap-sealing","lane":"court","need":4,"date":{"on":"2026-03-16"},"label":"Mar. 16, 2026 (research lead)","title":"Order on sealing the receiver's preliminary report"}],"overlaps":[{"id":"zamber-payments","lane":"money","title":"Payments to Zamber: three measurements of overlapping money","people":["zamber"],"members":[{"src":"S88","pin":"p. 6","status":"sworn","from":"2021-08","to":"2025-04","fuzzy":true,"label":"At least $1,779,462.63","text":"From the partial bank records one manager could see. Period not stated; the example wires are from August 2021.","card":"l1"},{"src":"SJLP","pin":"¶ 46","status":"plaintiff","from":"2021-01","to":"2026-08","label":"About $4.7 million","text":"Since January 2021.","card":"l5"},{"src":"S264","pin":"n.6 (reciting the TAC)","status":"plaintiff","from":"2020-01","to":"2025-09","label":"Over $5.2 million","text":"2020 to the present.","card":"l4"}],"note":"Do not add these. They describe the same person's receipts over overlapping periods, measured three ways. The Ledger challenge scores this."}],"readings":[{"id":"r-two-answers","events":["dist-mar2024","dist-jul2024"],"takeaway":6},{"id":"r-lending","events":["loans","receiver"],"takeaway":4},{"id":"r-audit","events":["audit-2011","unaudited-2023"],"takeaway":0},{"id":"r-keys","events":["bank-access","wires-2021"],"takeaway":5},{"id":"r-flow","events":["wires-2021","distribution-2021"],"takeaway":7},{"id":"r-letterhead","events":["cosby-out","jlp-case"],"takeaway":8}]};
+/* TIMELINE-DATA:END */
+Object.keys(TL.sources).forEach(function(k){ SOURCES[k] = TL.sources[k]; });
+var CORE_SOURCES = ["S88","S264","SJLP","SSLM"];
+var TL_SOURCES = Object.keys(TL.sources);
 
 /* ============================================================
    PEOPLE & ENTITIES — documented roles only
@@ -1602,11 +1843,22 @@ function App(){
   var _o = useState(null), open = _o[0], setOpen = _o[1];       // card id
   var _r = useState(false), confirmReset = _r[0], setConfirmReset = _r[1];
   useEffect(function(){ save(st); }, [st]);
+  // A shared timeline link (#timeline/from:…/to:…) skips the poster and opens the timeline.
+  useEffect(function(){ if (tlParseHash()) up(function(n){ n.started = true; n.mode = "real"; n.tab = "timeline"; n.room = null; }); }, []);
   useEffect(function(){
     function onKey(ev){ if (ev.key === "Escape"){ if (drawer) setDrawer(null); else if (open) setOpen(null); } }
     window.addEventListener("keydown", onKey); return function(){ window.removeEventListener("keydown", onKey); };
   }, [drawer, open]);
 
+  // The active tab sits on an ink pill that slides between tabs.
+  var tabsRef = useRef(null), _ink = useState(null), ink = _ink[0], setInk = _ink[1];
+  useEffect(function(){
+    function place(){ var w = tabsRef.current; if (!w) return; var b = w.querySelector('[aria-current="page"]'); if (!b) return setInk(null);
+      setInk({ width:b.offsetWidth + "px", transform:"translateX(" + b.offsetLeft + "px)" });
+      var l = b.offsetLeft - w.scrollLeft; if (l < 0 || l + b.offsetWidth > w.clientWidth) w.scrollTo({ left:b.offsetLeft - 24, behavior:"smooth" }); }
+    place(); var t = setTimeout(place, 400); window.addEventListener("resize", place);
+    return function(){ clearTimeout(t); window.removeEventListener("resize", place); };
+  }, [st.tab, st.mode, st.started]);
   function up(fn){ setSt(function(prev){ var n = JSON.parse(JSON.stringify(prev)); fn(n); return n; }); }
   var real = st.mode === "real";
   var score = real ? realScore(st.real) : ficScore(st.fic);
@@ -1617,31 +1869,35 @@ function App(){
   function setMode(m){ up(function(n){ n.mode = m; n.tab = m === "real" ? "brief" : "rooms"; n.room = null; }); setOpen(null); }
   function go(tab){ up(function(n){ n.tab = tab; n.room = null; }); }
 
-  var header = html`
-    <header className="top">
+  var cream = st.started && real && st.tab === "timeline";
+  var ch = "chrome" + (cream ? " cream" : "");
+  var header = html`<${EmblemSprite} />
+    <header className=${"top " + ch}>
       <div className="wrap">
         <div className="brand"><button className="brand-btn" title="Back to the title screen" onClick=${function(){ up(function(n){ n.started = false; }); setOpen(null); }}><b>The Case of the Vanishing Valuation</b>
           <span>${real ? "Case Explorer · the public record" : "Fictional Mystery · not a true story"}</span></button></div>
         ${st.started && html`
         <div className="tools">
-          <div className="modes" role="group" aria-label="Mode">
+          <div className="pill-switch" role="group" aria-label="Mode" data-on=${real ? 0 : 1}>
             <button aria-pressed=${real} onClick=${function(){setMode("real");}}>Case Explorer</button>
             <button aria-pressed=${!real} onClick=${function(){setMode("fiction");}}>Fictional Mystery</button>
+            <span aria-hidden="true"></span>
           </div>
-          ${real && html`<div className="lens-toggle" role="group" aria-label="Evidence lens">
+          ${real && html`<div className=${"pill-switch lens" + (st.lens === "born" ? " born" : "")} role="group" aria-label="Evidence lens" data-on=${st.lens === "born" ? 1 : 0}>
             <button aria-pressed=${st.lens !== "born"} title=${LENSES.facts.note} onClick=${function(){ up(function(n){ n.lens = "facts"; }); }}>Stick to the facts</button>
             <button aria-pressed=${st.lens === "born"} title=${LENSES.born.note} onClick=${function(){ up(function(n){ n.lens = "born"; }); }}>Born on a day</button>
+            <span aria-hidden="true"></span>
           </div>`}
-          <span className="score" aria-live="polite" title="Points come from sourcing, classification, uncertainty, double-count avoidance, and alternatives. Never from accusations.">${sum(score)} pts</span>
-          <button className="btn" aria-pressed=${st.humor} onClick=${function(){ up(function(n){ n.humor = !n.humor; }); }}>Dry humor: ${st.humor ? "on" : "off"}</button>
+          <span className="score" aria-live="polite" title="Points come from sourcing, classification, uncertainty, double-count avoidance, and alternatives. Never from accusations."><b>${sum(score)}</b> pts</span>
+          <button className="btn" aria-pressed=${st.humor} onClick=${function(){ up(function(n){ n.humor = !n.humor; }); }}><i aria-hidden="true"></i>Dry humor</button>
           ${real && html`<button className="btn" onClick=${function(){ setDrawer({}); }}>Source drawer</button>`}
-          <button className="btn" onClick=${function(){ setConfirmReset(true); }}>Reset</button>
+          <button className="btn round" aria-label="Reset progress" title="Reset progress" onClick=${function(){ setConfirmReset(true); }}><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M4.5 10a5.5 5.5 0 1 0 1.7-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/><path d="M5.5 2.8v3.6h3.6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></button>
         </div>`}
       </div>
     </header>
-    <div className="strip"><div className="wrap">
-      <span>Evidence current through: <b>Not yet verified</b> <span style=${{opacity:.8}}>(latest document reviewed: Aug. 13, 2026; full docket not reviewed)</span></span>
-      <span className="fbi">Official victim resources: <a href=${FBI_URL} target="_blank" rel="noopener noreferrer">${FBI_LABEL}</a> <span style=${{opacity:.8}}>(external site; contents not verified here; no affiliation)</span></span>
+    <div className=${"strip " + ch}><div className="wrap">
+      <span>Evidence current through: <b>Not yet verified</b> <span className="soft">(latest document reviewed: Aug. 13, 2026; full docket not reviewed)</span></span>
+      <span className="fbi">Official victim resources: <a href=${FBI_URL} target="_blank" rel="noopener noreferrer">${FBI_LABEL}</a> <span className="soft">(external site; contents not verified here; no affiliation)</span></span>
     </div></div>
     ${confirmReset && html`<div className="notice-bar" role="alertdialog" aria-label="Confirm reset"><div className="wrap" style=${{display:"flex",gap:"10px",flexWrap:"wrap",alignItems:"center"}}>
       <span>Erase all progress saved in this browser, for both modes?</span>
@@ -1657,7 +1913,7 @@ function App(){
   else if (st.tab === "files") body = html`<${CaseFiles} st=${st} openSrc=${function(s){ setDrawer({src:s}); }} />`;
   else if (st.tab === "inquiry") body = html`<${Inquiry} st=${st} up=${up} openCard=${setOpen} />`;
   else if (st.tab === "board") body = html`<${Board} st=${st} up=${up} openCard=${setOpen} score=${score} />`;
-  else if (st.tab === "timeline") body = html`<${Timeline} real=${real} openSrc=${function(s){ setDrawer({src:s}); }} />`;
+  else if (st.tab === "timeline") body = html`<${Timeline} real=${real} st=${st} go=${go} openCard=${setOpen} openSrc=${function(s){ setDrawer({src:s}); }} />`;
   else if (st.tab === "people") body = real ? html`<${People} openSrc=${function(s){ setDrawer({src:s}); }} />` : html`<${Cast} humor=${st.humor} />`;
   else if (st.tab === "challenges") body = html`<${Challenges} st=${st} up=${up} />`;
   else if (st.tab === "sources") body = html`<${SourcesView} />`;
@@ -1668,12 +1924,13 @@ function App(){
 
   return html`
     ${header}
-    <nav className="tabs" aria-label="Sections"><div className="wrap">
+    <nav className=${"tabs " + ch} aria-label="Sections"><div className="wrap" ref=${tabsRef}>
       ${tabs.map(function(t){ return html`<button key=${t[0]} aria-current=${st.tab===t[0] ? "page" : undefined} onClick=${function(){ go(t[0]); }}>${t[1]}</button>`; })}
+      <span className="tab-ink" aria-hidden="true" style=${ink}></span>
     </div></nav>
-    <main className=${real ? "" : "fic-band"}><div className="wrap">${body}</div></main>
+    <main className=${(real ? "" : "fic-band") + (cream ? " cream" : "")}><div className="wrap">${body}</div></main>
     <footer><div className="wrap">
-      An independent educational experience: not legal advice, not an official investigation, and not an accusation of criminal guilt. Allegations are not findings. The real case may remain unresolved. Built from documents reviewed on ${REVIEW_DATE}; not reviewed by a lawyer. Progress is saved only in this browser.
+      An independent educational experience: not legal advice, not an official investigation, and not an accusation of criminal guilt. Allegations are not findings. The real case may remain unresolved. Built from documents reviewed on ${REVIEW_DATE}, plus public filings and dockets added to the timeline on October 23, 2026; not reviewed by a lawyer. Progress is saved only in this browser.
     </div></footer>
     ${card && (real
       ? html`<${CardDialog} c=${card} st=${st} up=${up} close=${function(){ setOpen(null); }} openSrc=${function(){ up(function(n){ n.real.sourced[card.id] = true; }); setDrawer({src:card.src, card:card}); }} />`
@@ -1958,8 +2215,8 @@ function Drawer(p){
     </div>
     ${d.card && html`<div className="box"><h4>Basis for this card</h4>
       <p style=${{margin:0}}><b>${d.card.head}</b><br/><span className="mono">${SOURCES[d.card.src].short} · ${d.card.pin}</span><br/>${d.card.wording === "exact" ? "Exact quotation." : "Paraphrase."}</p></div>`}
-    <p className="muted" style=${{fontSize:".9rem"}}>Every factual statement in the Case Explorer rests on one of these four documents. Nothing else, including earlier research notes, is treated as a source.</p>
-    ${["S88","S264","SJLP","SSLM"].map(function(k){ var s = SOURCES[k];
+    <p className="muted" style=${{fontSize:".9rem"}}>Every evidence card rests on one of the first four documents. The timeline also uses the public filings and dockets listed after them, each labeled with how it was read. Nothing else, including earlier research notes, is treated as a source.</p>
+    ${CORE_SOURCES.concat(TL_SOURCES).map(function(k){ var s = SOURCES[k];
       var n = CARDS.filter(function(c){ return c.src === k; }).length;
       return html`<div key=${k} className=${"src" + (d.src === k ? " hl" : "")}>
         <h3>${s.title}</h3>
@@ -2023,6 +2280,618 @@ function Board(p){
   </section>`;
 }
 
+/* ---------- Case timeline: data helpers ---------- */
+function tlYear(s){ var p = s.split("-"); return +p[0] + ((p[1] ? +p[1] : 1) - 1) / 12 + ((p[2] ? +p[2] : 1) - 1) / 365; }
+function tlEnd(s){ return s.length === 4 ? +s + 0.999 : s.length === 7 ? tlYear(s) + 1/12 - 0.002 : tlYear(s); }
+function tlSpan(d){
+  if (d.on) { var x = tlYear(d.on); return [x, x]; }
+  if (d.month) return [tlYear(d.month), tlEnd(d.month)];
+  if (d.year) return [+d.year, +d.year + 0.999];
+  return [tlYear(d.from), tlEnd(d.to)];
+}
+function tlRank(s){ var i = STATUS_ORDER.indexOf(s); return i < 0 ? 99 : i; }
+function tlBest(list){ return list.slice().sort(function(a, b){ return tlRank(a) - tlRank(b); })[0]; }
+var TL_MONTHS = ["Jan.","Feb.","Mar.","Apr.","May","June","July","Aug.","Sept.","Oct.","Nov.","Dec."];
+function tlFmt(x){ var y = Math.floor(x + 1e-6), m = Math.min(11, Math.floor((x - y) * 12 + 1e-6)); return TL_MONTHS[m] + " " + y; }
+function tlYM(x){ var y = Math.floor(x + 1e-6), m = Math.min(11, Math.floor((x - y) * 12 + 1e-6)) + 1; return y + "-" + (m < 10 ? "0" : "") + m; }
+var TL_MIN = 2009.5, TL_MAX = tlYear(TL.reviewedThrough) + 0.15;
+
+var TL_ITEMS = (function(){
+  var out = [];
+  TL.events.forEach(function(e){
+    var dated = e.accounts.filter(function(a){ return !a.said; });
+    var spans = dated.map(function(a){ return tlSpan(a.date); });
+    var lo = Math.min.apply(null, spans.map(function(s){ return s[0]; }));
+    var hi = Math.max.apply(null, spans.map(function(s){ return s[1]; }));
+    var lead = spans[0];
+    var x = lead[1] - lead[0] > 1/6 ? lead[0] : (lead[0] + lead[1]) / 2;
+    var disagree = spans.length > 1 && Math.max.apply(null, spans.map(function(s){ return s[0]; })) > Math.min.apply(null, spans.map(function(s){ return s[1]; })) + 0.01;
+    var statuses = e.accounts.map(function(a){ return a.status; });
+    var text = (e.title + " " + e.accounts.map(function(a){ return a.text + " " + a.label + " " + SOURCES[a.src].short; }).join(" ")).toLowerCase();
+    out.push({ kind:"event", id:e.id, lane:e.lane, x:x, lo:lo, hi:hi, spans:spans, dated:dated, disagree:disagree, status:tlBest(statuses), statuses:statuses, people:e.people || [], e:e, text:text });
+  });
+  TL.gaps.forEach(function(g){
+    var sp = tlSpan(g.date);
+    out.push({ kind:"gap", id:g.id, lane:g.lane, x:(sp[0] + sp[1]) / 2, lo:sp[0], hi:sp[1], status:"unverified", statuses:["unverified"], people:[], g:g,
+      text:(g.title + " " + NEEDED[g.need].t + " " + NEEDED[g.need].why).toLowerCase() });
+  });
+  return out.sort(function(a, b){ return a.x - b.x; });
+})();
+function tlItem(id){ return TL_ITEMS.filter(function(i){ return i.id === id; })[0]; }
+TL.overlaps.forEach(function(o){
+  o.lo = Math.min.apply(null, o.members.map(function(m){ return tlYear(m.from); }));
+  o.hi = Math.max.apply(null, o.members.map(function(m){ return tlEnd(m.to); }));
+});
+function tlOverlap(id){ return TL.overlaps.filter(function(o){ return o.id === id; })[0]; }
+function tlEra(x){ return TL.eras.filter(function(e){ return x >= tlYear(e.from) && x < tlEnd(e.to); })[0] || TL.eras[TL.eras.length - 1]; }
+function tlInquiry(e){
+  var cards = e.accounts.map(function(a){ return a.card; }).filter(Boolean);
+  return MYSTERIES.filter(function(m){ return m.ex.some(function(id){ return cards.indexOf(id) >= 0; }); });
+}
+function tlReadings(id){ return TL.readings.filter(function(r){ return r.events.indexOf(id) >= 0; }); }
+function tlParseHash(){
+  var h = (location.hash || "").replace(/^#/, ""), out = {};
+  if (h.indexOf("timeline") !== 0) return null;
+  h.split("/").forEach(function(part){
+    var m = part.match(/^(from|to):(\d{4}(?:-\d{2})?)$/); if (m) out[m[1]] = tlYear(m[2]);
+    var ev = part.match(/^ev:([a-z0-9-]+)$/); if (ev) out.ev = ev[1];
+  });
+  return out;
+}
+
+/* ---------- Visuals: emblems and monograms ----------
+   Original line emblems for kinds of record, and monograms for people and entities.
+   No photographs of the people named: they are private individuals in a case of allegations. */
+var EMBLEMS = {
+  court:   '<path d="M3 9.5 12 4.5l9 5z"/><path d="M4 10.5h16M6 11.5v6M10 11.5v6M14 11.5v6M18 11.5v6M3.5 18.5h17M2.5 21h19"/>',
+  appeals: '<path d="M12 3.5v16M8 20.5h8M5 7h14"/><path d="M5 7 2.5 13h5zM19 7l-2.5 6h5z"/><path d="M2.5 13a2.5 1.6 0 0 0 5 0M16.5 13a2.5 1.6 0 0 0 5 0"/>',
+  sec:     '<path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14.5 3v4.5H19M9 8h3"/><circle cx="12.5" cy="14.5" r="3.2"/><path d="m11 17.4-.8 3 2.3-1 2.3 1-.8-3"/>',
+  docket:  '<path d="M5 3.5h14v17H5z"/><path d="M8 8h8M8 11.5h8M8 15h5"/><circle cx="16.5" cy="16.5" r=".6"/>',
+  money:   '<ellipse cx="12" cy="6.5" rx="7" ry="2.5"/><path d="M5 6.5v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-4M5 10.5v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-4M5 14.5v3c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-3"/>',
+  speech:  '<path d="M4 4.5h16v11H11l-4.5 4v-4H4z"/><path d="M8 8.5h8M8 11.5h5"/>',
+  key:     '<circle cx="8" cy="12" r="3.8"/><path d="M11.8 12H21M18.5 12v3.2M15.5 12v2.2"/>',
+  people:  '<circle cx="9" cy="8" r="3"/><path d="M3 19.5c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M15.5 5.2a2.6 2.6 0 0 1 0 5.2M17 14.2c2.4.4 4 2.3 4 5.3"/>',
+  news:    '<path d="M4 5h13v14H6.2A2.2 2.2 0 0 1 4 16.8z"/><path d="M17 9h3v8.5a1.5 1.5 0 0 1-3 0M7 8.5h7M7 11.5h7M7 14.5h4"/>',
+  lien:    '<path d="M10.5 13.5 8.6 15.4a3 3 0 0 1-4.2-4.2l2.8-2.8a3 3 0 0 1 4.2 0M13.5 10.5l1.9-1.9a3 3 0 0 1 4.2 4.2l-2.8 2.8a3 3 0 0 1-4.2 0M9.5 14.5l5-5"/>',
+  doc:     '<path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14.5 3v4.5H19M9 11h7M9 14h7M9 17h4"/>',
+  gap:     '<path d="M6 3h8.5L19 7.5V21H6z" stroke-dasharray="2.2 2.2"/><path d="M10.2 11a2 2 0 1 1 2.8 1.8c-.6.3-1 .8-1 1.5v.4M12 17.2v.1"/>'
+};
+var EMBLEM_NAMES = { court:"Courthouse", appeals:"Court of appeals", sec:"SEC filing", docket:"Docket entry", money:"Money", speech:"Statement", key:"Control", people:"Investors", news:"News report", lien:"Lien", doc:"Document", gap:"Missing document" };
+var EMBLEM_BY_ID = { lien:"lien", license:"doc", "bank-access":"key", "jlp-case":"court", magazine:"news", "cosby-out":"people", "first-investors":"people", "oliver-invest":"people", "jlp-subscribes":"people", loans:"people", "unaudited-2023":"doc", receiver:"key", "circle-sale":"money" };
+function emblemFor(it){
+  if (!it) return "doc";
+  if (it.kind === "gap") return "gap";
+  var e = it.e; if (EMBLEM_BY_ID[e.id]) return EMBLEM_BY_ID[e.id];
+  var srcs = e.accounts.map(function(a){ return a.src; });
+  if (srcs.some(function(s){ return /^SEC/.test(s); })) return "sec";
+  if (e.lane === "court"){
+    if (srcs.indexOf("DKT8") >= 0 || /appeal|Eighth Circuit|stay/i.test(e.title)) return "appeals";
+    if (srcs.every(function(s){ return /^DKT/.test(s); })) return "docket";
+    return "court";
+  }
+  return { money:"money", statements:"speech", control:"key" }[e.lane] || "doc";
+}
+function EmblemSprite(){
+  return html`<svg width="0" height="0" style=${{position:"absolute"}} aria-hidden="true" focusable="false"><defs>
+    ${Object.keys(EMBLEMS).map(function(k){ return html`<symbol key=${k} id=${"em-" + k} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML=${{__html:EMBLEMS[k]}}></symbol>`; })}
+  </defs></svg>`;
+}
+function Emblem(p){ return html`<svg className=${"em " + (p.className || "")} width=${p.size || 20} height=${p.size || 20} aria-hidden="true" focusable="false"><use href=${"#em-" + p.k} /></svg>`; }
+
+var MONO_OVERRIDE = { "Visionary PE GP I, LLC":"GP", "Visionary Fund Manager, LLC (VFM)":"VFM", "Visionary Private Equity Group I, LP (VPEG)":"VPEG", "Oliver-family entities, trusts and individual investors":"O", "Jason Buhlinger, Armanino LLP":"JB", "The receiver (Jason Buhlinger)":"JB", "Kevin DeLeon (for Highgate Capital, LLC)":"KD", "Great Southern Bank":"GSB", "Husch Blackwell LLP":"HB", "JLP Partners, LLC":"JLP", "Judge Matthew T. Schelp":"MS" };
+var MONO_HUES = [["#F2BE4E","#F6A27C"],["#E9665C","#F49B3D"],["#8F4C7C","#7395E2"],["#7395E2","#8F4C7C"],["#F6A27C","#E9665C"],["#F49B3D","#F2BE4E"]];
+function monoInitials(n){
+  if (MONO_OVERRIDE[n]) return MONO_OVERRIDE[n];
+  var w = n.replace(/\([^)]*\)/g, "").replace(/,.*$/, "").replace(/^(Dr\.|Judge|The)\s+/, "").split(/\s+/).filter(function(x){ return x && !/^[A-Z]\.$/.test(x); });
+  return (w[0] || "?")[0] + (w.length > 1 ? w[w.length - 1][0] : "");
+}
+function monoIsEntity(n){ return /LLC|\bLP\b|Bank|Partners|entities|Group|Fund/.test(n) && !/receiver/i.test(n); }
+function Mono(p){
+  var n = p.name, s = p.size || 32, h = 0; for (var i = 0; i < n.length; i++) h = (h * 31 + n.charCodeAt(i)) >>> 0;
+  var c = MONO_HUES[h % MONO_HUES.length], ini = monoInitials(n);
+  return html`<span className=${"av" + (monoIsEntity(n) ? " ent-av" : "")} aria-hidden="true" title=${n}
+    style=${{width:s + "px", height:s + "px", background:"linear-gradient(135deg," + c[0] + "," + c[1] + ")", fontSize:(s * (ini.length > 2 ? .3 : .38)) + "px"}}><i>${ini}</i></span>`;
+}
+function PeopleRow(p){
+  var ks = (p.people || []).filter(function(k){ return TL.people[k]; }); if (!ks.length) return null;
+  return html`<div className="dt-people-row" aria-label="People named in this entry">${ks.map(function(k){ return html`<span key=${k} className="dt-person"><${Mono} name=${TL.people[k]} size=${28} />${TL.people[k]}</span>`; })}</div>`;
+}
+
+/* ---------- Case timeline: pieces ---------- */
+function SrcBtn(p){
+  return html`<button className="dlg-btn" style=${{minHeight:"28px",padding:"1px 8px",fontSize:".74rem"}} onClick=${function(){ p.openSrc(p.src); }}>${SOURCES[p.src].short}${p.pin ? " · " + p.pin : ""}</button>`;
+}
+function AccountRow(p){
+  var a = p.a;
+  return html`<li className="tl-acct" style=${{borderLeftColor:"var(--s-"+a.status+")"}}>
+    <div className="tl-acct-when">${a.label}${a.said ? " · the date this source said it" : ""}</div>
+    <div>${a.text}</div>
+    <div className="tl-acct-tools"><${Chip} status=${a.status} /><${SrcBtn} src=${a.src} pin=${a.pin} openSrc=${p.openSrc} />
+      ${a.card && html`<button className="dlg-btn" style=${{minHeight:"28px",padding:"1px 8px",fontSize:".74rem"}} onClick=${function(){ p.openCard(a.card); }}>Open evidence card</button>`}</div>
+  </li>`;
+}
+function ReadingBox(p){
+  var t = TAKEAWAYS[p.r.takeaway], others = p.r.events.filter(function(id){ return id !== p.from; }).map(tlItem);
+  if (p.lens !== "born") return html`<div className="tl-take"><b>Takeaway: ${t.t}</b> ${t.f} <${Chip} status=${t.s} /> <span className="mono">${t.c}</span></div>`;
+  return html`<div className="tl-reading"><span className="optag" style=${{marginLeft:0}}>OPINION</span> <b>${t.t}</b> ${t.b}
+    <div className="muted" style=${{fontSize:".85rem",marginTop:"4px"}}>Our read, resting on: ${others.map(function(o, i){ return html`<span key=${o.id}>${i ? "; " : ""}<button className="linkish" onClick=${function(){ p.select(o.id); }}>${o.e.title}</button></span>`; })} (${t.c}). Not a finding.</div></div>`;
+}
+/* ---------- Case timeline: the stage ----------
+   Lanes branch from one root at mid-left and bend out to their rows. Each lane is a
+   thick gradient band (multiply-blended) with a hairline thread the events sit on.
+   Bands swell as the range narrows. Key events are ink beads that never cluster;
+   the rest are small dots that merge when closer than 40px along the thread. */
+var DT_LANES = {
+  statements: { y:.31, from:"#F2BE4E", to:"#F6A27C" },
+  money:      { y:.48, from:"#E9665C", to:"#F49B3D" },
+  control:    { y:.65, from:"#8F4C7C", to:"#7395E2" },
+  court:      { y:-1,  from:"#EFE3DB", to:"#E7DAD2", base:true }
+};
+var DT_ROOT = 180, DT_LABEL = 200, DT_REDUCED = (function(){ try { return matchMedia("(prefers-reduced-motion: reduce)").matches; } catch(err){ return false; } })();
+function dtEase(t){ return 1 - Math.pow(1 - t, 3); }
+function dtSineInOut(t){ return -(Math.cos(Math.PI * t) - 1) / 2; }
+function dtShortDate(x){ var y = Math.floor(x + 1e-6), m = Math.min(11, Math.floor((x - y) * 12 + 1e-6)); return TL_MONTHS[m].replace(".", "") + " " + y; }
+function dtBig(x, span){ return span > 3 ? String(Math.floor(x + 1e-6)) : dtShortDate(x); }
+function dtItemDate(it){ return it.kind === "gap" ? it.g.label : it.dated[0].label; }
+function dtItemTitle(it){ return it.kind === "gap" ? it.g.title : it.e.title; }
+function dtBead(it){ var y = Math.floor(it.x + 1e-6); return "’" + String(y).slice(2); }
+
+function DTEngine(root, o){
+  var NS = "http://www.w3.org/2000/svg";
+  var svg = root.querySelector(".dt-svg"), pill = root.querySelector(".dt-pill"), cursor = root.querySelector(".dt-cursor");
+  var self = this, W = 0, H = 0, view = [o.range[0], o.range[1]], tween = null, raf = 0, intro = null;
+  var match = o.match, lens = o.lens, selLane = null, lanes = {}, solo = [], hoverId = null;
+  function el(n, a, parent){ var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); if (parent) parent.appendChild(e); return e; }
+
+  var defs = el("defs", {}, svg), gBands = el("g", { "class":"dt-bands" }, svg), gThreads = el("g", { "class":"dt-threads" }, svg);
+  var gArcs = el("g", { "class":"dt-arcs" }, svg), gMarks = el("g", { "class":"dt-marks" }, svg), gLabels = el("g", { "class":"dt-labels" }, svg);
+  TL.lanes.forEach(function(l, i){
+    var c = DT_LANES[l.id], grad = el("linearGradient", { id:"dt-g-" + l.id, gradientUnits:"userSpaceOnUse", x1:0, y1:0, x2:1000, y2:0 }, defs);
+    el("stop", { offset:"0", "stop-color":c.from }, grad); el("stop", { offset:"1", "stop-color":c.to }, grad);
+    var g = el("g", { "class":"dt-lane" + (c.base ? " base" : ""), "data-lane":l.id }, gBands);
+    var band = el("path", { "class":"dt-band", stroke:"url(#dt-g-" + l.id + ")" }, g);
+    var axis = el("path", { "class":"dt-axis" + (c.base ? " base" : "") }, gThreads);
+    var label = el("text", { "class":"dt-lane-label", "text-anchor":"end", style:"transition-delay:" + (i * .1) + "s" }, gLabels);
+    label.textContent = l.name;
+    lanes[l.id] = { i:i, c:c, g:g, band:band, axis:axis, label:label, Y:0, start:0, len:0 };
+  });
+
+  function layout(){
+    W = root.clientWidth; H = root.clientHeight;
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H); svg.setAttribute("width", W); svg.setAttribute("height", H);
+    TL.lanes.forEach(function(l){
+      var L = lanes[l.id], c = L.c, mid = H * .48;
+      L.Y = c.base ? H * .83 : H * c.y;
+      document.getElementById("dt-g-" + l.id).setAttribute("x2", W);
+      var d, a;
+      if (c.base){ d = "M" + (W / 7) + "," + L.Y + " L" + (W + DT_ROOT) + "," + L.Y; a = "M" + (W / 7) + "," + L.Y + " L" + (W - DT_LABEL) + "," + L.Y; }
+      else {
+        var bend = "M" + (-DT_ROOT) + "," + mid + " L0," + mid + " C" + (W / 10) + "," + mid + " " + (W / 10) + "," + L.Y + " " + (W / 5) + "," + L.Y;
+        d = bend + " L" + (W + DT_ROOT) + "," + L.Y; a = bend + " L" + (W - DT_LABEL) + "," + L.Y;
+      }
+      L.band.setAttribute("d", d); L.axis.setAttribute("d", a);
+      L.len = L.axis.getTotalLength();
+      var lo = 0, hi = L.len; for (var k = 0; k < 24; k++){ var m = (lo + hi) / 2; if (L.axis.getPointAtLength(m).x < W / 6) lo = m; else hi = m; }
+      L.start = c.base ? 0 : hi; L.x0 = L.axis.getPointAtLength(L.start).x;
+      L.label.setAttribute("x", W - 18); L.label.setAttribute("y", L.Y + 5);
+      L.bandLen = L.band.getTotalLength();
+    });
+    render();
+  }
+  function at(L, t){ var s = L.start + t * (L.len - L.start); return { s:s, p:L.axis.getPointAtLength(Math.max(0, Math.min(L.len, s))) }; }
+
+  function render(){
+    if (!W) return;
+    var a = view[0], b = view[1], span = b - a, total = TL_MAX - TL_MIN, now = performance.now();
+    var bw = Math.min((1 - span / total) * H / 5 + 22, .14 * H);
+    TL.lanes.forEach(function(l){ var L = lanes[l.id]; if (selLane !== l.id) L.band.style.strokeWidth = (L.c.base ? 44 : bw) + "px"; });
+    gMarks.textContent = ""; gArcs.textContent = ""; solo = [];
+    var pos = {}, perLane = {};
+    TL_ITEMS.forEach(function(it){
+      var m = match(it); if (m === "hide") return;
+      var t = (it.x - a) / span;
+      if (intro){ var k = intro.order[it.id] || 0, d0 = intro.t0 + 500 + lanes[it.lane].i * 250 + k * 18, q = Math.max(0, Math.min(1, (now - d0) / 2000)); t = -.25 + (t + .25) * dtSineInOut(q); }
+      if (t < -.25 || t > 1.0001) return;
+      var L = lanes[it.lane], P = at(L, t);
+      var rec = { it:it, t:t, s:P.s, x:P.p.x, y:P.p.y, ghost:t < 0, dim:m === "dim" };
+      pos[it.id] = rec; (perLane[it.lane] = perLane[it.lane] || []).push(rec);
+    });
+    // Overlapping amounts: fine white threads inside the band, one per measurement.
+    TL.overlaps.forEach(function(ov){ var L = lanes[ov.lane]; if (selLane) return;
+      var g = el("g", { "class":"dt-overlap", tabindex:0, role:"button", "aria-label":ov.title + ". Select for details." }, gArcs);
+      ov.members.forEach(function(m, i){
+        var t1 = Math.max(-.02, (tlYear(m.from) - a) / span), t2 = Math.min(1, (tlEnd(m.to) - a) / span); if (t2 <= 0 || t1 >= 1) return;
+        var p1 = at(L, t1).p, p2 = at(L, t2).p, y = L.Y + 12 + i * 6;
+        el("line", { x1:p1.x, x2:p2.x, y1:y, y2:y, "class":"dt-ov-line" + (m.fuzzy ? " fuzzy" : "") }, g);
+      });
+      el("rect", { x:0, y:L.Y + 6, width:W, height:ov.members.length * 6 + 8, fill:"transparent" }, g);
+      g.addEventListener("click", function(){ o.onSelect(ov.id); });
+      g.addEventListener("keydown", function(ev){ if (ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); o.onSelect(ov.id); } });
+    });
+    // Linked editions and, in the Born lens, readings: soft arcs above the thread.
+    function arc(p1, p2, cls, lift){ el("path", { d:"M" + p1.x + "," + p1.y + " Q" + (p1.x + p2.x) / 2 + "," + (Math.min(p1.y, p2.y) - lift) + " " + p2.x + "," + p2.y, "class":cls }, gArcs); }
+    TL_ITEMS.forEach(function(it){ if (it.kind === "event" && it.e.versionOf && pos[it.id] && pos[it.e.versionOf]) arc(pos[it.e.versionOf], pos[it.id], "dt-edition", 26); });
+    if (lens === "born") TL.readings.forEach(function(r){ var ps = r.events.map(function(id){ return pos[id]; }).filter(Boolean); if (ps.length > 1) arc(ps[0], ps[ps.length - 1], "dt-reading", 46); });
+    // Clusters: one greedy pass per lane; beads (key events) never merge.
+    Object.keys(perLane).forEach(function(lane){
+      var list = perLane[lane].sort(function(p, q){ return p.s - q.s; }), base = lanes[lane].c.base, groups = [], cur = null;
+      function isBead(r){ return !!(r.it.e && r.it.e.highlight && !r.ghost); }
+      list.forEach(function(r){
+        var last = cur && cur[cur.length - 1], gap = last && (isBead(r) || isBead(last)) ? 46 : 40;
+        if (cur && !r.ghost === !cur[0].ghost && r.s - last.s < gap && cur.length < 100) cur.push(r);
+        else { cur = [r]; groups.push(cur); }
+      });
+      groups.forEach(function(g){
+        if (g.length === 1) return drawOne(g[0], base);
+        var keys = g.filter(isBead);
+        // One key event among small neighbours: keep the bead, and count the neighbours on a small badge.
+        if (keys.length === 1){
+          var k = keys[0]; drawOne(k, base);
+          var bx = k.x + 17, by = k.y - 17, ids = g.map(function(r){ return r.it.id; });
+          var bg = el("g", { "class":"dt-badge", tabindex:0, role:"button", "aria-label":"This entry and " + (g.length - 1) + " more nearby. Select to list them." }, gMarks);
+          el("circle", { cx:bx, cy:by, r:11 }, bg); var bt = el("text", { x:bx, y:by + 4, "text-anchor":"middle" }, bg); bt.textContent = "+" + (g.length - 1);
+          var list2 = function(){ o.onCluster(ids, k.x, k.y); };
+          bg.addEventListener("click", function(ev){ ev.stopPropagation(); if (!self.dragged) list2(); });
+          bg.addEventListener("keydown", function(ev){ if (ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); list2(); } });
+          return;
+        }
+        var x = g.reduce(function(s, r){ return s + r.x; }, 0) / g.length, y = g[0].y, n = g.length, rad = Math.min(14 + .25 * n, 40);
+        var lo = g[0].it.x, hi = g[g.length - 1].it.x, zoomable = n >= 10 && hi - lo > .02, ghost = g[0].ghost;
+        var lab = n + " entries, " + dtShortDate(lo) + " to " + dtShortDate(hi) + (zoomable ? ". Select to zoom in." : ". Select to list them.");
+        var c = el("g", { "class":"dt-cluster" + (base ? " base" : "") + (ghost ? " ghost" : "") + (keys.length ? " key" : ""), tabindex:ghost ? -1 : 0, role:"button", "aria-label":lab }, gMarks);
+        el("circle", { cx:x, cy:y, r:rad }, c);
+        var tx = el("text", { x:x, y:y + 4, "text-anchor":"middle", "data-plus":zoomable ? "+" : "" }, c); tx.textContent = n >= 50 ? "50+" : n;
+        if (!ghost){
+          var go = function(){ if (zoomable){ var pad = Math.max(.04, (hi - lo) * .15); self.go(lo - pad, hi + pad); } else o.onCluster(g.map(function(r){ return r.it.id; }), x, y); };
+          c.addEventListener("click", function(){ if (!self.dragged) go(); });
+          c.addEventListener("keydown", function(ev){ if (ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); go(); } });
+          c.addEventListener("pointerenter", function(){ if (zoomable) tx.textContent = "+"; showCursor(x, (lo + hi) / 2); });
+          c.addEventListener("pointerleave", function(){ tx.textContent = n >= 50 ? "50+" : n; });
+        }
+      });
+    });
+    // Disagreeing dates: a dotted thread between each account's position, with small hollow ticks.
+    solo.forEach(function(r){ var it = r.it; if (it.kind !== "event" || !it.disagree || r.ghost) return; var L = lanes[it.lane];
+      var xs = it.spans.map(function(s){ var t = ((s[0] + s[1]) / 2 - a) / span; return at(L, Math.max(-.25, Math.min(1, t))).p; });
+      var lo = xs.reduce(function(m, p){ return p.x < m.x ? p : m; }), hi = xs.reduce(function(m, p){ return p.x > m.x ? p : m; });
+      el("line", { x1:lo.x, x2:hi.x, y1:r.y, y2:r.y, "class":"dt-disagree" + (r.dim ? " dim" : "") }, gArcs);
+      xs.forEach(function(p, i){ el("circle", { cx:p.x, cy:r.y, r:4, "class":"dt-alt", fill:"var(--dt-s-" + it.dated[i].status + ")" }, gArcs); });
+    });
+    o.onFrame(view[0], view[1]);
+    if (tween || intro) { raf = requestAnimationFrame(step); }
+  }
+  function drawOne(r, base){
+    var it = r.it, on = o.selected() === it.id; solo.push(r);
+    var g = el("g", { "class":"dt-mark" + (base ? " base" : "") + (r.ghost ? " ghost" : "") + (r.dim ? " dim" : "") + (on ? " on" : "") + (it.kind === "gap" ? " gap" : ""),
+      tabindex:r.ghost ? -1 : 0, role:"button", "aria-label":dtItemDate(it) + ": " + dtItemTitle(it) + (it.kind === "gap" ? " (not reviewed)" : "") + (it.disagree ? ". Sources disagree on the date." : "") }, gMarks);
+    el("circle", { cx:r.x, cy:r.y, r:16, "class":"hit" }, g);
+    if (it.e && it.e.highlight){
+      g.classList.add("bead");
+      el("circle", { cx:r.x, cy:r.y, r:21, "class":"ring", stroke:"var(--dt-s-" + it.status + ")" }, g);
+      el("circle", { cx:r.x, cy:r.y, r:17.5, "class":"core" }, g);
+      el("use", { href:"#em-" + emblemFor(it), x:r.x - 10.5, y:r.y - 10.5, width:21, height:21, "class":"em" }, g);
+      el("rect", { x:r.x - 15, y:r.y + 14, width:30, height:15, rx:7.5, "class":"yr", fill:"var(--dt-s-" + it.status + ")" }, g);
+      var t = el("text", { x:r.x, y:r.y + 25, "text-anchor":"middle" }, g); t.textContent = dtBead(it);
+    } else {
+      el("circle", { cx:r.x, cy:r.y, r:6, "class":"dot" }, g);
+      if (it.kind === "event" && it.e.accounts.length > 1) el("circle", { cx:r.x, cy:r.y, r:10, "class":"halo" }, g);
+    }
+    if (r.ghost) return;
+    var open = function(){ hidePill(); o.onSelect(it.id); };
+    g.addEventListener("click", function(){ if (!self.dragged) open(); });
+    g.addEventListener("keydown", function(ev){ if (ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); open(); } });
+    g.addEventListener("pointerenter", function(){ showPill(it, r.x, r.y); showCursor(r.x, it.x); });
+    g.addEventListener("focus", function(){ showPill(it, r.x, r.y); });
+    g.addEventListener("pointerleave", hidePill); g.addEventListener("blur", hidePill);
+  }
+
+  // Hover label: a dot that grows into a pill, then shows its text.
+  function showPill(it, x, y){
+    hoverId = it.id;
+    pill.querySelector("use").setAttribute("href", "#em-" + emblemFor(it));
+    pill.querySelector(".t").textContent = dtItemTitle(it);
+    pill.querySelector(".d").textContent = (it.kind === "gap" ? "Not reviewed" : STATUS[it.status].code) + " · " + dtItemDate(it);
+    var w = Math.max(140, Math.min(540, Math.max(pill.querySelector(".t").scrollWidth, pill.querySelector(".d").scrollWidth) + 78));
+    var left = Math.max(12, Math.min(W - w - 12, x - 28)), above = y > 120;
+    pill.style.left = left + "px"; pill.style.top = (above ? y - 76 : y + 22) + "px"; pill.style.setProperty("--w", w + "px");
+    pill.classList.remove("in"); void pill.offsetWidth; pill.classList.add("in");
+  }
+  function hidePill(){ hoverId = null; pill.classList.remove("in"); }
+  function showCursor(px, year){ cursor.style.transform = "translateX(" + px + "px)"; cursor.querySelector("b").textContent = dtShortDate(year); }
+  this.cursorAt = function(px){
+    var L = lanes[TL.lanes[0].id], x0 = L.x0, x1 = W - DT_LABEL; if (px < x0 || px > x1) { cursor.classList.add("off"); return; }
+    cursor.classList.remove("off");
+    if (!hoverId) showCursor(px, view[0] + (px - x0) / (x1 - x0) * (view[1] - view[0]));
+  };
+
+  function clamp(a, b){ var s = Math.max(.04, Math.min(TL_MAX - TL_MIN, b - a)); if (a < TL_MIN) a = TL_MIN; if (a + s > TL_MAX) a = TL_MAX - s; return [a, a + s]; }
+  function step(){ raf = 0; var now = performance.now();
+    if (tween){ var q = Math.min(1, (now - tween.t0) / tween.d), e = dtEase(q); view = [tween.a0 + (tween.a1 - tween.a0) * e, tween.b0 + (tween.b1 - tween.b0) * e]; if (q >= 1) tween = null; }
+    if (intro && now - intro.t0 > intro.dur) intro = null;
+    render();
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(step); }
+  this.go = function(a, b, instant){ var c = clamp(a, b); if (instant || DT_REDUCED){ tween = null; view = c; render(); return; } tween = { a0:view[0], b0:view[1], a1:c[0], b1:c[1], t0:performance.now(), d:500 }; kick(); };
+  this.view = function(){ return view.slice(); };
+  this.zoomAt = function(f, px){ var L = lanes[TL.lanes[0].id], x0 = L.x0, x1 = W - DT_LABEL, a = tween ? tween.a1 : view[0], b = tween ? tween.b1 : view[1];
+    var c = px == null ? (a + b) / 2 : a + Math.max(0, Math.min(1, (px - x0) / (x1 - x0))) * (b - a); self.go(c - (c - a) * f, c + (b - c) * f); };
+  this.panBy = function(dx){ var L = lanes[TL.lanes[0].id], per = (view[1] - view[0]) / ((W - DT_LABEL) - L.x0); tween = null; var c = clamp(view[0] - dx * per, view[1] - dx * per); view = c; render(); };
+  this.setMatch = function(fn){ match = fn; render(); };
+  this.setLens = function(l){ lens = l; render(); };
+  this.refresh = function(){ render(); };
+  this.focusLane = function(id){
+    selLane = id;
+    root.classList.toggle("is-open", !!id);
+    TL.lanes.forEach(function(l){ var L = lanes[l.id], on = l.id === id;
+      L.g.classList.toggle("sel", on); L.g.classList.toggle("off", !!id && !on);
+      if (on){ var big = Math.max(.28 * W, 420) * .75; L.band.style.strokeWidth = Math.min(big, H * .62) + "px";
+        L.g.style.transform = "translate(0px," + (H * .5 - L.Y) + "px)"; }
+      else L.g.style.transform = "";
+    });
+    if (!id) render();
+  };
+  this.intro = function(){
+    if (DT_REDUCED) return render();
+    var order = {}, per = {}; TL_ITEMS.forEach(function(it){ per[it.lane] = (per[it.lane] || 0); order[it.id] = per[it.lane]++; });
+    intro = { t0:performance.now(), dur:4200, order:order };
+    TL.lanes.forEach(function(l, i){ var L = lanes[l.id], len = L.bandLen;
+      [L.band, L.axis].forEach(function(p, j){ p.style.transition = "none"; p.style.strokeDasharray = len; p.style.strokeDashoffset = len; void p.getBoundingClientRect();
+        p.style.transition = "stroke-dashoffset 2s cubic-bezier(.47,0,.745,.715) " + (i * .25 + j * .25) + "s, stroke-width .5s ease";
+        p.style.strokeDashoffset = 0;
+        setTimeout(function(){ p.style.strokeDasharray = ""; p.style.strokeDashoffset = ""; p.style.transition = ""; }, 2600 + i * 250 + j * 250); });
+    });
+    root.classList.add("intro"); setTimeout(function(){ root.classList.remove("intro"); }, 400);
+    kick();
+  };
+  this.layout = layout;
+  this.destroy = function(){ if (raf) cancelAnimationFrame(raf); };
+  layout();
+}
+
+/* Faint constellations behind the lanes, in the three lane hues. Off for reduced motion and small screens. */
+function dtParticles(canvas){
+  if (DT_REDUCED || window.innerWidth <= 768) return function(){};
+  var ctx = canvas.getContext("2d"), ps = [], raf = 0, alive = true, cols = ["#F2BE4E", "#E9665C", "#8F4C7C"], dpr = Math.min(2, window.devicePixelRatio || 1), W, H;
+  function size(){ W = canvas.clientWidth; H = canvas.clientHeight; canvas.width = W * dpr; canvas.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  size();
+  for (var i = 0; i < Math.round(W * H / 16000); i++) ps.push({ x:Math.random() * W, y:Math.random() * H, vx:(Math.random() - .5) * .6, vy:(Math.random() - .5) * .6, c:cols[i % 3], r:Math.random() * 1.6 + .6 });
+  function frame(){
+    if (!alive) return; ctx.clearRect(0, 0, W, H);
+    ps.forEach(function(p){ p.x += p.vx; p.y += p.vy; if (p.x < -10) p.x = W + 10; if (p.x > W + 10) p.x = -10; if (p.y < -10) p.y = H + 10; if (p.y > H + 10) p.y = -10; });
+    for (var i = 0; i < ps.length; i++){ var p = ps[i];
+      for (var j = i + 1; j < ps.length; j++){ var q = ps[j], dx = p.x - q.x, dy = p.y - q.y; if (dx * dx + dy * dy < 2500){ ctx.strokeStyle = p.c; ctx.globalAlpha = .35; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke(); } }
+      ctx.globalAlpha = .5; ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill(); }
+    raf = requestAnimationFrame(frame);
+  }
+  frame(); window.addEventListener("resize", size);
+  return function(){ alive = false; cancelAnimationFrame(raf); window.removeEventListener("resize", size); };
+}
+
+/* The open event: its lane swells behind a stadium-shaped card. */
+function DTCapsule(p){
+  var sel = p.sel, lens = p.lens, ref = useRef(null);
+  useEffect(function(){ if (ref.current) ref.current.scrollTop = 0; }, [sel]);
+  var ov = tlOverlap(sel), it = !ov && tlItem(sel);
+  var lane = ov ? ov.lane : it.lane, c = DT_LANES[lane];
+  var medal, body;
+  if (ov){
+    medal = html`<div className="dt-medal-in"><${Emblem} k="money" size=${34} /><span className="dt-medal-k">Same money</span><span className="dt-medal-big">×3</span><span className="dt-medal-k">measurements</span></div>`;
+    body = html`<h3 className="dt-title">${ov.title}</h3>
+      <p className="dt-when">${ov.members.map(function(m){ return m.label; }).join(" · ")}</p>
+      <${PeopleRow} people=${ov.people} />
+      <p className="dt-lede">${ov.note}</p>
+      <ul className="dt-accts">${ov.members.map(function(m, i){ return html`<${AccountRow} key=${i} a=${{label:m.label, text:m.text, status:m.status, src:m.src, pin:m.pin, card:m.card}} openSrc=${p.openSrc} openCard=${p.openCard} />`; })}</ul>
+      <button className="dt-btn" onClick=${function(){ p.go("challenges"); }}>Try the Ledger challenge</button>`;
+  } else if (it.kind === "gap"){
+    var n = NEEDED[it.g.need];
+    medal = html`<div className="dt-medal-in"><${Emblem} k="gap" size=${34} /><span className="dt-medal-k">Not reviewed</span><span className="dt-medal-big">${dtBig(it.x, 10)}</span><span className="dt-medal-k">${it.g.label}</span></div>`;
+    body = html`<h3 className="dt-title">${it.g.title}</h3><p className="dt-when">${it.g.label}</p>
+      <p className="dt-lede">${n.why}</p>${it.g.found && html`<p className="dt-note"><b>New lead.</b> ${it.g.found}</p>`}
+      <p className="dt-k">Where to look</p><${NeedLinks} i=${it.g.need} />`;
+  } else {
+    var e = it.e, editions = TL_ITEMS.filter(function(x){ return x.kind === "event" && (x.e.versionOf === e.id || e.versionOf === x.id); });
+    var inq = tlInquiry(e), reads = tlReadings(e.id);
+    var dates = it.dated.map(function(a){ return a.label; }).filter(function(v, i, arr){ return arr.indexOf(v) === i; });
+    medal = html`<div className="dt-medal-in"><${Emblem} k=${emblemFor(it)} size=${34} /><span className="dt-medal-k">${tlEra(it.x).name}</span><span className="dt-medal-big">${dtBig(it.x, it.hi - it.lo > 1.5 || /^\d{4}$/.test(dates[0]) ? 10 : 0)}</span><span className="dt-medal-k">${e.accounts.length} account${e.accounts.length === 1 ? "" : "s"}</span></div>`;
+    body = html`<h3 className="dt-title">${e.title}</h3>
+      <p className="dt-when">${dates.join(" / ")}</p>
+      <${PeopleRow} people=${e.people} />
+      ${it.disagree && html`<p className="dt-warn">The sources disagree on the date. Every version is shown; none is preferred.</p>`}
+      <ul className="dt-accts">${e.accounts.map(function(a, i){ return html`<${AccountRow} key=${i} a=${a} openSrc=${p.openSrc} openCard=${p.openCard} />`; })}</ul>
+      ${e.note && html`<p className="dt-note">${e.note}</p>`}
+      ${reads.map(function(r){ return html`<${ReadingBox} key=${r.id} r=${r} from=${e.id} lens=${lens} select=${p.select} />`; })}
+      ${(editions.length > 0 || (e.related || []).length > 0 || inq.length > 0) && html`<details className="dt-rel" open=${true}><summary>Related</summary><ul>
+        ${editions.map(function(x){ return html`<li key=${"ed" + x.id}><button className="linkish" onClick=${function(){ p.select(x.id); }}>${x.e.title}</button><span>Other edition · ${x.dated[0].label}</span></li>`; })}
+        ${(e.related || []).map(function(id){ var x = tlItem(id); return html`<li key=${id}><button className="linkish" onClick=${function(){ p.select(id); }}>${dtItemTitle(x)}</button><span>${dtItemDate(x)}</span></li>`; })}
+        ${inq.map(function(m){ return html`<li key=${m.id}><button className="linkish" onClick=${function(){ p.go("inquiry"); }}>${m.title}</button><span>The Inquiry</span></li>`; })}
+      </ul></details>`}`;
+  }
+  return html`<div className="dt-capsule-wrap" role="dialog" aria-modal="false" aria-label=${ov ? ov.title : dtItemTitle(it)}>
+    <div className="dt-thread"></div>
+    <button className="dt-round dt-prev" aria-label="Previous entry" onClick=${p.prev}><span aria-hidden="true">←</span><i>${p.prevTitle}</i></button>
+    <article className="dt-capsule" key=${sel}>
+      <div className="dt-medal" style=${{background:"linear-gradient(135deg," + c.from + "," + c.to + ")"}}>${medal}</div>
+      <div className="dt-text" ref=${ref} tabIndex="0">${body}</div>
+    </article>
+    <button className="dt-round dt-next" aria-label="Next entry" onClick=${p.next}><span aria-hidden="true">→</span><i>${p.nextTitle}</i></button>
+    <button className="dt-round dt-close" aria-label="Close" onClick=${p.close}><span aria-hidden="true">×</span></button>
+  </div>`;
+}
+
+function CaseTimeline(p){
+  var lens = p.st.lens;
+  var init = useState(function(){ var h = tlParseHash(); return { a:h && h.from ? Math.max(TL_MIN, h.from) : TL_MIN, b:h && h.to ? Math.min(TL_MAX, h.to + 1/12) : TL_MAX, sel:h && h.ev ? h.ev : null }; })[0];
+  var _s = useState(init.sel), sel = _s[0], setSel = _s[1];
+  var _m = useState(function(){ return window.innerWidth <= 640 ? "list" : "canvas"; }), mode = _m[0], setMode = _m[1];
+  var _pe = useState(""), person = _pe[0], setPerson = _pe[1];
+  var _q = useState(""), q = _q[0], setQ = _q[1];
+  var _h = useState({}), hidden = _h[0], setHidden = _h[1];
+  var _r = useState([init.a, init.b]), range = _r[0], setRange = _r[1];
+  var _c = useState(null), menu = _c[0], setMenu = _c[1];
+  var _f = useState(null), panel = _f[0], setPanel = _f[1];
+  var stage = useRef(null), eng = useRef(null), selRef = useRef(sel), hashT = useRef(0), bar = useRef(null);
+  selRef.current = sel;
+
+  var pq = q.trim().toLowerCase();
+  function match(it){
+    if (it.statuses.every(function(s){ return hidden[s]; })) return "hide";
+    if (person && it.people.indexOf(person) < 0) return "dim";
+    if (pq && it.text.indexOf(pq) < 0) return "dim";
+    return "on";
+  }
+  var shown = TL_ITEMS.filter(function(it){ return match(it) !== "hide"; });
+  var lit = shown.filter(function(it){ return match(it) === "on"; }).length;
+
+  useEffect(function(){
+    if (mode !== "canvas" || !stage.current) return;
+    var e = new DTEngine(stage.current, { range:[init.a, init.b], match:match, lens:lens, selected:function(){ return selRef.current; },
+      onSelect:function(id){ setMenu(null); setSel(id); }, onCluster:function(ids, x, y){ setMenu({ ids:ids, x:x, y:y }); },
+      onFrame:function(a, b){ setRange([a, b]); } });
+    eng.current = e;
+    var stopP = dtParticles(stage.current.querySelector(".dt-dust"));
+    if (!init.sel && !e.introDone) e.intro();
+    var ro = window.ResizeObserver ? new ResizeObserver(function(){ e.layout(); if (selRef.current) e.focusLane(laneOf(selRef.current)); }) : null;
+    if (ro) ro.observe(stage.current);
+    return function(){ e.destroy(); stopP(); if (ro) ro.disconnect(); eng.current = null; };
+  }, [mode]);
+  useEffect(function(){ if (eng.current) eng.current.setMatch(match); }, [person, q, hidden]);
+  useEffect(function(){ if (eng.current) eng.current.setLens(lens); }, [lens]);
+  useEffect(function(){ if (eng.current){ eng.current.focusLane(sel ? laneOf(sel) : null); } }, [sel, mode]);
+  useEffect(function(){ return function(){ try { history.replaceState(null, "", location.pathname + location.search); } catch(err){} }; }, []);
+  useEffect(function(){
+    clearTimeout(hashT.current);
+    hashT.current = setTimeout(function(){ try { history.replaceState(null, "", "#timeline/from:" + tlYM(range[0]) + "/to:" + tlYM(range[1]) + (sel ? "/ev:" + sel : "")); } catch(err){} }, 300);
+  }, [range[0], range[1], sel]);
+
+  function laneOf(id){ var ov = tlOverlap(id); if (ov) return ov.lane; var it = tlItem(id); return it ? it.lane : null; }
+  var order = shown.map(function(it){ return it.id; });
+  function stepSel(d){ var i = order.indexOf(sel); if (i < 0) i = 0; var n = order[(i + d + order.length) % order.length]; select(n); }
+  function select(id){
+    setMenu(null); setSel(id);
+    var it = tlItem(id);
+    if (it && eng.current){ var v = eng.current.view(); if (it.x < v[0] || it.x > v[1]){ var s = v[1] - v[0]; eng.current.go(it.x - s / 2, it.x + s / 2); } }
+  }
+  useEffect(function(){
+    function onKey(ev){
+      if (mode !== "canvas") return;
+      var tag = (ev.target.tagName || "").toLowerCase(); if (tag === "input" || tag === "select" || tag === "textarea") return;
+      if (sel){ if (ev.key === "Escape") setSel(null); else if (ev.key === "ArrowLeft") stepSel(-1); else if (ev.key === "ArrowRight") stepSel(1); else return; ev.preventDefault(); return; }
+      if (!stage.current || !stage.current.contains(document.activeElement)) return;
+      var e = eng.current; if (!e) return; var v = e.view(), s = v[1] - v[0];
+      if (ev.key === "ArrowLeft") e.go(v[0] - s * (ev.shiftKey ? .3 : .08), v[1] - s * (ev.shiftKey ? .3 : .08));
+      else if (ev.key === "ArrowRight") e.go(v[0] + s * (ev.shiftKey ? .3 : .08), v[1] + s * (ev.shiftKey ? .3 : .08));
+      else if (ev.key === "+" || ev.key === "=") e.zoomAt(.5);
+      else if (ev.key === "-" || ev.key === "_") e.zoomAt(2);
+      else if (ev.key === "Home") e.go(TL_MIN, TL_MAX);
+      else if (ev.key === "Escape") setMenu(null);
+      else return;
+      ev.preventDefault();
+    }
+    window.addEventListener("keydown", onKey); return function(){ window.removeEventListener("keydown", onKey); };
+  });
+
+  // Pointer: drag pans at the current scale; wheel zooms around the pointer.
+  var drag = useRef(null);
+  function onDown(ev){ if (sel || ev.button) return; if (ev.target.closest(".dt-chrome,.dt-bar,.dt-menu")) return; drag.current = { x:ev.clientX, moved:false }; }
+  function onMove(ev){
+    var e = eng.current; if (!e) return; var r = stage.current.getBoundingClientRect(); e.cursorAt(ev.clientX - r.left);
+    var d = drag.current; if (!d) return; var dx = ev.clientX - d.x; if (!d.moved && Math.abs(dx) < 4) return;
+    d.moved = true; e.dragged = true; stage.current.classList.add("dragging"); e.panBy(dx); d.x = ev.clientX;
+  }
+  function onUp(){ if (drag.current && drag.current.moved) setTimeout(function(){ if (eng.current) eng.current.dragged = false; }, 0); drag.current = null; if (stage.current) stage.current.classList.remove("dragging"); }
+  useEffect(function(){
+    var s = stage.current; if (!s || mode !== "canvas") return;
+    function wheel(ev){ if (sel || ev.target.closest(".dt-chrome,.dt-menu,.dt-capsule-wrap")) return; ev.preventDefault(); var r = s.getBoundingClientRect(), dy = ev.deltaMode ? ev.deltaY * 16 : ev.deltaY;
+      eng.current && eng.current.zoomAt(Math.exp(dy * .0018), ev.clientX - r.left); }
+    s.addEventListener("wheel", wheel, { passive:false }); return function(){ s.removeEventListener("wheel", wheel); };
+  }, [mode, sel]);
+
+  // Range bar: the whole record in one strip; drag the window or either handle.
+  function barDrag(kind){ return function(ev){
+    ev.preventDefault(); ev.stopPropagation(); var b = bar.current.getBoundingClientRect(), v0 = eng.current.view(), x0 = ev.clientX, per = (TL_MAX - TL_MIN) / b.width;
+    function mv(e2){ var dt = (e2.clientX - x0) * per;
+      if (kind === "win") eng.current.go(v0[0] + dt, v0[1] + dt, true);
+      else if (kind === "a") eng.current.go(Math.min(v0[0] + dt, v0[1] - .04), v0[1], true);
+      else eng.current.go(v0[0], Math.max(v0[1] + dt, v0[0] + .04), true); }
+    function up(){ window.removeEventListener("pointermove", mv); window.removeEventListener("pointerup", up); bar.current && bar.current.classList.remove("held"); }
+    bar.current.classList.add("held"); window.addEventListener("pointermove", mv); window.addEventListener("pointerup", up);
+  }; }
+  function handleKey(kind){ return function(ev){ var v = eng.current.view(), st = ev.shiftKey ? 1 : 1/12, d = ev.key === "ArrowLeft" || ev.key === "ArrowDown" ? -st : ev.key === "ArrowRight" || ev.key === "ArrowUp" ? st : 0; if (!d) return; ev.preventDefault();
+    if (kind === "a") eng.current.go(Math.min(v[0] + d, v[1] - .04), v[1], true); else eng.current.go(v[0], Math.max(v[1] + d, v[0] + .04), true); }; }
+  function pct(x){ return (x - TL_MIN) / (TL_MAX - TL_MIN) * 100; }
+
+  var STAT = ["court","sworn","filing","docket","plaintiff","defense","reported","unverified"];
+  var filtering = person || pq || Object.keys(hidden).some(function(k){ return hidden[k]; });
+  var chrome = html`<div className="dt-chrome">
+    <div className="dt-brand"><b>The record, in time</b><span>Oliver v. Zamber and the Fund · ${lit} of ${TL_ITEMS.length} entries</span></div>
+    <div className="dt-chips" role="group" aria-label="Show statuses">
+      ${STAT.map(function(s){ return html`<button key=${s} className="dt-chip" aria-pressed=${!hidden[s]} title=${STATUS[s].est} onClick=${function(){ var n = Object.assign({}, hidden); n[s] = !n[s]; setHidden(n); }}><i style=${{background:"var(--dt-s-" + s + ")"}}></i>${STATUS[s].code}</button>`; })}
+      ${filtering && html`<button className="dt-chip dt-reset" onClick=${function(){ setPerson(""); setQ(""); setHidden({}); setPanel(null); }}><span>Reset</span></button>`}
+    </div>
+    <div className="dt-tools">
+      <button className=${"dt-chip dt-who" + (person ? " set" : "")} aria-expanded=${panel === "people"} onClick=${function(){ setPanel(panel === "people" ? null : "people"); }}>${person ? TL.people[person] : "People"}</button>
+      <button className=${"dt-round sm" + (panel === "search" || pq ? " set" : "")} aria-label="Search the timeline" aria-expanded=${panel === "search"} onClick=${function(){ setPanel(panel === "search" ? null : "search"); }}><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" strokeWidth="1.6"/><path d="M13 13l4.5 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg></button>
+      <div className="dt-switch" role="group" aria-label="View" data-on=${mode}>
+        <button aria-pressed=${mode === "canvas"} onClick=${function(){ setMode("canvas"); }}>Timeline</button>
+        <button aria-pressed=${mode === "list"} onClick=${function(){ setSel(null); setMode("list"); }}>List</button>
+        <span aria-hidden="true"></span>
+      </div>
+    </div>
+    ${panel === "search" && html`<div className="dt-panel"><label className="sr" htmlFor="tl-q">Search the timeline</label>
+      <input id="tl-q" type="search" autoFocus=${true} value=${q} placeholder="Search events, sources, people" onInput=${function(ev){ setQ(ev.target.value); }} />
+      <p>${pq ? (lit + " matching " + (lit === 1 ? "entry" : "entries") + ". Others fade back.") : "Try “distributions”, “Form D” or “Doc. 88”."}</p></div>`}
+    ${panel === "people" && html`<div className="dt-panel dt-people" role="group" aria-label="Focus on a person">
+      ${[["", "Everyone"]].concat(Object.keys(TL.people).map(function(k){ return [k, TL.people[k]]; })).map(function(x){ return html`<button key=${x[0] || "all"} className="dt-chip" aria-pressed=${person === x[0]} onClick=${function(){ setPerson(x[0]); setPanel(null); }}>${x[1]}</button>`; })}</div>`}
+  </div>`;
+
+  if (mode === "list"){
+    var byEra = TL.eras.map(function(er){ return { er:er, items:shown.filter(function(it){ return tlEra(it.x).id === er.id; }) }; });
+    return html`<div className="dt dt-listmode">${chrome}
+      <div className="dt-list">${byEra.map(function(g){ return g.items.length > 0 && html`<section key=${g.er.id}><h3 className="dt-era-h">${g.er.name}</h3>
+        <ol>${g.items.map(function(it){ var m = match(it), c = DT_LANES[it.lane];
+          if (it.kind === "gap") return html`<li key=${it.id} className=${"gap" + (m === "dim" ? " dim" : "")}><i className="dt-li-dot" style=${{borderColor:c.from}}><${Emblem} k="gap" size=${16} /></i><div className="dt-when">${it.g.label} · not reviewed</div><h4>${it.g.title}</h4><p>${NEEDED[it.g.need].why}${it.g.found ? " " + it.g.found : ""}</p><${NeedLinks} i=${it.g.need} /></li>`;
+          return html`<li key=${it.id} className=${m === "dim" ? "dim" : ""}><i className="dt-li-dot" style=${{background:"linear-gradient(135deg," + c.from + "," + c.to + ")"}}><${Emblem} k=${emblemFor(it)} size=${16} /></i>
+            <div className="dt-when">${it.dated.map(function(a){ return a.label; }).filter(function(v, i, arr){ return arr.indexOf(v) === i; }).join(" / ")} · ${TL.lanes.filter(function(l){ return l.id === it.lane; })[0].name}</div>
+            <h4>${it.e.title}</h4>
+            <${PeopleRow} people=${it.e.people} />
+            ${it.disagree && html`<p className="dt-warn">The sources disagree on the date.</p>`}
+            <ul className="dt-accts">${it.e.accounts.map(function(a, i){ return html`<${AccountRow} key=${i} a=${a} openSrc=${p.openSrc} openCard=${p.openCard} />`; })}</ul>
+            ${it.e.note && html`<p className="dt-note">${it.e.note}</p>`}
+            ${tlReadings(it.id).filter(function(r){ return r.events[0] === it.id; }).map(function(r){ return html`<${ReadingBox} key=${r.id} r=${r} from=${it.id} lens=${lens} select=${function(id){ setMode("canvas"); setSel(id); }} />`; })}
+          </li>`; })}</ol></section>`; })}
+        ${shown.length === 0 && html`<p>No entries match. Turn a status back on, or reset the filters.</p>`}
+      </div></div>`;
+  }
+
+  var i = order.indexOf(sel), prevIt = sel && tlItem(order[(i - 1 + order.length) % order.length]), nextIt = sel && tlItem(order[(i + 1) % order.length]);
+  return html`<div className="dt">
+    <div className="dt-stage" ref=${stage} tabIndex="0" aria-label="Case timeline. Drag or use the arrow keys to move, scroll or plus and minus to zoom, Home to see everything. The List view has the same entries as text."
+      onPointerDown=${onDown} onPointerMove=${onMove} onPointerUp=${onUp} onPointerLeave=${onUp}>
+      <canvas className="dt-dust" aria-hidden="true"></canvas>
+      <svg className="dt-svg" aria-hidden="false" role="group"></svg>
+      <div className="dt-years" aria-hidden="true"><span>${dtBig(range[0], range[1] - range[0])}</span><span>${dtBig(range[1], range[1] - range[0])}</span></div>
+      <div className="dt-cursor off" aria-hidden="true"><b></b></div>
+      <div className="dt-pill" aria-hidden="true"><svg className="dt-pill-em" width="22" height="22"><use href="#em-doc" /></svg><div className="m"><span className="t"></span><span className="d"></span></div></div>
+      ${chrome}
+      ${menu && html`<div className="dt-menu" style=${{left:menu.x + "px", top:menu.y + "px"}} role="menu">
+        <ul>${menu.ids.map(function(id){ var it = tlItem(id); return html`<li key=${id}><button role="menuitem" onClick=${function(){ select(id); }}><b>${dtItemTitle(it)}</b><span>${dtItemDate(it)}${it.kind === "gap" ? " · not reviewed" : ""}</span></button></li>`; })}</ul>
+        <button className="dt-menu-x" aria-label="Close list" onClick=${function(){ setMenu(null); }}>×</button></div>`}
+      ${sel && html`<${DTCapsule} sel=${sel} lens=${lens} select=${select} openSrc=${p.openSrc} openCard=${p.openCard} go=${p.go}
+        prev=${function(){ stepSel(-1); }} next=${function(){ stepSel(1); }} close=${function(){ setSel(null); }}
+        prevTitle=${prevIt ? dtItemTitle(prevIt) : ""} nextTitle=${nextIt ? dtItemTitle(nextIt) : ""} />`}
+      <div className="dt-bar" ref=${bar}>
+        <div className="dt-bar-track">
+          ${TL.eras.map(function(er){ var on = tlEnd(er.to) > range[0] && tlYear(er.from) < range[1]; return html`<span key=${er.id} className=${"dt-era" + (on ? " on" : "")} style=${{left:pct(tlYear(er.from)) + "%"}}>${er.name}</span>`; })}
+          <div className="dt-win" style=${{left:pct(range[0]) + "%", width:(pct(range[1]) - pct(range[0])) + "%"}} onPointerDown=${barDrag("win")}>
+            <button className="dt-handle a" role="slider" aria-label="Start of range" aria-valuemin=${TL_MIN} aria-valuemax=${TL_MAX} aria-valuenow=${range[0].toFixed(2)} aria-valuetext=${dtShortDate(range[0])} onPointerDown=${barDrag("a")} onKeyDown=${handleKey("a")}></button>
+            <button className="dt-handle b" role="slider" aria-label="End of range" aria-valuemin=${TL_MIN} aria-valuemax=${TL_MAX} aria-valuenow=${range[1].toFixed(2)} aria-valuetext=${dtShortDate(range[1])} onPointerDown=${barDrag("b")} onKeyDown=${handleKey("b")}></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
 function Timeline(p){
   if (!p.real) return html`<section>
     <div className="section-head"><h2>Timeline</h2><span>Fictional Mystery · every date is invented</span></div>
@@ -2030,18 +2899,10 @@ function Timeline(p){
     <ol className="tl">${F_TIMELINE.map(function(t,i){ return html`<li key=${i}><div className="when">${t.d}</div><div>${t.t}</div><div><${Chip} status="fiction" /></div></li>`; })}</ol>
   </section>`;
   return html`<section>
-    <div className="section-head"><h2>Timeline</h2><span className="muted ui">Each entry carries the status of its source</span></div>
-    <ol className="tl">
-      ${TIMELINE.map(function(t,i){ return html`<li key=${i}>
-        <div className="when">${t.d}</div>
-        <div>${t.t}</div>
-        ${t.conflict && html`<div className="conf">Sources disagree: ${t.conflict}</div>`}
-        <div style=${{display:"flex",gap:"8px",flexWrap:"wrap",alignItems:"center",marginTop:"3px"}}>
-          <${Chip} status=${t.s} />
-          ${t.src && html`<button className="dlg-btn" style=${{minHeight:"28px",padding:"1px 8px",fontSize:".8rem"}} onClick=${function(){ p.openSrc(t.src); }}>${SOURCES[t.src].short}${t.pin ? " · " + t.pin : ""}</button>`}
-        </div>
-      </li>`; })}
-    </ol>
+    <div className="section-head"><h2>Timeline</h2><span className="muted ui">Every account, on the date it claims</span></div>
+    <${LensNote} lens=${p.st.lens} />
+    <p className="aside">Each marker is an event. Open it to see every source's version, with its status and pinpoint. Where sources disagree, all versions stay on the record and none is preferred. Share a view by copying the address: it keeps the date range and the open event.</p>
+    <${CaseTimeline} st=${p.st} openSrc=${p.openSrc} openCard=${p.openCard} go=${p.go} />
   </section>`;
 }
 
@@ -2051,7 +2912,7 @@ function People(p){
     <p className="aside">Each line is a role or relationship stated in a reviewed document, labeled with that document’s status. A connection is not an accusation, and this map draws no lines the documents do not draw.</p>
     <div className="groups">
       ${GROUPS.map(function(g){ return html`<div key=${g.name} className="group"><h3>${g.name}</h3>
-        ${g.items.map(function(it){ return html`<div key=${it.n} className="ent"><b>${it.n}</b>
+        ${g.items.map(function(it){ return html`<div key=${it.n} className="ent"><div className="ent-h"><${Mono} name=${it.n} size=${40} /><b>${it.n}</b></div>
           ${it.rels.map(function(r,i){ return html`<div key=${i} className="rel"><span>${r[0]}</span> <${Chip} status=${r[1]} />
             <button className="dlg-btn" style=${{minHeight:"26px",padding:"0 7px",fontSize:".78rem"}} onClick=${function(){ p.openSrc(r[2]); }}>${SOURCES[r[2]].short} · ${r[3]}</button></div>`; })}
         </div>`; })}
@@ -2127,6 +2988,12 @@ function SourcesView(){
     <div className="tablewrap"><table>
       <thead><tr><th>Document</th><th>Date</th><th>Kind</th><th>Review</th></tr></thead>
       <tbody>${["S88","S264","SJLP","SSLM"].map(function(k){ var s = SOURCES[k]; return html`<tr key=${k}><td><a href=${s.url} target="_blank" rel="noopener noreferrer">${s.title}</a><div className="muted" style=${{fontSize:".85rem"}}>${s.note}</div></td><td className="num">${s.date}</td><td>${s.kind}</td><td>${s.status}</td></tr>`; })}</tbody>
+    </table></div>
+    <h3 style=${{fontSize:"1.4rem",margin:"24px 0 8px"}}>Added for the timeline (October 23, 2026)</h3>
+    <p className="lede">These public records back timeline entries only. No evidence card or Inquiry puzzle relies on them. Each one says how closely it was read.</p>
+    <div className="tablewrap"><table>
+      <thead><tr><th>Document</th><th>Date</th><th>Kind</th><th>Review</th></tr></thead>
+      <tbody>${TL_SOURCES.map(function(k){ var s = SOURCES[k]; return html`<tr key=${k}><td><a href=${s.url} target="_blank" rel="noopener noreferrer">${s.title}</a><div className="muted" style=${{fontSize:".85rem"}}>${s.note}</div></td><td className="num">${s.date}</td><td>${s.kind}</td><td>${s.status}</td></tr>`; })}</tbody>
     </table></div>
     <h3 style=${{fontSize:"1.4rem",margin:"24px 0 8px"}}>Documents needed next</h3>
     <div className="tablewrap"><table>
@@ -2362,13 +3229,13 @@ function CaseFiles(p){
     <${LensNote} lens=${lens} />
     <div className="filepick" role="tablist" aria-label="Case files">
       ${FILES.map(function(x){ return html`<button key=${x.id} role="tab" aria-selected=${x.id === sel} onClick=${function(){ setSel(x.id); }}>
-        <span className="mono">${x.no}</span> ${x.name}</button>`; })}
+        <${Mono} name=${x.name} size=${22} /><span className="mono">${x.no}</span> ${x.name}</button>`; })}
     </div>
     <article className="dossier sheet" aria-labelledby=${"df-"+f.id}>
       <header className="dhead">
         <div className="dstamp" aria-hidden="true">Case file ${f.no}</div>
         <div className="kicker" style=${{color:"var(--blood)"}}>${f.role}</div>
-        <h3 id=${"df-"+f.id}>${f.name}</h3>
+        <div className="dname"><${Mono} name=${f.name} size=${72} /><h3 id=${"df-"+f.id}>${f.name}</h3></div>
         <p className="dlede">${f.lede}</p>
       </header>
       <div className="dgrid">
