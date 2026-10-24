@@ -41,33 +41,71 @@ h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.1;text-wrap:
   --muted:var(--ink-soft); --rule:var(--line); color:var(--ink);
   background:var(--paper) var(--grain); background-blend-mode:multiply}
 
-/* Chrome */
-.top{background:#050605;border-bottom:1px solid var(--gold-dim)}
-.top .wrap{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding-block:12px}
-.brand{display:flex;flex-direction:column;min-width:0;flex:1 1 260px}
-.brand b{font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.45rem;letter-spacing:.01em;color:var(--bone)}
-.brand span{font-family:var(--f-ui);font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold)}
+/* Chrome: one quiet bar in the timeline's language (hairline pills, sliding switches, italic voice).
+   Dark over the rooms; cream when the timeline is open, so the page reads as one surface. */
+.chrome{--c-bg:#070908;--c-ink:var(--bone);--c-soft:var(--bone-dim);--c-line:rgba(235,227,208,.16);--c-pill:var(--bone);--c-pill-ink:#14120e;--c-hover:rgba(235,227,208,.07);--c-born:var(--blood-hi);
+  --f-c:"Alegreya Sans","Gill Sans","Trebuchet MS",system-ui,sans-serif;background:var(--c-bg);color:var(--c-ink);font-family:var(--f-c)}
+.chrome.cream{--c-bg:#FBF6F1;--c-ink:#34312F;--c-soft:#89827B;--c-line:#E8DDD8;--c-pill:#353433;--c-pill-ink:#FBF6F1;--c-hover:rgba(52,49,47,.05);--c-born:#8a1640;color-scheme:light}
+.chrome :focus-visible{outline:2px solid var(--c-ink);outline-offset:2px}
+.chrome button{font-family:var(--f-c)}
+.top{border-bottom:1px solid var(--c-line)}
+.top .wrap{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;padding-block:16px}
+.brand{display:flex;flex-direction:column;min-width:0;flex:1 1 280px}
+.brand b{font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.5rem;line-height:1.15;color:var(--c-ink);transition:color .2s}
+.chrome.cream .brand b{font-family:var(--f-c);font-weight:700;font-size:1.45rem}
+.brand span{font-style:italic;font-size:.95rem;color:var(--c-soft)}
+.brand-btn{background:none;border:0;padding:0;margin:0;text-align:left;cursor:pointer;color:inherit;display:flex;flex-direction:column}
+.brand-btn:hover b{opacity:.75}
 .tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.btn{font-family:var(--f-ui);font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;border:1px solid var(--gold-dim);background:transparent;color:var(--bone);border-radius:0;padding:6px 12px;cursor:pointer;min-height:36px}
-.btn:hover{border-color:var(--gold);color:var(--gold)}
-.btn[aria-pressed="true"]{background:var(--gold);color:#120f08;border-color:var(--gold)}
-.modes{display:inline-flex;border:1px solid var(--gold-dim)}
-.modes button{border:0;min-height:36px;padding:6px 12px;background:transparent;color:var(--bone);font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.12em;font-size:.82rem;cursor:pointer}
-.modes button[aria-pressed="true"]{background:var(--bone);color:#120f08}
-.score{font-family:var(--f-type);font-size:.85rem;color:var(--gold);border:1px dashed var(--gold-dim);padding:5px 9px}
-.strip{background:#080a09;color:var(--bone-dim);font-family:var(--f-ui);font-size:.8rem;letter-spacing:.02em;border-bottom:1px solid var(--rule)}
-.strip .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding-block:7px;align-items:center}
-.strip b{color:var(--bone)}
-.strip a{color:var(--bone);text-underline-offset:3px}
-.strip .fbi{margin-left:auto}
+.btn{display:inline-flex;align-items:center;gap:7px;font-size:.92rem;border:1px solid var(--c-line);background:transparent;color:var(--c-ink);border-radius:999px;padding:6px 14px;cursor:pointer;min-height:36px;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{border-color:var(--c-ink)}
+.btn[aria-pressed]{padding-left:11px}
+.btn[aria-pressed] i{width:9px;height:9px;border-radius:50%;border:1.5px solid currentColor;transition:background .2s}
+.btn[aria-pressed="true"] i{background:currentColor}
+.btn.round{width:36px;padding:0;justify-content:center}
+.btn.round:hover{background:var(--c-pill);color:var(--c-pill-ink);border-color:var(--c-pill)}
+.pill-switch{position:relative;display:inline-grid;grid-auto-flow:column;grid-auto-columns:1fr;border:1px solid var(--c-line);border-radius:999px;padding:3px}
+.pill-switch button{position:relative;z-index:1;border:0;background:none;color:var(--c-ink);font-size:.92rem;padding:5px 14px;min-height:30px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:color .3s}
+.pill-switch button[aria-pressed="true"]{color:var(--c-pill-ink)}
+.pill-switch button[aria-pressed="false"]:hover{background:var(--c-hover)}
+.pill-switch span{position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);border-radius:999px;background:var(--c-pill);transition:transform .35s cubic-bezier(.65,0,.35,1),background .35s}
+.pill-switch[data-on="1"] span{transform:translateX(100%)}
+.pill-switch.lens.born span{background:var(--c-born)}
+.pill-switch.lens.born button[aria-pressed="true"]{color:#fff}
+.score{font-style:italic;font-size:.95rem;color:var(--c-soft);padding:0 6px;white-space:nowrap}
+.score b{font-style:normal;font-weight:700;color:var(--c-ink);font-size:1.05rem}
+.strip{font-size:.88rem;border-bottom:1px solid var(--c-line);color:var(--c-soft)}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:2px 28px;padding-block:8px;align-items:center}
+.strip b{color:var(--c-ink);font-weight:500}
+.strip a{color:var(--c-ink);text-decoration-color:var(--c-line);text-underline-offset:3px}
+.strip a:hover{text-decoration-color:currentColor}
+.strip .soft{opacity:.85;font-style:italic}
 .notice-bar{background:var(--blood);color:var(--bone);font-family:var(--f-ui)}
 .notice-bar .wrap{padding-block:8px}
-
-nav.tabs{border-bottom:1px solid var(--rule);background:rgba(5,6,5,.6)}
-nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto}
-nav.tabs button{font-family:var(--f-ui);font-size:.82rem;text-transform:uppercase;letter-spacing:.16em;border:0;background:none;padding:14px 12px 11px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;color:var(--bone-dim)}
-nav.tabs button:hover{color:var(--bone)}
-nav.tabs button[aria-current="page"]{color:var(--gold);border-bottom-color:var(--gold)}
+nav.tabs{border-bottom:1px solid var(--c-line)}
+nav.tabs .wrap{position:relative;display:flex;gap:2px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+nav.tabs .wrap::-webkit-scrollbar{display:none}
+nav.tabs button{position:relative;z-index:1;font-size:1rem;border:0;background:none;padding:7px 15px;border-radius:999px;cursor:pointer;white-space:nowrap;color:var(--c-soft);transition:color .3s,background .2s}
+nav.tabs button:hover{color:var(--c-ink);background:var(--c-hover)}
+nav.tabs button[aria-current="page"]{color:var(--c-pill-ink);background:transparent}
+nav.tabs .tab-ink{position:absolute;left:0;top:10px;bottom:10px;border-radius:999px;background:var(--c-pill);transition:transform .4s cubic-bezier(.65,0,.35,1),width .4s cubic-bezier(.65,0,.35,1)}
+nav.tabs .tab-ink:not([style]){display:none}
+/* The timeline page: cream from the top bar down, with the intro set in the timeline's voice */
+main.cream{background:#FBF6F1;color:#34312F;padding-top:34px;padding-bottom:0;--f-c:"Alegreya Sans","Gill Sans","Trebuchet MS",system-ui,sans-serif}
+main.cream .section-head{gap:4px 18px;margin-bottom:12px}
+main.cream .section-head h2{font-family:var(--f-c);font-style:italic;font-weight:300;font-size:clamp(2.4rem,5vw,3.6rem);letter-spacing:-.01em;color:#34312F}
+main.cream .section-head > span{font-family:var(--f-c);text-transform:none;letter-spacing:0;font-style:italic;font-size:1.15rem;color:#89827B}
+main.cream .lens-note{font-family:var(--f-c);display:inline-flex;gap:10px;align-items:center;background:transparent;border:1px solid #E8DDD8;border-radius:22px;padding:6px 16px 6px 8px;flex-wrap:wrap;margin:0 0 14px;font-size:.98rem;color:#34312F}
+main.cream .lens-note .kicker{font-family:var(--f-c);text-transform:none;letter-spacing:0;font-size:.9rem;background:#353433;color:#FBF6F1;border-radius:999px;padding:3px 11px}
+main.cream .lens-note.born .kicker{background:#8a1640}
+main.cream .aside{font-family:var(--f-c);font-size:1.08rem;line-height:1.55;border:0;padding:0;margin:0;color:#5f5953;max-width:62ch}
+main.cream .optag{border-radius:999px;padding:1px 8px}
+@media (max-width:640px){
+  .top .wrap{padding-block:12px}
+  .tools{gap:6px}
+  .pill-switch button{padding:5px 10px;font-size:.86rem}
+  main.cream{padding-top:24px}
+}
 
 main{padding-block:26px 72px}
 .lede{max-width:66ch}
@@ -257,9 +295,6 @@ td.num{font-family:var(--f-type);font-variant-numeric:tabular-nums;white-space:n
 .credits .fine{font-family:var(--f-type);font-size:.82rem;color:var(--bone-dim);max-width:560px;margin:18px auto 0}
 
 /* Brief, case files, inquiry */
-.lens-toggle{display:inline-flex;border:1px solid var(--blood-hi)}
-.lens-toggle button{border:0;min-height:36px;padding:6px 10px;background:transparent;color:var(--bone);font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.1em;font-size:.74rem;cursor:pointer}
-.lens-toggle button[aria-pressed="true"]{background:var(--blood);color:var(--bone)}
 .lens-note{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;border:1px solid var(--rule);border-left:4px solid var(--s-court);padding:10px 14px;margin-bottom:18px;background:rgba(0,0,0,.3);font-size:.92rem}
 .lens-note.born{border-left-color:var(--blood-hi);background:rgba(125,23,23,.18)}
 .brief-lede{padding:18px 20px;font-size:1.06rem;max-width:900px}
@@ -337,8 +372,6 @@ td.num{font-family:var(--f-type);font-variant-numeric:tabular-nums;white-space:n
 .p-rating span{font-family:var(--f-ui);font-size:max(8px,2cqi);line-height:1.3;padding:.35em .6em;color:var(--bone-dim);letter-spacing:.03em}
 .p-rating strong{display:block;color:var(--bone);text-transform:uppercase;letter-spacing:.14em}
 @media (prefers-reduced-motion:no-preference){.p-title em{animation:settle 2.4s cubic-bezier(.2,.7,.2,1) both}}
-.brand-btn{background:none;border:0;padding:0;margin:0;text-align:left;cursor:pointer;color:inherit;display:flex;flex-direction:column}
-.brand-btn:hover b{color:var(--gold)}
 .needlinks{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:3px}
 .needlinks a{font-family:var(--f-ui);font-size:.8rem;letter-spacing:.03em}
 .needlinks .muted{font-size:.78rem}
@@ -346,7 +379,7 @@ td.num{font-family:var(--f-type);font-variant-numeric:tabular-nums;white-space:n
 body:has(.dt){overflow-x:clip}
 .dt{--dt-bg:#FBF6F1;--dt-ink:#34312F;--dt-pill:#353433;--dt-soft:#89827B;--dt-line:#E8DDD8;--f-dt:"Alegreya Sans","Gill Sans","Trebuchet MS",system-ui,sans-serif;
   --dt-s-court:var(--s-court);--dt-s-sworn:var(--s-sworn);--dt-s-filing:var(--s-filing);--dt-s-docket:var(--s-docket);--dt-s-plaintiff:var(--s-plaintiff);--dt-s-defense:var(--s-defense);--dt-s-receiver:var(--s-receiver);--dt-s-reported:var(--s-reported);--dt-s-unverified:var(--s-unverified);
-  position:relative;width:100vw;margin-inline:calc(50% - 50vw);margin-top:18px;background:var(--dt-bg);color:var(--dt-ink);font-family:var(--f-dt);font-size:17px;line-height:1.5;color-scheme:light}
+  position:relative;width:100vw;margin-inline:calc(50% - 50vw);margin-top:22px;background:var(--dt-bg);color:var(--dt-ink);font-family:var(--f-dt);font-size:17px;line-height:1.5;color-scheme:light}
 .dt :focus-visible{outline:2px solid var(--dt-ink);outline-offset:3px}
 .dt button{font-family:var(--f-dt)}
 .dt-stage{position:relative;height:max(620px,min(88vh,900px));overflow:hidden;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;outline:none}
@@ -1798,6 +1831,15 @@ function App(){
     window.addEventListener("keydown", onKey); return function(){ window.removeEventListener("keydown", onKey); };
   }, [drawer, open]);
 
+  // The active tab sits on an ink pill that slides between tabs.
+  var tabsRef = useRef(null), _ink = useState(null), ink = _ink[0], setInk = _ink[1];
+  useEffect(function(){
+    function place(){ var w = tabsRef.current; if (!w) return; var b = w.querySelector('[aria-current="page"]'); if (!b) return setInk(null);
+      setInk({ width:b.offsetWidth + "px", transform:"translateX(" + b.offsetLeft + "px)" });
+      var l = b.offsetLeft - w.scrollLeft; if (l < 0 || l + b.offsetWidth > w.clientWidth) w.scrollTo({ left:b.offsetLeft - 24, behavior:"smooth" }); }
+    place(); var t = setTimeout(place, 400); window.addEventListener("resize", place);
+    return function(){ clearTimeout(t); window.removeEventListener("resize", place); };
+  }, [st.tab, st.mode, st.started]);
   function up(fn){ setSt(function(prev){ var n = JSON.parse(JSON.stringify(prev)); fn(n); return n; }); }
   var real = st.mode === "real";
   var score = real ? realScore(st.real) : ficScore(st.fic);
@@ -1808,31 +1850,35 @@ function App(){
   function setMode(m){ up(function(n){ n.mode = m; n.tab = m === "real" ? "brief" : "rooms"; n.room = null; }); setOpen(null); }
   function go(tab){ up(function(n){ n.tab = tab; n.room = null; }); }
 
+  var cream = st.started && real && st.tab === "timeline";
+  var ch = "chrome" + (cream ? " cream" : "");
   var header = html`
-    <header className="top">
+    <header className=${"top " + ch}>
       <div className="wrap">
         <div className="brand"><button className="brand-btn" title="Back to the title screen" onClick=${function(){ up(function(n){ n.started = false; }); setOpen(null); }}><b>The Case of the Vanishing Valuation</b>
           <span>${real ? "Case Explorer · the public record" : "Fictional Mystery · not a true story"}</span></button></div>
         ${st.started && html`
         <div className="tools">
-          <div className="modes" role="group" aria-label="Mode">
+          <div className="pill-switch" role="group" aria-label="Mode" data-on=${real ? 0 : 1}>
             <button aria-pressed=${real} onClick=${function(){setMode("real");}}>Case Explorer</button>
             <button aria-pressed=${!real} onClick=${function(){setMode("fiction");}}>Fictional Mystery</button>
+            <span aria-hidden="true"></span>
           </div>
-          ${real && html`<div className="lens-toggle" role="group" aria-label="Evidence lens">
+          ${real && html`<div className=${"pill-switch lens" + (st.lens === "born" ? " born" : "")} role="group" aria-label="Evidence lens" data-on=${st.lens === "born" ? 1 : 0}>
             <button aria-pressed=${st.lens !== "born"} title=${LENSES.facts.note} onClick=${function(){ up(function(n){ n.lens = "facts"; }); }}>Stick to the facts</button>
             <button aria-pressed=${st.lens === "born"} title=${LENSES.born.note} onClick=${function(){ up(function(n){ n.lens = "born"; }); }}>Born on a day</button>
+            <span aria-hidden="true"></span>
           </div>`}
-          <span className="score" aria-live="polite" title="Points come from sourcing, classification, uncertainty, double-count avoidance, and alternatives. Never from accusations.">${sum(score)} pts</span>
-          <button className="btn" aria-pressed=${st.humor} onClick=${function(){ up(function(n){ n.humor = !n.humor; }); }}>Dry humor: ${st.humor ? "on" : "off"}</button>
+          <span className="score" aria-live="polite" title="Points come from sourcing, classification, uncertainty, double-count avoidance, and alternatives. Never from accusations."><b>${sum(score)}</b> pts</span>
+          <button className="btn" aria-pressed=${st.humor} onClick=${function(){ up(function(n){ n.humor = !n.humor; }); }}><i aria-hidden="true"></i>Dry humor</button>
           ${real && html`<button className="btn" onClick=${function(){ setDrawer({}); }}>Source drawer</button>`}
-          <button className="btn" onClick=${function(){ setConfirmReset(true); }}>Reset</button>
+          <button className="btn round" aria-label="Reset progress" title="Reset progress" onClick=${function(){ setConfirmReset(true); }}><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M4.5 10a5.5 5.5 0 1 0 1.7-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/><path d="M5.5 2.8v3.6h3.6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></button>
         </div>`}
       </div>
     </header>
-    <div className="strip"><div className="wrap">
-      <span>Evidence current through: <b>Not yet verified</b> <span style=${{opacity:.8}}>(latest document reviewed: Aug. 13, 2026; full docket not reviewed)</span></span>
-      <span className="fbi">Official victim resources: <a href=${FBI_URL} target="_blank" rel="noopener noreferrer">${FBI_LABEL}</a> <span style=${{opacity:.8}}>(external site; contents not verified here; no affiliation)</span></span>
+    <div className=${"strip " + ch}><div className="wrap">
+      <span>Evidence current through: <b>Not yet verified</b> <span className="soft">(latest document reviewed: Aug. 13, 2026; full docket not reviewed)</span></span>
+      <span className="fbi">Official victim resources: <a href=${FBI_URL} target="_blank" rel="noopener noreferrer">${FBI_LABEL}</a> <span className="soft">(external site; contents not verified here; no affiliation)</span></span>
     </div></div>
     ${confirmReset && html`<div className="notice-bar" role="alertdialog" aria-label="Confirm reset"><div className="wrap" style=${{display:"flex",gap:"10px",flexWrap:"wrap",alignItems:"center"}}>
       <span>Erase all progress saved in this browser, for both modes?</span>
@@ -1859,10 +1905,11 @@ function App(){
 
   return html`
     ${header}
-    <nav className="tabs" aria-label="Sections"><div className="wrap">
+    <nav className=${"tabs " + ch} aria-label="Sections"><div className="wrap" ref=${tabsRef}>
       ${tabs.map(function(t){ return html`<button key=${t[0]} aria-current=${st.tab===t[0] ? "page" : undefined} onClick=${function(){ go(t[0]); }}>${t[1]}</button>`; })}
+      <span className="tab-ink" aria-hidden="true" style=${ink}></span>
     </div></nav>
-    <main className=${real ? "" : "fic-band"}><div className="wrap">${body}</div></main>
+    <main className=${(real ? "" : "fic-band") + (cream ? " cream" : "")}><div className="wrap">${body}</div></main>
     <footer><div className="wrap">
       An independent educational experience: not legal advice, not an official investigation, and not an accusation of criminal guilt. Allegations are not findings. The real case may remain unresolved. Built from documents reviewed on ${REVIEW_DATE}, plus public filings and dockets added to the timeline on October 23, 2026; not reviewed by a lawyer. Progress is saved only in this browser.
     </div></footer>
