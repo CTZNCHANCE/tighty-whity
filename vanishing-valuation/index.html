@@ -1895,15 +1895,15 @@ var MYSTERIES = [
    ============================================================ */
 var KEY = "vanishing-valuation-v1";
 function blank(){
-  return { started:false, mode:"real", humor:true, lens:"facts", tab:"brief", room:null,
+  return { started:true, mode:"real", humor:true, lens:"facts", tab:"timeline", room:null,
     real:{ guess:{}, sourced:{}, alt:{}, board:{}, ledger:{}, wit:{}, res:{}, inq:{} },
     fic:{ seen:{}, board:{}, culprit:"", mech:"", picks:[], alts:{}, submitted:false } };
 }
 function load(){
   try { var raw = localStorage.getItem(KEY); if(!raw) return blank();
     var s = JSON.parse(raw), b = blank();
-    // Every visit opens on the poster; saved progress is kept.
-    return Object.assign(b, s, { started:false, real:Object.assign(b.real, s.real||{}), fic:Object.assign(b.fic, s.fic||{}) });
+    // Every visit opens on the timeline; saved progress is kept. The title screen is one click away on the brand.
+    return Object.assign(b, s, { started:true, mode:"real", tab:"timeline", room:null, real:Object.assign(b.real, s.real||{}), fic:Object.assign(b.fic, s.fic||{}) });
   } catch(err){ return blank(); }
 }
 function save(s){ try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(err){} }
