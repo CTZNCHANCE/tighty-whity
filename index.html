@@ -616,11 +616,113 @@ body:has(.dt){overflow-x:clip}
 @media (prefers-reduced-motion:reduce){
   .dt *,.dt *::before{transition-duration:.01ms!important;animation-duration:.01ms!important}
 }
-.v2door{display:flex;flex-direction:column;gap:4px;text-decoration:none;border:1px dashed var(--gold-dim);padding:14px 18px;color:var(--bone)}
+.v2door{display:flex;flex-direction:column;gap:4px;text-align:left;background:transparent;font:inherit;cursor:pointer;border:1px dashed var(--gold-dim);padding:14px 18px;color:var(--bone)}
 .v2door:hover{border-color:var(--gold)}
 .v2door .reel{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.24em;font-size:.68rem;color:var(--gold)}
 .v2door b{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:1.5rem;line-height:1.1}
 .v2door span:last-child{font-size:.92rem;color:var(--bone-dim)}
+/* The VPEG File: the decisive read, set in the timeline's cream language */
+.vf{--vf-ink:#34312F;--vf-soft:#89827B;--vf-line:#E8DDD8;--vf-pill:#353433;font-family:"Alegreya Sans","Gill Sans",system-ui,sans-serif;font-size:17px;color:var(--vf-ink);padding-bottom:64px}
+.vf h3,.vf h4,.vf h5{font-family:inherit;color:var(--vf-ink)}
+.vf b{font-weight:700}
+.vf .linkish{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;text-decoration-color:rgba(52,49,47,.35);text-underline-offset:3px;cursor:pointer}
+.vf .chip{border-radius:999px;background:transparent;border-width:1px;padding:3px 10px}
+.vf .dlg-btn{font-family:inherit!important;text-transform:none!important;letter-spacing:0!important;font-size:14px!important;border:1px solid var(--vf-line)!important;background:transparent!important;color:var(--vf-ink)!important;border-radius:999px;padding:3px 12px!important;min-height:30px!important}
+.vf .dlg-btn:hover{background:var(--vf-pill)!important;color:#FBF6F1!important}
+.vf-soft{color:var(--vf-soft)}
+.vf-jump{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 26px}
+.vf-jump button,.vf-pill{border:1px solid var(--vf-line);background:transparent;color:var(--vf-ink);border-radius:999px;padding:7px 15px;font:inherit;font-size:15px;cursor:pointer;transition:background .2s,color .2s}
+.vf-jump button:hover,.vf-pill:hover,.vf-pill[aria-pressed="true"]{background:var(--vf-pill);color:#FBF6F1;border-color:var(--vf-pill)}
+.vf-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;margin-bottom:12px}
+.vf-tile{border-radius:28px;padding:18px 20px;background:linear-gradient(135deg,rgba(242,190,78,.16),rgba(233,102,92,.12) 55%,rgba(143,76,124,.14));display:grid;gap:2px}
+.vf-tile b{font-style:italic;font-weight:300;font-size:clamp(28px,3vw,38px);line-height:1.05;letter-spacing:-.01em}
+.vf-tile span{font-size:15px}
+.vf-tile small{font-size:13px;color:var(--vf-soft);margin-top:4px}
+.vf-shead{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin:56px 0 18px;scroll-margin-top:24px}
+.vf-shead h3{font-style:italic;font-weight:300;font-size:clamp(30px,4vw,44px);line-height:1.05;margin:0}
+.vf-shead > span:last-child{font-style:italic;color:var(--vf-soft);font-size:17px}
+.vf-no{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--vf-pill);color:#FBF6F1;font-style:italic;font-weight:700;font-size:15px;align-self:center}
+.vf-card{background:#fff;border:1px solid var(--vf-line);border-radius:28px;padding:24px 26px;margin-bottom:16px;box-shadow:0 30px 60px -48px rgba(52,49,47,.5)}
+.vf-card h4{font-style:italic;font-weight:700;font-size:22px;margin:0 0 8px;line-height:1.2}
+.vf-card p{margin:0 0 12px}
+.vf-op{display:inline-flex;align-items:center;border-radius:999px;background:#8a1640;color:#fff;font-size:13px;padding:3px 11px;margin-right:6px;vertical-align:2px;white-space:nowrap}
+.vf-rules{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:16px}
+.vf-rule{display:grid;gap:4px;padding:20px 22px;border:1px solid var(--vf-line);border-radius:28px;background:rgba(255,255,255,.55)}
+.vf-rule b{font-style:italic;font-size:19px;line-height:1.2}
+.vf-rule span:last-child{color:#5f5953;font-size:15.5px}
+.vf-n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#F2BE4E,#E9665C);color:#fff;font-style:italic;font-weight:700;font-size:14px;margin-bottom:4px}
+.vf-callcard{border-radius:40px;padding:30px 34px;background:linear-gradient(135deg,#fff,#FDF7F0)}
+.vf-big{font-size:clamp(20px,2.2vw,26px);line-height:1.35;margin-top:12px!important}
+.vf-money{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px;align-items:start}
+.vf-money > .vf-card{margin-bottom:0}
+.vf-money + .vf-card{margin-top:16px}
+.vf-chart-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}
+.vf-bars{list-style:none;margin:14px 0 10px;padding:0;display:grid;gap:12px}
+.vf-bars li{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:2px 14px;align-items:center}
+.vf-bar-k{font-size:15px;text-align:right}
+.vf-bar-track{display:flex;align-items:center;gap:8px;height:26px}
+.vf-bar-track i,.vf-legend i{display:block;height:100%;border-radius:999px;min-width:10px}
+.vf-bar-track b{font-style:italic;font-size:15px;white-space:nowrap}
+.vf-bars small{grid-column:2;font-size:13px;color:var(--vf-soft)}
+i.insider{background:linear-gradient(90deg,#E9665C,#F49B3D)}
+i.lp{background:linear-gradient(90deg,#8F4C7C,#7395E2)}
+.vf-legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--vf-soft);margin-bottom:10px}
+.vf-legend span{display:inline-flex;align-items:center;gap:8px}
+.vf-legend i{width:22px;height:10px}
+.vf-donts{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.vf-donts li{padding-left:16px;border-left:3px solid #E9665C;font-size:16px}
+.vf-tablewrap{overflow-x:auto}
+.vf-table{border-collapse:collapse;width:100%;font-size:15px}
+.vf-table th{text-align:left;font-weight:500;font-style:italic;color:var(--vf-soft);padding:8px 10px;border-bottom:1px solid var(--vf-line)}
+.vf-table td{padding:10px;border-bottom:1px solid var(--vf-line);vertical-align:top}
+.vf-table .num{font-family:inherit;font-style:italic;font-weight:700;white-space:nowrap}
+.vf-meta{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center;vertical-align:middle}
+.vf-players{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.vf-player{display:flex;flex-direction:column;gap:10px;margin:0}
+.vf-player-h{display:flex;gap:14px;align-items:center}
+.vf-player-h h4{margin:0}
+.vf-player-h .vf-soft{font-size:14px;font-style:italic}
+.vf-callline{font-size:16.5px;line-height:1.5}
+.vf-conf{align-self:flex-start;border:1px solid var(--vf-line);border-radius:999px;padding:3px 12px;font-size:13.5px;font-style:italic;color:var(--vf-soft)}
+.vf-k{font-style:italic;color:var(--vf-soft);margin:4px 0 0!important}
+.vf-rows{margin:0;padding-left:18px;display:grid;gap:8px;font-size:15.5px}
+.vf-rows .vf-meta{margin-top:4px}
+.vf details summary{cursor:pointer;font-style:italic;color:var(--vf-soft)}
+.vf details[open] summary{margin-bottom:8px}
+.vf-lede{max-width:66ch;font-size:18px;color:#5f5953}
+.vf-stories{display:grid;gap:18px}
+.vf-story{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;background:#fff;border:1px solid var(--vf-line);border-radius:48px;padding:28px 32px}
+.vf-odds{--c1:#F2BE4E;--c2:#E9665C;width:132px;aspect-ratio:1;border-radius:50%;display:grid;place-content:center;text-align:center;background:radial-gradient(closest-side,#FBF6F1 76%,transparent 77%),conic-gradient(var(--c2) calc(var(--p) * 1%),#EEE6E1 0)}
+.vf-story.interesting .vf-odds{--c2:#8F4C7C}
+.vf-story.wild .vf-odds{--c2:#7395E2}
+.vf-odds b{font-style:italic;font-weight:300;font-size:40px;line-height:1}
+.vf-odds span{font-size:13px;color:var(--vf-soft);font-style:italic}
+.vf-story-t h4{font-style:italic;font-weight:700;font-size:clamp(24px,2.6vw,32px);margin:2px 0 8px;line-height:1.1}
+.vf-logline{font-size:18px;line-height:1.45}
+.vf-beats{margin:0 0 12px;padding-left:20px;display:grid;gap:4px;font-size:16px}
+.vf-outcomes{list-style:none;margin:0;padding:0;display:grid}
+.vf-outcomes li{display:grid;grid-template-columns:1fr minmax(160px,240px);gap:20px;align-items:center;padding:16px 0;border-top:1px solid var(--vf-line)}
+.vf-outcomes h5{font-style:italic;font-weight:700;font-size:18px;margin:0 0 4px}
+.vf-outcomes p{margin:0;font-size:15px;color:#5f5953}
+.vf-meter{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:center}
+.vf-meter b{font-style:italic;font-weight:300;font-size:28px;grid-row:span 2}
+.vf-meter-bar{height:10px;border-radius:999px;background:#EEE6E1;overflow:hidden}
+.vf-meter-bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#F2BE4E,#E9665C,#8F4C7C)}
+.vf-meter small{font-size:13px;color:var(--vf-soft);font-style:italic}
+.vf-takes{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.vf-take{margin:0;display:flex;flex-direction:column;gap:4px}
+.vf-take h4{font-size:20px}
+.vf-dry{font-style:italic;color:#8a1640}
+@media (max-width:820px){
+  .vf-money{grid-template-columns:1fr}
+  .vf-story{grid-template-columns:1fr;border-radius:32px;padding:22px}
+  .vf-odds{width:104px}
+  .vf-outcomes li{grid-template-columns:1fr}
+  .vf-bars li{grid-template-columns:1fr}
+  .vf-bar-k{text-align:left}
+  .vf-bars small{grid-column:1}
+  .vf-players{grid-template-columns:1fr}
+}
 footer{border-top:1px solid var(--rule);padding-block:20px;font-size:.84rem;color:var(--bone-dim);background:#050605}
 </style>
 
@@ -642,7 +744,6 @@ var useState = React.useState, useEffect = React.useEffect, useRef = React.useRe
 var FBI_URL = "https://forms.fbi.gov/victims/seeking-victim-information-in-the-visionary-private-equity-group-investigation";
 var FBI_LABEL = "FBI: Seeking Victim Information in the Visionary Private Equity Group Investigation";
 var REVIEW_DATE = "October 6, 2026";
-var V2_URL = "https://tighty-whity.vercel.app/v2";
 
 var SOURCES = {
   S88: {
@@ -1860,6 +1961,11 @@ function App(){
   useEffect(function(){ save(st); }, [st]);
   // A shared timeline link (#timeline/from:…/to:…) skips the poster and opens the timeline.
   useEffect(function(){ if (tlParseHash()) up(function(n){ n.started = true; n.mode = "real"; n.tab = "timeline"; n.room = null; }); }, []);
+  // #file (and the retired /v2 page, which redirects here) opens The VPEG File.
+  useEffect(function(){
+    function onHash(){ if (location.hash === "#file") up(function(n){ n.started = true; n.mode = "real"; n.tab = "file"; n.room = null; }); }
+    onHash(); window.addEventListener("hashchange", onHash); return function(){ window.removeEventListener("hashchange", onHash); };
+  }, []);
   useEffect(function(){
     function onKey(ev){ if (ev.key === "Escape"){ if (drawer) setDrawer(null); else if (open) setOpen(null); } }
     window.addEventListener("keydown", onKey); return function(){ window.removeEventListener("keydown", onKey); };
@@ -1878,13 +1984,13 @@ function App(){
   var real = st.mode === "real";
   var score = real ? realScore(st.real) : ficScore(st.fic);
   var tabs = real
-    ? [["brief","The case in brief"],["files","Case files"],["inquiry","The Inquiry"],["rooms","Rooms"],["board","Caseboard"],["timeline","Timeline"],["people","People & entities"],["challenges","Challenges"],["sources","Sources"],["assess","Evidence Assessment"]]
+    ? [["brief","The case in brief"],["file","The VPEG File"],["files","Case files"],["inquiry","The Inquiry"],["rooms","Rooms"],["board","Caseboard"],["timeline","Timeline"],["people","People & entities"],["challenges","Challenges"],["sources","Sources"],["assess","Evidence Assessment"]]
     : [["rooms","The rooms"],["board","Caseboard"],["timeline","Timeline"],["people","The family"],["deduce","The drawing room"]];
 
   function setMode(m){ up(function(n){ n.mode = m; n.tab = m === "real" ? "brief" : "rooms"; n.room = null; }); setOpen(null); }
   function go(tab){ up(function(n){ n.tab = tab; n.room = null; }); }
 
-  var cream = st.started && real && st.tab === "timeline";
+  var cream = st.started && real && (st.tab === "timeline" || st.tab === "file");
   var ch = "chrome" + (cream ? " cream" : "");
   var header = html`<${EmblemSprite} />
     <header className=${"top " + ch}>
@@ -1911,7 +2017,6 @@ function App(){
       </div>
     </header>
     <div className=${"strip " + ch}><div className="wrap">
-      <a href=${V2_URL} target="_blank" rel="noopener noreferrer"><b>The VPEG File</b> (earlier companion summary, no fiction) ↗</a>
       <span>Evidence current through: <b>Not yet verified</b> <span className="soft">(latest document reviewed: Aug. 13, 2026; full docket not reviewed)</span></span>
       <span className="fbi">Official victim resources: <a href=${FBI_URL} target="_blank" rel="noopener noreferrer">${FBI_LABEL}</a> <span className="soft">(external site; contents not verified here; no affiliation)</span></span>
     </div></div>
@@ -1926,6 +2031,7 @@ function App(){
   var body;
   if (st.tab === "rooms") body = st.room ? html`<${Room} st=${st} id=${st.room} up=${up} openCard=${setOpen} />` : html`<${Rooms} st=${st} up=${up} />`;
   else if (st.tab === "brief") body = html`<${Brief} st=${st} go=${go} />`;
+  else if (st.tab === "file") body = html`<${VPEGFile} st=${st} go=${go} openSrc=${function(s){ setDrawer({src:s}); }} />`;
   else if (st.tab === "files") body = html`<${CaseFiles} st=${st} openSrc=${function(s){ setDrawer({src:s}); }} />`;
   else if (st.tab === "inquiry") body = html`<${Inquiry} st=${st} up=${up} openCard=${setOpen} />`;
   else if (st.tab === "board") body = html`<${Board} st=${st} up=${up} openCard=${setOpen} score=${score} />`;
@@ -2045,11 +2151,11 @@ function Welcome(p){
           <span className="truecard">This is not a true story.</span>
           <span>Pellingham Manor. One missing orchard. Seven people who would all prefer it was somebody else. Invented from top to bottom, with a fair solution.</span>
         </button>
-        <a className="v2door" href=${V2_URL} target="_blank" rel="noopener noreferrer">
-          <span className="reel">Earlier companion piece</span>
+        <button className="v2door" onClick=${function(){ up(function(n){ n.started = true; n.mode = "real"; n.tab = "file"; }); }}>
+          <span className="reel">Also in Part One</span>
           <b>The VPEG File</b>
-          <span>An earlier one-page summary: the money, the players, three storylines and our odds. This site has the newest timeline. Opens in a new tab.</span>
-        </a>
+          <span>No game. Our call, the money, the players, three storylines and our odds, every fact labeled and linked.</span>
+        </button>
         <p className="ui muted" style=${{fontSize:".85rem",margin:0}}>Points reward sourcing, classification, spotting uncertainty, avoiding double-counting, and weighing alternatives. Accusations earn nothing.</p>
       </div>
     </div>
@@ -2911,6 +3017,298 @@ function CaseTimeline(p){
       </div>
     </div>
   </div>`;
+}
+
+/* ---------- The VPEG File: the decisive read (folded in from the retired /v2 page) ---------- */
+var VF_RULES = [
+  { t:"When someone shows you who they are, believe them.", d:"We weigh what people did, signed and sent over what they said they'd do." },
+  { t:"The small things are the big things.", d:"A $14.50 gross profit. A managing director locked out of her own bank account. A loan due back in four days." },
+  { t:"Make the call.", d:"Every section ends in a decision, with a confidence level. Hedging isn't analysis." },
+  { t:"We might be wrong. We'll live.", d:"Every call says what would change our mind. Every fact under it is labeled and linked, so you can check our homework." }
+];
+
+
+var VF_FLOW = [
+  { k:"Zamber", v:4.7, g:"insider", note:"Direct payments since Jan. 2021 (alleged)" },
+  { k:"Visionary Fund Manager", v:1.6, g:"insider", note:"“Management fees” since 2021 (alleged); owned by Zamber and Cosby (alleged)" },
+  { k:"Grenley", v:0.734, g:"insider", note:"Direct payments since Jan. 2021 (alleged)" },
+  { k:"Cosby", v:0.655, g:"insider", note:"Direct payments since Jan. 2021 (alleged)" },
+  { k:"~1,000 other limited partners", v:3.0, g:"lp", note:"Distributions to non-insider investors since 2021 (alleged)" }
+];
+var VF_FIGS = [
+  ["Raised from investors, lifetime","≈ $90M","To date, as reported in testimony","S88","p. 3","sworn"],
+  ["Cash receipts","≈ $55M","Since Jan. 2021, incl. $43.5M new investment","SJLP","¶ 44","plaintiff"],
+  ["Cash spent","$57.4M","Since Jan. 2021: investments, fees, expenses, payouts","SJLP","¶ 45","plaintiff"],
+  ["Wired to Zamber (floor)","≥ $1,779,462.63","Partial records one manager could see","S88","p. 6","sworn"],
+  ["To the three individuals","> $7M","2020 to present","S264","p. 4","plaintiff"],
+  ["To media affiliates","> $10M + $1.2M expenses","Investment or diversion: disputed","SJLP","¶ 54","plaintiff"],
+  ["Investor short-term loans","$1.6M (+$100K)","2022–2023; > $2M owed with interest and fees","S88","p. 8","sworn"],
+  ["Cash on hand","$218,000","End of 2023, unaudited","S88","p. 9","sworn"],
+  ["Cash on hand","$0","August 2025","SJLP","¶ 69","plaintiff"]
+];
+var VF_DONTS = [
+  ["Don't add $90M and $55M.","The $43.5M of new money since 2021 is part of the lifetime $90M."],
+  ["Don't add >$5.2M and $4.7M for Zamber.","Same person, overlapping periods, two different complaints."],
+  ["Don't add “over $10M to affiliates” and “$10.2M invested in affiliates.”","It's probably the same money, described two ways."],
+  ["Don't call $57.4M “stolen.”","It's all spending: investments, fees, expenses and payouts."],
+  ["Don't call $90M “the loss.”","No final loss number exists. Some holdings may be worth something."]
+];
+
+
+var VF_PLAYERS = [
+  { name:"Dr. Ronald Zamber", role:"Chairman · Senior Managing Director · defendant",
+    call:"An optimist who got paid first. The money moved toward him, under his own signature, while investors were told the payday was next quarter. He knew the Fund was in trouble by 2022, and certainly by the end of 2023.",
+    conf:"High on knowledge · disputed on intent",
+    showed:[
+      ["At least $1,779,462.63 wired to him, from the partial records one manager could see; no wire left without his signature (testimony).","sworn","S88","p. 6"],
+      ["Promised a lender repayment in four days because he “had vetted four new investors.”","sworn","S88","p. 8"],
+      ["Said the loans would be repaid by the end of 2024 because “he had over $50 million lined up.”","sworn","S88","p. 8"],
+      ["Texts quoted in a complaint ask for wires, one after “a huge surprise at the clinic.”","plaintiff","SJLP","¶ 47"]
+    ],
+    more:[
+      ["Court: credible evidence that he and Cosby siphoned funds “for their apparent personal use.”","court","S88","p. 21"],
+      ["Court: misrepresentations by him and Grenley “credibly shown.”","court","S88","p. 21"],
+      ["Over $5.2M (2020 on) or about $4.7M (2021 on), per two complaints","plaintiff","S264","n. 6"],
+      ["Defense: the wires repaid “a loan to the fund.” No loan paper is in the reviewed record.","defense","S88","n. 5"]
+    ],
+    change:"A signed loan agreement, and bank records showing he put in at least what he took out." },
+  { name:"Michael Cosby", role:"General counsel · co-signatory · defendant",
+    call:"The gatekeeper who held a key and built a fence. You don't hide money from your partner unless you've watched your partner spend it. He saw it, and the wires kept going.",
+    conf:"High that he knew where the money went · medium on when he saw a problem",
+    showed:[
+      ["Co-managed the account; wires needed his signature (testimony).","sworn","S88","p. 6"],
+      ["Told Bonetti he'd set up an account Zamber didn't know about, so funds wouldn't be spent (as reported).","reported","SSLM","article"],
+      ["Refused Hart's questions “beyond generic responses” and refused audited reports.","sworn","S88","p. 9"],
+      ["Handed over a 2024 summary showing a year-to-date gross profit of $14.50.","sworn","S88","p. 9"]
+    ],
+    more:[
+      ["Alleged: prepared the Fund's tax filings and oversaw subscriptions.","plaintiff","SJLP","¶ 27"],
+      ["Law firm decided by late 2025 he wouldn't remain a partner (deposition, as quoted).","plaintiff","SJLP","¶ 90"],
+      ["At least $128,812.50 from partial records; about $655K since 2021 (alleged)","sworn","S88","p. 6"],
+      ["Not among the March 2026 movants; his merits position isn't in reviewed sources.","court","S264","p. 1"]
+    ],
+    change:"Dated records for the separate account, or anything in writing at the time showing he objected." },
+  { name:"Robert Grenley", role:"Director of Capital Development · defendant",
+    call:"The closer. Twenty-eight versions of the same forecast, each pushing the payday back, is someone who knew the dates were moving. If he also ran the companies he was forecasting, as alleged, he knew exactly how far.",
+    conf:"Medium · leans on allegations",
+    showed:[
+      ["Told lenders the loans were “to invest in the Fund and for expenses.”","sworn","S88","p. 8"],
+      ["With Zamber, asked an operations director to rewrite reports “in a more favorable light.”","sworn","S88","n. 6"],
+      ["Said Hart's $50,000 POP! Gourmet investment would buy spices and packaging; neither was bought.","sworn","S88","n. 8"],
+      ["Alleged CEO of POP! Gourmet and Shop4E, forecast at $10M and $20M.","plaintiff","SJLP","¶ 38"]
+    ],
+    more:[
+      ["Court: misrepresentations by him and Zamber “credibly shown.”","court","S88","p. 21"],
+      ["Over $800K (2020 on) or about $734K (2021 on), per two complaints","plaintiff","S264","n. 6"]
+    ],
+    change:"Proof he didn't control those companies' books, or real term sheets behind the forecasts." },
+  { name:"James Hart", role:"President, Oliver Family Office · plaintiff · witness",
+    call:"The investor who asked. He asked for audits for years and got “unaudited, unreconciled.” His account lines up with the documents, which is why the court leaned on it.",
+    conf:"High · he's an interested party, and the paper backs him",
+    showed:[
+      ["Received statements labeled “unaudited, unreconciled, and non-tax basis.”","sworn","S88","p. 9"],
+      ["Zamber refused audited statements “for at least four to five years.”","sworn","S88","p. 9"],
+      ["Lent money on promises; none of the loans came back.","sworn","S88","p. 8"]
+    ],
+    more:[
+      ["Former POP! Gourmet board member: no popcorn made in over two years.","sworn","S88","p. 7"],
+      ["Named plaintiff with a financial stake","court","S88","pp. 1–2"]
+    ],
+    change:"" },
+  { name:"Brigitte Bonetti", role:"Managing Director, Investor Relations · witness",
+    call:"The managing director locked out of her own bank account. Believe the lockout: funds don't get run that way by accident.",
+    conf:"High",
+    showed:[
+      ["Access “cut off for long periods of time” starting in 2018.","sworn","S88","p. 6"],
+      ["Found wires to Zamber, Cosby and entities she didn't recognize.","sworn","S88","p. 6"],
+      ["Testified that Zamber and Cosby were the only decision-makers on spending.","plaintiff","SJLP","¶ 82"]
+    ],
+    more:[["She and colleagues said they were owed nearly $400,000 in back pay (as reported).","reported","SSLM","article"]],
+    change:"" },
+  { name:"Husch Blackwell LLP", role:"Defendant in the separate class action",
+    call:"The deep pocket with its name on the envelope. Not liable yet, and maybe never. It's still the most interesting defendant in the story, because it's the one that can pay.",
+    conf:"Opinion on importance · liability undecided",
+    showed:[
+      ["Named as Fund counsel in the subscription booklet; paperwork directed to its partner (alleged).","plaintiff","SJLP","¶¶ 10–11"],
+      ["Alleged: at least 14 payments from VPEG categorized as legal fees.","plaintiff","SJLP","¶ 89"],
+      ["Alleged: the Zamber–Cosby texts sat on firm-controlled systems.","plaintiff","SJLP","¶ 86"]
+    ],
+    more:[["No class certified; the firm's response wasn't reviewed.","unverified","SJLP","p. 1"]],
+    change:"Evidence that the firm never knew of Cosby's financial role, or that his VPEG work was outside firm business." }
+];
+
+
+var VF_STORIES = [
+  { cls:"likely", label:"Storyline 1 · The most likely (the common-sense one)", title:"The Long Goodbye", odds:60,
+    logline:"A fund that ran out of exits kept the lights on with new money, investor loans and optimism, while the people at the top paid themselves first. Nobody planned a heist. They just never stopped selling.",
+    beats:[
+      "A friends-and-family fund grows to about $90 million and stops getting audited.",
+      "Exits don't come. The 2021 distribution is the last real payout.",
+      "To cover the gap: short-term loans from investors, a buy-one-get-one share price, and “soon closing” urgency.",
+      "Insiders keep getting wired; the bills, the rent and the lenders don't.",
+      "A judge takes the keys in 2025.",
+      "The ending: the principals settle or lose a judgment they can't fully pay, the receiver sells what's left, and investors get cents on the dollar, years from now."
+    ],
+    dots:"Connects the $218,000 at the end of 2023, the loans that never came back, the 1.5-shares-per-dollar sale, and the wires that kept flowing. It's the one storyline every document fits without strain.",
+    kills:"Real buyer letters or term sheets showing exits that genuinely fell through, plus signed loan agreements behind the insider wires." },
+  { cls:"interesting", label:"Storyline 2 · The most interesting (and nearly as possible)", title:"The Letterhead", odds:35,
+    logline:"The money isn't in the fund; it's in the law firm. The real fight moves to the second lawsuit, where a large firm is the only deep pocket in sight, and everything turns on what its partner knew.",
+    beats:[
+      "The receiver finds the cupboard close to bare.",
+      "Investors look past the principals to the firm whose name and address were on the subscription paperwork.",
+      "The man who co-signed every wire is also the firm's partner. His knowledge, the complaint argues, is the firm's knowledge.",
+      "The firm parts ways with him in late 2025. The texts allegedly sat on its systems.",
+      "If the case survives a motion to dismiss, the firm settles rather than try a case about its letterhead.",
+      "The ending: the biggest recovery comes from the firm, not the fund."
+    ],
+    dots:"Connects the subscription booklet pointing to the firm, the separate account Cosby built, his firm email on financial statements, the firm's decision to part ways, and the fact that a law firm can pay a settlement and a cash-starved fund can't.",
+    kills:"A ruling that Cosby acted outside the firm's business, or that the firm lacked actual knowledge. Aiding-and-abetting claims are hard to win." },
+  { cls:"wild", label:"Storyline 3 · The wildcard", title:"The Third Act Nobody Schedules", odds:25,
+    logline:"A federal criminal case. The FBI's site lists a page seeking victim information about a “Visionary Private Equity Group investigation.” If that turns into charges, the civil cases slow to a crawl, everyone stops talking, and the story becomes the government's to tell.",
+    beats:[
+      "The FBI's directory lists the page. We couldn't read its contents.",
+      "The judge remarked from the bench that it “sounds criminal.”",
+      "No one has been charged in anything we reviewed.",
+      "If charges come, they usually take years, and civil discovery tends to pause around them."
+    ],
+    dots:"Connects the FBI's victim-information page, the bench remark and the court's early findings. It's the thinnest record of the three, which is why it's the wildcard.",
+    kills:"No charges by 2028. The longer the silence, the less likely this act gets written." }
+];
+
+
+var VF_OUTCOMES = [
+  { t:"The receiver stays in charge through 2027", p:80, w:"The court found insolvency, dissipation risk and credible misrepresentations. Receivers are rarely unwound once in place, and the appeal is the main risk." },
+  { t:"The Eighth Circuit leaves the receivership in place", p:70, w:"Review is for abuse of discretion, which is deferential. But the jurisdiction argument is real: the district court itself said the appeals court could find the Fund is a diversity-destroying party (Doc. 264 p. 9)." },
+  { t:"The principals settle or lose on liability", p:75, w:"The fraud claims survived, the early findings are strong, and the defense's loan explanation has no paper behind it yet." },
+  { t:"A full trial actually happens", p:15, w:"Cases like this usually end in a settlement, a default or a judgment on the papers." },
+  { t:"Investors get some money back through the receiver", p:55, w:"There's a portfolio to sell and claims to pursue, but cash was reportedly $0 by August 2025, there are secured creditors, and the receiver costs $575 an hour." },
+  { t:"Investors get most of their money back", p:5, w:"Every number in the record points the other way." },
+  { t:"The law-firm case survives a motion to dismiss, at least in part", p:50, w:"The partner's dual role is unusual and well documented. But aiding and abetting needs actual knowledge and substantial assistance, and firms fight attribution hard." },
+  { t:"If it survives, the firm settles", p:70, w:"Firms rarely try investor-fraud cases about their own letterhead." },
+  { t:"Criminal charges against anyone connected to the Fund, by 2028", p:25, w:"An FBI victim-information page and a pointed remark from the bench. No charges found. Criminal cases take years." }
+];
+
+
+var VF_TAKEAWAYS = [
+  ["No audit, no deal.","The partnership agreement called for annual independent audits. The complaints allege none since 2011.","If a fund promised you audits and can't show you one, that is the audit.","plaintiff","S264","p. 4"],
+  ["Read the label on the statement.","Hart's statements were designated “unaudited, unreconciled, and non-tax basis.”","Three disclaimers on one balance sheet is a man saying “trust me” three times.","sworn","S88","p. 9"],
+  ["Urgency plus a discount is a contradiction.","“Soon closing” at $1, while some new investors bought at 1.5 shares per dollar.","Nobody runs a clearance sale on a hot ticket.","court","S88","pp. 7–8"],
+  ["A valuation is not a bank balance.","A closed clinic with laptops and freezers was marked at $1.7 million; the Fund had $218,000 in cash.","You can't pay the rent with a mark-to-market.","sworn","S88","pp. 7, 9"],
+  ["Lending to what you already own is doubling down.","$1.6 million in “three to six months” loans. None came back.","When a fund holding $90 million asks you for a little something till Friday, listen to what it's telling you.","sworn","S88","p. 8"],
+  ["Count who holds the keys.","Two signatures on every wire, and the managing director locked out.","Two keys held by the same two partners isn't a control. It's a dinner party.","sworn","S88","p. 6"],
+  ["One number, two answers, means nobody's counting.","$5.8 million, then $9.1 million, for the same distributions.","$3.3 million is not a rounding error.","court","S88","p. 3"],
+  ["Watch which way the money flows.","Alleged: about $7.5 million to insiders and the manager since 2021, against about $3 million to every other investor combined.","If the people running the fund are doing better than the fund, you already know the answer.","plaintiff","SJLP","¶¶ 32, 46"],
+  ["A famous letterhead isn't a guarantee.","Subscription paperwork allegedly went to a partner at a large law firm.","The address on the envelope tells you where to mail the check, not where it goes next.","plaintiff","SJLP","¶¶ 10–11"]
+];
+
+
+var VF_TILES = [
+  ["≈ $90M","raised from investors","Reported in testimony","sworn","S88","p. 3"],
+  ["≈ 1,000","limited partners","Testimony","sworn","S88","p. 3"],
+  ["$218,000","in the bank, end of 2023","Fund's unaudited statements","sworn","S88","p. 9"],
+  ["$14.50","gross profit, Jan.–Sept. 2024","Summary provided by Cosby","sworn","S88","p. 9"],
+  ["June 4, 2025","receiver takes control","Court order","court","S88","p. 23"],
+  ["0","judgments, trials or charges so far","In documents reviewed","unverified",null,null]
+];
+var VF_SECTIONS = [["vf-call","Our call"],["vf-money","The money"],["vf-players","The players"],["vf-stories","Storylines"],["vf-odds","Odds"],["vf-lessons","Takeaways"]];
+var VF_PLAYER_STATUS = { "Husch Blackwell LLP":"Defendant in a separate case" };
+
+function VFRow(p){ var r = p.r; return html`<li>${r[0]} <span className="vf-meta"><${Chip} status=${r[1]} />${r[2] && html`<${SrcBtn} src=${r[2]} pin=${r[3]} openSrc=${p.openSrc} />`}</span></li>`; }
+function VFHead(p){ return html`<div className="vf-shead" id=${p.id}><span className="vf-no">${p.no}</span><h3>${p.title}</h3><span>${p.sub}</span></div>`; }
+function VFOpinion(){ return html`<span className="vf-op">Our call · opinion, not a finding</span>`; }
+
+function VFMoney(p){
+  var _t = useState(false), table = _t[0], setTable = _t[1];
+  var max = 5, insiders = VF_FLOW.filter(function(d){ return d.g === "insider"; }).reduce(function(a, d){ return a + d.v; }, 0);
+  function fmt(v){ return "$" + (v < 1 ? Math.round(v * 1000) + "K" : v.toFixed(1) + "M"); }
+  return html`<div className="vf-card">
+    <div className="vf-chart-head"><h4>Where the money went, since 2021</h4><button className="vf-pill" aria-pressed=${table} onClick=${function(){ setTable(!table); }}>${table ? "Show chart" : "Show table"}</button></div>
+    <p className="vf-soft">In $ millions, as alleged in the JLP complaint. Payments to the insiders and their management company, against distributions to every other investor combined.</p>
+    ${table ? html`<div className="vf-tablewrap"><table className="vf-table"><thead><tr><th>Recipient</th><th>$M</th><th>What it is</th></tr></thead>
+      <tbody>${VF_FLOW.map(function(d){ return html`<tr key=${d.k}><td>${d.k}</td><td className="num">${d.v.toFixed(d.v < 1 ? 3 : 1)}</td><td>${d.note}</td></tr>`; })}</tbody></table></div>`
+    : html`<ul className="vf-bars" aria-label=${"Bar chart. " + VF_FLOW.map(function(d){ return d.k + " " + d.v + " million"; }).join("; ")}>
+      ${VF_FLOW.map(function(d){ return html`<li key=${d.k} title=${d.note}><span className="vf-bar-k">${d.k}</span>
+        <span className="vf-bar-track"><i className=${d.g} style=${{width:(d.v / max * 100) + "%"}}></i><b>${fmt(d.v)}</b></span><small>${d.note}</small></li>`; })}
+    </ul>`}
+    <div className="vf-legend"><span><i className="insider"></i>Insiders and their manager</span><span><i className="lp"></i>All other limited partners</span></div>
+    <p>Insiders and their manager: about <b>$${insiders.toFixed(1)}M</b> (the complaint rounds it to $7.5M). Everyone else: about <b>$3.0M</b>.</p>
+    <span className="vf-meta"><${Chip} status="plaintiff" /><${SrcBtn} src="SJLP" pin="¶¶ 32–33, 46" openSrc=${p.openSrc} /></span>
+  </div>`;
+}
+
+function VPEGFile(p){
+  var lens = p.st.lens;
+  function jump(id){ var el = document.getElementById(id); if (el) el.scrollIntoView({ behavior:"smooth", block:"start" }); }
+  return html`<section className="vf">
+    <div className="section-head"><h2>The VPEG File</h2><span>The money, the players, three storylines and our odds</span></div>
+    <${LensNote} lens=${lens} />
+    <p className="aside">The record, read decisively. Every fact is labeled and linked, and every judgment says it's ours. Sections marked “Our call” are opinion: our reading of the cited record, labeled as such, with what would change our mind. Not reviewed by a lawyer.</p>
+    <nav className="vf-jump" aria-label="Sections of The VPEG File">${VF_SECTIONS.map(function(s){ return html`<button key=${s[0]} onClick=${function(){ jump(s[0]); }}>${s[1]}</button>`; })}
+      <button onClick=${function(){ p.go("timeline"); }}>The timeline ↗</button></nav>
+
+    <div className="vf-tiles">${VF_TILES.map(function(t, i){ return html`<div key=${i} className="vf-tile"><b>${t[0]}</b><span>${t[1]}</span>
+      <small>${t[2]}${t[4] ? " · " : ""}${t[4] && html`<button className="linkish" onClick=${function(){ p.openSrc(t[4]); }}>${SOURCES[t[4]].short} ${t[5]}</button>`}</small></div>`; })}</div>
+
+    <${VFHead} id="vf-call" no="01" title="How we read it, and our call" sub="Decisive on purpose" />
+    <div className="vf-rules">${VF_RULES.map(function(r, i){ return html`<div key=${i} className="vf-rule"><span className="vf-n">${i + 1}</span><b>${r.t}</b><span>${r.d}</span></div>`; })}</div>
+    <div className="vf-card vf-callcard">
+      <${VFOpinion} />
+      <p className="vf-big">This is what it looks like: <b>a fund that sold a payday it couldn't deliver, kept raising money to cover the gap, and paid its insiders along the way.</b></p>
+      <p>By 2022–2023 at the latest, <b>the people running the Fund knew it was in serious trouble</b>, and the Fund kept selling anyway. The record says it plainly: they borrowed from their own investors, sold shares at a discount while calling it a last chance, and had $218,000 in the bank.</p>
+      <p>Investors are <b>unlikely to see most of their money again.</b> The case most likely ends in a settlement or a judgment, not a trial. The most interesting money in it may be the law firm's.</p>
+      <p className="vf-soft">What would change our mind: loan agreements behind the insider wires, real buyers behind the promised exits, or the receiver's numbers telling a different story.</p>
+    </div>
+
+    <${VFHead} id="vf-money" no="02" title="The money" sub="What can be said, and what can't be added" />
+    <div className="vf-money">
+      <${VFMoney} openSrc=${p.openSrc} />
+      <div className="vf-card"><h4>Five ways to get the math wrong</h4>
+        <ul className="vf-donts">${VF_DONTS.map(function(d, i){ return html`<li key=${i}><b>${d[0]}</b> ${d[1]}</li>`; })}</ul></div>
+    </div>
+    <div className="vf-card"><h4>Every figure in the record</h4>
+      <div className="vf-tablewrap"><table className="vf-table"><thead><tr><th>What</th><th>Amount</th><th>Period or context</th><th>Status and source</th></tr></thead>
+        <tbody>${VF_FIGS.map(function(f, i){ return html`<tr key=${i}><td>${f[0]}</td><td className="num">${f[1]}</td><td>${f[2]}</td><td><span className="vf-meta"><${Chip} status=${f[5]} /><${SrcBtn} src=${f[3]} pin=${f[4]} openSrc=${p.openSrc} /></span></td></tr>`; })}</tbody></table></div></div>
+
+    <${VFHead} id="vf-players" no="03" title="The players" sub="They showed us who they are" />
+    <div className="vf-players">${VF_PLAYERS.map(function(pl){ return html`<article key=${pl.name} className="vf-card vf-player">
+      <div className="vf-player-h"><${Mono} name=${pl.name} size=${56} /><div><h4>${pl.name}</h4><span className="vf-soft">${pl.role}</span></div></div>
+      <div className="vf-callline"><${VFOpinion} /> ${pl.call}</div>
+      <span className="vf-conf">${pl.conf}</span>
+      <p className="vf-k">What they showed us</p>
+      <ul className="vf-rows">${pl.showed.map(function(r, i){ return html`<${VFRow} key=${i} r=${r} openSrc=${p.openSrc} />`; })}</ul>
+      <details><summary>Full file</summary>
+        <ul className="vf-rows">${pl.more.map(function(r, i){ return html`<${VFRow} key=${i} r=${r} openSrc=${p.openSrc} />`; })}</ul>
+        ${pl.change && html`<p className="vf-soft"><b>What would change our mind:</b> ${pl.change}</p>`}
+      </details>
+    </article>`; })}</div>
+
+    <${VFHead} id="vf-stories" no="04" title="Three storylines" sub="Connecting the dots · our call" />
+    <p className="vf-lede">One storyline is the most likely. One is the most interesting, and nearly as possible. One is the wildcard. They can overlap, so each set of odds stands on its own and they don't add up to 100.</p>
+    <div className="vf-stories">${VF_STORIES.map(function(s){ return html`<article key=${s.title} className=${"vf-story " + s.cls}>
+      <div className="vf-odds" style=${{"--p":s.odds}}><b>${s.odds}%</b><span>our odds</span></div>
+      <div className="vf-story-t"><span className="vf-soft">${s.label}</span><h4>${s.title}</h4>
+        <p className="vf-logline">${s.logline}</p>
+        <ol className="vf-beats">${s.beats.map(function(b, i){ return html`<li key=${i}>${b}</li>`; })}</ol>
+        <p><b>Dots connected:</b> ${s.dots}</p>
+        <p><b>What kills it:</b> ${s.kills}</p>
+        <${VFOpinion} /></div>
+    </article>`; })}</div>
+
+    <${VFHead} id="vf-odds" no="05" title="Probable outcomes" sub="Our odds · next two years" />
+    <div className="vf-card">
+      <p className="vf-soft" style=${{marginTop:0}}><span className="vf-op">Forecast · opinion</span> Our odds, based on the cited record and how cases like this usually go. Not predictions from anyone involved, and not legal advice.</p>
+      <ul className="vf-outcomes">${VF_OUTCOMES.map(function(o, i){ return html`<li key=${i}>
+        <div><h5>${o.t}</h5><p>${o.w}</p></div>
+        <div className="vf-meter" aria-label=${o.t + ": " + o.p + " percent"}><b>${o.p}%</b><span className="vf-meter-bar"><i style=${{width:o.p + "%"}}></i></span><small>${o.p >= 70 ? "Likely" : o.p >= 45 ? "Coin flip" : o.p >= 20 ? "Possible" : "Unlikely"}</small></div>
+      </li>`; })}</ul>
+    </div>
+
+    <${VFHead} id="vf-lessons" no="06" title="Common-sense takeaways" sub="I was born on a day, not yesterday" />
+    <div className="vf-takes">${VF_TAKEAWAYS.map(function(t, i){ return html`<div key=${i} className="vf-card vf-take">
+      <span className="vf-n">${i + 1}</span><h4>${t[0]}</h4><p>${t[1]}</p><p className="vf-dry">${t[2]}</p>
+      <span className="vf-meta"><${Chip} status=${t[3]} /><${SrcBtn} src=${t[4]} pin=${t[5]} openSrc=${p.openSrc} /></span>
+    </div>`; })}</div>
+  </section>`;
 }
 
 function Timeline(p){

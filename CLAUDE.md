@@ -4,23 +4,22 @@ Handoff notes for any Claude session picking this project up. Read this first.
 
 ## What this is
 
-Two public web pages about the **Visionary Private Equity Group (VPEG) receivership**: *Oliver and Company et al. v. Zamber et al.*, No. 4:25-cv-00132-MTS (E.D. Mo.), plus the related *JLP Partners, LLC v. Husch Blackwell LLP*, No. 4:26-cv-01298 (E.D. Mo.).
+One public web page about the **Visionary Private Equity Group (VPEG) receivership**: *Oliver and Company et al. v. Zamber et al.*, No. 4:25-cv-00132-MTS (E.D. Mo.), plus the related *JLP Partners, LLC v. Husch Blackwell LLP*, No. 4:26-cv-01298 (E.D. Mo.).
 
 | Version | Live URL | Source file | What it is |
 |---|---|---|---|
 | V1 (**newest; the main site**) | https://tighty-whity.vercel.app | `vanishing-valuation/index.html` + `data/timeline.json` | An evidence game, rebuilt in PR #7 (Oct. 24, 2026) with a Dorot-style zoomable timeline, a matching top bar and tabs, and emblems and monograms. **Part One (Case Explorer):** the real record, case brief, case files, The Inquiry puzzles, and a facts / "born on a day, not yesterday" lens. **Part Two:** an invented manor whodunit. |
-| V2 (earlier, separate page) | https://tighty-whity.vercel.app/v2 | `v2-src/index.html` | "The VPEG File." Built before PR #7 and does not have the new timeline or design. No fiction. Our call, timeline, money chart, players, three storylines with odds, probable outcomes, takeaways and documents. |
+| (retired) /v2 | https://tighty-whity.vercel.app/v2 | `v2/index.html` (redirect only) | "The VPEG File" was folded into V1 as its own tab (`#file`) on Oct. 24, 2026. `/v2` now redirects to `/#file`; the old source is in git history (PR #6). |
 
-**PR #7 is the current version of the site.** When the two disagree on design or the timeline, follow V1 at the root. Never rebuild `index.html` from an older copy of the source.
+**PR #7 is the current version of the site,** and The VPEG File lives inside it as a tab. Never rebuild `index.html` from an older copy of the source.
 
-Both are single-file React pages (UMD React 18.3.1 + htm, from cdnjs/jsdelivr) with no build step and no backend.
+It is a single-file React page (UMD React 18.3.1 + htm, from cdnjs/jsdelivr) with no build step and no backend.
 
 ## Build and deploy
 
 - **V1 timeline data** lives in `data/timeline.json`. Edit it there, then run `node scripts/build-timeline.mjs` (it validates every account's source, pinpoint and status and writes the data into `vanishing-valuation/index.html`; `--check` only validates), then build V1.
 - The `*/index.html` source files are written as **claude.ai Artifacts**, without the doctype/html/head skeleton. Wrap them for static hosting:
   - `./scripts/build-standalone.sh` builds `vanishing-valuation/index.html` into `index.html` (V1).
-  - `./scripts/build-standalone.sh v2-src/index.html v2/index.html` builds V2.
 - **Always rebuild after editing a source file, and commit both** the source and the built output.
 - **Vercel** deploys `main` automatically (repo root, framework "Other", no build command). Only `https://tighty-whity.vercel.app` is public; the longer `*-ctznchances-projects.vercel.app` aliases require a Vercel login.
 - **Workflow:** work on a branch, open a PR, merge, and Vercel is live in about 30 seconds. The owner usually says "merge" when ready.
@@ -59,5 +58,5 @@ A filmmaker. Earlier direction: a posh crime-drama look (Succession meets Knives
 
 ## Open items when this handoff was written
 
-- V2 is live at /v2. V1 links to it from its header strip and from a third "door" on the title screen. V2's footer links back to V1.
+- The VPEG File (our call, money, players, storylines, odds, takeaways) is the `file` tab in Case Explorer, data in the `VF_*` arrays. It opens from a third door on the title screen and from `#file`.
 - If new filings are obtained, add them to `sources/`, update the cards, timeline and storylines, re-run the quote check, then re-verify the coverage date.
