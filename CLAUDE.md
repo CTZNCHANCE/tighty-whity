@@ -9,7 +9,7 @@ Two public web pages about the **Visionary Private Equity Group (VPEG) receivers
 | Version | Live URL | Source file | What it is |
 |---|---|---|---|
 | V1 | https://tighty-whity.vercel.app | `vanishing-valuation/index.html` | An evidence game. **Part One (Case Explorer):** the real record, case brief, case files, The Inquiry puzzles, and a facts / "born on a day, not yesterday" lens. **Part Two:** an invented manor whodunit. |
-| V2 | https://tighty-whity.vercel.app/v2 (once PR #6 is merged) | `v2-src/index.html` | "The VPEG File." No fiction. Our call, timeline, money chart, players, three storylines with odds, probable outcomes, takeaways and documents. |
+| V2 | https://tighty-whity.vercel.app/v2 | `v2-src/index.html` | "The VPEG File." No fiction. Our call, timeline, money chart, players, three storylines with odds, probable outcomes, takeaways and documents. |
 
 Both are single-file React pages (UMD React 18.3.1 + htm, from cdnjs/jsdelivr) with no build step and no backend.
 
@@ -54,6 +54,5 @@ A filmmaker. Wants a posh crime-drama look (Succession meets Knives Out, with Fa
 
 ## Open items when this handoff was written
 
-- **PR #6** (V2) is open and waiting for the owner's "merge".
-- Optional: add a link from V1 to V2.
+- V2 is live at /v2. V1 links to it from its header strip and from a third "door" on the title screen. V2's footer links back to V1.
 - If new filings are obtained, add them to `sources/`, update the cards, timeline and storylines, re-run the quote check, then re-verify the coverage date.
