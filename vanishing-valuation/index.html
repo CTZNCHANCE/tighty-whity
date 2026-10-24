@@ -1975,7 +1975,7 @@ function App(){
   var real = st.mode === "real";
   var score = real ? realScore(st.real) : ficScore(st.fic);
   var tabs = real
-    ? [["brief","The case in brief"],["file","The VPEG File"],["files","Case files"],["inquiry","The Inquiry"],["rooms","Rooms"],["board","Caseboard"],["timeline","Timeline"],["people","People & entities"],["challenges","Challenges"],["sources","Sources"],["assess","Evidence Assessment"]]
+    ? [["brief","The case in brief"],["timeline","Timeline"],["files","Case files"],["file","The VPEG File"],["inquiry","The Inquiry"],["rooms","Rooms"],["board","Caseboard"],["people","People & entities"],["challenges","Challenges"],["sources","Sources"],["assess","Evidence Assessment"]]
     : [["rooms","The rooms"],["board","Caseboard"],["timeline","Timeline"],["people","The family"],["deduce","The drawing room"]];
 
   function setMode(m){ up(function(n){ n.mode = m; n.tab = m === "real" ? "brief" : "rooms"; n.room = null; }); setOpen(null); }
