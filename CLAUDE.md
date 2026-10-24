@@ -8,13 +8,16 @@ Two public web pages about the **Visionary Private Equity Group (VPEG) receivers
 
 | Version | Live URL | Source file | What it is |
 |---|---|---|---|
-| V1 | https://tighty-whity.vercel.app | `vanishing-valuation/index.html` | An evidence game. **Part One (Case Explorer):** the real record, case brief, case files, The Inquiry puzzles, and a facts / "born on a day, not yesterday" lens. **Part Two:** an invented manor whodunit. |
-| V2 | https://tighty-whity.vercel.app/v2 | `v2-src/index.html` | "The VPEG File." No fiction. Our call, timeline, money chart, players, three storylines with odds, probable outcomes, takeaways and documents. |
+| V1 (**newest; the main site**) | https://tighty-whity.vercel.app | `vanishing-valuation/index.html` + `data/timeline.json` | An evidence game, rebuilt in PR #7 (Oct. 24, 2026) with a Dorot-style zoomable timeline, a matching top bar and tabs, and emblems and monograms. **Part One (Case Explorer):** the real record, case brief, case files, The Inquiry puzzles, and a facts / "born on a day, not yesterday" lens. **Part Two:** an invented manor whodunit. |
+| V2 (earlier, separate page) | https://tighty-whity.vercel.app/v2 | `v2-src/index.html` | "The VPEG File." Built before PR #7 and does not have the new timeline or design. No fiction. Our call, timeline, money chart, players, three storylines with odds, probable outcomes, takeaways and documents. |
+
+**PR #7 is the current version of the site.** When the two disagree on design or the timeline, follow V1 at the root. Never rebuild `index.html` from an older copy of the source.
 
 Both are single-file React pages (UMD React 18.3.1 + htm, from cdnjs/jsdelivr) with no build step and no backend.
 
 ## Build and deploy
 
+- **V1 timeline data** lives in `data/timeline.json`. Edit it there, then run `node scripts/build-timeline.mjs` (it validates every account's source, pinpoint and status and writes the data into `vanishing-valuation/index.html`; `--check` only validates), then build V1.
 - The `*/index.html` source files are written as **claude.ai Artifacts**, without the doctype/html/head skeleton. Wrap them for static hosting:
   - `./scripts/build-standalone.sh` builds `vanishing-valuation/index.html` into `index.html` (V1).
   - `./scripts/build-standalone.sh v2-src/index.html v2/index.html` builds V2.
@@ -50,7 +53,9 @@ Run `python3 scripts/check-quotes.py` after editing V1 cards. Every exact quotat
 
 ## The owner's style
 
-A filmmaker. Wants a posh crime-drama look (Succession meets Knives Out, with Fargo-style deadpan): dark green, bone paper, oxblood and gold; Bodoni, Special Elite, Archivo Narrow and Source Serif 4. Thinks in storylines: the most likely, the most interesting, and a wildcard. Prefers decisive calls with confidence levels ("someone shows you who they are, believe them"). Messages are often voice-dictated, so read generously: "Purcell" meant Vercel, and "here on" meant hero.
+**Current direction (Oct. 24, 2026):** the owner wants the Dorot timeline's refinement (dorot.tali.org.il): a cream stage (#FBF6F1, ink #34312F) in Alegreya Sans italics, flowing gradient lanes, hairline pill controls and sliding switches. The top bar and tabs turn cream on the Timeline tab and stay dark elsewhere. People and firms get monogram portraits and records get original line emblems. No photographs of the individuals named (private people in an allegations case). Use only free sources: no PACER or other paid databases.
+
+A filmmaker. Earlier direction: a posh crime-drama look (Succession meets Knives Out, with Fargo-style deadpan): dark green, bone paper, oxblood and gold; Bodoni, Special Elite, Archivo Narrow and Source Serif 4. Thinks in storylines: the most likely, the most interesting, and a wildcard. Prefers decisive calls with confidence levels ("someone shows you who they are, believe them"). Messages are often voice-dictated, so read generously: "Purcell" meant Vercel, and "here on" meant hero.
 
 ## Open items when this handoff was written
 
