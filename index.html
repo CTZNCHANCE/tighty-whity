@@ -21,7 +21,7 @@
   --paper:#eee5cf; --paper-2:#e2d6ba; --ink:#191612; --ink-soft:#5a5240; --line:#c5b593;
   --gold:#c8a24a; --gold-dim:#8a6f2e; --blood:#7d1717; --blood-hi:#b02a22; --focus:#e6b84f;
   --s-court:#1f4c7a; --s-sworn:#573c84; --s-plaintiff:#8a3616; --s-defense:#1f5c4b; --s-receiver:#40601a;
-  --s-reported:#665420; --s-unverified:#585b58; --s-fiction:#8a1640; --s-docket:#2f5f6e; --s-filing:#6b4a1f;
+  --s-reported:#665420; --s-unverified:#585b58; --s-visitor:#2b7a72; --s-fiction:#8a1640; --s-docket:#2f5f6e; --s-filing:#6b4a1f;
   --ok:#2c6a36; --bad:#9a2a1c; --warn:#d9a441;
   --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --f-body:"Source Serif 4","Iowan Old Style",Georgia,serif;
@@ -387,7 +387,7 @@ td.num{font-family:var(--f-type);font-variant-numeric:tabular-nums;white-space:n
 /* Case timeline: a cream stage in its own light, set apart from the dark rooms around it */
 body:has(.dt){overflow-x:clip}
 .dt{--dt-bg:#FBF6F1;--dt-ink:#34312F;--dt-pill:#353433;--dt-soft:#89827B;--dt-line:#E8DDD8;--f-dt:"Alegreya Sans","Gill Sans","Trebuchet MS",system-ui,sans-serif;
-  --dt-s-court:var(--s-court);--dt-s-sworn:var(--s-sworn);--dt-s-filing:var(--s-filing);--dt-s-docket:var(--s-docket);--dt-s-plaintiff:var(--s-plaintiff);--dt-s-defense:var(--s-defense);--dt-s-receiver:var(--s-receiver);--dt-s-reported:var(--s-reported);--dt-s-unverified:var(--s-unverified);
+  --dt-s-court:var(--s-court);--dt-s-sworn:var(--s-sworn);--dt-s-filing:var(--s-filing);--dt-s-docket:var(--s-docket);--dt-s-plaintiff:var(--s-plaintiff);--dt-s-defense:var(--s-defense);--dt-s-receiver:var(--s-receiver);--dt-s-reported:var(--s-reported);--dt-s-unverified:var(--s-unverified);--dt-s-visitor:var(--s-visitor);
   position:relative;width:100vw;margin-inline:calc(50% - 50vw);margin-top:22px;background:var(--dt-bg);color:var(--dt-ink);font-family:var(--f-dt);font-size:17px;line-height:1.5;color-scheme:light}
 .dt :focus-visible{outline:2px solid var(--dt-ink);outline-offset:3px}
 .dt button{font-family:var(--f-dt)}
@@ -498,6 +498,57 @@ body:has(.dt){overflow-x:clip}
 .dt-switch button[aria-pressed="true"]{color:#FBF6F1}
 .dt-switch span{position:absolute;top:3px;bottom:3px;left:3px;width:84px;border-radius:999px;background:var(--dt-pill);transition:transform .35s cubic-bezier(.65,0,.35,1)}
 .dt-switch[data-on="list"] span{transform:translateX(84px)}
+.dt-mine i{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#7CC4B3,#3F8FA6)}
+.dt-mine.set{border-color:#3F8FA6}
+.dt-listmode li.mine{border-left:3px solid var(--s-visitor);padding-left:10px}
+.mp-wrap{position:fixed;inset:0;z-index:90;display:flex;justify-content:flex-end;font-family:var(--f-dt);color:var(--dt-ink)}
+.mp-scrim{position:absolute;inset:0;background:rgba(52,49,47,.28);backdrop-filter:blur(2px);animation:dtFade .25s ease}
+.mp{position:relative;width:min(560px,100%);height:100%;overflow-y:auto;background:var(--dt-bg);border-left:1px solid var(--dt-line);box-shadow:-40px 0 80px -40px rgba(52,49,47,.45);padding:22px 24px 40px;animation:mpIn .35s cubic-bezier(.2,.7,.2,1)}
+@keyframes mpIn{from{transform:translateX(40px);opacity:0}to{transform:none;opacity:1}}
+.mp-head{display:flex;gap:14px;align-items:flex-start;justify-content:space-between}
+.mp-head h3{margin:0;font-style:italic;font-weight:700;font-size:34px;line-height:1.1}
+.mp-head p{margin:6px 0 0;font-size:16px}
+.mp-head .dt-round{flex:none;width:44px;height:44px;font-size:22px}
+.mp-note{margin:14px 0 18px;padding:10px 14px;border:1px solid var(--dt-line);border-left:4px solid var(--s-visitor);border-radius:14px;font-size:14px;color:#4c4844;background:#fff8}
+.mp-btn{font-family:var(--f-dt);font-size:15px;border:1px solid var(--dt-line);border-radius:999px;background:transparent;color:var(--dt-ink);padding:8px 16px;cursor:pointer;min-height:40px}
+.mp-btn:hover{border-color:var(--dt-ink)}
+.mp-btn.ink{background:var(--dt-ink);border-color:var(--dt-ink);color:var(--dt-bg)}
+.mp-btn:disabled{opacity:.4;cursor:not-allowed}
+.mp-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.mp-actions.top{margin:0 0 16px}
+.mp-form{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}
+.mp-form .mp-actions,.mp-form .mp-probs,.mp-kinds,.mp-src{grid-column:1/-1}
+.mp-kinds{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mp-kinds button{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:0 8px;text-align:left;align-items:center;border:1px solid var(--dt-line);border-radius:16px;background:transparent;padding:9px 11px;cursor:pointer;color:var(--dt-ink);font-family:var(--f-dt)}
+.mp-kinds button svg{grid-row:1/3;color:#3F8FA6}
+.mp-kinds button b{font-size:15px}.mp-kinds button small{font-size:12px;line-height:1.25;color:var(--dt-soft)}
+.mp-kinds button[aria-pressed=true]{border-color:var(--dt-ink);background:#fff;box-shadow:0 0 0 1px var(--dt-ink) inset}
+.mp-f{display:flex;flex-direction:column;gap:4px;min-width:0}
+.mp-f.wide{grid-column:1/-1}
+.mp-f>span{font-size:13px;letter-spacing:.02em;color:#5d5852}.mp-f>span i{color:var(--dt-soft)}
+.mp-f input,.mp-f textarea,.mp-f select{font-family:var(--f-dt);font-size:16px;color:var(--dt-ink);background:#fff;border:1px solid var(--dt-line);border-radius:12px;padding:8px 11px;width:100%;min-width:0}
+.mp-f textarea{resize:vertical;line-height:1.4}
+.mp-f input:focus,.mp-f textarea:focus,.mp-f select:focus{outline:none;border-color:var(--dt-ink)}
+.mp-f small{font-size:12px;color:var(--dt-soft);line-height:1.3}
+.mp-src{border:1px solid var(--dt-line);border-radius:18px;padding:10px 14px 14px;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}
+.mp-src legend{font-style:italic;font-weight:700;padding:0 6px}
+.mp-probs{margin:0;padding:10px 14px 10px 30px;border-radius:14px;background:#f6e3dc;color:#7a2e16;font-size:14px}
+.mp-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.mp-list>li{display:grid;grid-template-columns:auto 1fr;gap:12px;border:1px solid var(--dt-line);border-radius:18px;padding:12px 14px;background:#fff8}
+.mp-em{color:#3F8FA6;margin-top:3px}
+.mp-li-main{min-width:0}
+.mp-when{font-size:13px;color:var(--dt-soft)}
+.mp-li-main b{display:block;font-size:17px;line-height:1.3}
+.mp-srcline{display:block;font-size:14px;font-style:italic;color:#5d5852;overflow-wrap:anywhere}
+.mp-li-tools{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}
+.mp-li-tools button{border:0;background:none;padding:2px 0;font-family:var(--f-dt);font-size:14px;color:#2b6d82;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.mp-submit{margin-top:10px;padding:12px 14px;border-radius:14px;background:var(--dt-pill);color:#FBF6F1;font-size:14px}
+.mp-submit p{margin:0 0 6px}.mp-submit label{display:flex;gap:8px;align-items:flex-start;margin:6px 0}.mp-submit input{margin-top:4px;accent-color:#7CC4B3}
+.mp-submit .mp-small{opacity:.8;margin-top:8px}
+.mp-submit .mp-btn{color:#FBF6F1;border-color:rgba(251,246,241,.4)}.mp-submit .mp-btn.ink{background:#FBF6F1;color:var(--dt-ink);border-color:#FBF6F1}
+.mp-empty{font-style:italic;color:#5d5852}
+.mp-foot{margin-top:22px;font-size:13px;color:var(--dt-soft)}
+@media (max-width:640px){.mp{padding:16px 16px 32px}.mp-form,.mp-src{grid-template-columns:1fr}.mp-kinds{grid-template-columns:1fr}.mp-head h3{font-size:28px}}
 .dt-panel{grid-column:1/-1;justify-self:end;width:min(440px,100%);background:var(--dt-pill);color:#FBF6F1;border-radius:24px;padding:18px 22px;animation:dtFade .25s ease}
 .dt-panel input{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(251,246,241,.35);color:#FBF6F1;font-family:var(--f-dt);font-style:italic;font-size:22px;padding:4px 0 8px}
 .dt-panel input::-webkit-search-cancel-button{filter:invert(1) grayscale(1) brightness(1.6)}
@@ -844,9 +895,10 @@ var STATUS = {
   docket:     { label: "Docket entry", code: "Docket", est: "Establishes that a document was filed, or an order entered, on that date, as the docket describes it. It says nothing about the merits." },
   filing:     { label: "Regulatory filing", code: "Filing", est: "Establishes what the filer told a regulator, under its own signature. It does not establish that the report was accurate." },
   unverified: { label: "Unverified", code: "Unverified", est: "No reviewed source establishes this." },
+  visitor:    { label: "Your path, not reviewed", code: "Yours", est: "You added this in your own browser. Nobody has reviewed it, and it is not part of the public record on this site." },
   fiction:    { label: "Fictional game material", code: "Fiction", est: "Invented for the game. It says nothing about the real case." }
 };
-var STATUS_ORDER = ["court","sworn","filing","docket","plaintiff","defense","receiver","reported","unverified","fiction"];
+var STATUS_ORDER = ["court","sworn","filing","docket","plaintiff","defense","receiver","reported","unverified","visitor","fiction"];
 
 function Chip(p){
   var s = STATUS[p.status];
@@ -2423,7 +2475,7 @@ function tlFmt(x){ var y = Math.floor(x + 1e-6), m = Math.min(11, Math.floor((x 
 function tlYM(x){ var y = Math.floor(x + 1e-6), m = Math.min(11, Math.floor((x - y) * 12 + 1e-6)) + 1; return y + "-" + (m < 10 ? "0" : "") + m; }
 var TL_MIN = 2009.5, TL_MAX = tlYear(TL.reviewedThrough) + 0.15;
 
-var TL_ITEMS = (function(){
+function tlBuildItems(){
   var out = [];
   TL.events.forEach(function(e){
     var dated = e.accounts.filter(function(a){ return !a.said; });
@@ -2443,7 +2495,8 @@ var TL_ITEMS = (function(){
       text:(g.title + " " + NEEDED[g.need].t + " " + NEEDED[g.need].why).toLowerCase() });
   });
   return out.sort(function(a, b){ return a.x - b.x; });
-})();
+}
+var TL_ITEMS = tlBuildItems();
 function tlItem(id){ return TL_ITEMS.filter(function(i){ return i.id === id; })[0]; }
 TL.overlaps.forEach(function(o){
   o.lo = Math.min.apply(null, o.members.map(function(m){ return tlYear(m.from); }));
@@ -2488,7 +2541,7 @@ var EMBLEM_BY_ID = { lien:"lien", license:"doc", "bank-access":"key", "jlp-case"
 function emblemFor(it){
   if (!it) return "doc";
   if (it.kind === "gap") return "gap";
-  var e = it.e; if (EMBLEM_BY_ID[e.id]) return EMBLEM_BY_ID[e.id];
+  var e = it.e; if (e.mine) return MP_KINDS[e.mine.kind].em; if (EMBLEM_BY_ID[e.id]) return EMBLEM_BY_ID[e.id];
   var srcs = e.accounts.map(function(a){ return a.src; });
   if (srcs.some(function(s){ return /^SEC/.test(s); })) return "sec";
   if (e.lane === "court"){
@@ -2552,8 +2605,52 @@ var DT_LANES = {
   statements: { y:.31, from:"#F2BE4E", to:"#F6A27C" },
   money:      { y:.48, from:"#E9665C", to:"#F49B3D" },
   control:    { y:.65, from:"#8F4C7C", to:"#7395E2" },
-  court:      { y:-1,  from:"#EFE3DB", to:"#E7DAD2", base:true }
+  court:      { y:-1,  from:"#EFE3DB", to:"#E7DAD2", base:true },
+  mine:       { y:.69, from:"#7CC4B3", to:"#3F8FA6" }
 };
+
+/* ---------- Your path: a visitor's own additions, kept in this browser until submitted and approved ---------- */
+var MP_KEY = "vanishing-valuation-mypath-v1";
+var MP_REPO = "https://github.com/CTZNCHANCE/tighty-whity";
+var MP_KINDS = { date:{ t:"Date", em:"docket", hint:"Something that happened on a day" }, document:{ t:"Document", em:"doc", hint:"A filing, order, letter or record" }, testimony:{ t:"Testimony", em:"speech", hint:"What someone said under oath or on the record" } };
+var MP_CLAIMS = ["court","sworn","filing","docket","plaintiff","defense","reported","unverified"];
+var MP_LANES = ["statements","money","control","court"];
+var MP_DATE_RE = /^\d{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\d|3[01]))?)?$/;
+var MP_BASE = { lanes:TL.lanes.slice(), events:TL.events.slice(), y:{ statements:DT_LANES.statements.y, money:DT_LANES.money.y, control:DT_LANES.control.y } };
+function mpValid(d){ return !!(d && d.id && d.title && MP_DATE_RE.test(d.date || "") && MP_KINDS[d.kind]); }
+function mpLoad(){ try { var r = JSON.parse(localStorage.getItem(MP_KEY) || "[]"); return Array.isArray(r) ? r.filter(mpValid) : []; } catch(err){ return []; } }
+function mpSave(list){ try { localStorage.setItem(MP_KEY, JSON.stringify(list)); } catch(err){} }
+function mpLabel(d){ var p = d.split("-"); if (p.length === 1) return p[0]; var m = TL_MONTHS[+p[1] - 1]; return p.length === 2 ? m + " " + p[0] : m + " " + (+p[2]) + ", " + p[0]; }
+function mpDateObj(d){ return d.length === 4 ? { year:d } : d.length === 7 ? { month:d } : { on:d }; }
+function mpApply(list){
+  TL.lanes = MP_BASE.lanes.slice(); TL.events = MP_BASE.events.slice();
+  Object.keys(SOURCES).forEach(function(k){ if (k.indexOf("MP-") === 0) delete SOURCES[k]; });
+  var on = list.length > 0;
+  DT_LANES.statements.y = on ? .27 : MP_BASE.y.statements; DT_LANES.money.y = on ? .41 : MP_BASE.y.money; DT_LANES.control.y = on ? .55 : MP_BASE.y.control;
+  if (on){
+    TL.lanes.splice(3, 0, { id:"mine", name:"Your path" });
+    list.forEach(function(d){
+      SOURCES["MP-" + d.id] = { short:d.srcTitle || "Your source", title:d.srcTitle || "Your source", date:d.srcDate || "", url:d.url || "", kind:"Your source (added in this browser, not reviewed)",
+        status:"Not reviewed by this site." + (d.submitted ? " Submitted for review on " + d.submitted + "." : " Not submitted."), note:"You marked it as: " + STATUS[d.claim].label + ". That label is yours until the site owner reviews it." };
+      TL.events.push({ id:"mp-" + d.id, lane:"mine", title:d.title, people:[], mine:d, highlight:true,
+        accounts:[{ src:"MP-" + d.id, pin:d.pin || "no pinpoint", status:"visitor", date:mpDateObj(d.date), label:mpLabel(d.date), text:d.text + (d.quote ? " “" + d.quote + "”" : "") }] });
+    });
+  }
+  TL_ITEMS = tlBuildItems();
+}
+mpApply(mpLoad());
+function mpIssueUrl(d){
+  var lane = TL.lanes.concat(MP_BASE.lanes).filter(function(l){ return l.id === d.lane; })[0];
+  var data = { v:1, kind:d.kind, title:d.title, date:d.date, lane:d.lane, claim:d.claim, text:d.text, quote:d.quote || "", source:{ title:d.srcTitle, date:d.srcDate || "", url:d.url, pin:d.pin } };
+  var body = "### Proposed timeline addition\n\n" +
+    "**What happened:** " + d.title + "\n**Date:** " + mpLabel(d.date) + " (" + d.date + ")\n**Kind:** " + MP_KINDS[d.kind].t + "\n**Part of the story:** " + (lane ? lane.name : d.lane) + "\n" +
+    "**Source:** " + d.srcTitle + (d.srcDate ? " (" + d.srcDate + ")" : "") + "\n**Link:** " + d.url + "\n**Pinpoint:** " + d.pin + "\n**What the source is:** " + STATUS[d.claim].label + "\n\n" +
+    "**What it says:** " + d.text + (d.quote ? "\n\n**Exact words:** “" + d.quote + "”" : "") + "\n\n" +
+    "- [x] It comes from a public record I can link to.\n- [x] The pinpoint takes a reader to the right page, paragraph or line.\n- [x] It names no private contact details, family members or individual investors.\n- [x] I understand the site owner may edit, relabel or decline it.\n\n" +
+    "Submitted from the site's “Your path” panel. Nothing here is public on the site until the owner approves it.\n\n" +
+    "<details><summary>Data for the importer (do not edit)</summary>\n\n<!-- submission-data -->\n```json\n" + JSON.stringify(data, null, 1) + "\n```\n</details>\n";
+  return MP_REPO + "/issues/new?template=submission.md&title=" + encodeURIComponent("Timeline submission: " + d.title.slice(0, 90)) + "&body=" + encodeURIComponent(body);
+}
 var DT_ROOT = 180, DT_LABEL = 200, DT_REDUCED = (function(){ try { return matchMedia("(prefers-reduced-motion: reduce)").matches; } catch(err){ return false; } })();
 function dtEase(t){ return 1 - Math.pow(1 - t, 3); }
 function dtSineInOut(t){ return -(Math.cos(Math.PI * t) - 1) / 2; }
@@ -2564,6 +2661,7 @@ function dtItemTitle(it){ return it.kind === "gap" ? it.g.title : it.e.title; }
 function dtBead(it){ var y = Math.floor(it.x + 1e-6); return "’" + String(y).slice(2); }
 
 function DTEngine(root, o){
+  var LANES = TL.lanes.slice(), ITEMS = TL_ITEMS;
   var NS = "http://www.w3.org/2000/svg";
   var svg = root.querySelector(".dt-svg"), pill = root.querySelector(".dt-pill"), cursor = root.querySelector(".dt-cursor");
   var self = this, W = 0, H = 0, view = [o.range[0], o.range[1]], tween = null, raf = 0, intro = null;
@@ -2572,7 +2670,7 @@ function DTEngine(root, o){
 
   var defs = el("defs", {}, svg), gBands = el("g", { "class":"dt-bands" }, svg), gThreads = el("g", { "class":"dt-threads" }, svg);
   var gArcs = el("g", { "class":"dt-arcs" }, svg), gMarks = el("g", { "class":"dt-marks" }, svg), gLabels = el("g", { "class":"dt-labels" }, svg);
-  TL.lanes.forEach(function(l, i){
+  LANES.forEach(function(l, i){
     var c = DT_LANES[l.id], grad = el("linearGradient", { id:"dt-g-" + l.id, gradientUnits:"userSpaceOnUse", x1:0, y1:0, x2:1000, y2:0 }, defs);
     el("stop", { offset:"0", "stop-color":c.from }, grad); el("stop", { offset:"1", "stop-color":c.to }, grad);
     var g = el("g", { "class":"dt-lane" + (c.base ? " base" : ""), "data-lane":l.id }, gBands);
@@ -2586,7 +2684,7 @@ function DTEngine(root, o){
   function layout(){
     W = root.clientWidth; H = root.clientHeight;
     svg.setAttribute("viewBox", "0 0 " + W + " " + H); svg.setAttribute("width", W); svg.setAttribute("height", H);
-    TL.lanes.forEach(function(l){
+    LANES.forEach(function(l){
       var L = lanes[l.id], c = L.c, mid = H * .48;
       L.Y = c.base ? H * .83 : H * c.y;
       document.getElementById("dt-g-" + l.id).setAttribute("x2", W);
@@ -2611,10 +2709,10 @@ function DTEngine(root, o){
     if (!W) return;
     var a = view[0], b = view[1], span = b - a, total = TL_MAX - TL_MIN, now = performance.now();
     var bw = Math.min((1 - span / total) * H / 5 + 22, .14 * H);
-    TL.lanes.forEach(function(l){ var L = lanes[l.id]; if (selLane !== l.id) L.band.style.strokeWidth = (L.c.base ? 44 : bw) + "px"; });
+    LANES.forEach(function(l){ var L = lanes[l.id]; if (selLane !== l.id) L.band.style.strokeWidth = (L.c.base ? 44 : bw) + "px"; });
     gMarks.textContent = ""; gArcs.textContent = ""; solo = [];
     var pos = {}, perLane = {};
-    TL_ITEMS.forEach(function(it){
+    ITEMS.forEach(function(it){
       var m = match(it); if (m === "hide") return;
       var t = (it.x - a) / span;
       if (intro){ var k = intro.order[it.id] || 0, d0 = intro.t0 + 500 + lanes[it.lane].i * 250 + k * 18, q = Math.max(0, Math.min(1, (now - d0) / 2000)); t = -.25 + (t + .25) * dtSineInOut(q); }
@@ -2637,7 +2735,7 @@ function DTEngine(root, o){
     });
     // Linked editions and, in the Born lens, readings: soft arcs above the thread.
     function arc(p1, p2, cls, lift){ el("path", { d:"M" + p1.x + "," + p1.y + " Q" + (p1.x + p2.x) / 2 + "," + (Math.min(p1.y, p2.y) - lift) + " " + p2.x + "," + p2.y, "class":cls }, gArcs); }
-    TL_ITEMS.forEach(function(it){ if (it.kind === "event" && it.e.versionOf && pos[it.id] && pos[it.e.versionOf]) arc(pos[it.e.versionOf], pos[it.id], "dt-edition", 26); });
+    ITEMS.forEach(function(it){ if (it.kind === "event" && it.e.versionOf && pos[it.id] && pos[it.e.versionOf]) arc(pos[it.e.versionOf], pos[it.id], "dt-edition", 26); });
     if (lens === "born") TL.readings.forEach(function(r){ var ps = r.events.map(function(id){ return pos[id]; }).filter(Boolean); if (ps.length > 1) arc(ps[0], ps[ps.length - 1], "dt-reading", 46); });
     // Clusters: one greedy pass per lane; beads (key events) never merge.
     Object.keys(perLane).forEach(function(lane){
@@ -2726,7 +2824,7 @@ function DTEngine(root, o){
   function hidePill(){ hoverId = null; pill.classList.remove("in"); }
   function showCursor(px, year){ cursor.style.transform = "translateX(" + px + "px)"; cursor.querySelector("b").textContent = dtShortDate(year); }
   this.cursorAt = function(px){
-    var L = lanes[TL.lanes[0].id], x0 = L.x0, x1 = W - DT_LABEL; if (px < x0 || px > x1) { cursor.classList.add("off"); return; }
+    var L = lanes[LANES[0].id], x0 = L.x0, x1 = W - DT_LABEL; if (px < x0 || px > x1) { cursor.classList.add("off"); return; }
     cursor.classList.remove("off");
     if (!hoverId) showCursor(px, view[0] + (px - x0) / (x1 - x0) * (view[1] - view[0]));
   };
@@ -2740,16 +2838,16 @@ function DTEngine(root, o){
   function kick(){ if (!raf) raf = requestAnimationFrame(step); }
   this.go = function(a, b, instant){ var c = clamp(a, b); if (instant || DT_REDUCED){ tween = null; view = c; render(); return; } tween = { a0:view[0], b0:view[1], a1:c[0], b1:c[1], t0:performance.now(), d:500 }; kick(); };
   this.view = function(){ return view.slice(); };
-  this.zoomAt = function(f, px){ var L = lanes[TL.lanes[0].id], x0 = L.x0, x1 = W - DT_LABEL, a = tween ? tween.a1 : view[0], b = tween ? tween.b1 : view[1];
+  this.zoomAt = function(f, px){ var L = lanes[LANES[0].id], x0 = L.x0, x1 = W - DT_LABEL, a = tween ? tween.a1 : view[0], b = tween ? tween.b1 : view[1];
     var c = px == null ? (a + b) / 2 : a + Math.max(0, Math.min(1, (px - x0) / (x1 - x0))) * (b - a); self.go(c - (c - a) * f, c + (b - c) * f); };
-  this.panBy = function(dx){ var L = lanes[TL.lanes[0].id], per = (view[1] - view[0]) / ((W - DT_LABEL) - L.x0); tween = null; var c = clamp(view[0] - dx * per, view[1] - dx * per); view = c; render(); };
+  this.panBy = function(dx){ var L = lanes[LANES[0].id], per = (view[1] - view[0]) / ((W - DT_LABEL) - L.x0); tween = null; var c = clamp(view[0] - dx * per, view[1] - dx * per); view = c; render(); };
   this.setMatch = function(fn){ match = fn; render(); };
   this.setLens = function(l){ lens = l; render(); };
   this.refresh = function(){ render(); };
   this.focusLane = function(id){
     selLane = id;
     root.classList.toggle("is-open", !!id);
-    TL.lanes.forEach(function(l){ var L = lanes[l.id], on = l.id === id;
+    LANES.forEach(function(l){ var L = lanes[l.id], on = l.id === id;
       L.g.classList.toggle("sel", on); L.g.classList.toggle("off", !!id && !on);
       if (on){ var big = Math.max(.28 * W, 420) * .75; L.band.style.strokeWidth = Math.min(big, H * .62) + "px";
         L.g.style.transform = "translate(0px," + (H * .5 - L.Y) + "px)"; }
@@ -2759,9 +2857,9 @@ function DTEngine(root, o){
   };
   this.intro = function(){
     if (DT_REDUCED) return render();
-    var order = {}, per = {}; TL_ITEMS.forEach(function(it){ per[it.lane] = (per[it.lane] || 0); order[it.id] = per[it.lane]++; });
+    var order = {}, per = {}; ITEMS.forEach(function(it){ per[it.lane] = (per[it.lane] || 0); order[it.id] = per[it.lane]++; });
     intro = { t0:performance.now(), dur:4200, order:order };
-    TL.lanes.forEach(function(l, i){ var L = lanes[l.id], len = L.bandLen;
+    LANES.forEach(function(l, i){ var L = lanes[l.id], len = L.bandLen;
       [L.band, L.axis].forEach(function(p, j){ p.style.transition = "none"; p.style.strokeDasharray = len; p.style.strokeDashoffset = len; void p.getBoundingClientRect();
         p.style.transition = "stroke-dashoffset 2s cubic-bezier(.47,0,.745,.715) " + (i * .25 + j * .25) + "s, stroke-width .5s ease";
         p.style.strokeDashoffset = 0;
@@ -2845,6 +2943,90 @@ function DTCapsule(p){
   </div>`;
 }
 
+/* ---------- Your path: the panel where a visitor adds, edits and submits their own entries ---------- */
+var MP_EMPTY = { kind:"document", title:"", date:"", lane:"money", claim:"unverified", text:"", quote:"", srcTitle:"", srcDate:"", url:"", pin:"" };
+function mpProblems(d){
+  var out = [];
+  if (!d.title.trim()) out.push("Say what happened, in one line.");
+  if (!MP_DATE_RE.test(d.date.trim())) out.push("Give the date as 2019, 2019-03 or 2019-03-04.");
+  if (!d.text.trim()) out.push("Say what the source shows.");
+  if (!d.srcTitle.trim()) out.push("Name the source.");
+  if (!/^https?:\/\/\S+\.\S+/.test(d.url.trim())) out.push("Link to where anyone can read the source (https://…).");
+  if (!d.pin.trim()) out.push("Add a pinpoint: page, paragraph, line or timestamp.");
+  return out;
+}
+function MPPanel(p){
+  var list = p.list;
+  var _e = useState(null), edit = _e[0], setEdit = _e[1];          // null, or the draft being edited
+  var _sub = useState(null), sub = _sub[0], setSub = _sub[1];      // id being submitted
+  var _ok = useState({}), ok = _ok[0], setOk = _ok[1];
+  var _t = useState(false), tried = _t[0], setTried = _t[1];
+  function save(){
+    var d = edit, probs = mpProblems(d); setTried(true); if (probs.length) return;
+    var clean = {}; Object.keys(MP_EMPTY).forEach(function(k){ clean[k] = String(d[k] || "").trim(); });
+    clean.id = d.id || (Date.now().toString(36) + Math.random().toString(36).slice(2, 6)); clean.submitted = d.id ? d.submitted || "" : "";
+    var next = list.filter(function(x){ return x.id !== clean.id; }).concat([clean]).sort(function(a, b){ return a.date < b.date ? -1 : 1; });
+    p.onChange(next); setEdit(null); setTried(false); p.show("mp-" + clean.id);
+  }
+  function remove(id){ p.onChange(list.filter(function(x){ return x.id !== id; })); }
+  function exportAll(){
+    var blob = new Blob([JSON.stringify({ site:"The Case of the Vanishing Valuation", exported:new Date().toISOString().slice(0, 10), entries:list }, null, 2)], { type:"application/json" });
+    var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "my-timeline-path.json"; document.body.appendChild(a); a.click(); a.remove();
+  }
+  function submit(d){
+    window.open(mpIssueUrl(d), "_blank", "noopener");
+    p.onChange(list.map(function(x){ return x.id === d.id ? Object.assign({}, x, { submitted:new Date().toISOString().slice(0, 10) }) : x; }));
+    setSub(null); setOk({});
+  }
+  function field(k, label, o){ o = o || {};
+    var v = edit[k] || "", set = function(ev){ var n = Object.assign({}, edit); n[k] = ev.target.value; setEdit(n); };
+    return html`<label className=${"mp-f" + (o.wide ? " wide" : "")}><span>${label}${o.opt ? html` <i>optional</i>` : ""}</span>
+      ${o.area ? html`<textarea rows=${o.rows || 3} value=${v} placeholder=${o.ph || ""} onInput=${set}></textarea>` : html`<input type="text" value=${v} placeholder=${o.ph || ""} inputMode=${o.mode || "text"} onInput=${set} />`}
+      ${o.help && html`<small>${o.help}</small>`}</label>`; }
+  var probs = edit && tried ? mpProblems(edit) : [];
+  var subD = sub && list.filter(function(x){ return x.id === sub; })[0];
+  var CHECKS = ["It comes from a public record that anyone can open at the link.", "The pinpoint takes a reader to the right page, paragraph, line or timestamp.", "It names no private contact details, family members or individual investors.", "I understand the site owner may edit, relabel or decline it, and that it is public on GitHub once I submit."];
+
+  return html`<div className="mp-wrap" role="dialog" aria-modal="true" aria-label="Your path">
+    <div className="mp-scrim" onClick=${p.close}></div>
+    <aside className="mp">
+      <header className="mp-head"><div><h3>Your path</h3><p>Add dates, documents and testimony and see how they line up with the record. They show in their own lane, marked <b>Yours · not reviewed</b>.</p></div>
+        <button className="dt-round sm" aria-label="Close" onClick=${p.close}>×</button></header>
+      <p className="mp-note">Saved only in this browser. Nothing you add here is public. To propose an entry for the public timeline, submit it: you sign in with GitHub, and the site owner reviews and approves it before it appears.</p>
+
+      ${edit ? html`<div className="mp-form">
+        <div className="mp-kinds" role="group" aria-label="What are you adding?">${Object.keys(MP_KINDS).map(function(k){ return html`<button key=${k} aria-pressed=${edit.kind === k} onClick=${function(){ setEdit(Object.assign({}, edit, { kind:k })); }}><svg width="20" height="20" aria-hidden="true"><use href=${"#em-" + MP_KINDS[k].em} /></svg><b>${MP_KINDS[k].t}</b><small>${MP_KINDS[k].hint}</small></button>`; })}</div>
+        ${field("title", "What happened", { wide:true, ph:"One line, in plain words" })}
+        ${field("date", "When", { ph:"2019-03-04", mode:"numeric", help:"A year, a month (2019-03) or a day (2019-03-04)." })}
+        <label className="mp-f"><span>Part of the story</span><select value=${edit.lane} onChange=${function(ev){ setEdit(Object.assign({}, edit, { lane:ev.target.value })); }}>${MP_LANES.map(function(id){ var l = MP_BASE.lanes.filter(function(x){ return x.id === id; })[0]; return html`<option key=${id} value=${id}>${l.name}</option>`; })}</select><small>Where it would go if approved.</small></label>
+        ${field("text", edit.kind === "testimony" ? "What was said, and by whom (their role)" : "What the source shows", { wide:true, area:true, ph:edit.kind === "testimony" ? "The managing director testified that…" : "Your summary, in your own words" })}
+        ${field("quote", "Exact words from the source", { wide:true, area:true, rows:2, opt:true, help:"Only words that appear exactly like this in the source." })}
+        <fieldset className="mp-src"><legend>The source</legend>
+          ${field("srcTitle", "Name", { wide:true, ph:"e.g. Deposition of …, Doc. 278-11" })}
+          ${field("srcDate", "Its date", { opt:true, ph:"e.g. Mar. 4, 2026" })}
+          ${field("pin", "Pinpoint", { ph:"p. 12, ¶ 40, 1:02:13" })}
+          ${field("url", "Link", { wide:true, ph:"https://", mode:"url", help:"A public page anyone can open: CourtListener, a court site, SEC EDGAR, a news article." })}
+          <label className="mp-f wide"><span>What kind of source is it?</span><select value=${edit.claim} onChange=${function(ev){ setEdit(Object.assign({}, edit, { claim:ev.target.value })); }}>${MP_CLAIMS.map(function(k){ return html`<option key=${k} value=${k}>${STATUS[k].label}</option>`; })}</select><small>${STATUS[edit.claim].est}</small></label>
+        </fieldset>
+        ${probs.length > 0 && html`<ul className="mp-probs" role="alert">${probs.map(function(x, i){ return html`<li key=${i}>${x}</li>`; })}</ul>`}
+        <div className="mp-actions"><button className="mp-btn ink" onClick=${save}>${edit.id ? "Save changes" : "Add to my path"}</button><button className="mp-btn" onClick=${function(){ setEdit(null); setTried(false); }}>Cancel</button></div>
+      </div>` : html`<div className="mp-actions top"><button className="mp-btn ink" onClick=${function(){ setEdit(Object.assign({}, MP_EMPTY)); }}>+ Add an entry</button>${list.length > 0 && html`<button className="mp-btn" onClick=${exportAll}>Save a copy (.json)</button>`}</div>`}
+
+      ${!edit && (list.length ? html`<ol className="mp-list">${list.map(function(d){ return html`<li key=${d.id}>
+          <svg className="mp-em" width="22" height="22" aria-hidden="true"><use href=${"#em-" + MP_KINDS[d.kind].em} /></svg>
+          <div className="mp-li-main"><div className="mp-when">${mpLabel(d.date)} · ${MP_KINDS[d.kind].t} · ${d.submitted ? "Submitted " + d.submitted + ", awaiting review" : "Draft"}</div><b>${d.title}</b><span className="mp-srcline">${d.srcTitle} · ${d.pin}</span>
+            <div className="mp-li-tools"><button onClick=${function(){ p.show("mp-" + d.id); }}>See it on the timeline</button><button onClick=${function(){ setEdit(Object.assign({}, MP_EMPTY, d)); setTried(false); }}>Edit</button>
+              <button onClick=${function(){ setSub(d.id); setOk({}); }}>${d.submitted ? "Submit again" : "Submit for review"}</button><button onClick=${function(){ remove(d.id); }}>Remove</button></div>
+            ${sub === d.id && html`<div className="mp-submit"><p>Before you submit, confirm:</p>
+              ${CHECKS.map(function(c, i){ return html`<label key=${i}><input type="checkbox" checked=${!!ok[i]} onChange=${function(ev){ var n = Object.assign({}, ok); n[i] = ev.target.checked; setOk(n); }} /> ${c}</label>`; })}
+              <p className="mp-small">This opens GitHub in a new tab with your entry filled in. Sign in there (a free account works) and press “Create”. The site owner approves or declines each one.</p>
+              <div className="mp-actions"><button className="mp-btn ink" disabled=${CHECKS.some(function(c, i){ return !ok[i]; })} onClick=${function(){ submit(subD); }}>Open GitHub to submit</button><button className="mp-btn" onClick=${function(){ setSub(null); }}>Not yet</button></div></div>`}
+          </div></li>`; })}</ol>`
+        : html`<p className="mp-empty">Nothing on your path yet. Add a date, a document or a piece of testimony, and it appears as its own lane beside the record so you can see where it falls.</p>`)}
+      <p className="mp-foot">Approved entries join the public timeline with a note naming them as community submissions. Opinions belong in the “Born on a day” lens, not here. Never post anything you would not say in open court.</p>
+    </aside></div>`;
+}
+
 function CaseTimeline(p){
   var lens = p.st.lens;
   var init = useState(function(){ var h = tlParseHash(); return { a:h && h.from ? Math.max(TL_MIN, h.from) : TL_MIN, b:h && h.to ? Math.min(TL_MAX, h.to + 1/12) : TL_MAX, sel:h && h.ev ? h.ev : null }; })[0];
@@ -2856,8 +3038,12 @@ function CaseTimeline(p){
   var _r = useState([init.a, init.b]), range = _r[0], setRange = _r[1];
   var _c = useState(null), menu = _c[0], setMenu = _c[1];
   var _f = useState(null), panel = _f[0], setPanel = _f[1];
-  var stage = useRef(null), eng = useRef(null), selRef = useRef(sel), hashT = useRef(0), bar = useRef(null);
-  selRef.current = sel;
+  var _mp = useState(mpLoad), mp = _mp[0], setMp = _mp[1];
+  var _mo = useState(false), mpOpen = _mo[0], setMpOpen = _mo[1];
+  var _v = useState(0), ver = _v[0], setVer = _v[1];
+  var stage = useRef(null), eng = useRef(null), selRef = useRef(sel), hashT = useRef(0), bar = useRef(null), rangeRef = useRef(range), introRan = useRef(false);
+  selRef.current = sel; rangeRef.current = range;
+  function mpChange(list){ mpSave(list); mpApply(list); setMp(list); if (sel && !tlItem(sel)) setSel(null); setVer(function(v){ return v + 1; }); }
 
   var pq = q.trim().toLowerCase();
   function match(it){
@@ -2871,16 +3057,18 @@ function CaseTimeline(p){
 
   useEffect(function(){
     if (mode !== "canvas" || !stage.current) return;
-    var e = new DTEngine(stage.current, { range:[init.a, init.b], match:match, lens:lens, selected:function(){ return selRef.current; },
+    stage.current.querySelector(".dt-svg").textContent = "";
+    var e = new DTEngine(stage.current, { range:ver ? rangeRef.current.slice() : [init.a, init.b], match:match, lens:lens, selected:function(){ return selRef.current; },
       onSelect:function(id){ setMenu(null); setSel(id); }, onCluster:function(ids, x, y){ setMenu({ ids:ids, x:x, y:y }); },
       onFrame:function(a, b){ setRange([a, b]); } });
     eng.current = e;
     var stopP = dtParticles(stage.current.querySelector(".dt-dust"));
-    if (!init.sel && !e.introDone) e.intro();
+    if (!init.sel && !e.introDone && !introRan.current) e.intro();
+    introRan.current = true;
     var ro = window.ResizeObserver ? new ResizeObserver(function(){ e.layout(); if (selRef.current) e.focusLane(laneOf(selRef.current)); }) : null;
     if (ro) ro.observe(stage.current);
     return function(){ e.destroy(); stopP(); if (ro) ro.disconnect(); eng.current = null; };
-  }, [mode]);
+  }, [mode, ver]);
   useEffect(function(){ if (eng.current) eng.current.setMatch(match); }, [person, q, hidden]);
   useEffect(function(){ if (eng.current) eng.current.setLens(lens); }, [lens]);
   useEffect(function(){ if (eng.current){ eng.current.focusLane(sel ? laneOf(sel) : null); } }, [sel, mode]);
@@ -2900,7 +3088,7 @@ function CaseTimeline(p){
   }
   useEffect(function(){
     function onKey(ev){
-      if (mode !== "canvas") return;
+      if (mode !== "canvas" || mpOpen) return;
       var tag = (ev.target.tagName || "").toLowerCase(); if (tag === "input" || tag === "select" || tag === "textarea") return;
       if (sel){ if (ev.key === "Escape") setSel(null); else if (ev.key === "ArrowLeft") stepSel(-1); else if (ev.key === "ArrowRight") stepSel(1); else return; ev.preventDefault(); return; }
       if (!stage.current || !stage.current.contains(document.activeElement)) return;
@@ -2947,7 +3135,7 @@ function CaseTimeline(p){
     if (kind === "a") eng.current.go(Math.min(v[0] + d, v[1] - .04), v[1], true); else eng.current.go(v[0], Math.max(v[1] + d, v[0] + .04), true); }; }
   function pct(x){ return (x - TL_MIN) / (TL_MAX - TL_MIN) * 100; }
 
-  var STAT = ["court","sworn","filing","docket","plaintiff","defense","reported","unverified"];
+  var STAT = ["court","sworn","filing","docket","plaintiff","defense","reported","unverified"].concat(mp.length ? ["visitor"] : []);
   var filtering = person || pq || Object.keys(hidden).some(function(k){ return hidden[k]; });
   var chrome = html`<div className="dt-chrome">
     <div className="dt-brand"><b>The record, in time</b><span>Oliver v. Zamber and the Fund · ${lit} of ${TL_ITEMS.length} entries</span></div>
@@ -2958,6 +3146,7 @@ function CaseTimeline(p){
     <div className="dt-tools">
       <button className=${"dt-chip dt-who" + (person ? " set" : "")} aria-expanded=${panel === "people"} onClick=${function(){ setPanel(panel === "people" ? null : "people"); }}>${person ? TL.people[person] : "People"}</button>
       <button className=${"dt-round sm" + (panel === "search" || pq ? " set" : "")} aria-label="Search the timeline" aria-expanded=${panel === "search"} onClick=${function(){ setPanel(panel === "search" ? null : "search"); }}><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" strokeWidth="1.6"/><path d="M13 13l4.5 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg></button>
+      <button className=${"dt-chip dt-mine" + (mp.length ? " set" : "")} aria-expanded=${mpOpen} onClick=${function(){ setMpOpen(true); }}><i></i>Your path${mp.length ? " · " + mp.length : ""}</button>
       <div className="dt-switch" role="group" aria-label="View" data-on=${mode}>
         <button aria-pressed=${mode === "canvas"} onClick=${function(){ setMode("canvas"); }}>Timeline</button>
         <button aria-pressed=${mode === "list"} onClick=${function(){ setSel(null); setMode("list"); }}>List</button>
@@ -2971,13 +3160,16 @@ function CaseTimeline(p){
       ${[["", "Everyone"]].concat(Object.keys(TL.people).map(function(k){ return [k, TL.people[k]]; })).map(function(x){ return html`<button key=${x[0] || "all"} className="dt-chip" aria-pressed=${person === x[0]} onClick=${function(){ setPerson(x[0]); setPanel(null); }}>${x[1]}</button>`; })}</div>`}
   </div>`;
 
+  var mpPanel = mpOpen && html`<${MPPanel} list=${mp} onChange=${mpChange} close=${function(){ setMpOpen(false); }}
+    show=${function(id){ setMpOpen(false); setTimeout(function(){ if (mode === "canvas"){ select(id); if (stage.current) stage.current.scrollIntoView({ block:"center", behavior:"smooth" }); } else document.getElementById("li-" + id) && document.getElementById("li-" + id).scrollIntoView({ block:"center" }); }, 60); }} />`;
+
   if (mode === "list"){
     var byEra = TL.eras.map(function(er){ return { er:er, items:shown.filter(function(it){ return tlEra(it.x).id === er.id; }) }; });
-    return html`<div className="dt dt-listmode">${chrome}
+    return html`<div className="dt dt-listmode">${chrome}${mpPanel}
       <div className="dt-list">${byEra.map(function(g){ return g.items.length > 0 && html`<section key=${g.er.id}><h3 className="dt-era-h">${g.er.name}</h3>
         <ol>${g.items.map(function(it){ var m = match(it), c = DT_LANES[it.lane];
           if (it.kind === "gap") return html`<li key=${it.id} className=${"gap" + (m === "dim" ? " dim" : "")}><i className="dt-li-dot" style=${{borderColor:c.from}}><${Emblem} k="gap" size=${16} /></i><div className="dt-when">${it.g.label} · not reviewed</div><h4>${it.g.title}</h4><p>${NEEDED[it.g.need].why}${it.g.found ? " " + it.g.found : ""}</p><${NeedLinks} i=${it.g.need} /></li>`;
-          return html`<li key=${it.id} className=${m === "dim" ? "dim" : ""}><i className="dt-li-dot" style=${{background:"linear-gradient(135deg," + c.from + "," + c.to + ")"}}><${Emblem} k=${emblemFor(it)} size=${16} /></i>
+          return html`<li key=${it.id} id=${"li-" + it.id} className=${(m === "dim" ? "dim" : "") + (it.e.mine ? " mine" : "")}><i className="dt-li-dot" style=${{background:"linear-gradient(135deg," + c.from + "," + c.to + ")"}}><${Emblem} k=${emblemFor(it)} size=${16} /></i>
             <div className="dt-when">${it.dated.map(function(a){ return a.label; }).filter(function(v, i, arr){ return arr.indexOf(v) === i; }).join(" / ")} · ${TL.lanes.filter(function(l){ return l.id === it.lane; })[0].name}</div>
             <h4>${it.e.title}</h4>
             <${PeopleRow} people=${it.e.people} />
@@ -2999,7 +3191,7 @@ function CaseTimeline(p){
       <div className="dt-years" aria-hidden="true"><span>${dtBig(range[0], range[1] - range[0])}</span><span>${dtBig(range[1], range[1] - range[0])}</span></div>
       <div className="dt-cursor off" aria-hidden="true"><b></b></div>
       <div className="dt-pill" aria-hidden="true"><svg className="dt-pill-em" width="22" height="22"><use href="#em-doc" /></svg><div className="m"><span className="t"></span><span className="d"></span></div></div>
-      ${chrome}
+      ${chrome}${mpPanel}
       ${menu && html`<div className="dt-menu" style=${{left:menu.x + "px", top:menu.y + "px"}} role="menu">
         <ul>${menu.ids.map(function(id){ var it = tlItem(id); return html`<li key=${id}><button role="menuitem" onClick=${function(){ select(id); }}><b>${dtItemTitle(it)}</b><span>${dtItemDate(it)}${it.kind === "gap" ? " · not reviewed" : ""}</span></button></li>`; })}</ul>
         <button className="dt-menu-x" aria-label="Close list" onClick=${function(){ setMenu(null); }}>×</button></div>`}

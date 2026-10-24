@@ -1,0 +1,63 @@
+# When the repository owner adds the "approved" label to a timeline submission issue,
+# this adds the entry to data/timeline.json, rebuilds the site and pushes to main
+# (Vercel then deploys it). Labels added by anyone else are ignored.
+name: Publish approved timeline submission
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: timeline-submissions
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.event.label.name == 'approved' && github.event.sender.login == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Add the entry and rebuild
+        id: build
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+        run: |
+          export APPROVED_ON="$(date -u +%Y-%m-%d)"
+          node scripts/import-submission.mjs 2> import-error.txt || { cat import-error.txt; echo "failed=1" >> "$GITHUB_OUTPUT"; exit 0; }
+          node scripts/build-timeline.mjs 2> import-error.txt || { cat import-error.txt; git checkout -- .; echo "failed=1" >> "$GITHUB_OUTPUT"; exit 0; }
+          sh scripts/build-standalone.sh
+      - name: Commit and push
+        if: steps.build.outputs.failed != '1'
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/timeline.json vanishing-valuation/index.html index.html
+          git commit -m "Add approved timeline submission #${ISSUE_NUMBER}"
+          git push origin HEAD:main
+      - name: Tell the submitter
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          FAILED: ${{ steps.build.outputs.failed }}
+        run: |
+          if [ "$FAILED" = "1" ]; then
+            { echo "This submission was approved but could not be added automatically:"; echo; echo '```'; cat import-error.txt; echo '```'; echo; echo "Nothing on the site changed. The owner can fix the details in the issue and re-apply the label."; } > msg.md
+            gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file msg.md
+            gh issue edit "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --remove-label approved
+          else
+            gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body "Approved and added to the public timeline as a community submission. It appears on the site within a minute or two. Thank you."
+            gh issue close "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --reason completed
+          fi

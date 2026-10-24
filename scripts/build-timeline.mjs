@@ -52,7 +52,7 @@ function checkCite(where, x) {
   if (!allSources[x.src]) err(where, "unknown source " + x.src);
   if (x.src === "FICTION") err(where, "fiction source on the case timeline");
   if (!x.pin || !String(x.pin).trim()) err(where, "missing pinpoint");
-  if (!STATUS[x.status] || x.status === "fiction") err(where, "bad status " + x.status);
+  if (!STATUS[x.status] || x.status === "fiction" || x.status === "visitor") err(where, "bad status " + x.status);
   if (x.card && !CARDS.some(c => c.id === x.card)) err(where, "unknown card " + x.card);
 }
 
