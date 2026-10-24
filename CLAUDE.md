@@ -8,7 +8,7 @@ One public web page about the **Visionary Private Equity Group (VPEG) receiversh
 
 | Version | Live URL | Source file | What it is |
 |---|---|---|---|
-| V1 (**newest; the main site**) | https://tighty-whity.vercel.app | `vanishing-valuation/index.html` + `data/timeline.json` | An evidence game, rebuilt in PR #7 (Oct. 24, 2026) with a Dorot-style zoomable timeline, a matching top bar and tabs, and emblems and monograms. **Part One (Case Explorer):** the real record, case brief, case files, The Inquiry puzzles, and a facts / "born on a day, not yesterday" lens. **Part Two:** an invented manor whodunit. |
+| V1 (**newest; the main site**) | https://time-will-tell-timeline.vercel.app (also https://tighty-whity.vercel.app) | `vanishing-valuation/index.html` + `data/timeline.json` | An evidence game, rebuilt in PR #7 (Oct. 24, 2026) with a Dorot-style zoomable timeline, a matching top bar and tabs, and emblems and monograms. **Part One (Case Explorer):** the real record, case brief, case files, The Inquiry puzzles, and a facts / "born on a day, not yesterday" lens. **Part Two:** an invented manor whodunit. |
 | (retired) /v2 | https://tighty-whity.vercel.app/v2 | `v2/index.html` (redirect only) | "The VPEG File" was folded into V1 as its own tab (`#file`) on Oct. 24, 2026. `/v2` now redirects to `/#file`; the old source is in git history (PR #6). |
 
 **PR #7 is the current version of the site,** and The VPEG File lives inside it as a tab. Never rebuild `index.html` from an older copy of the source.
@@ -21,7 +21,7 @@ It is a single-file React page (UMD React 18.3.1 + htm, from cdnjs/jsdelivr) wit
 - The `*/index.html` source files are written as **claude.ai Artifacts**, without the doctype/html/head skeleton. Wrap them for static hosting:
   - `./scripts/build-standalone.sh` builds `vanishing-valuation/index.html` into `index.html` (V1).
 - **Always rebuild after editing a source file, and commit both** the source and the built output.
-- **Vercel** deploys `main` automatically (repo root, framework "Other", no build command). Only `https://tighty-whity.vercel.app` is public; the longer `*-ctznchances-projects.vercel.app` aliases require a Vercel login.
+- **Vercel** deploys `main` automatically (repo root, framework "Other", no build command). Public addresses: `https://time-will-tell-timeline.vercel.app` (added Oct. 24, 2026; `time-will-tell.vercel.app` belongs to someone else) and `https://tighty-whity.vercel.app`; the longer `*-ctznchances-projects.vercel.app` aliases require a Vercel login.
 - **Workflow:** work on a branch, open a PR, merge, and Vercel is live in about 30 seconds. The owner usually says "merge" when ready.
 
 ## Sources: the only facts allowed
