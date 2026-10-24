@@ -411,11 +411,6 @@ body:has(.dt){overflow-x:clip}
 .dt-mark:focus-visible .hit{stroke:var(--dt-ink);stroke-width:1.5}
 .dt-mark.ghost,.dt-cluster.ghost{opacity:.25;pointer-events:none}
 .dt-mark.dim{opacity:.28}
-.dt-mark.bead .ring{fill:#fff}
-.dt-mark.bead .core{transition:transform .2s ease;transform-box:fill-box;transform-origin:center}
-.dt-mark.bead text{font-family:var(--f-dt);font-style:italic;font-weight:700;font-size:14px;fill:#FBF6F1;pointer-events:none}
-.dt-mark.bead:hover .ring,.dt-mark.bead:focus-visible .ring{fill:var(--dt-ink)}
-.dt-mark.bead .ring{transition:fill .2s ease}
 .dt-cluster circle{fill:#fff;stroke:rgba(52,49,47,.1);transition:fill .2s ease}
 .dt-cluster text{font-family:var(--f-dt);font-style:italic;font-size:15px;fill:var(--dt-ink);pointer-events:none}
 .dt-cluster:hover circle,.dt-cluster:focus-visible circle{fill:var(--dt-pill)}
@@ -429,6 +424,30 @@ body:has(.dt){overflow-x:clip}
 .dt-cluster.key text{fill:#FBF6F1;font-weight:700}
 .dt-cluster.key:hover circle{fill:#000}
 .dt-who{max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* Emblems and monograms */
+.em{flex:none;color:currentColor;display:inline-block;vertical-align:middle}
+.av{flex:none;display:inline-grid;place-items:center;border-radius:50%;padding:2px;vertical-align:middle}
+.av i{width:100%;height:100%;display:grid;place-items:center;border-radius:inherit;background:#FBF6F1;color:#34312F;font-family:"Alegreya Sans","Gill Sans",system-ui,sans-serif;font-style:italic;font-weight:700;letter-spacing:-.01em;line-height:1}
+.av.ent-av{border-radius:28%}
+.ent-h{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+.filepick button{display:inline-flex;align-items:center;gap:8px}
+.dname{display:flex;align-items:center;gap:16px;margin:4px 0}
+.dname h3{margin:0}
+.dt-people-row{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px}
+.dt-person{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--dt-line,#E8DDD8);border-radius:999px;padding:2px 12px 2px 2px;font-size:14px;background:rgba(251,246,241,.6)}
+.dt-mark.bead .ring{fill:#fff;stroke-width:2.5}
+.dt-mark.bead .core{fill:#FBF6F1;transition:fill .2s ease}
+.dt-mark.bead .em{color:var(--dt-ink);transition:color .2s ease}
+.dt-mark.bead:hover .core,.dt-mark.bead:focus-visible .core,.dt-mark.bead.on .core{fill:var(--dt-pill)}
+.dt-mark.bead:hover .em,.dt-mark.bead:focus-visible .em,.dt-mark.bead.on .em{color:#FBF6F1}
+.dt-mark.bead .yr{stroke:#fff;stroke-width:1.5}
+.dt-mark.bead text{font-family:var(--f-dt);font-style:italic;font-weight:700;font-size:11px;fill:#FBF6F1;pointer-events:none}
+.dt-pill-em{position:absolute;left:17px;top:17px;color:#FBF6F1}
+.dt .dt-pill .m{padding-left:56px}
+.dt-medal-in .em{justify-self:center;color:var(--dt-ink);opacity:.85}
+.dt-li-dot{display:grid;place-items:center;width:30px!important;height:30px!important;left:-15px!important;top:0!important}
+.dt-li-dot .em{color:#34312F;background:#FBF6F1;border-radius:50%;padding:3px;width:22px;height:22px}
+.dt-list li.gap .dt-li-dot .em{background:transparent}
 .dt-disagree{stroke:var(--dt-ink);stroke-width:1.6;stroke-dasharray:1 5;stroke-linecap:round;opacity:.7}
 .dt-disagree.dim{opacity:.2}
 .dt-alt{stroke:#fff;stroke-width:1.5}
@@ -1852,7 +1871,7 @@ function App(){
 
   var cream = st.started && real && st.tab === "timeline";
   var ch = "chrome" + (cream ? " cream" : "");
-  var header = html`
+  var header = html`<${EmblemSprite} />
     <header className=${"top " + ch}>
       <div className="wrap">
         <div className="brand"><button className="brand-btn" title="Back to the title screen" onClick=${function(){ up(function(n){ n.started = false; }); setOpen(null); }}><b>The Case of the Vanishing Valuation</b>
@@ -2320,6 +2339,64 @@ function tlParseHash(){
   return out;
 }
 
+/* ---------- Visuals: emblems and monograms ----------
+   Original line emblems for kinds of record, and monograms for people and entities.
+   No photographs of the people named: they are private individuals in a case of allegations. */
+var EMBLEMS = {
+  court:   '<path d="M3 9.5 12 4.5l9 5z"/><path d="M4 10.5h16M6 11.5v6M10 11.5v6M14 11.5v6M18 11.5v6M3.5 18.5h17M2.5 21h19"/>',
+  appeals: '<path d="M12 3.5v16M8 20.5h8M5 7h14"/><path d="M5 7 2.5 13h5zM19 7l-2.5 6h5z"/><path d="M2.5 13a2.5 1.6 0 0 0 5 0M16.5 13a2.5 1.6 0 0 0 5 0"/>',
+  sec:     '<path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14.5 3v4.5H19M9 8h3"/><circle cx="12.5" cy="14.5" r="3.2"/><path d="m11 17.4-.8 3 2.3-1 2.3 1-.8-3"/>',
+  docket:  '<path d="M5 3.5h14v17H5z"/><path d="M8 8h8M8 11.5h8M8 15h5"/><circle cx="16.5" cy="16.5" r=".6"/>',
+  money:   '<ellipse cx="12" cy="6.5" rx="7" ry="2.5"/><path d="M5 6.5v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-4M5 10.5v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-4M5 14.5v3c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-3"/>',
+  speech:  '<path d="M4 4.5h16v11H11l-4.5 4v-4H4z"/><path d="M8 8.5h8M8 11.5h5"/>',
+  key:     '<circle cx="8" cy="12" r="3.8"/><path d="M11.8 12H21M18.5 12v3.2M15.5 12v2.2"/>',
+  people:  '<circle cx="9" cy="8" r="3"/><path d="M3 19.5c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M15.5 5.2a2.6 2.6 0 0 1 0 5.2M17 14.2c2.4.4 4 2.3 4 5.3"/>',
+  news:    '<path d="M4 5h13v14H6.2A2.2 2.2 0 0 1 4 16.8z"/><path d="M17 9h3v8.5a1.5 1.5 0 0 1-3 0M7 8.5h7M7 11.5h7M7 14.5h4"/>',
+  lien:    '<path d="M10.5 13.5 8.6 15.4a3 3 0 0 1-4.2-4.2l2.8-2.8a3 3 0 0 1 4.2 0M13.5 10.5l1.9-1.9a3 3 0 0 1 4.2 4.2l-2.8 2.8a3 3 0 0 1-4.2 0M9.5 14.5l5-5"/>',
+  doc:     '<path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14.5 3v4.5H19M9 11h7M9 14h7M9 17h4"/>',
+  gap:     '<path d="M6 3h8.5L19 7.5V21H6z" stroke-dasharray="2.2 2.2"/><path d="M10.2 11a2 2 0 1 1 2.8 1.8c-.6.3-1 .8-1 1.5v.4M12 17.2v.1"/>'
+};
+var EMBLEM_NAMES = { court:"Courthouse", appeals:"Court of appeals", sec:"SEC filing", docket:"Docket entry", money:"Money", speech:"Statement", key:"Control", people:"Investors", news:"News report", lien:"Lien", doc:"Document", gap:"Missing document" };
+var EMBLEM_BY_ID = { lien:"lien", license:"doc", "bank-access":"key", "jlp-case":"court", magazine:"news", "cosby-out":"people", "first-investors":"people", "oliver-invest":"people", "jlp-subscribes":"people", loans:"people", "unaudited-2023":"doc", receiver:"key", "circle-sale":"money" };
+function emblemFor(it){
+  if (!it) return "doc";
+  if (it.kind === "gap") return "gap";
+  var e = it.e; if (EMBLEM_BY_ID[e.id]) return EMBLEM_BY_ID[e.id];
+  var srcs = e.accounts.map(function(a){ return a.src; });
+  if (srcs.some(function(s){ return /^SEC/.test(s); })) return "sec";
+  if (e.lane === "court"){
+    if (srcs.indexOf("DKT8") >= 0 || /appeal|Eighth Circuit|stay/i.test(e.title)) return "appeals";
+    if (srcs.every(function(s){ return /^DKT/.test(s); })) return "docket";
+    return "court";
+  }
+  return { money:"money", statements:"speech", control:"key" }[e.lane] || "doc";
+}
+function EmblemSprite(){
+  return html`<svg width="0" height="0" style=${{position:"absolute"}} aria-hidden="true" focusable="false"><defs>
+    ${Object.keys(EMBLEMS).map(function(k){ return html`<symbol key=${k} id=${"em-" + k} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML=${{__html:EMBLEMS[k]}}></symbol>`; })}
+  </defs></svg>`;
+}
+function Emblem(p){ return html`<svg className=${"em " + (p.className || "")} width=${p.size || 20} height=${p.size || 20} aria-hidden="true" focusable="false"><use href=${"#em-" + p.k} /></svg>`; }
+
+var MONO_OVERRIDE = { "Visionary PE GP I, LLC":"GP", "Visionary Fund Manager, LLC (VFM)":"VFM", "Visionary Private Equity Group I, LP (VPEG)":"VPEG", "Oliver-family entities, trusts and individual investors":"O", "Jason Buhlinger, Armanino LLP":"JB", "The receiver (Jason Buhlinger)":"JB", "Kevin DeLeon (for Highgate Capital, LLC)":"KD", "Great Southern Bank":"GSB", "Husch Blackwell LLP":"HB", "JLP Partners, LLC":"JLP", "Judge Matthew T. Schelp":"MS" };
+var MONO_HUES = [["#F2BE4E","#F6A27C"],["#E9665C","#F49B3D"],["#8F4C7C","#7395E2"],["#7395E2","#8F4C7C"],["#F6A27C","#E9665C"],["#F49B3D","#F2BE4E"]];
+function monoInitials(n){
+  if (MONO_OVERRIDE[n]) return MONO_OVERRIDE[n];
+  var w = n.replace(/\([^)]*\)/g, "").replace(/,.*$/, "").replace(/^(Dr\.|Judge|The)\s+/, "").split(/\s+/).filter(function(x){ return x && !/^[A-Z]\.$/.test(x); });
+  return (w[0] || "?")[0] + (w.length > 1 ? w[w.length - 1][0] : "");
+}
+function monoIsEntity(n){ return /LLC|\bLP\b|Bank|Partners|entities|Group|Fund/.test(n) && !/receiver/i.test(n); }
+function Mono(p){
+  var n = p.name, s = p.size || 32, h = 0; for (var i = 0; i < n.length; i++) h = (h * 31 + n.charCodeAt(i)) >>> 0;
+  var c = MONO_HUES[h % MONO_HUES.length], ini = monoInitials(n);
+  return html`<span className=${"av" + (monoIsEntity(n) ? " ent-av" : "")} aria-hidden="true" title=${n}
+    style=${{width:s + "px", height:s + "px", background:"linear-gradient(135deg," + c[0] + "," + c[1] + ")", fontSize:(s * (ini.length > 2 ? .3 : .38)) + "px"}}><i>${ini}</i></span>`;
+}
+function PeopleRow(p){
+  var ks = (p.people || []).filter(function(k){ return TL.people[k]; }); if (!ks.length) return null;
+  return html`<div className="dt-people-row" aria-label="People named in this entry">${ks.map(function(k){ return html`<span key=${k} className="dt-person"><${Mono} name=${TL.people[k]} size=${28} />${TL.people[k]}</span>`; })}</div>`;
+}
+
 /* ---------- Case timeline: pieces ---------- */
 function SrcBtn(p){
   return html`<button className="dlg-btn" style=${{minHeight:"28px",padding:"1px 8px",fontSize:".74rem"}} onClick=${function(){ p.openSrc(p.src); }}>${SOURCES[p.src].short}${p.pin ? " · " + p.pin : ""}</button>`;
@@ -2490,9 +2567,11 @@ function DTEngine(root, o){
     el("circle", { cx:r.x, cy:r.y, r:16, "class":"hit" }, g);
     if (it.e && it.e.highlight){
       g.classList.add("bead");
-      el("circle", { cx:r.x, cy:r.y, r:20, "class":"ring" }, g);
-      el("circle", { cx:r.x, cy:r.y, r:17, "class":"core", fill:"var(--dt-s-" + it.status + ")" }, g);
-      var t = el("text", { x:r.x, y:r.y + 4.5, "text-anchor":"middle" }, g); t.textContent = dtBead(it);
+      el("circle", { cx:r.x, cy:r.y, r:21, "class":"ring", stroke:"var(--dt-s-" + it.status + ")" }, g);
+      el("circle", { cx:r.x, cy:r.y, r:17.5, "class":"core" }, g);
+      el("use", { href:"#em-" + emblemFor(it), x:r.x - 10.5, y:r.y - 10.5, width:21, height:21, "class":"em" }, g);
+      el("rect", { x:r.x - 15, y:r.y + 14, width:30, height:15, rx:7.5, "class":"yr", fill:"var(--dt-s-" + it.status + ")" }, g);
+      var t = el("text", { x:r.x, y:r.y + 25, "text-anchor":"middle" }, g); t.textContent = dtBead(it);
     } else {
       el("circle", { cx:r.x, cy:r.y, r:6, "class":"dot" }, g);
       if (it.kind === "event" && it.e.accounts.length > 1) el("circle", { cx:r.x, cy:r.y, r:10, "class":"halo" }, g);
@@ -2509,9 +2588,10 @@ function DTEngine(root, o){
   // Hover label: a dot that grows into a pill, then shows its text.
   function showPill(it, x, y){
     hoverId = it.id;
+    pill.querySelector("use").setAttribute("href", "#em-" + emblemFor(it));
     pill.querySelector(".t").textContent = dtItemTitle(it);
     pill.querySelector(".d").textContent = (it.kind === "gap" ? "Not reviewed" : STATUS[it.status].code) + " · " + dtItemDate(it);
-    var w = Math.max(140, Math.min(440, Math.max(pill.querySelector(".t").scrollWidth, pill.querySelector(".d").scrollWidth) + 60));
+    var w = Math.max(140, Math.min(540, Math.max(pill.querySelector(".t").scrollWidth, pill.querySelector(".d").scrollWidth) + 78));
     var left = Math.max(12, Math.min(W - w - 12, x - 28)), above = y > 120;
     pill.style.left = left + "px"; pill.style.top = (above ? y - 76 : y + 22) + "px"; pill.style.setProperty("--w", w + "px");
     pill.classList.remove("in"); void pill.offsetWidth; pill.classList.add("in");
@@ -2595,15 +2675,16 @@ function DTCapsule(p){
   var lane = ov ? ov.lane : it.lane, c = DT_LANES[lane];
   var medal, body;
   if (ov){
-    medal = html`<div className="dt-medal-in"><span className="dt-medal-k">Same money</span><span className="dt-medal-big">×3</span><span className="dt-medal-k">measurements</span></div>`;
+    medal = html`<div className="dt-medal-in"><${Emblem} k="money" size=${34} /><span className="dt-medal-k">Same money</span><span className="dt-medal-big">×3</span><span className="dt-medal-k">measurements</span></div>`;
     body = html`<h3 className="dt-title">${ov.title}</h3>
       <p className="dt-when">${ov.members.map(function(m){ return m.label; }).join(" · ")}</p>
+      <${PeopleRow} people=${ov.people} />
       <p className="dt-lede">${ov.note}</p>
       <ul className="dt-accts">${ov.members.map(function(m, i){ return html`<${AccountRow} key=${i} a=${{label:m.label, text:m.text, status:m.status, src:m.src, pin:m.pin, card:m.card}} openSrc=${p.openSrc} openCard=${p.openCard} />`; })}</ul>
       <button className="dt-btn" onClick=${function(){ p.go("challenges"); }}>Try the Ledger challenge</button>`;
   } else if (it.kind === "gap"){
     var n = NEEDED[it.g.need];
-    medal = html`<div className="dt-medal-in"><span className="dt-medal-k">Not reviewed</span><span className="dt-medal-big">${dtBig(it.x, 10)}</span><span className="dt-medal-k">${it.g.label}</span></div>`;
+    medal = html`<div className="dt-medal-in"><${Emblem} k="gap" size=${34} /><span className="dt-medal-k">Not reviewed</span><span className="dt-medal-big">${dtBig(it.x, 10)}</span><span className="dt-medal-k">${it.g.label}</span></div>`;
     body = html`<h3 className="dt-title">${it.g.title}</h3><p className="dt-when">${it.g.label}</p>
       <p className="dt-lede">${n.why}</p>${it.g.found && html`<p className="dt-note"><b>New lead.</b> ${it.g.found}</p>`}
       <p className="dt-k">Where to look</p><${NeedLinks} i=${it.g.need} />`;
@@ -2611,9 +2692,10 @@ function DTCapsule(p){
     var e = it.e, editions = TL_ITEMS.filter(function(x){ return x.kind === "event" && (x.e.versionOf === e.id || e.versionOf === x.id); });
     var inq = tlInquiry(e), reads = tlReadings(e.id);
     var dates = it.dated.map(function(a){ return a.label; }).filter(function(v, i, arr){ return arr.indexOf(v) === i; });
-    medal = html`<div className="dt-medal-in"><span className="dt-medal-k">${tlEra(it.x).name}</span><span className="dt-medal-big">${dtBig(it.x, it.hi - it.lo > 1.5 || /^\d{4}$/.test(dates[0]) ? 10 : 0)}</span><span className="dt-medal-k">${e.accounts.length} account${e.accounts.length === 1 ? "" : "s"}</span></div>`;
+    medal = html`<div className="dt-medal-in"><${Emblem} k=${emblemFor(it)} size=${34} /><span className="dt-medal-k">${tlEra(it.x).name}</span><span className="dt-medal-big">${dtBig(it.x, it.hi - it.lo > 1.5 || /^\d{4}$/.test(dates[0]) ? 10 : 0)}</span><span className="dt-medal-k">${e.accounts.length} account${e.accounts.length === 1 ? "" : "s"}</span></div>`;
     body = html`<h3 className="dt-title">${e.title}</h3>
       <p className="dt-when">${dates.join(" / ")}</p>
+      <${PeopleRow} people=${e.people} />
       ${it.disagree && html`<p className="dt-warn">The sources disagree on the date. Every version is shown; none is preferred.</p>`}
       <ul className="dt-accts">${e.accounts.map(function(a, i){ return html`<${AccountRow} key=${i} a=${a} openSrc=${p.openSrc} openCard=${p.openCard} />`; })}</ul>
       ${e.note && html`<p className="dt-note">${e.note}</p>`}
@@ -2767,10 +2849,11 @@ function CaseTimeline(p){
     return html`<div className="dt dt-listmode">${chrome}
       <div className="dt-list">${byEra.map(function(g){ return g.items.length > 0 && html`<section key=${g.er.id}><h3 className="dt-era-h">${g.er.name}</h3>
         <ol>${g.items.map(function(it){ var m = match(it), c = DT_LANES[it.lane];
-          if (it.kind === "gap") return html`<li key=${it.id} className=${"gap" + (m === "dim" ? " dim" : "")}><i className="dt-li-dot" style=${{borderColor:c.from}}></i><div className="dt-when">${it.g.label} · not reviewed</div><h4>${it.g.title}</h4><p>${NEEDED[it.g.need].why}${it.g.found ? " " + it.g.found : ""}</p><${NeedLinks} i=${it.g.need} /></li>`;
-          return html`<li key=${it.id} className=${m === "dim" ? "dim" : ""}><i className="dt-li-dot" style=${{background:"linear-gradient(135deg," + c.from + "," + c.to + ")"}}></i>
+          if (it.kind === "gap") return html`<li key=${it.id} className=${"gap" + (m === "dim" ? " dim" : "")}><i className="dt-li-dot" style=${{borderColor:c.from}}><${Emblem} k="gap" size=${16} /></i><div className="dt-when">${it.g.label} · not reviewed</div><h4>${it.g.title}</h4><p>${NEEDED[it.g.need].why}${it.g.found ? " " + it.g.found : ""}</p><${NeedLinks} i=${it.g.need} /></li>`;
+          return html`<li key=${it.id} className=${m === "dim" ? "dim" : ""}><i className="dt-li-dot" style=${{background:"linear-gradient(135deg," + c.from + "," + c.to + ")"}}><${Emblem} k=${emblemFor(it)} size=${16} /></i>
             <div className="dt-when">${it.dated.map(function(a){ return a.label; }).filter(function(v, i, arr){ return arr.indexOf(v) === i; }).join(" / ")} · ${TL.lanes.filter(function(l){ return l.id === it.lane; })[0].name}</div>
             <h4>${it.e.title}</h4>
+            <${PeopleRow} people=${it.e.people} />
             ${it.disagree && html`<p className="dt-warn">The sources disagree on the date.</p>`}
             <ul className="dt-accts">${it.e.accounts.map(function(a, i){ return html`<${AccountRow} key=${i} a=${a} openSrc=${p.openSrc} openCard=${p.openCard} />`; })}</ul>
             ${it.e.note && html`<p className="dt-note">${it.e.note}</p>`}
@@ -2788,7 +2871,7 @@ function CaseTimeline(p){
       <svg className="dt-svg" aria-hidden="false" role="group"></svg>
       <div className="dt-years" aria-hidden="true"><span>${dtBig(range[0], range[1] - range[0])}</span><span>${dtBig(range[1], range[1] - range[0])}</span></div>
       <div className="dt-cursor off" aria-hidden="true"><b></b></div>
-      <div className="dt-pill" aria-hidden="true"><div className="m"><span className="t"></span><span className="d"></span></div></div>
+      <div className="dt-pill" aria-hidden="true"><svg className="dt-pill-em" width="22" height="22"><use href="#em-doc" /></svg><div className="m"><span className="t"></span><span className="d"></span></div></div>
       ${chrome}
       ${menu && html`<div className="dt-menu" style=${{left:menu.x + "px", top:menu.y + "px"}} role="menu">
         <ul>${menu.ids.map(function(id){ var it = tlItem(id); return html`<li key=${id}><button role="menuitem" onClick=${function(){ select(id); }}><b>${dtItemTitle(it)}</b><span>${dtItemDate(it)}${it.kind === "gap" ? " · not reviewed" : ""}</span></button></li>`; })}</ul>
@@ -2829,7 +2912,7 @@ function People(p){
     <p className="aside">Each line is a role or relationship stated in a reviewed document, labeled with that document’s status. A connection is not an accusation, and this map draws no lines the documents do not draw.</p>
     <div className="groups">
       ${GROUPS.map(function(g){ return html`<div key=${g.name} className="group"><h3>${g.name}</h3>
-        ${g.items.map(function(it){ return html`<div key=${it.n} className="ent"><b>${it.n}</b>
+        ${g.items.map(function(it){ return html`<div key=${it.n} className="ent"><div className="ent-h"><${Mono} name=${it.n} size=${40} /><b>${it.n}</b></div>
           ${it.rels.map(function(r,i){ return html`<div key=${i} className="rel"><span>${r[0]}</span> <${Chip} status=${r[1]} />
             <button className="dlg-btn" style=${{minHeight:"26px",padding:"0 7px",fontSize:".78rem"}} onClick=${function(){ p.openSrc(r[2]); }}>${SOURCES[r[2]].short} · ${r[3]}</button></div>`; })}
         </div>`; })}
@@ -3146,13 +3229,13 @@ function CaseFiles(p){
     <${LensNote} lens=${lens} />
     <div className="filepick" role="tablist" aria-label="Case files">
       ${FILES.map(function(x){ return html`<button key=${x.id} role="tab" aria-selected=${x.id === sel} onClick=${function(){ setSel(x.id); }}>
-        <span className="mono">${x.no}</span> ${x.name}</button>`; })}
+        <${Mono} name=${x.name} size=${22} /><span className="mono">${x.no}</span> ${x.name}</button>`; })}
     </div>
     <article className="dossier sheet" aria-labelledby=${"df-"+f.id}>
       <header className="dhead">
         <div className="dstamp" aria-hidden="true">Case file ${f.no}</div>
         <div className="kicker" style=${{color:"var(--blood)"}}>${f.role}</div>
-        <h3 id=${"df-"+f.id}>${f.name}</h3>
+        <div className="dname"><${Mono} name=${f.name} size=${72} /><h3 id=${"df-"+f.id}>${f.name}</h3></div>
         <p className="dlede">${f.lede}</p>
       </header>
       <div className="dgrid">
