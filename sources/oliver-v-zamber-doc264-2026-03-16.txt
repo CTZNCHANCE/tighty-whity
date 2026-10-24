@@ -1,0 +1,827 @@
+Oliver and Company et al v. Zamber et al                                                                                             Doc. 264
+
+
+
+
+                                              UNITED STATES DISTRICT COURT
+                                              EASTERN DISTRICT OF MISSOURI
+                                                    EASTERN DIVISION
+
+             OLIVER AND COMPANY, et al.,                               )
+                                                                       )
+                          Plaintiffs,                                  )
+                                                                       )
+                    vs.                                                )            Case No. 4:25-cv-00132-MTS
+                                                                       )
+             DR. RONALD ZAMBER, et al.,                                )
+                                                                       )
+                          Defendants.                                  )
+
+                                                  MEMORANDUM AND ORDER
+
+                     This matter is before the Court on three Motions filed by Defendant Dr. Ronald Zamber,
+
+             Defendant Robert Grenley, and Defendant Visionary Fund Manager, LLC (together,
+
+             “Defendants”): (1) their Motion to Strike the Third Amended Complaint, Doc. [187]; (2) their
+
+             Motion to Dismiss Plaintiffs’ Fraud Claims, Doc. [201]; and (3) their Motion for Judgment on the
+
+             Pleadings as to Plaintiffs’ Fiduciary Duty Claims, Doc. [190]. The Motions are fully briefed and
+
+             ready for decision. See Docs. [198], [200], [215]. For the reasons that follow, the Court will deny
+
+             all three.
+
+                     I.         Factual Background1
+
+                     Visionary Private Equity Group I, LP is a Missouri limited partnership marketed as
+
+             Visionary Private Equity Group (“VPEG” or “the Fund”). Doc. [177] ¶ 1. Defendant Dr. Ronald
+
+             Zamber (“Zamber”) is its Chairman, Senior Managing Director, and Founding Partner. Id. ¶ 28.
+
+
+
+
+             1
+               Because the Court will decline to strike Plaintiffs’ Third Amended Complaint (“TAC”), the Court accepts as true the
+             facts alleged therein for purposes of these Motions. See Saterdalen v. Spencer, 725 F.3d 838, 840 (8th Cir. 2013).
+             The Court properly considers the documents attached thereto. See Quinn v. Ocwen Fed. Bank FSB, 470 F.3d 1240,
+             1244 (8th Cir. 2006) (“[A] court ruling on a motion to dismiss under Rule 12(b)(6) may consider material attached to
+             the complaint.”); see also Gorog v. Best Buy Co., 760 F.3d 787, 791 (8th Cir. 2014) (“[D]ocuments necessarily
+             embraced by the complaint are not matters outside the pleading.”).
+
+
+
+
+                                                                                                                           Dockets.Justia.com
+Defendant Robert Grenley (“Grenley”) is its Director of Capital Development, id. ¶ 29, and
+
+Defendant Michael Cosby (“Cosby”) served as its Senior Managing Director and General Counsel
+
+until his resignation, id. ¶ 30.2 Defendant Visionary Fund Manager, LLC (“VFM”), holds “the
+
+power to manage and direct the Portfolio Investments in the Fund,” Doc. [177-4] at 6, and its sole
+
+members are Zamber and Cosby. Doc. [177] ¶ 27. VPEG is advertised as “a private equity group
+
+that invests in early stage, high growth companies that have strong management teams and the
+
+potential for significant upside.” Id. ¶ 34. VPEG represents that it is managed by a team “of highly
+
+respected professionals with a unique blend of private equity, investment banking, legal, medical,
+
+oil & gas, internet technology and operating experience that play an active role ensuring that [its]
+
+portfolio companies have a sound operating and capital strategy.” Id. ¶ 35.
+
+           Plaintiffs are a subset of limited partners who have invested roughly $11 million in VPEG.
+
+Id. ¶ 4. Limited partners like Plaintiffs invest in the Fund via subscription agreements, which
+
+entitle them to one limited partnership share for each dollar contributed. Id. ¶ 39.3 Plaintiffs made
+
+their initial investments from 2018 through 2023, id. ¶ 137, based on the Individual Defendants’
+
+“representations regarding their experience in the private equity space, investment banking, legal,
+
+medical, oil & gas, and internet technology spaces.” Id. ¶¶ 4, 38. In reality, the Individual
+
+Defendants lack such skills and experience. Id. ¶¶ 35–36. In addition, Zamber and Grenley
+
+induced further investments from Plaintiffs, acquired short-term loans, and retained Plaintiffs’
+
+initial investments by touting VPEG’s financial health and making “frequent statements that
+
+additional distributions were forthcoming soon.” Id. ¶ 45. The Individual Defendants also made
+
+
+
+2
+    The Court refers to Zamber, Grenley, and Cosby, together, as the “Individual Defendants.”
+3
+ Plaintiffs allege that “at some time no later than 2023 and continuing into 2024, at the behest of the Individual
+Defendants, VPEG began offering units at a $0.67/unit price . . . instead of the $1.00/unit purchase price offered to
+most investors” for the Individual Defendants’ “own benefit” and to “cover for [their] misconduct.” Doc. [177] ¶¶ 72–
+73.
+
+                                                         -2-
+statements that “grossly exaggerated the performance of various portfolio companies and the
+
+Fund,” and those statements “were intended to cause Plaintiffs to continue to invest in and lend
+
+money to VPEG.” Id. ¶ 96.
+
+           For example, during a September 2022 meeting in South Bend, Indiana, Zamber and
+
+Grenley represented that “there was no debt at the Fund level,” and “falsely stated that a
+
+distribution was forthcoming” at the end of that year. Id. ¶ 46. Similarly, Zamber and Grenley
+
+made a presentation at the Plaintiffs’ annual trustee board meeting in March 2023 and “asserted
+
+that a distribution was ‘right around the corner,’ to be made within the next six to nine months.”
+
+Id. ¶ 47. Following each of these meetings, Zamber and Grenley solicited short-term loans from
+
+Plaintiffs, stating that “VPEG would use to invest in the Fund and for expenses.” Id. ¶ 40, 46–47.
+
+Instead, the Individual Defendants paid at least a portion of the loan amounts to themselves. Id.
+
+¶ 40. Further, Zamber and Grenley insisted that these loans would be repaid shortly, but the loans
+
+remain unpaid. Id. ¶¶ 46–47. In March 2024, the Individual Defendants prepared investor
+
+presentations stating that VPEG had paid $5.8 million dollars to limited partners via prior
+
+distributions. Id. ¶ 48.4          Mere months later, in June 2024, a subsequent investor presentation
+
+explained that the Fund had paid $9.1 million in distributions.                           Doc. [177] ¶ 48, 7.5
+
+Notwithstanding the $3.3 million disparity, certain Plaintiffs received “their only distributions in
+
+September 2021 totaling $310,011.00.” Id. ¶ 44.
+
+
+
+
+4
+ The Limited Partnership Agreement (“LPA”) contemplates distributions paid to limited partners. These payments
+may be made at the general partner’s discretion, Doc. [177-4] at 9, “in proportion to the [limited partners’] respective
+Memorandum Accounts,” Doc. [177] ¶ 43, which track the accrual of each limited partner’s unreturned capital
+contributions, Doc. [177-4] at 25.
+5
+    A $9 million distribution amount is apparently reflected in VPEG’s 2021 tax return. Doc. [177] ¶ 9.
+
+
+                                                         -3-
+        The LPA requires VPEG’s officers to “keep or cause to be kept complete and appropriate
+
+records and books of account” documenting the Fund’s “operations, business and affairs.” Doc.
+
+[177-4] at 11. According to the LPA, these records “shall be subject to an annual audit by an
+
+independent certified public accountant.” Id. “[A]ll such books and records shall be available for
+
+inspection and copying at the reasonable request . . . of any Partner.” Id. Contrary to those
+
+provisions, the Individual Defendants “never permitted an annual audit,” Doc. [177] ¶ 53, and
+
+since 2021, the Individual Defendants have refused access to VPEG’s financials, id. ¶ 56.
+
+Plaintiffs have repeatedly requested audited financial statements for the Fund to no avail. Id. ¶ 58–
+
+59.
+
+        Plaintiffs allege that the Individual Defendants have withheld this information to conceal
+
+their misconduct and mismanagement of VPEG, id. ¶¶ 2, 56, including the fact that, from 2020
+
+until the present, the Individual Defendants have appropriated over $7 million of VPEG funds to
+
+pay themselves. Id. ¶ 3.6 Payments have also been made to “people with whom Zamber had
+
+personal relationships [but] . . . provide no services to the Fund.” Id. ¶ 78. And VPEG funds have
+
+been used to cover unrelated business expenses, specifically $30,000 to cover payroll and other
+
+expenditures at Zamber’s eye clinic. Id. ¶ 80. Zamber and Cosby approved, authorized, and
+
+executed each of these improper payments. Id.
+
+        The Individual Defendants “have also failed to report” that several of the Fund’s portfolio
+
+companies are struggling or defunct. Id. ¶ 74. For example, Pop Gourmet has “failed to pay its
+
+employees and vendors among other bills,” and its assets were recently noticed for a sheriff sale,
+
+id. ¶ 76, but the promotional materials that the Individual Defendants prepared tell a much different
+
+story. See Doc. [177-1] at 11 (projecting a $2.8 million dollar revenue in 2024 and a $5.8 million
+
+
+6
+ Zamber has received over $5.2 million, Cosby has received over $1 million, and Grenley has received over $800,000.
+Id. ¶ 3.
+
+                                                      -4-
+dollar revenue in 2025). Visionary Media Group, the largest holding in VPEG’s portfolio, has had
+
+many of its advisors, contractors, and vendors resign or stop services because of non-payment
+
+totaling hundreds of thousands of dollars. Id. ¶ 81. In addition, VPEG has invested over $5 million
+
+in Navitus Energy Group, but upon information and belief, Plaintiffs allege that the entity has sold
+
+several oil wells backing VPEG’s investment. Id. ¶ 82–83.
+
+       Nor have the Individual Defendants reported VPEG’s own corporate woes. VPEG has
+
+failed to pay its rent for its corporate office. Id. ¶ 86. VPEG has also failed to pay its contractors,
+
+some of whom “have reported that they are owed anywhere from $65,000 to $150,000” in backpay
+
+and expenses. Id. ¶ 87. And VPEG is listed as the debtor related to a lien filed by Wolters Kluwer
+
+Lien Solutions on November 12, 2024. Id. ¶ 85. The security pledged as collateral for VPEG’s
+
+obligation includes all its assets as of the enforcement date of the security instrument. Doc. [177-6]
+
+at 4. Yet again, promotional materials prepared by the Individual Defendants paint a much
+
+different picture, including $11.8 million in capital raised during an eighteen-month period from
+
+2023 to 2024. See Doc. [177-1] at 5 (explaining that the Fund “attracted $6.2 million in additional
+
+capital in 2023” and saw its “annualized 2023 [Assets Under Management] appreciate by 21.8%
+
+on a Mark-to-Market basis”); Doc. [177-2] (claiming VPEG acquired $5.4 million in new capital
+
+during the first half of 2024).
+
+       II.     Procedural History
+
+       Plaintiffs initiated this action on January 31, 2025. Doc. [1]. By April 02, 2025, Plaintiffs
+
+had amended their Complaint twice-over, Docs. [10], [12], sought and received expedited
+
+discovery, Doc. [39], and filed a Motion seeking the appointment of a Receiver pendente lite, Doc.
+
+[47]. Soon after, Defendants entered their appearance and moved to dismiss for lack of subject-
+
+matter jurisdiction. The Court ordered expedited briefing and held a consolidated hearing on April
+
+
+
+                                                -5-
+28, 2025. Based on the parties’ written submissions and the evidence presented, the Court
+
+dismissed Plaintiffs’ derivative claims without prejudice,7 exercised diversity jurisdiction over
+
+Plaintiffs’ direct claims, and appointed Jason Buhlinger as Receiver over the Fund. Doc. [88] at
+
+23, 2025 WL 1580288, at *11. On June 24, 2025, Defendant VFM appealed the Court’s
+
+appointment of Receiver Buhlinger to the U.S. Court of Appeals for the Eighth Circuit. Doc.
+
+[100].
+
+         The next day, the Defendants Zamber, Grenley, and VFM filed a Motion to Dismiss the
+
+action for failure to join Visionary PE GP I, LLC (“GP LLC”)—designated as VPEG’s sole
+
+General Partner—as an indispensable party. Doc. [104]; see Doc. [177-4] at 4. GP LLC filed a
+
+corresponding Motion to Intervene as matter of right. Doc. [94]. The Court held a hearing and
+
+denied both Motions on August 04, 2025.8 During the hearing, Plaintiffs represented that the
+
+Court’s prior dismissal of their derivative claims “change[d] some of the relief that [Plaintiffs] can
+
+and will seek” in this matter. Doc. [170] at 43. Plaintiffs also indicated their desire to add claims
+
+for fraud. Id. Accordingly, the Court granted Plaintiffs leave to file a Third Amended Complaint
+
+to clarify the relief sought and add their desired claims. Id. During the hearing, none of the
+
+Defendants objected to the Court’s grant of leave.
+
+         GP LLC appealed the denial of its Motion to Intervene on August 20, 2025. Doc. [162].
+
+The Eighth Circuit has consolidated both VFM and GP LLC’s interlocutory appeals, and they
+
+remain pending. Clerk Order Consolidating Appeals, Oliver & Co. v. Visionary Fund Manager,
+
+
+7
+  Because a corporate entity is the real party in interest to a derivative claim, and because a limited partnership’s
+citizenship is equivalent to citizenship of its limited partners for purposes of subject-matter jurisdiction, the Court
+concluded that it could not exercise diversity jurisdiction over Plaintiffs’ derivative claims because VPEG and
+Plaintiffs have identical states of citizenship. Doc. [88] at 14–15, 2025 WL 1580288, at *6–7.
+8
+ The Court concluded that it could provide meaningful relief between the present parties. Doc. [170] at 54. The
+Court also found that GP LLC’s interests were adequately represented by the named Defendants because Zamber and
+Cosby are its sole members, id. at 55–56. Accordingly, GP LLC was neither a necessary party under Federal Rule of
+Civil Procedure 19, nor an appropriate intervenor under Rule 24, id. at 57.
+
+                                                        -6-
+LLC, No. 25-2269 (8th Cir. Sep. 23, 2025). On September 05, 2025, Plaintiffs filed their Third
+
+Amended Complaint (“TAC”), which asserts four counts: (1) Breach of Fiduciary Duty against all
+
+Defendants; (2) Fraudulent Inducement against all Defendants; (3) Negligent Misrepresentation
+
+against all Defendants; and (4) a claim for an Accounting against Zamber, Grenley, and Cosby.
+
+Plaintiffs seek a wide variety of relief, including compensatory damages, punitive damages,
+
+attorney’s fees and costs, injunctive relief, including removal of the Individual Defendants from
+
+their roles in the Fund and the appointment of a receiver to manage the fund pendente lite and on
+
+a permanent basis, an order for an accounting, and “disgorgement of all compensation or other
+
+funds paid to Defendants by the Fund.” Doc. [177] at 30–31.
+
+       Now, Defendants seek to strike the TAC, arguing that the ongoing interlocutory appeals
+
+prohibit an amended complaint. Doc. [187] at 5–6. Subject to their Motion to Strike, Defendants
+
+move to dismiss Plaintiffs’ fraud claims on the ground that they are inadequately pleaded. Doc.
+
+[201] ¶¶ 3–4. Defendants also move for judgment on the pleadings as to Plaintiffs’ fiduciary-duty
+
+claims because certain exculpation provisions in the LPA preclude them. Doc. [191] at 4. The
+
+Court addresses each of these items in turn.
+
+       III.    Discussion
+
+               A. Defendants’ Motion to Strike the TAC
+
+       Defendants argue that the Court must strike Plaintiffs’ TAC because it impermissibly
+
+“alter[s] the status of the interlocutory appeals in this case.” Doc. [188] at 5. More specifically,
+
+by removing VPEG as a nominal party listed in the caption and deleting the now-dismissed
+
+derivative claims, Defendants contend that the TAC displaces several jurisdictional arguments that
+
+VFM has raised before the Eighth Circuit. Id. at 4. Plaintiffs disagree, arguing that “the TAC does
+
+
+
+
+                                               -7-
+nothing to disturb or affect the issues that [Visionary Fund Manager, LLC] has raised on appeal.”
+
+Doc. [198] at 4. The Court concludes that Plaintiffs have the better part of the argument.
+
+       The filing of a notice of appeal is a matter of “jurisdictional significance” because it
+
+“confers jurisdiction on the court of appeals and divests the district court [of] its control over those
+
+aspects of the case involved in the appeal.” Liddell by Liddell v. Bd. of Educ. of City of St. Louis,
+
+73 F.3d 819, 822 (8th Cir. 1996) (quoting Griggs v. Provident Consumer Disc. Co., 459 U.S. 56,
+
+58 (1982)). But district courts retain jurisdiction “with respect to any matter not involved in the
+
+appeal.” Janousek v. Doyle, 313 F.2d 916, 920 (8th Cir. 1963) (per curiam); accord Plotkin v.
+
+Pac. Tel. & Tel. Co., 688 F.2d 1291, 1293 (9th Cir. 1982) (“[I]t is firmly established that an appeal
+
+from an interlocutory order does not divest the trial court of jurisdiction to continue with other
+
+phases of the case.” (citing Ex parte Nat’l Enameling & Stamping Co., 201 U.S. 156, 162 (1906))).
+
+       Here, Defendants fail to show that the TAC has any material overlap with the aspects of
+
+the case that are now before the Eighth Circuit. VFM has appealed the Court’s appointment of
+
+Receiver Buhlinger pursuant to 28 U.S.C. § 1292(a)(2), which provides appellate jurisdiction over
+
+“orders appointing receivers.” The key question in VFM’s interlocutory appeal, then, is whether
+
+the Court abused its discretion when appointing Receiver Buhlinger in this matter. See Morgan
+
+Stanley Smith Barney LLC v. Johnson, 952 F.3d 978, 981 (8th Cir. 2020) (standard of review).
+
+Nothing in the TAC interferes with or disturbs VFM’s appeal because the TAC in no way relates
+
+to the Court’s analysis of the record, its consideration of the relevant factors, and its determination
+
+that the extraordinary circumstances in this case warranted Mr. Buhlinger’s appointment. Doc.
+
+[88] at 17–22, 2025 WL 1580288, at *8–11.
+
+       Further, Defendants’ argument that the TAC “moots” certain jurisdictional arguments on
+
+appeal, Doc. [188] at 4, is incorrect. True, the TAC removes mention of VPEG as a nominal party
+
+
+
+                                                 -8-
+in the case, and it deletes Plaintiffs’ now-dismissed derivative claims. But neither circumstance
+
+prevents Defendant VFM from arguing—and the Eighth Circuit from later finding—that VPEG is
+
+a diversity-destroying, real party in interest to this lawsuit based on the nature of Plaintiffs’ direct
+
+claims and the corresponding relief that Plaintiffs have sought. See, e.g., Cent. Rsrv. Life of N.
+
+Am. Ins. Co. v. Struve, 852 F.2d 1158, 1161 n.5 (9th Cir. 1988) (concluding that an unnamed
+
+defendant was a real party in interest that rendered diversity jurisdiction “unavailable as a basis
+
+for federal jurisdiction”). Indeed, Defendants’ argument ignores the well-settled principle that a
+
+court’s assessment of its own jurisdiction is not tethered to the operative complaint. See Herden
+
+v. United States, 726 F.3d 1042, 1046 (8th Cir. 2013) (en banc) (explaining that courts “may look
+
+outside the pleadings to determine the threshold question of jurisdiction”).
+
+        One loose end remains, whether the TAC impermissibly overlaps with or effects GP LLC’s
+
+intervention-related appeal.9        When ruling on a Motion to Intervene, “a court focuses its
+
+intervention analysis on the underlying pleadings.” Nat’l Parks Conservation Ass’n v. U.S. E.P.A.,
+
+759 F.3d 969, 974 (8th Cir. 2014). It “should assume the plaintiff will receive the relief it seeks
+
+and, from that assumption, assess the sufficiency of the prospective intervenor’s motion.” Id. at
+
+973. On appeal, a district court’s “intervention determinations” are reviewed de novo. Id. at 974.
+
+Here, even though the TAC alters some of the relief Plaintiffs seek in this case, compare Doc. [12]
+
+at 32–33 (Second Amended Complaint), with Doc. [177] at 30–31 (TAC), GP LLC’s appeal does
+
+not prohibit these changes, given the specific “intervention determinations” that are under
+
+appellate review, Nat’l Parks, 759 F.3d at 974. Whatever the relief sought in this lawsuit and
+
+whatever the interests implicated as a result, the Court denied GP LLC’s Motion to Intervene
+
+
+9
+  Defendants make no specific argument on this score, but the Court properly addresses this jurisdictional matter on
+its own. See Mires v. United States, 466 F.3d 1208, 1211 (10th Cir. 2006) (“A federal court must, in every case and
+at every stage of the proceeding, satisfy itself as to its own jurisdiction.” (citation modified)).
+
+
+                                                       -9-
+because its interests are adequately protected by the named Defendants. Doc. [170] at 55–56
+
+(concluding based on the factual record that Zamber and Cosby are the sole members of GP LLC).
+
+Thus, the TAC does not interfere with the specific “aspects of the case involved in the appeal.”
+
+Liddell, 73 F.3d at 822.10 Therefore, for all these reasons, the Court will deny Defendants’ Motion
+
+to Strike, and the TAC remains the operative Complaint in this matter.
+
+                  B. Defendants’ Motion to Dismiss Plaintiffs’ Fraud Claims
+
+         The Court proceeds to consider Defendants’ Motion to Dismiss, which argues that the fraud
+
+allegations in the TAC fail to meet the pleading requirements of Federal Rule of Civil Procedure
+
+9(b). Doc. [201]. Accordingly, Defendants seek dismissal of Plaintiffs fraud claims pursuant to
+
+Rule 12(b)(6). Id. To survive such a motion, “a complaint must contain sufficient factual matter,
+
+accepted as true, to state a claim to relief that is plausible on its face.” Glick v. W. Power Sports,
+
+Inc., 944 F.3d 714, 717 (8th Cir. 2019). “A claim has facial plausibility when the plaintiff pleads
+
+factual content that allows the court to draw the reasonable inference that the defendant is liable
+
+for the misconduct alleged.” Id. “[T]he complaint should be read as a whole, not parsed piece by
+
+piece to determine whether each allegation, in isolation, is plausible.” Braden v. Wal-Mart Stores,
+
+588 F.3d 585, 594 (8th Cir. 2009). When undertaking this analysis, the Court accepts the
+
+Complaint’s well-pleaded facts as true and draws all reasonable inferences in Plaintiffs’ favor.
+
+Davis v. Wash. Univ. in St. Louis, 960 F.3d 478, 483 (8th Cir. 2020).
+
+         Rule 9(b) imposes a “heightened pleading standard” for fraud claims. Summerhill v.
+
+Terminix, Inc., 637 F.3d 877, 880 (8th Cir. 2011) (“[A]llegations of fraud . . . must be pleaded
+
+
+
+10
+   Defendants’ cited cases are distinguishable because, in each one, the interlocutory appeal was taken from the denial
+of an immunity-premised motion to dismiss. In those instances, each interlocutory appeal was based on whether the
+allegations in the original complaint entitled a government-officer defendant to immunity from suit, so both district
+courts lacked jurisdiction to accept an amended complaint that changed those allegations while the appeals were
+pending. Compare Wooten v. Roach, 964 F.3d 395, 403 (5th Cir. 2020) (prosecutorial and official immunity), with
+May v. Sheahan, 226 F.3d 876, 879–80 (7th Cir. 2000) (qualified immunity).
+
+                                                       - 10 -
+with particularity.” (citation omitted)). To comply, the pleading must include details such as “the
+
+time, place, and content of the defendant’s false representations, as well as the details of the
+
+defendant’s fraudulent acts, including when the acts occurred, who engaged in them, and what was
+
+obtained as a result.” United States ex rel. Joshi v. St. Luke’s Hosp. Inc., 441 F.3d 552, 556 (8th
+
+Cir. 2006). Put another way, the complaint must allege the “who, what, where, when, and how”
+
+of the alleged fraud. Ascente Bus. Consulting, LLC v. DR myCommerce, 9 F.4th 839, 845 (8th Cir.
+
+2021).     “When the facts constituting the fraud are peculiarly within the opposing party’s
+
+knowledge, however, such allegations may be pleaded on information and belief.” Ambassador
+
+Press, Inc. v. Durst Image Tech. U.S., LLC, 949 F.3d 417, 421 (8th Cir. 2020). The “critical
+
+inquiry” is whether the allegations supply a defendant with “enough information to adequately
+
+respond and prepare a defense.” Id.11
+
+         The Court concludes that the factual allegations in the TAC are sufficient under Rule 9(b).
+
+To be sure, some of Plaintiffs’ allegations describe Defendants’ wrongdoing in general terms. See,
+
+e.g., Doc. [177] ¶ 2, 45. But the TAC also contains specific factual allegations that, taken as a
+
+whole, adequately particularize Defendants’ alleged fraud. See id. ¶¶ 36–38; 46–47; 54–55, 59,
+
+62–63 (describing how Zamber, Grenley, and Cosby—both individually and when acting on behalf
+
+of VFM—made specific verbal and written statements that falsely exaggerated the performance of
+
+VPEG’s portfolio companies, misstated VPEG’s debts, and lied about the impending nature12 of
+
+
+
+11
+  Under Missouri law, a fraud claim has nine essential elements: (1) a representation; (2) its falsity; (3) its materiality;
+(4) the speaker’s knowledge of its falsity, or ignorance of its truth; (5) the speaker’s intent that it should be acted on
+by the person and in the manner reasonably contemplated; (6) the hearer’s ignorance of the falsity of the
+representation; (7) the hearer’s reliance on the representation being true; (8) the hearer’s right to rely thereon; and (9)
+the hearer’s consequent and proximately caused injury. Trimble v. Pracna, 167 S.W.3d 706, 712 n.5 (Mo. banc 2005).
+12
+  A defendant is liable for representations of future acts or events when plaintiff proves “that the defendant actually
+knew, when making the representation as to a future event or act, that the representation was false.” Stevens v. Markirk
+Constr., Inc., 454 S.W.3d 875, 881–82 (Mo. banc 2015).
+
+
+                                                         - 11 -
+forthcoming distributions). Plaintiffs also allege that Cosby, at Zamber’s direction, prepared
+
+incomplete financial records that failed to show13 the amount of various liabilities related to VPEG,
+
+the status of VPEG’s portfolio investments, and payments made for the benefit of the Individual
+
+Defendants. See id. ¶¶ 53–56, 59; see also OrthoAccel Techs., Inc. v. Devicix, LLC, 0:15-cv-1503-
+
+DWF-TNL, 2015 WL 4563134, at *3 (D. Minn. July 29, 2015) (finding Rule 9(b) satisfied where
+
+plaintiff “identifie[d] specific statements made by” a corporate officer); Solvay Pharms., Inc. v.
+
+Glob. Pharms., 298 F. Supp. 2d 880, 886 (D. Minn. 2004) (denying motion to dismiss where
+
+plaintiff specified misleading statements in promotional materials). And Plaintiffs have alleged
+
+specific portfolio-company and VPEG-related shortcomings that the Individual Defendants failed
+
+to disclose or otherwise report. Id. ¶¶ 76, 78, 80–81, 83, 85–89.
+
+         Plaintiffs allege that these material misrepresentations and omissions occurred (1) during
+
+a September 2022 meeting with the Plaintiffs in South Bend, Indiana, Doc. [177] ¶ 46; (2) during
+
+a March 2023 meeting in Austin, Texas, id. ¶ 47; (3) within March and June 2024 investor
+
+presentations prepared by the Individual Defendants, id. ¶ 48; and (4) within incomplete financial
+
+statements provided to the Plaintiffs in July 2024, id. ¶ 59. Further, Plaintiffs allege that Zamber,
+
+Grenley, and Cosby’s misstatements and omissions caused Plaintiffs to invest in VPEG to the tune
+
+of $11 million and provide specific short-term loans to VPEG. Id. ¶¶ 38, 40, 111–112. According
+
+to the TAC, these values are specified in corresponding promissory notes and subscription
+
+agreements that the Plaintiffs executed. See id. ¶¶ 39–40; see also, e.g., Doc. [177-3] at 20 (setting
+
+forth a January 2023 investment of $55,000). And, by virtue of the Individual Defendants’ level
+
+of control over VPEG, and their superior knowledge of the Fund’s investment practices, id. ¶¶ 94–
+
+95, the TAC’s factual allegations plausibly show that Plaintiffs reasonably relied on Zamber,
+
+
+13
+  “[S]ilence or nondisclosure of a material fact” can form the basis of a fraud claim when the omission is “used as an
+inducement to another.” Andes v. Albano, 853 S.W.2d 936, 943 (Mo. banc 1993) (Limbaugh, J.)
+
+                                                       - 12 -
+Grenley, and Cosby’s material misrepresentations and omissions. See Murphy v. Springfield, 794
+
+S.W.2d 275, 288 (Mo. Ct. App. 1990) (explaining that the test for reasonable reliance in a fraud
+
+case is whether plaintiff used “ordinary care” when relying on defendant’s representation).
+
+        Taken together, these allegations adequately describe the “who, what, where, when, and
+
+how” of Plaintiffs’ fraud claims. Ascente, 9 F.4th at 845. The TAC enumerates (1) which of the
+
+Individual Defendants allegedly made material misrepresentations and omissions; (2) what
+
+misrepresentations and omissions were made; (3) when, where, and in what context they were
+
+made; (4) how the misrepresentations and omissions induced Plaintiffs; and (5) what injuries were
+
+proximately caused.         Rule 9(b) does not require further particulars or specifics under the
+
+circumstances. See United States ex rel. Williams v. Martin-Baker Aircraft Co., 389 F.3d 1251,
+
+1259 (D.C. Cir. 2004) (joined by Roberts, J.) (explaining that “Rule 9(b) does not require plaintiffs
+
+to allege every fact pertaining to every instance of fraud when a scheme spans several years”); see
+
+also Fed. R. Civ. P. 9(b) (providing that “the conditions of a person’s mind may be alleged
+
+generally”); Lewey v. Vi-Jon, Inc., 4:11-cv-1341-JAR, 2012 WL 1859031, at *3 (E.D. Mo. May
+
+22, 2012) (observing that Rule 9(b)’s requirements are relaxed “when the facts constituting the
+
+fraud are peculiarly within the opposing party’s knowledge” (quoting Drobnak v. Andersen Corp.,
+
+561 F.3d 778, 783 (8th Cir. 2009))). In sum, Plaintiffs’ allegations provide Defendants with
+
+sufficient notice “to adequately respond and prepare a defense.” Ambassador Press, 949 F.3d at
+
+421. Therefore, the Court will deny Defendants’ Motion to Dismiss.14
+
+
+
+
+14
+   Because Plaintiffs do not assert any claims under federal securities laws, Defendants’ arguments related to the
+Private Securities Litigation Reform Act (“PSLRA”), Doc. [202] at 4–7, are unavailing, see, e.g., Dorsey v. Portfolio
+Equities, Inc., 540 F.3d 333, 341 (5th Cir. 2008) (“[T]he PSLRA’s stricter scienter requirement does not apply to
+state-law fraud claims.”); see also 15 U.S.C. § 77z-2(c)(1) (providing that the PSLRA’s safe harbor provision applies
+“in any private action arising under this subchapter” (emphasis added)).
+
+                                                      - 13 -
+                C. Motion for Judgment on the Pleadings as to Plaintiffs’ Claims for Breach
+                   of Fiduciary Duty
+
+        The Court next considers Defendants’ Motion for Judgment on the Pleadings. Doc.
+
+[190]. Such relief is appropriate when, after “accepting all facts pled by the nonmoving party as
+
+true and drawing all reasonable inferences from the facts in favor of the nonmoving party, the
+
+movant has clearly established that no material issue of fact remains and that the movant is entitled
+
+to judgment as a matter of law.” Schnuck Markets, Inc. v. First Data Merch. Servs. Corp., 852
+
+F.3d 732, 737 (8th Cir. 2017). Defendants argue that the LPA’s exculpation provision precludes
+
+Plaintiffs’ breach of fiduciary duty claims. Doc. [191] at 4. The Court does not agree.
+
+        Defendants assert that the “LPA controls the rights and obligations of the general and
+
+limited partners of Visionary Private Equity Group I LLC [sic],” id. at 2, and they contend that
+
+“Missouri’s Limited Liability Company Act . . . grants limited liability companies the power to
+
+effectively limit or define the scope of fiduciary duties imposed upon an LLC’s members and
+
+managers,” id. at 2 (citing Mo. Rev. Stat. §§ 347.010–347.187). Thus, so the argument goes, the
+
+LPA limits liability here because it “abrogates common law fiduciary duties and sets contractual
+
+standards for performance” for any action or inaction taken on behalf of the Fund, unless it is
+
+“determined by a final non-appealable order . . . to have been primarily caused by the fraud, gross
+
+negligence, or criminal intent of the person claiming exculpation.” Id. at 3; Doc. [177-4] at 7.
+
+        As an initial matter, Defendants’ premise is flawed for the simple reason that the Fund is a
+
+limited partnership, not a limited liability company, so the Missouri Limited Liability Company
+
+Act cannot provide a basis for their present argument. See Doc. [177-4] at 1 (establishing VPEG
+
+as “a Missouri Limited Partnership”); cf. 25 Philip G. Louis, Jr., Missouri Practice Series, Business
+
+Organizations § 1.2 (2d ed.) (noting that “there are substantial differences between a corporation,
+
+a partnership, a limited partnership, a registered limited liability partnership, and a limited liability
+
+
+                                                 - 14 -
+company”). But even after construing Defendants’ argument through the lens of Missouri
+
+partnership law, see Ebest v. Bruce, 734 S.W.2d 915, 921 (Mo. Ct. App. 1987) (explaining that
+
+the duties of general partners and limited partners are delineated by the “limited partnership
+
+agreement, the Uniform Limited Partnership Law . . . and by reference [to] the Uniform Partnership
+
+Law”), neither the LPA nor its exculpation clause bars Plaintiffs’ fiduciary-duty claims as a matter
+
+of law.15
+
+        The fiduciary duties that general partners owe to their limited partners primarily arise out
+
+of the nature of their relationship to one another as well as statutory law. See A.G. Edwards &
+
+Sons, Inc. v. Drew, 978 S.W.2d 386, 394 (Mo. Ct. App. 1998) (Russell, J.) (acknowledging that
+
+fiduciary duties “may arise as a matter of law by virtue of the parties’ relationship”); Ebest, 734
+
+S.W.2d at 922 (“[G]eneral partners are charged by statute and case law with a high fiduciary duty.
+
+Where a general partner of a limited partnership acts with complete control he stands in the same
+
+position to the limited partners as a trustee . . . to a trust.”). That a limited partnership agreement
+
+exists between them does not, as a matter of law, abrogate these duties. See Turner v. Ferguson,
+
+149 F.3d 821, 823 (8th Cir. 1998) (recognizing that a general-partner defendant “owed . . . a
+
+fiduciary duty to his limited partners under the terms of [the applicable] partnership agreement and
+
+also under Missouri law”). Nor does the specific exculpation clause at issue entitle Defendants to
+
+their desired relief. By its terms, the clause does not prohibit liability arising out of “fraud, gross
+
+negligence, or criminal intent.” Doc. [177-4] at 7; see Green Street 2900 Invs. v. St. Louis
+
+Woodworks, Inc., 654 S.W.3d 380, 388 (Mo. Ct. App. 2022) (“It is a court’s duty to give effect to
+
+
+
+15
+  Given the factual allegations in the TAC—and the Court’s factual findings elsewhere—Plaintiffs have demonstrated
+that the Individual Defendants, especially Zamber and Cosby, exercise sufficient control over GP LLC and have
+engaged in sufficient misconduct such that GP LLC’s fiduciary duties may plausibly be imputed onto them. See, e.g.,
+Doc. [177] ¶¶ 94–95; Doc. [88] at 3 n.2; see also NTD I, LLC v. Alliant Asset Mgmt. Co., 337 F. Supp. 3d 877, 887
+(E.D. Mo. 2018) (applying Missouri law and setting forth circumstances when the fiduciary duties of a corporate-
+entity general partner may be imputed to an individual director).
+
+                                                     - 15 -
+the plain and ordinary meaning of contractual terms when possible.”). And here, as discussed
+
+above, Plaintiffs’ allegations plausibly support a finding of fraud. See, e.g., Doc. [177] ¶¶ 37; 54-
+
+55, 59, 62-63. In addition, Plaintiffs have plausibly alleged grossly negligent, if not willful,
+
+misconduct on the part of Defendants. See, e.g., Doc. [177] ¶¶ 97–104; see also Sale v. Slitz, 998
+
+S.W.2d 159, 164 (Mo. Ct. App. 1999) (“A limitation of liability provision within a contract is
+
+ineffective in a cause of action where the conduct is willful and wanton.”). Therefore, for all these
+
+reasons, the Court will deny Defendants’ Motion for Judgment on the Pleadings.
+
+       IV.     Conclusion
+
+       The Court will deny Defendants’ Motion to Strike because the TAC does not violate the
+
+jurisdictional divestiture rule related the ongoing interlocutory appeals. The Court will also deny
+
+Defendants’ Motion to Dismiss because the factual allegations in the TAC satisfy the specification
+
+requirements of Federal Rule of Civil Procedure 9(b). And the Court will deny Defendants’
+
+Motion for Judgment on the Pleadings because the LPA does not bar liability for fraudulent,
+
+grossly negligent, or criminal conduct, which Plaintiffs have plausibly alleged.
+
+       Accordingly,
+
+       IT IS HEREBY ORDERED that Defendant Dr. Ronald Zamber, Defendant Robert
+
+Grenley, and Defendant Visionary Fund Manager, LLC’s Motion to Strike the Third Amended
+
+Complaint, Doc. [187], is DENIED.
+
+       IT IS FURTHER ORDERED that Defendant Dr. Ronald Zamber, Defendant Robert
+
+Grenley, and Defendant Visionary Fund Manager, LLC’s Motion to Dismiss Plaintiffs’ Fraud
+
+Claims, Doc. [201], is DENIED.
+
+
+
+
+                                               - 16 -
+       IT IS FURTHER ORDERED that Defendant Dr. Ronald Zamber, Defendant Robert
+
+Grenley, and Defendant Visionary Fund Manager, LLC’s Motion for Judgment on the Pleadings,
+
+Doc. [190], is DENIED.
+
+       IT IS FINALLY ORDERED that Defendant Dr. Ronald Zamber, Defendant Robert
+
+Grenley, and Defendant Visionary Fund Manager, LLC, shall have the prescribed time to respond
+
+to Plaintiffs’ Third Amended Complaint. See Fed. R. Civ. 15(a)(3).
+
+       Dated this 16th day of March 2026.
+
+
+
+
+                                            MATTHEW T. SCHELP
+                                            UNITED STATES DISTRICT JUDGE
+
+
+
+
+                                            - 17 -
+

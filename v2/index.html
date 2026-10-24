@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="An evidence-based look at the Visionary Private Equity Group receivership record. Educational only; not legal advice.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>The VPEG File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Special+Elite&family=Archivo+Narrow:wght@500;600;700&display=swap">
+<style>
+/* Layout: one long case dossier. Night-green desk; every section is a sheet of bone paper on it.
+   Single deliberate dark world, same family as V1, with the fiction removed. */
+:root{
+  color-scheme:dark;
+  --night:#0b0d0c; --night-2:#111513; --green:#13241b; --green-2:#1b3025;
+  --bone:#ebe3d0; --bone-dim:#a69e8c; --muted:var(--bone-dim); --rule:#2c3a31;
+  --paper:#eee5cf; --paper-2:#e2d6ba; --ink:#191612; --ink-soft:#5a5240; --line:#c5b593;
+  --gold:#c8a24a; --gold-dim:#8a6f2e; --blood:#7d1717; --blood-hi:#b02a22; --focus:#e6b84f;
+  --s-court:#1f4c7a; --s-sworn:#573c84; --s-plaintiff:#8a3616; --s-defense:#1f5c4b;
+  --s-reported:#665420; --s-unverified:#585b58; --s-opinion:#7d1717;
+  --c-insider:#a8351f; --c-lp:#2f6fa8; --c-odds:#7d1717;
+  --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --f-body:"Source Serif 4","Iowan Old Style",Georgia,serif;
+  --f-type:"Special Elite","Courier New",Courier,monospace;
+  --f-ui:"Archivo Narrow","Arial Narrow",system-ui,sans-serif;
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.6'/></svg>");
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;color:var(--bone);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  background:radial-gradient(120% 70% at 50% 0%,var(--green-2) 0%,var(--green) 40%,var(--night) 100%) fixed,var(--night)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background-image:var(--grain);opacity:.07;mix-blend-mode:overlay;z-index:50}
+a{color:inherit;text-underline-offset:3px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.1;text-wrap:balance;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
+.muted{color:var(--muted)}
+.mono{font-family:var(--f-type);font-size:.8rem}
+.kicker{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.24em;font-size:.7rem;color:var(--gold)}
+.sheet{--muted:var(--ink-soft);--rule:var(--line);color:var(--ink);background:var(--paper) var(--grain);background-blend-mode:multiply;box-shadow:0 18px 40px -24px #000}
+
+/* top strip + sticky nav */
+.strip{background:#050605;color:var(--bone-dim);font-family:var(--f-ui);font-size:.8rem;border-bottom:1px solid var(--rule)}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding-block:7px;align-items:center}
+.strip b{color:var(--bone)} .strip a{color:var(--bone)}
+.strip .fbi{margin-left:auto}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(5,6,5,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+nav.toc .wrap{display:flex;gap:2px;overflow-x:auto;align-items:center}
+nav.toc .brand{font-family:var(--f-display);font-style:italic;color:var(--bone);white-space:nowrap;padding-right:12px;text-decoration:none}
+nav.toc a.sec{font-family:var(--f-ui);font-size:.76rem;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-dim);text-decoration:none;padding:13px 10px 11px;border-bottom:2px solid transparent;white-space:nowrap}
+nav.toc a.sec:hover{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* hero: the case folder */
+.hero{padding-block:34px 10px}
+.folder{position:relative;padding:34px clamp(18px,4vw,44px) 28px;border-top:6px solid var(--ink)}
+.folder::before{content:"Case No. 4:25-cv-00132 · E.D. Mo.";position:absolute;top:-34px;left:22px;font-family:var(--f-type);font-size:.78rem;color:var(--ink);background:var(--paper-2);padding:7px 14px 5px;clip-path:polygon(6% 0,94% 0,100% 100%,0 100%)}
+.stamp{position:absolute;top:22px;right:22px;font-family:var(--f-ui);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;color:var(--blood);border:3px solid var(--blood);padding:3px 10px;transform:rotate(5deg);opacity:.85}
+@media (max-width:560px){.stamp{position:static;display:inline-block;margin-bottom:10px}}
+.hero h1{font-size:clamp(2.4rem,7.5vw,4.8rem);font-style:italic;letter-spacing:.005em}
+.hero h1 span{display:block;font-style:normal;font-size:.42em;letter-spacing:.06em;margin-bottom:.1em}
+.hero .sub{font-family:var(--f-type);font-size:1rem;margin:10px 0 22px;max-width:60ch}
+.tiles{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+.tile{border-top:3px solid var(--ink);padding:10px 4px 4px}
+.tile b{display:block;font-family:var(--f-display);font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.05;font-variant-numeric:tabular-nums}
+.tile span{display:block;font-size:.86rem;margin-top:4px}
+.tile small{display:block;font-family:var(--f-type);font-size:.7rem;color:var(--ink-soft);margin-top:4px}
+.notice{margin-top:22px;border:1px solid var(--line);padding:12px 14px;font-size:.95rem;background:rgba(255,255,255,.35)}
+.notice strong{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.18em;font-size:.68rem;color:var(--blood);display:block}
+
+/* sections */
+section.block{padding-block:40px 6px}
+.shead{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;margin-bottom:16px}
+.shead h2{font-size:clamp(1.8rem,4.6vw,2.6rem);font-style:italic}
+.shead .no{font-family:var(--f-type);color:var(--gold);font-size:.9rem}
+.shead > span:last-child{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--gold)}
+.lede{max-width:68ch}
+.pad{padding:20px clamp(16px,3vw,28px)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--paper);border:1.5px solid currentColor;padding:1px 7px;white-space:nowrap}
+.chip i{font-style:normal;font-weight:500;text-transform:none;letter-spacing:.02em}
+.cite{font-family:var(--f-type);font-size:.74rem;color:var(--ink-soft)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin-top:4px}
+.optag{font-family:var(--f-ui);font-size:.64rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);background:var(--blood);padding:2px 7px;vertical-align:middle}
+
+/* rules + bottom line */
+.rules{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.rule{padding:16px 18px;border-left:5px solid var(--blood);position:relative}
+.rule b{font-family:var(--f-display);font-style:italic;font-size:1.2rem;display:block;line-height:1.2;margin-bottom:6px;padding-right:22px}
+.rule .n{position:absolute;top:10px;right:14px;font-family:var(--f-type);color:var(--blood)}
+.bottom{padding:24px clamp(18px,4vw,36px);border-top:6px solid var(--blood);margin-top:18px}
+.bottom p{font-size:clamp(1.08rem,2.4vw,1.28rem);line-height:1.55;margin:10px 0 0;max-width:62ch}
+.bottom p b{background:linear-gradient(transparent 62%,rgba(176,42,34,.18) 0)}
+
+/* timeline */
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.filters button{font-family:var(--f-ui);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--rule);background:rgba(0,0,0,.35);color:var(--bone);padding:6px 12px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 18px;padding:12px 0;border-bottom:1px dotted var(--line)}
+.tl li:last-child{border-bottom:0}
+@media (max-width:620px){.tl li{grid-template-columns:1fr}}
+.tl .when{font-family:var(--f-type);font-size:.86rem;color:var(--ink)}
+.tl .type{display:block;font-family:var(--f-ui);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blood);margin-top:2px}
+.tl .what{min-width:0}
+.tl .conf{display:block;font-family:var(--f-ui);font-size:.82rem;font-weight:600;color:var(--blood);margin-top:2px}
+
+/* money */
+.money-grid{display:grid;gap:16px;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
+@media (max-width:860px){.money-grid{grid-template-columns:1fr}}
+.chart-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline}
+.chart-head h3{font-size:1.3rem;font-style:italic}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--f-ui);font-size:.82rem;margin:8px 0 4px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:2px;display:inline-block}
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart .lbl{font-family:var(--f-ui);font-size:13px;fill:var(--ink)}
+.chart .val{font-family:var(--f-type);font-size:12px;fill:var(--ink)}
+.chart .tick{font-family:var(--f-type);font-size:11px;fill:var(--ink-soft)}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--paper);font-family:var(--f-ui);font-size:.82rem;padding:6px 9px;max-width:240px;transform:translate(-50%,-110%);box-shadow:0 8px 20px -8px #000;z-index:5}
+.linkbtn{background:none;border:0;padding:0;font-family:var(--f-ui);font-size:.82rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer;color:var(--ink)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:600}
+td.num{font-family:var(--f-type);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tablewrap{overflow-x:auto}
+.donts{list-style:none;margin:0;padding:0}
+.donts li{padding:9px 0;border-bottom:1px dotted var(--line);font-size:.93rem}
+.donts b{color:var(--blood)}
+
+/* players */
+.players{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.player{padding:18px 20px;border-top:5px solid var(--ink);display:flex;flex-direction:column;gap:8px}
+.player .role{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.12em;font-size:.7rem;color:var(--ink-soft)}
+.player h3{font-size:1.6rem;font-style:italic}
+.call{border-left:4px solid var(--blood);padding:6px 0 6px 12px;margin:4px 0;font-size:1.04rem}
+.call .optag{margin-right:6px}
+.conf{display:inline-block;font-family:var(--f-type);font-size:.76rem;color:var(--blood);border:1px solid var(--blood);padding:0 6px}
+.showed{margin:0;padding-left:18px;font-size:.92rem}
+.showed li{margin-bottom:6px}
+details{border-top:1px solid var(--line);padding-top:8px;margin-top:auto}
+summary{cursor:pointer;font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.12em;font-size:.74rem}
+details ul{margin:8px 0 0;padding-left:18px;font-size:.88rem}
+details li{margin-bottom:6px}
+.change{font-size:.88rem;margin:0}
+
+/* storylines */
+.stories{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.story{padding:20px 22px;border-top:6px solid var(--ink);position:relative;display:flex;flex-direction:column;gap:8px}
+.story.likely{border-top-color:var(--ink)} .story.interesting{border-top-color:var(--gold-dim)} .story.wild{border-top-color:var(--blood)}
+.story .label{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--blood)}
+.story h3{font-size:1.65rem;font-style:italic}
+.logline{font-family:var(--f-type);font-size:.94rem;margin:0}
+.odds{display:flex;align-items:center;gap:10px;font-family:var(--f-ui);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
+.odds b{font-family:var(--f-display);font-size:1.8rem;letter-spacing:0;text-transform:none;font-variant-numeric:tabular-nums}
+.beats{margin:0;padding-left:20px;font-size:.92rem}
+.beats li{margin-bottom:6px}
+.dots{font-size:.88rem;margin:0}
+.kills{font-size:.88rem;margin:0;border-top:1px dotted var(--line);padding-top:8px;margin-top:auto}
+
+/* outcomes */
+.outcomes{list-style:none;margin:0;padding:0}
+.outcomes li{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:6px 22px;padding:14px 0;border-bottom:1px dotted var(--line);align-items:start}
+@media (max-width:700px){.outcomes li{grid-template-columns:1fr}}
+.outcomes h4{margin:0;font-family:var(--f-body);font-weight:600;font-size:1.02rem}
+.outcomes p{margin:4px 0 0;font-size:.9rem}
+.meter{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:center}
+.meter b{font-family:var(--f-display);font-size:1.6rem;font-variant-numeric:tabular-nums;min-width:3.2ch}
+.bar{height:10px;background:var(--paper-2);border-radius:5px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c-odds);border-radius:0 4px 4px 0}
+.meter small{grid-column:1 / -1;font-family:var(--f-ui);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* takeaways */
+.takeaways{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+.take{padding:18px 20px 16px;position:relative}
+.take .n{position:absolute;top:10px;right:14px;font-family:var(--f-display);font-style:italic;font-size:2rem;line-height:1;color:var(--blood)}
+.take h3{font-size:1.25rem;font-style:italic;padding-right:34px;margin-bottom:6px}
+.take p{margin:0 0 8px;font-size:.94rem}
+.take .dry{font-family:var(--f-type);font-size:.86rem;border-left:2px solid var(--blood-hi);padding-left:10px;color:var(--ink-soft)}
+
+/* documents */
+.docs{display:grid;gap:16px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media (max-width:860px){.docs{grid-template-columns:1fr}}
+.doc{padding:10px 0;border-bottom:1px dotted var(--line)}
+.doc h4{margin:0;font-family:var(--f-body);font-weight:600;font-size:.96rem}
+.doc p{margin:4px 0;font-size:.88rem}
+.links{display:flex;flex-wrap:wrap;gap:4px 12px}
+.links a{font-family:var(--f-ui);font-size:.82rem}
+
+footer{margin-top:50px;border-top:1px solid var(--rule);padding-block:22px;font-size:.84rem;color:var(--bone-dim);background:#050605}
+footer a{color:var(--bone)}
+</style>
+
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.umd.js"></script>
+<script>
+(function(){
+"use strict";
+var e = React.createElement, html = htm.bind(e), useState = React.useState, useRef = React.useRef;
+
+var FBI_URL = "https://forms.fbi.gov/victims/seeking-victim-information-in-the-visionary-private-equity-group-investigation";
+var V1_URL = "https://tighty-whity.vercel.app/";
+
+var SOURCES = {
+  S88:{ short:"Doc. 88", title:"Memorandum and Order appointing receiver, Oliver and Company et al. v. Zamber et al., No. 4:25-cv-00132-MTS (E.D. Mo.), Doc. 88", date:"June 4, 2025", url:"https://cases.justia.com/federal/district-courts/missouri/moedce/4:2025cv00132/217693/88/0.pdf", kind:"Court order", note:"Read in full. Findings made at the receivership stage under equitable standards; not a final judgment." },
+  S264:{ short:"Doc. 264", title:"Memorandum and Order denying three defense motions, same case, Doc. 264", date:"March 16, 2026", url:"https://cases.justia.com/federal/district-courts/missouri/moedce/4:2025cv00132/217693/264/0.pdf", kind:"Court order", note:"Read in full. Its factual background repeats complaint allegations, accepted as true only to decide the motions." },
+  SJLP:{ short:"JLP complaint", title:"Class Action Complaint, JLP Partners, LLC v. Husch Blackwell LLP, No. 4:26-cv-01298 (E.D. Mo.), Doc. 1", date:"August 13, 2026", url:"https://brokerwatch.com/wp-content/uploads/2026/08/2026-08-13-DN-1-Complaint.pdf", kind:"Complaint (copy hosted by a third party)", note:"Read. Allegations only. Its quotes from the receiver report, transcript and deposition are the plaintiff's selections." },
+  SSLM:{ short:"St. Louis Magazine", title:"Nicholas Phillips, “St. Charles private equity fund goes into receivership—and stokes fears,” St. Louis Magazine", date:"August 27, 2025", url:"https://www.stlmag.com/news/visionary-private-equity-receivership/", kind:"News reporting", note:"Read in full. Reports on the April 28, 2025 hearing; not a transcript." }
+};
+
+var STATUS = {
+  court:{ code:"Court", label:"Court finding or order" },
+  sworn:{ code:"Sworn", label:"Sworn testimony" },
+  plaintiff:{ code:"Alleged", label:"Plaintiff allegation" },
+  defense:{ code:"Defense", label:"Defense position" },
+  reported:{ code:"Reported", label:"Reported information" },
+  unverified:{ code:"Unverified", label:"Not verified" },
+  opinion:{ code:"Our call", label:"Opinion, not a finding" }
+};
+function Chip(p){ var s = STATUS[p.s]; return html`<span className="chip" style=${{color:"var(--s-"+p.s+")"}}>${s.code}<i>· ${s.label}</i></span>`; }
+function Cite(p){ return html`<a className="cite" href=${SOURCES[p.src].url} target="_blank" rel="noopener noreferrer">${SOURCES[p.src].short}${p.pin ? " · " + p.pin : ""}</a>`; }
+function Meta(p){ return html`<span className="meta"><${Chip} s=${p.s} />${p.src && html`<${Cite} src=${p.src} pin=${p.pin} />`}</span>`; }
+
+/* ---------- house rules (the reader's method) ---------- */
+var RULES = [
+  { t:"When someone shows you who they are, believe them.", d:"We weigh what people did, signed and sent over what they said they'd do." },
+  { t:"The small things are the big things.", d:"A $14.50 gross profit. A managing director locked out of her own bank account. A loan due back in four days." },
+  { t:"Make the call.", d:"Every section ends in a decision, with a confidence level. Hedging isn't analysis." },
+  { t:"We might be wrong. We'll live.", d:"Every call says what would change our mind. Every fact under it is labeled and linked, so you can check our homework." }
+];
+
+/* ---------- timeline ---------- */
+var TL = [
+  ["Jan. 2010","ops","VPEG formed as a Missouri limited partnership.","plaintiff","SJLP","¶ 20"],
+  ["Late 2010 – early 2011","ops","First investors, described as “family and friends.”","court","S88","p. 3"],
+  ["2011","ops","Last independent audit, per the JLP complaint, though the partnership agreement called for one every year.","plaintiff","SJLP","¶ 31"],
+  ["2017","statements","Zamber and Grenley present to the Oliver family office; about $11 million follows. (Doc. 264 dates initial investments to 2018–2023.)","sworn","S88","p. 8","Sources disagree on timing"],
+  ["2018 on","money","The managing director's access to the bank account is cut off for long periods. Wires need both Zamber's and Cosby's signatures.","sworn","S88","p. 6"],
+  ["2021","money","The one distribution to limited partners. Its amount, timing and recipients are unclear.","court","S88","p. 3"],
+  ["Aug. 13 & 16, 2021","money","Wires of $50,000 and $175,000 to Zamber, three days apart.","sworn","S88","p. 6"],
+  ["Oct. 19, 2021","money","Text quoted in a complaint: “I will need a wire for $270k (deferred compensation) today if possible.”","plaintiff","SJLP","¶ 47"],
+  ["Nov. 2022","money","Text quoted in a complaint: “Just got a huge surprise at the clinic, I need a $15k wire asap.”","plaintiff","SJLP","¶ 47"],
+  ["Sept. 2022","statements","South Bend meeting. Alleged: “there was no debt at the Fund level,” and a distribution was coming.","plaintiff","S264","p. 3"],
+  ["2022 – 2023","money","Investors lend $1.6 million on assurances of monetizations “within three to six months.” Hart lends another $100,000, due back in four days.","sworn","S88","p. 8"],
+  ["Mar. 2023","statements","Trustee meeting. Alleged: a distribution “right around the corner.”","plaintiff","S264","p. 3"],
+  ["2023 – 2024","statements","“Soon closing” at $1 a share, yet new investors buy at 1.5 shares per dollar. (Dates per the TAC; the order itself doesn't date it.)","court","S88","pp. 7–8"],
+  ["May 12, 2023","ops","JLP Partners subscribes $100,000; paperwork goes to Cosby at his law firm, per its complaint.","plaintiff","SJLP","¶ 99"],
+  ["End of 2023","money","The Fund's own unaudited statements: $218,000 in the bank, a net loss over $10 million.","sworn","S88","p. 9"],
+  ["Mar. 1, 2024","statements","Executive summary: $5.8 million in distributions.","court","S88","p. 3"],
+  ["July 23, 2024","statements","Updated report: $9.1 million in distributions. A $3.3 million gap. (Doc. 264 says June 2024.)","court","S88","p. 3","Sources disagree on the date"],
+  ["2024 – 2025","statements","At least 28 versions of a distribution forecast, each pushing the payday back.","plaintiff","SJLP","¶ 37"],
+  ["Sept. 30, 2024","statements","Summary provided by Cosby: year-to-date gross profit, $14.50.","sworn","S88","p. 9"],
+  ["Nov. 2024","money","A lender's UCC filing appears against VPEG. The same day, per a complaint, a text asks for a “10k wire to RZ.”","plaintiff","SJLP","¶ 70"],
+  ["Dec. 30, 2024","ops","Most recent rent payment as of the April hearing.","sworn","S88","p. 4"],
+  ["Jan. 29, 2025","ops","City of St. Charles: VPEG is “required to cease operation” for lack of a business license.","court","S88","p. 4"],
+  ["Jan. 31, 2025","court","Oliver and Company v. Zamber filed.","court","S264","p. 5"],
+  ["Apr. 2025","ops","Insurance lapses; the investor portal goes dark for nonpayment.","court","S88","pp. 4–5"],
+  ["Apr. 28, 2025","court","Hearing. From the bench, as reported: “It sounds criminal to me.”","reported","SSLM","article"],
+  ["June 4, 2025","court","Receiver appointed. Court finds credible evidence of apparent personal use and “imminent danger of further dissipation.”","court","S88","pp. 21–23"],
+  ["June 24, 2025","court","The fund manager appeals the receivership.","court","S264","p. 6"],
+  ["Aug. 2025","money","Cash balance reaches $0, per the JLP complaint.","plaintiff","SJLP","¶ 69"],
+  ["Aug. 20, 2025","court","The general partner appeals its exclusion from the case.","court","S264","p. 6"],
+  ["Sept. 5, 2025","court","Third Amended Complaint adds fraud claims.","court","S264","p. 7"],
+  ["Sept. 23, 2025","court","Appeals consolidated (No. 25-2269). The receiver's report is dated the same day, per the JLP complaint.","court","S264","pp. 6–7"],
+  ["Late 2025","ops","Cosby's law firm decides he won't remain a partner, per his deposition as quoted.","plaintiff","SJLP","¶ 90"],
+  ["Mar. 16, 2026","court","Fraud claims survive. Three defense motions denied. Appeals still pending.","court","S264","pp. 16–17"],
+  ["Aug. 13, 2026","court","Proposed class action filed against Husch Blackwell.","plaintiff","SJLP","p. 1"]
+];
+var TL_TYPES = [["all","Everything"],["money","Money"],["statements","What investors were told"],["ops","Operations"],["court","Court"]];
+
+/* ---------- money ---------- */
+var FLOW = [
+  { k:"Zamber", v:4.7, g:"insider", note:"Direct payments since Jan. 2021 (alleged)" },
+  { k:"Visionary Fund Manager", v:1.6, g:"insider", note:"“Management fees” since 2021 (alleged); owned by Zamber and Cosby (alleged)" },
+  { k:"Grenley", v:0.734, g:"insider", note:"Direct payments since Jan. 2021 (alleged)" },
+  { k:"Cosby", v:0.655, g:"insider", note:"Direct payments since Jan. 2021 (alleged)" },
+  { k:"~1,000 other limited partners", v:3.0, g:"lp", note:"Distributions to non-insider investors since 2021 (alleged)" }
+];
+var FIGS = [
+  ["Raised from investors, lifetime","≈ $90M","To date, as reported in testimony","S88","p. 3","sworn"],
+  ["Cash receipts","≈ $55M","Since Jan. 2021, incl. $43.5M new investment","SJLP","¶ 44","plaintiff"],
+  ["Cash spent","$57.4M","Since Jan. 2021: investments, fees, expenses, payouts","SJLP","¶ 45","plaintiff"],
+  ["Wired to Zamber (floor)","≥ $1,779,462.63","Partial records one manager could see","S88","p. 6","sworn"],
+  ["To the three individuals","> $7M","2020 to present","S264","p. 4","plaintiff"],
+  ["To media affiliates","> $10M + $1.2M expenses","Investment or diversion: disputed","SJLP","¶ 54","plaintiff"],
+  ["Investor short-term loans","$1.6M (+$100K)","2022–2023; > $2M owed with interest and fees","S88","p. 8","sworn"],
+  ["Cash on hand","$218,000","End of 2023, unaudited","S88","p. 9","sworn"],
+  ["Cash on hand","$0","August 2025","SJLP","¶ 69","plaintiff"]
+];
+var DONTS = [
+  ["Don't add $90M and $55M.","The $43.5M of new money since 2021 is part of the lifetime $90M."],
+  ["Don't add >$5.2M and $4.7M for Zamber.","Same person, overlapping periods, two different complaints."],
+  ["Don't add “over $10M to affiliates” and “$10.2M invested in affiliates.”","It's probably the same money, described two ways."],
+  ["Don't call $57.4M “stolen.”","It's all spending: investments, fees, expenses and payouts."],
+  ["Don't call $90M “the loss.”","No final loss number exists. Some holdings may be worth something."]
+];
+
+/* ---------- players ---------- */
+var PLAYERS = [
+  { name:"Dr. Ronald Zamber", role:"Chairman · Senior Managing Director · defendant",
+    call:"An optimist who got paid first. The money moved toward him, under his own signature, while investors were told the payday was next quarter. He knew the Fund was in trouble by 2022, and certainly by the end of 2023.",
+    conf:"High on knowledge · disputed on intent",
+    showed:[
+      ["At least $1,779,462.63 wired to him, from the partial records one manager could see; no wire left without his signature (testimony).","sworn","S88","p. 6"],
+      ["Promised a lender repayment in four days because he “had vetted four new investors.”","sworn","S88","p. 8"],
+      ["Said the loans would be repaid by the end of 2024 because “he had over $50 million lined up.”","sworn","S88","p. 8"],
+      ["Texts quoted in a complaint ask for wires, one after “a huge surprise at the clinic.”","plaintiff","SJLP","¶ 47"]
+    ],
+    more:[
+      ["Court: credible evidence that he and Cosby siphoned funds “for their apparent personal use.”","court","S88","p. 21"],
+      ["Court: misrepresentations by him and Grenley “credibly shown.”","court","S88","p. 21"],
+      ["Over $5.2M (2020 on) or about $4.7M (2021 on), per two complaints","plaintiff","S264","n. 6"],
+      ["Defense: the wires repaid “a loan to the fund.” No loan paper is in the reviewed record.","defense","S88","n. 5"]
+    ],
+    change:"A signed loan agreement, and bank records showing he put in at least what he took out." },
+  { name:"Michael Cosby", role:"General counsel · co-signatory · defendant",
+    call:"The gatekeeper who held a key and built a fence. You don't hide money from your partner unless you've watched your partner spend it. He saw it, and the wires kept going.",
+    conf:"High that he knew where the money went · medium on when he saw a problem",
+    showed:[
+      ["Co-managed the account; wires needed his signature (testimony).","sworn","S88","p. 6"],
+      ["Told Bonetti he'd set up an account Zamber didn't know about, so funds wouldn't be spent (as reported).","reported","SSLM","article"],
+      ["Refused Hart's questions “beyond generic responses” and refused audited reports.","sworn","S88","p. 9"],
+      ["Handed over a 2024 summary showing a year-to-date gross profit of $14.50.","sworn","S88","p. 9"]
+    ],
+    more:[
+      ["Alleged: prepared the Fund's tax filings and oversaw subscriptions.","plaintiff","SJLP","¶ 27"],
+      ["Law firm decided by late 2025 he wouldn't remain a partner (deposition, as quoted).","plaintiff","SJLP","¶ 90"],
+      ["At least $128,812.50 from partial records; about $655K since 2021 (alleged)","sworn","S88","p. 6"],
+      ["Not among the March 2026 movants; his merits position isn't in reviewed sources.","court","S264","p. 1"]
+    ],
+    change:"Dated records for the separate account, or anything in writing at the time showing he objected." },
+  { name:"Robert Grenley", role:"Director of Capital Development · defendant",
+    call:"The closer. Twenty-eight versions of the same forecast, each pushing the payday back, is someone who knew the dates were moving. If he also ran the companies he was forecasting, as alleged, he knew exactly how far.",
+    conf:"Medium · leans on allegations",
+    showed:[
+      ["Told lenders the loans were “to invest in the Fund and for expenses.”","sworn","S88","p. 8"],
+      ["With Zamber, asked an operations director to rewrite reports “in a more favorable light.”","sworn","S88","n. 6"],
+      ["Said Hart's $50,000 POP! Gourmet investment would buy spices and packaging; neither was bought.","sworn","S88","n. 8"],
+      ["Alleged CEO of POP! Gourmet and Shop4E, forecast at $10M and $20M.","plaintiff","SJLP","¶ 38"]
+    ],
+    more:[
+      ["Court: misrepresentations by him and Zamber “credibly shown.”","court","S88","p. 21"],
+      ["Over $800K (2020 on) or about $734K (2021 on), per two complaints","plaintiff","S264","n. 6"]
+    ],
+    change:"Proof he didn't control those companies' books, or real term sheets behind the forecasts." },
+  { name:"James Hart", role:"President, Oliver Family Office · plaintiff · witness",
+    call:"The investor who asked. He asked for audits for years and got “unaudited, unreconciled.” His account lines up with the documents, which is why the court leaned on it.",
+    conf:"High · he's an interested party, and the paper backs him",
+    showed:[
+      ["Received statements labeled “unaudited, unreconciled, and non-tax basis.”","sworn","S88","p. 9"],
+      ["Zamber refused audited statements “for at least four to five years.”","sworn","S88","p. 9"],
+      ["Lent money on promises; none of the loans came back.","sworn","S88","p. 8"]
+    ],
+    more:[
+      ["Former POP! Gourmet board member: no popcorn made in over two years.","sworn","S88","p. 7"],
+      ["Named plaintiff with a financial stake","court","S88","pp. 1–2"]
+    ],
+    change:"" },
+  { name:"Brigitte Bonetti", role:"Managing Director, Investor Relations · witness",
+    call:"The managing director locked out of her own bank account. Believe the lockout: funds don't get run that way by accident.",
+    conf:"High",
+    showed:[
+      ["Access “cut off for long periods of time” starting in 2018.","sworn","S88","p. 6"],
+      ["Found wires to Zamber, Cosby and entities she didn't recognize.","sworn","S88","p. 6"],
+      ["Testified that Zamber and Cosby were the only decision-makers on spending.","plaintiff","SJLP","¶ 82"]
+    ],
+    more:[["She and colleagues said they were owed nearly $400,000 in back pay (as reported).","reported","SSLM","article"]],
+    change:"" },
+  { name:"Husch Blackwell LLP", role:"Defendant in the separate class action",
+    call:"The deep pocket with its name on the envelope. Not liable yet, and maybe never. It's still the most interesting defendant in the story, because it's the one that can pay.",
+    conf:"Opinion on importance · liability undecided",
+    showed:[
+      ["Named as Fund counsel in the subscription booklet; paperwork directed to its partner (alleged).","plaintiff","SJLP","¶¶ 10–11"],
+      ["Alleged: at least 14 payments from VPEG categorized as legal fees.","plaintiff","SJLP","¶ 89"],
+      ["Alleged: the Zamber–Cosby texts sat on firm-controlled systems.","plaintiff","SJLP","¶ 86"]
+    ],
+    more:[["No class certified; the firm's response wasn't reviewed.","unverified","SJLP","p. 1"]],
+    change:"Evidence that the firm never knew of Cosby's financial role, or that his VPEG work was outside firm business." }
+];
+
+/* ---------- storylines ---------- */
+var STORIES = [
+  { cls:"likely", label:"Storyline 1 · The most likely (the common-sense one)", title:"The Long Goodbye", odds:60,
+    logline:"A fund that ran out of exits kept the lights on with new money, investor loans and optimism, while the people at the top paid themselves first. Nobody planned a heist. They just never stopped selling.",
+    beats:[
+      "A friends-and-family fund grows to about $90 million and stops getting audited.",
+      "Exits don't come. The 2021 distribution is the last real payout.",
+      "To cover the gap: short-term loans from investors, a buy-one-get-one share price, and “soon closing” urgency.",
+      "Insiders keep getting wired; the bills, the rent and the lenders don't.",
+      "A judge takes the keys in 2025.",
+      "The ending: the principals settle or lose a judgment they can't fully pay, the receiver sells what's left, and investors get cents on the dollar, years from now."
+    ],
+    dots:"Connects the $218,000 at the end of 2023, the loans that never came back, the 1.5-shares-per-dollar sale, and the wires that kept flowing. It's the one storyline every document fits without strain.",
+    kills:"Real buyer letters or term sheets showing exits that genuinely fell through, plus signed loan agreements behind the insider wires." },
+  { cls:"interesting", label:"Storyline 2 · The most interesting (and nearly as possible)", title:"The Letterhead", odds:35,
+    logline:"The money isn't in the fund; it's in the law firm. The real fight moves to the second lawsuit, where a large firm is the only deep pocket in sight, and everything turns on what its partner knew.",
+    beats:[
+      "The receiver finds the cupboard close to bare.",
+      "Investors look past the principals to the firm whose name and address were on the subscription paperwork.",
+      "The man who co-signed every wire is also the firm's partner. His knowledge, the complaint argues, is the firm's knowledge.",
+      "The firm parts ways with him in late 2025. The texts allegedly sat on its systems.",
+      "If the case survives a motion to dismiss, the firm settles rather than try a case about its letterhead.",
+      "The ending: the biggest recovery comes from the firm, not the fund."
+    ],
+    dots:"Connects the subscription booklet pointing to the firm, the separate account Cosby built, his firm email on financial statements, the firm's decision to part ways, and the fact that a law firm can pay a settlement and a cash-starved fund can't.",
+    kills:"A ruling that Cosby acted outside the firm's business, or that the firm lacked actual knowledge. Aiding-and-abetting claims are hard to win." },
+  { cls:"wild", label:"Storyline 3 · The wildcard", title:"The Third Act Nobody Schedules", odds:25,
+    logline:"A federal criminal case. The FBI's site lists a page seeking victim information about a “Visionary Private Equity Group investigation.” If that turns into charges, the civil cases slow to a crawl, everyone stops talking, and the story becomes the government's to tell.",
+    beats:[
+      "The FBI's directory lists the page. We couldn't read its contents.",
+      "The judge remarked from the bench that it “sounds criminal.”",
+      "No one has been charged in anything we reviewed.",
+      "If charges come, they usually take years, and civil discovery tends to pause around them."
+    ],
+    dots:"Connects the FBI's victim-information page, the bench remark and the court's early findings. It's the thinnest record of the three, which is why it's the wildcard.",
+    kills:"No charges by 2028. The longer the silence, the less likely this act gets written." }
+];
+
+/* ---------- outcomes ---------- */
+var OUTCOMES = [
+  { t:"The receiver stays in charge through 2027", p:80, w:"The court found insolvency, dissipation risk and credible misrepresentations. Receivers are rarely unwound once in place, and the appeal is the main risk." },
+  { t:"The Eighth Circuit leaves the receivership in place", p:70, w:"Review is for abuse of discretion, which is deferential. But the jurisdiction argument is real: the district court itself said the appeals court could find the Fund is a diversity-destroying party (Doc. 264 p. 9)." },
+  { t:"The principals settle or lose on liability", p:75, w:"The fraud claims survived, the early findings are strong, and the defense's loan explanation has no paper behind it yet." },
+  { t:"A full trial actually happens", p:15, w:"Cases like this usually end in a settlement, a default or a judgment on the papers." },
+  { t:"Investors get some money back through the receiver", p:55, w:"There's a portfolio to sell and claims to pursue, but cash was reportedly $0 by August 2025, there are secured creditors, and the receiver costs $575 an hour." },
+  { t:"Investors get most of their money back", p:5, w:"Every number in the record points the other way." },
+  { t:"The law-firm case survives a motion to dismiss, at least in part", p:50, w:"The partner's dual role is unusual and well documented. But aiding and abetting needs actual knowledge and substantial assistance, and firms fight attribution hard." },
+  { t:"If it survives, the firm settles", p:70, w:"Firms rarely try investor-fraud cases about their own letterhead." },
+  { t:"Criminal charges against anyone connected to the Fund, by 2028", p:25, w:"An FBI victim-information page and a pointed remark from the bench. No charges found. Criminal cases take years." }
+];
+
+/* ---------- takeaways ---------- */
+var TAKEAWAYS = [
+  ["No audit, no deal.","The partnership agreement called for annual independent audits. The complaints allege none since 2011.","If a fund promised you audits and can't show you one, that is the audit.","plaintiff","S264","p. 4"],
+  ["Read the label on the statement.","Hart's statements were designated “unaudited, unreconciled, and non-tax basis.”","Three disclaimers on one balance sheet is a man saying “trust me” three times.","sworn","S88","p. 9"],
+  ["Urgency plus a discount is a contradiction.","“Soon closing” at $1, while some new investors bought at 1.5 shares per dollar.","Nobody runs a clearance sale on a hot ticket.","court","S88","pp. 7–8"],
+  ["A valuation is not a bank balance.","A closed clinic with laptops and freezers was marked at $1.7 million; the Fund had $218,000 in cash.","You can't pay the rent with a mark-to-market.","sworn","S88","pp. 7, 9"],
+  ["Lending to what you already own is doubling down.","$1.6 million in “three to six months” loans. None came back.","When a fund holding $90 million asks you for a little something till Friday, listen to what it's telling you.","sworn","S88","p. 8"],
+  ["Count who holds the keys.","Two signatures on every wire, and the managing director locked out.","Two keys held by the same two partners isn't a control. It's a dinner party.","sworn","S88","p. 6"],
+  ["One number, two answers, means nobody's counting.","$5.8 million, then $9.1 million, for the same distributions.","$3.3 million is not a rounding error.","court","S88","p. 3"],
+  ["Watch which way the money flows.","Alleged: about $7.5 million to insiders and the manager since 2021, against about $3 million to every other investor combined.","If the people running the fund are doing better than the fund, you already know the answer.","plaintiff","SJLP","¶¶ 32, 46"],
+  ["A famous letterhead isn't a guarantee.","Subscription paperwork allegedly went to a partner at a large law firm.","The address on the envelope tells you where to mail the check, not where it goes next.","plaintiff","SJLP","¶¶ 10–11"]
+];
+
+/* ---------- documents still needed ---------- */
+var L_PM = ["Case docket (PacerMonitor)","https://www.pacermonitor.com/public/case/56715765/Oliver_and_Company_et_al_v_Dr_Ronald_Zamber_et_al"];
+var L_PACER = ["Official docket (PACER; login and fees)","https://ecf.moed.uscourts.gov/"];
+var L_GOV = ["Published opinions (GovInfo)","https://www.govinfo.gov/app/details/USCOURTS-moed-4_25-cv-00132"];
+var L_CL = ["Search filings (CourtListener)","https://www.courtlistener.com/?q=%22Oliver+and+Company%22+Zamber&type=r"];
+var NEEDED = [
+  ["Receiver's investigative report (Sept. 23, 2025, per the JLP complaint)","The single most important missing document. It's the only neutral count of where the money went.",[L_PM,L_PACER,L_CL]],
+  ["Receiver's monthly cash reports","Ordered for every month since January 2021 (Doc. 88 p. 27).",[L_PM,L_PACER]],
+  ["April 28, 2025 hearing transcript (Doc. 82)","Full testimony and cross-examination. We only have summaries and quotes.",[L_PM,L_PACER]],
+  ["Third Amended Complaint (Doc. 177)","The operative complaint, known here only second-hand.",[L_PM,L_PACER,L_CL]],
+  ["Sealing order on the receiver's preliminary report (research lead: Mar. 16, 2026)","Not read; the copy we found was behind a captcha.",[["CaseMine copy (captcha during review)","https://www.casemine.com/judgement/us/69bacbc4ec7cfaa310679c88"],L_PM]],
+  ["Order on Circle Internet Group shares (research lead: Jan. 13, 2026)","It may show a sellable asset. Not read.",[["CaseMine copy (captcha during review)","https://www.casemine.com/judgement/us/696a2c42dbf68e3d45ed741c"],L_PM]],
+  ["Eighth Circuit No. 25-2269 docket and decision","It decides whether the receivership, and possibly the federal case, survives.",[["Appeals docket (Justia)","https://dockets.justia.com/docket/circuit-courts/ca8/25-2269"],["Search (CourtListener)","https://www.courtlistener.com/?q=%2225-2269%22+Visionary&type=r"]]],
+  ["Cosby deposition, Vol. 2 (Doc. 278-11)","We only have a short excerpt.",[L_PM,L_PACER]],
+  ["Husch Blackwell's response to the JLP complaint","The firm's side, which this page doesn't have.",[["Search the new case (CourtListener)","https://www.courtlistener.com/?q=%22JLP+Partners%22+%22Husch+Blackwell%22&type=r"],L_PACER]],
+  ["Docket activity after Mar. 16, 2026","Needed to verify the coverage date.",[L_PM,L_GOV,L_CL]],
+  ["FBI victim-information page (contents)","It exists; we couldn't read it.",[["FBI page","https://forms.fbi.gov/victims/seeking-victim-information-in-the-visionary-private-equity-group-investigation"]]]
+];
+
+/* ---------- components ---------- */
+function MoneyChart(){
+  var _t = useState(null), tip = _t[0], setTip = _t[1];
+  var _v = useState(false), table = _v[0], setTable = _v[1];
+  var W = 640, L = 190, R = 70, rowH = 46, top = 10, max = 5;
+  var H = top + FLOW.length * rowH + 30;
+  var x = function(v){ return L + (v / max) * (W - L - R); };
+  var ref = useRef(null);
+  function show(ev, d){
+    var box = ref.current.getBoundingClientRect();
+    setTip({ x:ev.clientX - box.left, y:ev.clientY - box.top, d:d });
+  }
+  var insiders = FLOW.filter(function(d){ return d.g === "insider"; }).reduce(function(a, d){ return a + d.v; }, 0);
+  return html`<div className="sheet pad">
+    <div className="chart-head"><h3>Where the money went, since 2021</h3><button className="linkbtn" onClick=${function(){ setTable(!table); }}>${table ? "Show chart" : "Show table"}</button></div>
+    <p className="muted" style=${{margin:"2px 0 0",fontSize:".9rem"}}>In $ millions, as alleged in the JLP complaint. Payments to the insiders and their management company, against distributions to every other investor combined.</p>
+    <div className="legend"><span><i style=${{background:"var(--c-insider)"}}></i>Insiders and their manager</span><span><i style=${{background:"var(--c-lp)"}}></i>All other limited partners</span></div>
+    ${table ? html`<div className="tablewrap"><table><thead><tr><th>Recipient</th><th>$M</th><th>What it is</th></tr></thead>
+        <tbody>${FLOW.map(function(d){ return html`<tr key=${d.k}><td>${d.k}</td><td className="num">${d.v.toFixed(d.v < 1 ? 3 : 1)}</td><td>${d.note}</td></tr>`; })}</tbody></table></div>`
+      : html`<div className="chart" ref=${ref} onMouseLeave=${function(){ setTip(null); }}>
+        <svg viewBox=${"0 0 " + W + " " + H} role="img" aria-label=${"Bar chart. " + FLOW.map(function(d){ return d.k + " " + d.v + " million"; }).join("; ")}>
+          ${[0,1,2,3,4,5].map(function(t){ return html`<g key=${t}><line x1=${x(t)} x2=${x(t)} y1=${top - 4} y2=${top + FLOW.length * rowH} stroke="#c5b593" strokeWidth="1" /><text className="tick" x=${x(t)} y=${H - 8} textAnchor="middle">${t === 0 ? "$0" : "$" + t + "M"}</text></g>`; })}
+          ${FLOW.map(function(d, i){ var y = top + i * rowH + (rowH - 22) / 2, w = x(d.v) - L;
+            return html`<g key=${d.k} onMouseMove=${function(ev){ show(ev, d); }} onClick=${function(ev){ show(ev, d); }} style=${{cursor:"default"}}>
+              <rect x="0" y=${top + i * rowH} width=${W} height=${rowH} fill="transparent" />
+              <text className="lbl" x=${L - 10} y=${y + 15} textAnchor="end">${d.k}</text>
+              <path d=${"M" + L + " " + y + "h" + (w - 4) + "a4 4 0 0 1 4 4v14a4 4 0 0 1 -4 4h" + (-(w - 4)) + "z"} fill=${d.g === "insider" ? "var(--c-insider)" : "var(--c-lp)"} />
+              <text className="val" x=${x(d.v) + 8} y=${y + 15}>${"$" + (d.v < 1 ? Math.round(d.v * 1000) + "K" : d.v.toFixed(1) + "M")}</text>
+            </g>`; })}
+          <line x1=${L} x2=${L} y1=${top - 4} y2=${top + FLOW.length * rowH} stroke="#191612" strokeWidth="1" />
+        </svg>
+        ${tip && html`<div className="tip" style=${{left:tip.x + "px", top:tip.y + "px"}}><b>${tip.d.k}: ${"$" + tip.d.v + "M"}</b><br/>${tip.d.note}</div>`}
+      </div>`}
+    <p style=${{margin:"10px 0 0",fontSize:".92rem"}}>Insiders and their manager: about <b>$${insiders.toFixed(1)}M</b> (the complaint rounds it to $7.5M). Everyone else: about <b>$3.0M</b>.</p>
+    <${Meta} s="plaintiff" src="SJLP" pin="¶¶ 32–33, 46" />
+  </div>`;
+}
+
+function Timeline(){
+  var _f = useState("all"), f = _f[0], setF = _f[1];
+  var rows = TL.filter(function(r){ return f === "all" || r[1] === f; });
+  var label = { money:"Money", statements:"What investors were told", ops:"Operations", court:"Court" };
+  return html`<div>
+    <div className="filters" role="group" aria-label="Filter the timeline">${TL_TYPES.map(function(t){ return html`<button key=${t[0]} aria-pressed=${f === t[0]} onClick=${function(){ setF(t[0]); }}>${t[1]}</button>`; })}</div>
+    <div className="sheet pad"><ol className="tl">${rows.map(function(r, i){ return html`<li key=${r[0] + i}>
+      <div><span className="when">${r[0]}</span><span className="type">${label[r[1]]}</span></div>
+      <div className="what">${r[2]}${r[6] && html`<span className="conf">${r[6]}</span>`}<${Meta} s=${r[3]} src=${r[4]} pin=${r[5]} /></div>
+    </li>`; })}</ol></div>
+  </div>`;
+}
+
+function Row(p){ var r = p.r; return html`<li>${r[0]} <${Meta} s=${r[1]} src=${r[2]} pin=${r[3]} /></li>`; }
+
+function App(){
+  return html`
+    <div className="strip"><div className="wrap">
+      <span>Evidence current through: <b>Not yet verified</b> (latest document reviewed: Aug. 13, 2026; full docket not reviewed)</span>
+      <span className="fbi">Official victim resources: <a href=${FBI_URL} target="_blank" rel="noopener noreferrer">FBI: Seeking Victim Information in the Visionary Private Equity Group Investigation</a> (external; contents not verified; no affiliation)</span>
+    </div></div>
+    <nav className="toc" aria-label="Sections"><div className="wrap">
+      <a className="brand" href="#top">The VPEG File</a>
+      ${[["call","Our call"],["timeline","Timeline"],["money","Money"],["players","Players"],["stories","Storylines"],["odds","Odds"],["lessons","Takeaways"],["docs","Documents"]].map(function(s){ return html`<a key=${s[0]} className="sec" href=${"#" + s[0]}>${s[1]}</a>`; })}
+    </div></nav>
+
+    <main id="top"><div className="wrap">
+      <section className="hero" aria-labelledby="h1">
+        <div className="sheet folder">
+          <span className="stamp" aria-hidden="true">Pending</span>
+          <div className="kicker" style=${{color:"var(--blood)"}}>The Case of the Vanishing Valuation · V2</div>
+          <h1 id="h1"><span>The</span>VPEG File</h1>
+          <p className="sub">The record, the timeline, the money, and our call. No fiction. Every fact is labeled and linked; every judgment says it's ours.</p>
+          <div className="tiles">
+            <div className="tile"><b>≈ $90M</b><span>raised from investors</span><small>Reported in testimony · Doc. 88 p. 3</small></div>
+            <div className="tile"><b>≈ 1,000</b><span>limited partners</span><small>Testimony · Doc. 88 p. 3</small></div>
+            <div className="tile"><b>$218,000</b><span>in the bank, end of 2023</span><small>Fund's unaudited statements · Doc. 88 p. 9</small></div>
+            <div className="tile"><b>$14.50</b><span>gross profit, Jan.–Sept. 2024</span><small>Summary provided by Cosby · Doc. 88 p. 9</small></div>
+            <div className="tile"><b>June 4, 2025</b><span>receiver takes control</span><small>Court order · Doc. 88 p. 23</small></div>
+            <div className="tile"><b>0</b><span>judgments, trials or charges so far</span><small>In documents reviewed</small></div>
+          </div>
+          <div className="notice"><strong>Read this first</strong>An independent educational experience—not legal advice, an official investigation, or an accusation of criminal guilt. Allegations are not findings. The real case may remain unresolved. Sections marked “Our call” are opinion: our reading of the cited record, made on purpose and labeled as such. Not reviewed by a lawyer.</div>
+        </div>
+      </section>
+
+      <section className="block" id="call" aria-labelledby="h-call">
+        <div className="shead"><span className="no">01</span><h2 id="h-call">How we read it, and our call</h2><span>Decisive on purpose</span></div>
+        <div className="rules">${RULES.map(function(r, i){ return html`<div key=${i} className="sheet rule"><span className="n">${i + 1}</span><b>${r.t}</b>${r.d}</div>`; })}</div>
+        <div className="sheet bottom">
+          <span className="optag">Our call · opinion, not a finding</span>
+          <p>This is what it looks like: <b>a fund that sold a payday it couldn't deliver, kept raising money to cover the gap, and paid its insiders along the way.</b></p>
+          <p>By 2022–2023 at the latest, <b>the people running the Fund knew it was in serious trouble</b>, and the Fund kept selling anyway. The record says it plainly: they borrowed from their own investors, sold shares at a discount while calling it a last chance, and had $218,000 in the bank.</p>
+          <p>Investors are <b>unlikely to see most of their money again.</b> The case most likely ends in a settlement or a judgment, not a trial. The most interesting money in it may be the law firm's.</p>
+          <p className="muted" style=${{fontSize:".92rem"}}>What would change our mind: loan agreements behind the insider wires, real buyers behind the promised exits, or the receiver's numbers telling a different story.</p>
+        </div>
+      </section>
+
+      <section className="block" id="timeline" aria-labelledby="h-tl">
+        <div className="shead"><span className="no">02</span><h2 id="h-tl">The timeline</h2><span>Every entry labeled and linked</span></div>
+        <${Timeline} />
+      </section>
+
+      <section className="block" id="money" aria-labelledby="h-money">
+        <div className="shead"><span className="no">03</span><h2 id="h-money">The money</h2><span>What can be said, and what can't be added</span></div>
+        <div className="money-grid">
+          <${MoneyChart} />
+          <div className="sheet pad">
+            <h3 style=${{fontSize:"1.3rem",fontStyle:"italic",marginBottom:"6px"}}>Five ways to get the math wrong</h3>
+            <ul className="donts">${DONTS.map(function(d, i){ return html`<li key=${i}><b>${d[0]}</b> ${d[1]}</li>`; })}</ul>
+          </div>
+        </div>
+        <div className="sheet pad" style=${{marginTop:"16px"}}>
+          <h3 style=${{fontSize:"1.3rem",fontStyle:"italic",marginBottom:"8px"}}>Every figure in the record</h3>
+          <div className="tablewrap"><table>
+            <thead><tr><th>What</th><th>Amount</th><th>Period / context</th><th>Status · source</th></tr></thead>
+            <tbody>${FIGS.map(function(f, i){ return html`<tr key=${i}><td>${f[0]}</td><td className="num">${f[1]}</td><td>${f[2]}</td><td><${Meta} s=${f[5]} src=${f[3]} pin=${f[4]} /></td></tr>`; })}</tbody>
+          </table></div>
+        </div>
+      </section>
+
+      <section className="block" id="players" aria-labelledby="h-players">
+        <div className="shead"><span className="no">04</span><h2 id="h-players">The players</h2><span>They showed us who they are</span></div>
+        <div className="players">${PLAYERS.map(function(p){ return html`<article key=${p.name} className="sheet player">
+          <div className="role">${p.role}</div>
+          <h3>${p.name}</h3>
+          <div className="call"><span className="optag">Our call</span>${p.call}</div>
+          <span><span className="conf">${p.conf}</span></span>
+          <div className="kicker" style=${{color:"var(--ink-soft)",marginTop:"4px"}}>What they showed us</div>
+          <ul className="showed">${p.showed.map(function(r, i){ return html`<${Row} key=${i} r=${r} />`; })}</ul>
+          <details><summary>Full file</summary>
+            <ul>${p.more.map(function(r, i){ return html`<${Row} key=${i} r=${r} />`; })}</ul>
+            ${p.change && html`<p className="change"><b>What would change our mind:</b> ${p.change}</p>`}
+          </details>
+        </article>`; })}</div>
+      </section>
+
+      <section className="block" id="stories" aria-labelledby="h-stories">
+        <div className="shead"><span className="no">05</span><h2 id="h-stories">Three storylines</h2><span>Connecting the dots · our call</span></div>
+        <p className="lede">One storyline is the most likely. One is the most interesting, and nearly as possible. One is the wildcard. They can overlap, so each set of odds stands on its own and they don't add up to 100.</p>
+        <div className="stories">${STORIES.map(function(s){ return html`<article key=${s.title} className=${"sheet story " + s.cls}>
+          <span className="label">${s.label}</span>
+          <h3>${s.title}</h3>
+          <div className="odds"><b>${s.odds}%</b> our odds this is how it plays out</div>
+          <p className="logline">${s.logline}</p>
+          <ol className="beats">${s.beats.map(function(b, i){ return html`<li key=${i}>${b}</li>`; })}</ol>
+          <p className="dots"><b>Dots connected:</b> ${s.dots}</p>
+          <p className="kills"><b>What kills it:</b> ${s.kills}</p>
+          <span><${Chip} s="opinion" /></span>
+        </article>`; })}</div>
+      </section>
+
+      <section className="block" id="odds" aria-labelledby="h-odds">
+        <div className="shead"><span className="no">06</span><h2 id="h-odds">Probable outcomes</h2><span>Our odds · next two years</span></div>
+        <div className="sheet pad">
+          <p className="muted" style=${{marginTop:0,fontSize:".92rem"}}><span className="optag">Forecast · opinion</span> Our odds, based on the cited record and how cases like this usually go. Not predictions from anyone involved, and not legal advice.</p>
+          <ul className="outcomes">${OUTCOMES.map(function(o, i){ return html`<li key=${i}>
+            <div><h4>${o.t}</h4><p>${o.w}</p></div>
+            <div className="meter" aria-label=${o.t + ": " + o.p + " percent"}><b>${o.p}%</b><span className="bar"><i style=${{width:o.p + "%"}}></i></span><small>${o.p >= 70 ? "Likely" : o.p >= 45 ? "Coin flip" : o.p >= 20 ? "Possible" : "Unlikely"}</small></div>
+          </li>`; })}</ul>
+        </div>
+      </section>
+
+      <section className="block" id="lessons" aria-labelledby="h-lessons">
+        <div className="shead"><span className="no">07</span><h2 id="h-lessons">Common-sense takeaways</h2><span>I was born on a day, not yesterday</span></div>
+        <div className="takeaways">${TAKEAWAYS.map(function(t, i){ return html`<div key=${i} className="sheet take">
+          <span className="n">${i + 1}</span><h3>${t[0]}</h3><p>${t[1]}</p><p className="dry">${t[2]}</p><${Meta} s=${t[3]} src=${t[4]} pin=${t[5]} />
+        </div>`; })}</div>
+      </section>
+
+      <section className="block" id="docs" aria-labelledby="h-docs">
+        <div className="shead"><span className="no">08</span><h2 id="h-docs">The documents</h2><span>Read them yourself</span></div>
+        <div className="docs">
+          <div className="sheet pad">
+            <h3 style=${{fontSize:"1.3rem",fontStyle:"italic"}}>Reviewed (every fact above comes from these)</h3>
+            ${["S88","S264","SJLP","SSLM"].map(function(k){ var s = SOURCES[k]; return html`<div key=${k} className="doc">
+              <h4>${s.title}</h4><p className="cite">${s.date} · ${s.kind}</p><p>${s.note}</p>
+              <span className="links"><a href=${s.url} target="_blank" rel="noopener noreferrer">Open the document ↗</a></span></div>`; })}
+          </div>
+          <div className="sheet pad">
+            <h3 style=${{fontSize:"1.3rem",fontStyle:"italic"}}>Still needed, and where to look</h3>
+            ${NEEDED.map(function(n, i){ return html`<div key=${i} className="doc"><h4>${n[0]}</h4><p>${n[1]}</p>
+              <span className="links">${n[2].map(function(l, j){ return html`<a key=${j} href=${l[1]} target="_blank" rel="noopener noreferrer">${l[0]} ↗</a>`; })}</span></div>`; })}
+            <p className="muted" style=${{fontSize:".85rem",marginBottom:0}}>Some filings need a PACER account (it charges per page), and some may be sealed.</p>
+          </div>
+        </div>
+      </section>
+    </div></main>
+
+    <footer><div className="wrap">
+      An independent educational experience: not legal advice, not an official investigation, and not an accusation of criminal guilt. Allegations are not findings; “Our call” sections are opinion. Built from documents reviewed on October 6, 2026; not reviewed by a lawyer.
+      Prefer the game? <a href=${V1_URL} target="_blank" rel="noopener noreferrer">Play V1, The Case of the Vanishing Valuation ↗</a>
+    </div></footer>
+  `;
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(e(App));
+})();
+</script>
+
+</body>
+</html>
