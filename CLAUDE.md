@@ -36,6 +36,14 @@ Run `python3 scripts/check-quotes.py` after editing V1 cards. Every exact quotat
 
 **Not yet obtained** (listed with where-to-look links on both pages): the receiver's Sept. 23, 2025 report, its monthly reports, the hearing transcript (Doc. 82), the Third Amended Complaint (Doc. 177), the sealing and Circle-share orders, the Eighth Circuit ruling (No. 25-2269), Cosby's deposition (Doc. 278-11), the firm's response, and any docket activity after Mar. 16, 2026. **"Evidence current through" stays "Not yet verified"** until the docket is reviewed.
 
+## Community submissions ("Your path")
+
+- The Timeline tab has a **Your path** panel. Anyone can add dates, documents and testimony; they show in their own teal lane, status `visitor` ("Yours · not reviewed"), saved only in that visitor's browser (`localStorage` key `vanishing-valuation-mypath-v1`). Code: `MP_*`, `mpApply`, `MPPanel`.
+- **Submit for review** opens a pre-filled GitHub issue (template `.github/ISSUE_TEMPLATE/submission.md`, label `submission`) with a JSON block under `<!-- submission-data -->`. The visitor signs in to GitHub to file it.
+- **Approval:** when the repo owner adds the `approved` label, `.github/workflows/approve-submission.yml` runs `scripts/import-submission.mjs` (adds source `C<issue#>` and event `community-<issue#>` to `data/timeline.json`), rebuilds, pushes to `main`, comments and closes the issue. Labels from anyone else are ignored. If the data is unusable it comments with the reason and removes the label.
+- Approved entries are a fifth kind of source beyond the four documents below: each is labeled as a community submission, approved by the owner, not otherwise verified. Review each against the content rules before labeling it; re-read the issue body right before approving, since the submitter can edit it.
+- `visitor` is never a valid status in `data/timeline.json` (`build-timeline.mjs` rejects it).
+
 ## Content rules (agreed with the owner; keep them)
 
 - Every fact carries a status (court finding or order, sworn testimony, plaintiff allegation, defense position, reported, unverified) plus a pinpoint citation.
