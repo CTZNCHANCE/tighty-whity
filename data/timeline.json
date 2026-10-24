@@ -157,7 +157,8 @@
    ],
    "related": [
     "form-d"
-   ]
+   ],
+   "highlight": true
   },
   {
    "id": "audit-2011",
@@ -219,7 +220,8 @@
      "label": "“Not long after” 2010",
      "text": "Invested “not long after” the Fund's 2010 launch."
     }
-   ]
+   ],
+   "highlight": true
   },
   {
    "id": "victory-unit",
@@ -283,7 +285,8 @@
      "said": true
     }
    ],
-   "note": "Two sources, nine years apart, describe the same control structure. The later date is when the court said it, not when it began."
+   "note": "Two sources, nine years apart, describe the same control structure. The later date is when the court said it, not when it began.",
+   "highlight": true
   },
   {
    "id": "victory-note-2017",
@@ -333,7 +336,8 @@
     "first-investors",
     "oliver-invest"
    ],
-   "note": "The court record has investors joining from late 2010, and about $90 million raised by the time of the 2025 hearing. A Form D can cover one new offering, and this one does not say whether earlier sales happened under other offerings. EDGAR shows no amendment reporting later sales."
+   "note": "The court record has investors joining from late 2010, and about $90 million raised by the time of the 2025 hearing. A Form D can cover one new offering, and this one does not say whether earlier sales happened under other offerings. EDGAR shows no amendment reporting later sales.",
+   "highlight": true
   },
   {
    "id": "bank-access",
@@ -502,7 +506,8 @@
    ],
    "related": [
     "lien"
-   ]
+   ],
+   "highlight": true
   },
   {
    "id": "loans",
@@ -528,7 +533,8 @@
      "text": "Short-term loans of $1.6 million from plaintiffs, plus $100,000 from Hart, on assurances of monetization “within three to six months.” None repaid by June 2025.",
      "card": "l8"
     }
-   ]
+   ],
+   "highlight": true
   },
   {
    "id": "board-2023",
@@ -643,7 +649,8 @@
    ],
    "related": [
     "deleon-gp"
-   ]
+   ],
+   "highlight": true
   },
   {
    "id": "deleon-gp",
@@ -703,7 +710,8 @@
      "text": "Statements marked “unaudited, unreconciled, and non-tax basis.”",
      "card": "v2"
     }
-   ]
+   ],
+   "highlight": true
   },
   {
    "id": "dist-mar2024",
@@ -766,7 +774,8 @@
      "amount": 9100000
     }
    ],
-   "note": "Same kind of figure, two editions: $9.1 million minus $5.8 million is $3.3 million."
+   "note": "Same kind of figure, two editions: $9.1 million minus $5.8 million is $3.3 million.",
+   "highlight": true
   },
   {
    "id": "gross-profit",
@@ -820,7 +829,8 @@
      "label": "Nov. 2024",
      "text": "A lender's UCC filing appears; the same day, a text asks for a “10k wire to RZ.”"
     }
-   ]
+   ],
+   "highlight": true
   },
   {
    "id": "last-rent",
@@ -887,7 +897,8 @@
      "label": "Jan. 31, 2025",
      "text": "Complaint with jury demand and Exhibits A–F."
     }
-   ]
+   ],
+   "highlight": true
   },
   {
    "id": "pleadings-feb",
@@ -1025,7 +1036,8 @@
      "text": "Jason Buhlinger of Armanino LLP takes control of the Fund and its manager.",
      "card": "c1"
     }
-   ]
+   ],
+   "highlight": true
   },
   {
    "id": "appeal-vfm",
@@ -1300,7 +1312,8 @@
      "label": "Jan. 13, 2026",
      "text": "Up to $265,000 of Circle Internet Group stock may be sold, only at $82 a share or more. A $275,000 unsecured loan from plaintiffs is approved, for a $540,000 fund used for the 2024 and 2025 required minimum distributions. The court holds it keeps supervising the receivership despite the appeal."
     }
-   ]
+   ],
+   "highlight": true
   },
   {
    "id": "motions-denied",
@@ -1323,7 +1336,8 @@
      "text": "Motions to strike, to dismiss the fraud claims and to end the fiduciary claims all denied.",
      "card": "c6"
     }
-   ]
+   ],
+   "highlight": true
   },
   {
    "id": "jlp-case",
@@ -1345,7 +1359,8 @@
      "text": "A separate case against the law firm.",
      "card": "c11"
     }
-   ]
+   ],
+   "highlight": true
   }
  ],
  "gaps": [
