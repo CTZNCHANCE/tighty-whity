@@ -8,7 +8,7 @@ One public web page about the **Visionary Private Equity Group (VPEG) receiversh
 
 | Version | Live URL | Source file | What it is |
 |---|---|---|---|
-| V1 (**newest; the main site**) | https://time-will-tell-timeline.vercel.app (also https://tighty-whity.vercel.app) | `vanishing-valuation/index.html` + `data/timeline.json` | An evidence game, rebuilt in PR #7 (Oct. 24, 2026) with a Dorot-style zoomable timeline, a matching top bar and tabs, and emblems and monograms. **Part One (Case Explorer):** the real record, case brief, case files, The Inquiry puzzles, and a facts / "born on a day, not yesterday" lens. **Part Two:** an invented manor whodunit. |
+| V1 (**newest; the main site**) | https://time-will-tell-timeline.vercel.app (also https://tighty-whity.vercel.app) | `vanishing-valuation/index.html` + `data/timeline.json` | An evidence game, rebuilt in PR #7 (Oct. 24, 2026) with a Dorot-style zoomable timeline, a matching top bar and tabs, and emblems and monograms. Case Explorer only: the real record, case brief, case files, The VPEG File, The Inquiry puzzles, and a facts / "born on a day, not yesterday" lens. The fictional Part Two (Pellingham Manor whodunit) was removed on Oct. 25, 2026 and archived in `archive/fictional-mystery-2026-10-25/` (not deployed: `.vercelignore` plus a redirect in `vercel.json`). |
 | (retired) /v2 | https://tighty-whity.vercel.app/v2 | `v2/index.html` (redirect only) | "The VPEG File" was folded into V1 as its own tab (`#file`) on Oct. 24, 2026. `/v2` now redirects to `/#file`; the old source is in git history (PR #6). |
 
 **PR #7 is the current version of the site,** and The VPEG File lives inside it as a tab. Never rebuild `index.html` from an older copy of the source.
@@ -50,7 +50,7 @@ Run `python3 scripts/check-quotes.py` after editing V1 cards. Every exact quotat
 - A complaint quoting the receiver's report is a **plaintiff allegation**, not a receiver finding, until the report itself is read.
 - Opinions are allowed and wanted ("Our call", "born on a day" lens, storylines, odds), but they must be **labeled as opinion, not a finding**, and must say what would change our mind.
 - Never assert a crime, conspiracy or liability as fact. No criminal charges were found in reviewed sources.
-- No invented dialogue or scenes for real people. Fiction stays in V1 Part Two only, with invented characters.
+- No invented dialogue or scenes for real people. The site no longer has a fiction mode; don't reintroduce one without the owner asking.
 - No mocking nicknames for real people. The owner once asked for "the Zamboni" and agreed to leave it out.
 - Don't double-count overlapping figures. The $90M raised is not a loss figure.
 - No private investor details, contact info or family members. Never encourage contacting anyone in the case.
