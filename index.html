@@ -21,7 +21,7 @@
   --paper:#eee5cf; --paper-2:#e2d6ba; --ink:#191612; --ink-soft:#5a5240; --line:#c5b593;
   --gold:#c8a24a; --gold-dim:#8a6f2e; --blood:#7d1717; --blood-hi:#b02a22; --focus:#e6b84f;
   --s-court:#1f4c7a; --s-sworn:#573c84; --s-plaintiff:#8a3616; --s-defense:#1f5c4b; --s-receiver:#40601a;
-  --s-reported:#665420; --s-unverified:#585b58; --s-visitor:#2b7a72; --s-fiction:#8a1640; --s-docket:#2f5f6e; --s-filing:#6b4a1f;
+  --s-reported:#665420; --s-unverified:#585b58; --s-visitor:#2b7a72; --s-docket:#2f5f6e; --s-filing:#6b4a1f;
   --ok:#2c6a36; --bad:#9a2a1c; --warn:#d9a441;
   --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --f-body:"Source Serif 4","Iowan Old Style",Georgia,serif;
@@ -144,7 +144,6 @@ main{padding-block:26px 72px}
 .notice strong{display:block;font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;margin-bottom:6px;color:var(--blood)}
 .door{display:grid;gap:14px}
 .door button{text-align:left;border:0;border-left:6px solid var(--s-court);padding:16px 18px;cursor:pointer;box-shadow:0 18px 40px -24px #000;display:flex;flex-direction:column;gap:4px}
-.door button.fic{border-left-color:var(--blood)}
 .door button:hover{outline:1px solid var(--gold)}
 .door .reel{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.24em;font-size:.68rem;color:var(--ink-soft)}
 .door b{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:1.7rem;line-height:1.1}
@@ -170,7 +169,6 @@ main{padding-block:26px 72px}
 .room h3{font-size:1.45rem;font-style:italic}
 .room .meta{margin-top:auto;font-family:var(--f-ui);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-dim);display:flex;gap:12px;flex-wrap:wrap}
 .room > span:not(.kicker):not(.meta):not(.slug){color:var(--bone-dim);font-size:.94rem}
-main.fic-band{background:linear-gradient(180deg,rgba(125,23,23,.12),rgba(125,23,23,0) 640px)}
 
 .cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
 .folder{position:relative;border:0;padding:24px 16px 16px;text-align:left;cursor:pointer;box-shadow:0 16px 34px -22px #000;display:flex;flex-direction:column;gap:9px;min-width:0;transform:rotate(-.25deg)}
@@ -187,7 +185,6 @@ main.fic-band{background:linear-gradient(180deg,rgba(125,23,23,.12),rgba(125,23,
 
 .chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-ui);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--paper);border:1.5px solid currentColor;padding:2px 7px;white-space:nowrap}
 .chip i{font-style:normal;font-weight:500;text-transform:none;letter-spacing:.02em}
-.chip.fiction{background-image:repeating-linear-gradient(135deg,transparent 0 4px,color-mix(in srgb,currentColor 16%,transparent) 4px 6px)}
 .tag{font-family:var(--f-ui);font-size:.72rem;letter-spacing:.06em;background:var(--paper-2);color:var(--ink);border:1px solid var(--line);padding:1px 7px}
 .hidden-status{font-family:var(--f-type);font-size:.74rem;border:1.5px dashed var(--ink-soft);padding:2px 7px;color:var(--ink-soft)}
 
@@ -236,7 +233,6 @@ textarea,input[type=text],select{width:100%;border:1px solid var(--line);backgro
 .lane{padding:12px;min-width:0;box-shadow:0 16px 34px -22px #000;border-top:4px solid var(--ink)}
 .lane h3{font-family:var(--f-ui);font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;margin-bottom:2px}
 .lane > p{font-size:.84rem;color:var(--ink-soft);margin:0 0 10px}
-.lane.fic{border-top-color:var(--blood);background-image:var(--grain),repeating-linear-gradient(135deg,transparent 0 12px,rgba(125,23,23,.07) 12px 14px)}
 .pin{background:#f8f2e2;border:1px solid var(--line);padding:8px 10px;margin-bottom:8px;font-size:.9rem;position:relative}
 .pin::before{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;border-radius:50%;background:var(--blood-hi);box-shadow:0 2px 2px rgba(0,0,0,.4)}
 .pin button.linkish{background:none;border:0;padding:0;text-align:left;cursor:pointer;font:inherit;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
@@ -293,15 +289,6 @@ th{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.1em;font-siz
 td.num{font-family:var(--f-type);font-variant-numeric:tabular-nums;white-space:nowrap}
 .tablewrap{overflow-x:auto}
 .sheet{padding:16px;box-shadow:0 16px 34px -22px #000;margin-bottom:18px}
-
-/* Reveal */
-.reveal{padding:22px clamp(16px,4vw,36px);max-width:920px;box-shadow:0 30px 60px -30px #000;border-top:6px solid var(--blood)}
-.reveal h3{font-size:1.45rem;font-style:italic;margin-top:18px}
-.credits{background:#030403;color:var(--bone);text-align:center;padding:36px 16px;margin:24px calc(-1 * clamp(16px,4vw,36px)) -22px;border-top:1px solid var(--gold-dim)}
-.credits dl{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;max-width:560px;margin:16px auto}
-.credits dt{text-align:right;font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;color:var(--gold);padding-top:4px}
-.credits dd{text-align:left;margin:0;font-family:var(--f-display);font-style:italic}
-.credits .fine{font-family:var(--f-type);font-size:.82rem;color:var(--bone-dim);max-width:560px;margin:18px auto 0}
 
 /* Brief, case files, inquiry */
 .lens-note{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;border:1px solid var(--rule);border-left:4px solid var(--s-court);padding:10px 14px;margin-bottom:18px;background:rgba(0,0,0,.3);font-size:.92rem}
@@ -833,15 +820,6 @@ var SOURCES = {
     status: "Read in full.",
     note: "Reports on the April 28, 2025 hearing. Quotations attributed to witnesses are the magazine’s rendering, not a transcript."
   },
-  FICTION: {
-    short: "Invented for this game",
-    title: "Fictional game material: The Harrowgate Orchard Trust affair",
-    date: "Fictional",
-    url: "",
-    kind: "Fiction",
-    status: "Invented.",
-    note: "Every character, company, place, amount and event in the Fictional Mystery is made up. None is based on a real person."
-  }
 };
 
 var NEEDED = [
@@ -895,26 +873,25 @@ var STATUS = {
   docket:     { label: "Docket entry", code: "Docket", est: "Establishes that a document was filed, or an order entered, on that date, as the docket describes it. It says nothing about the merits." },
   filing:     { label: "Regulatory filing", code: "Filing", est: "Establishes what the filer told a regulator, under its own signature. It does not establish that the report was accurate." },
   unverified: { label: "Unverified", code: "Unverified", est: "No reviewed source establishes this." },
-  visitor:    { label: "Your path, not reviewed", code: "Yours", est: "You added this in your own browser. Nobody has reviewed it, and it is not part of the public record on this site." },
-  fiction:    { label: "Fictional game material", code: "Fiction", est: "Invented for the game. It says nothing about the real case." }
+  visitor:    { label: "Your path, not reviewed", code: "Yours", est: "You added this in your own browser. Nobody has reviewed it, and it is not part of the public record on this site." }
 };
-var STATUS_ORDER = ["court","sworn","filing","docket","plaintiff","defense","receiver","reported","unverified","visitor","fiction"];
+var STATUS_ORDER = ["court","sworn","filing","docket","plaintiff","defense","receiver","reported","unverified","visitor"];
 
 function Chip(p){
   var s = STATUS[p.status];
-  return html`<span className=${"chip"+(p.status==="fiction"?" fiction":"")} style=${{color:"var(--s-"+p.status+")"}}>${s.code}<i>· ${s.label}</i></span>`;
+  return html`<span className="chip" style=${{color:"var(--s-"+p.status+")"}}>${s.code}<i>· ${s.label}</i></span>`;
 }
 
 /* ============================================================
    ROOMS
    ============================================================ */
 var ROOMS = [
-  { id:"pitch",   name:"The Pitch Room",       slug:"INT. MORNING ROOM — NIGHT",  real:"Representations and projected returns.", fic:"Letters to members, a newsletter, and one pitch deck." },
-  { id:"ledger",  name:"The Ledger Library",   slug:"INT. LIBRARY — NIGHT",       real:"Inflows, outflows, fees and loans.", fic:"Bank statements and a workbook with a long memory." },
-  { id:"gallery", name:"The Portfolio Gallery",slug:"INT. LONG GALLERY — NIGHT",  real:"Operating reality versus valuation.", fic:"The orchard’s appraisal, and a letter from the Land Registry." },
-  { id:"witness", name:"The Witness Lounge",   slug:"INT. BILLIARD ROOM — NIGHT", real:"Testimony and the limits of what each witness knew.", fic:"Interviews, one at a time, door closed." },
-  { id:"court",   name:"The Courtroom",        slug:"INT. BOARD ROOM — NIGHT",    real:"Orders and procedural posture.", fic:"Tonight it’s the Board Room: minutes, bylaws and the gate log." },
-  { id:"vault",   name:"The Recovery Vault",   slug:"INT. STRONG ROOM — LATE",    real:"Remaining assets and unanswered questions.", fic:"Leases, ashes, and the racing pages." }
+  { id:"pitch",   name:"The Pitch Room",       real:"Representations and projected returns." },
+  { id:"ledger",  name:"The Ledger Library",   real:"Inflows, outflows, fees and loans." },
+  { id:"gallery", name:"The Portfolio Gallery",real:"Operating reality versus valuation." },
+  { id:"witness", name:"The Witness Lounge",   real:"Testimony and the limits of what each witness knew." },
+  { id:"court",   name:"The Courtroom",        real:"Orders and procedural posture." },
+  { id:"vault",   name:"The Recovery Vault",   real:"Remaining assets and unanswered questions." }
 ];
 
 var REAL_ASIDES = {
@@ -925,15 +902,6 @@ var REAL_ASIDES = {
   court:   "A docket number is like a library call number, only with more motions.",
   vault:   "Before anything is recovered it has to be found, valued and argued over. Usually in that order. Usually slowly."
 };
-var FIC_ASIDES = {
-  pitch:   "Projected exit date: perpetually next quarter.",
-  ledger:  "This spreadsheet has more tabs than the manor has rooms. Well, that’s a lot of tabs.",
-  gallery: "A valuation is not a bank balance. An orchard, for the record, is not a valuation either.",
-  witness: "Everyone was somewhere else. Real convenient place, somewhere else.",
-  court:   "The minutes give three paragraphs to the biscuits and none to the orchard. Huh.",
-  vault:   "Somebody lit a fire in September. Nobody lights a fire in September."
-};
-
 /* ============================================================
    REAL-CASE EVIDENCE CARDS
    Every quotation below was copied from the cited source.
@@ -1520,148 +1488,6 @@ var RES_ITEMS = [
 ];
 
 /* ============================================================
-   FICTIONAL MYSTERY — invented characters, places, sums
-   ============================================================ */
-var COLD_OPEN = [
-  ["trans","FADE IN:"],
-  ["slug","INT. PELLINGHAM MANOR — DINING ROOM — NIGHT"],
-  ["action","Candles. Silver. Fourteen covers laid for a family that agrees on nothing except the wine."],
-  ["action","The Vanes own the Harrowgate Orchard Trust: orchards, a cider house, and opinions. Every September they hold the Valuation Supper. Tonight’s printed report sits beside every plate. Southfield Orchard, the crown jewel: 3.4 million."],
-  ["action","A COURIER from the County Land Registry is shown in. He hands an envelope to OTTOLINE VANE (70s, immaculate, unamused), apologizes to nobody in particular, and leaves."],
-  ["char","OTTOLINE"],["paren","(reading; very still)"],["dia","It says Southfield belongs to something called Brindle Hill Farms. Since March."],
-  ["char","KIT"],["paren","(her son; forties; fleece gilet)"],["dia","That’s not possible. I’ve been trying to sell it for a year."],
-  ["char","MARGUERITE"],["paren","(her daughter; sharper)"],["dia","Well, someone managed. Congratulations to someone."],
-  ["char","LIONEL"],["paren","(the brother-in-law; checks his watch)"],["dia","Registry clerks. They’d lose a cathedral. Someone pass the port."],
-  ["action","Nobody passes the port."],
-  ["action","Somewhere between March and pudding, an orchard has gone missing. Everyone at this table would very much prefer it was somebody else’s fault."],
-  ["action","YOU are the visiting auditor. You were invited for the dessert course. You are staying for the rest."]
-];
-
-var CAST = [
-  { id:"ottoline", n:"Ottoline Vane", r:"Matriarch · Chair of the Trust", d:"Runs the family, the Trust and the seating plan, in that order. Collects antique barometers and has never once believed one that said “Change.”", j:"Owns eleven barometers. All of them set to “Fair.”" },
-  { id:"kit", n:"Christopher “Kit” Vane", r:"Eldest son · Heir presumptive", d:"Has a pitch deck for a cider-subscription app and a firm belief that the family Trust is his seed round. Has been trying to sell Southfield to fund it.", j:"Calls his mother “the Board” when she’s in the room. Not to her face." },
-  { id:"marguerite", n:"Marguerite Vane", r:"Daughter · Member communications", d:"Writes the quarterly newsletter in prose that could make a car park sound like Provence. Wants Kit’s job. Says so, at dinner, often.", j:"Has used “burgeoning” fourteen times this year. Fifteen, counting the Christmas card." },
-  { id:"lionel", n:"Lionel Fairweather", r:"Brother-in-law · Treasurer", d:"Married into the family thirty years ago and still says “your family” at Christmas. Holds the Trust’s signing authority. Keeps racing silks in his office.", j:"Times his tea with a stopwatch. The tea is never late." },
-  { id:"crane", n:"Bartholomew Crane", r:"Outside appraiser", d:"Values orchards by walking every row and counting every tree. Signed the 3.4 million. Doesn’t care for anybody at this table and says so with his eyebrows.", j:"Has measured the dining table twice since the soup." },
-  { id:"desmond", n:"Desmond Achterberg", r:"Cellar master", d:"Thirty years in the cider house. A gleaming new copper still arrived in April, and he refers to it as “she.”", j:"Talked about copper for eleven minutes. Nobody asked." },
-  { id:"priya", n:"Priya Haldane", r:"Analyst", d:"Built and keeps the Trust’s workbook. Leaves questions in cell comments that nobody answers. The only person in the house who has read the bylaws.", j:"Her workbook has 47 tabs. The manor has 31 rooms." }
-];
-
-var F_CARDS = [
-  { id:"fp1", room:"pitch", head:"Six chair’s letters, one prediction",
-    claim:"Six consecutive quarterly letters from Ottoline Vane each say: “Southfield harvest exit expected next quarter.” Every one describes Southfield as a Trust holding.",
-    joke:"Projected exit date: perpetually next quarter.",
-    note:"Overconfident? Oh, you bet. But she keeps talking about selling Southfield someday. That’s a funny thing to say about an orchard you know you already gave away." },
-  { id:"fp2", room:"pitch", head:"The newsletter: “Southfield in glorious blossom”",
-    claim:"Marguerite’s spring newsletter shows Southfield in full flower. The credit in the corner, in very small type, reads: “Stock image, licensed 2019.”",
-    joke:"The same orchard appears in a brochure for Norwegian fjord cruises.",
-    note:"Embarrassing. Not criminal. A stock photo never moved a land title, far as anyone knows." },
-  { id:"fk1", room:"pitch", head:"Kit’s pitch deck for “Cidr”",
-    claim:"Dated May. Slide 9, “Funding”: “Sell Southfield Orchard (est. 3.4m) next year, subject to Mother.” Slide 10 is a photograph of a yacht.",
-    joke:"The deck says “disrupt” nine times. The cider industry remains undisrupted.",
-    note:"So in May, Kit still thought the family owned Southfield. Hard to have sold a thing in March that you’re planning to sell next year." },
-  { id:"fl1", room:"ledger", head:"Bank statements, March to May",
-    claim:"No deposit from Brindle Hill Farms. Nothing near 1.1 million from anyone. The largest receipt in the period is 18,400 from cider sales.",
-    joke:"",
-    note:"No money came in. So either somebody’s very bad at selling orchards, or nobody sold it for money at all." },
-  { id:"fl2", room:"ledger", head:"Workbook change log (tab 31 of 47)",
-    claim:"Cell Southfield!B4, “Appraisal date,” was changed from “14 Oct” to “30 Jun” on 9 July at 23:48, under the shared login “treasury-desk.” The value, 3,400,000, was not touched.",
-    joke:"This spreadsheet has more tabs than the manor has rooms.",
-    note:"Somebody made an old appraisal look like a new one. Didn’t change the number. Just the date. That’s a careful sort of person." },
-  { id:"fl3", room:"ledger", head:"Login roster",
-    claim:"The shared login “treasury-desk” is used by exactly two people: Lionel Fairweather and Priya Haldane.",
-    joke:"",
-    note:"Two names. That’s a short list." },
-  { id:"fg1", room:"gallery", head:"Crane’s appraisal, original file",
-    claim:"Southfield Orchard: 3,400,000. Footer: “Prepared 14 October, following site inspection.” Caveat: “Valid as of the date of inspection only.”",
-    joke:"",
-    note:"Crane’s number was honest when he wrote it. Somebody kept serving it after it went off." },
-  { id:"fg2", room:"gallery", head:"Land Registry extract",
-    claim:"Southfield transferred to Brindle Hill Farms on 3 March. Consideration: “Nil cash. In satisfaction of obligations under side letter of the same date.” Signed for the Trust by the Treasurer.",
-    joke:"A valuation is not a bank balance. An orchard is not a valuation.",
-    note:"“Nil cash.” “Satisfaction of obligations.” That’s the Registry’s polite way of saying an orchard paid somebody’s bill. And the Treasurer signed." },
-  { id:"fg3", room:"gallery", head:"Comment thread on tab “Southfield_OLD_do_not_use”",
-    claim:"20 March, Priya: “Registry fee invoice addressed to Brindle Hill?? Is Southfield still ours?” Reply the same afternoon, initialled L.F.: “Clerical. Ignore.”",
-    joke:"",
-    note:"Priya asked the right question in March and was told to ignore it. Initialled L.F. Huh." },
-  { id:"fw1", room:"witness", head:"Interview: Desmond Achterberg",
-    claim:"“Bought her? I leased her. Minute twelve, April board meeting, and the lessor’s agreement is in the strong room. I’d sooner sell a kidney than an orchard.”",
-    joke:"He then talked about copper for eleven minutes.",
-    note:"Checkable. The lease is in the Recovery Vault." },
-  { id:"fw2", room:"witness", head:"Interview: Priya Haldane",
-    claim:"“On the ninth of July I was judging perry at the county fair until after midnight. My name’s in the paper. Nobody in this family reads the paper.” The clipping lists her as judge, prizes presented at 23:30.",
-    joke:"",
-    note:"She can’t have made an edit at 23:48 from a fairground tent." },
-  { id:"fw3", room:"witness", head:"Interview: Lionel Fairweather",
-    claim:"“Southfield? Sound as a bell. Crane valued it at year-end. It’s all in the report, if anyone in this family ever read one.”",
-    joke:"",
-    note:"Crane’s own file says October, not year-end. Odd thing for the Treasurer to misremember." },
-  { id:"fw4", room:"witness", head:"Interview: Ottoline Vane",
-    claim:"“I was in Lisbon for the barometer fair from the twenty-eighth of February to the tenth of March. I sent the office a postcard. Nobody thanked me for it.” The postcard, pinned in the hall, is postmarked Lisbon, 2 March.",
-    joke:"The postcard is of a barometer.",
-    note:"Out of the country when the transfer was signed on the third." },
-  { id:"fw5", room:"witness", head:"Interview: Bartholomew Crane",
-    claim:"“I valued what I saw in October. If somebody’s kept my number on the shelf past its sell-by date, that’s their spreadsheet, not my appraisal. Good night.”",
-    joke:"",
-    note:"Matches the footer on his file. Also, he left." },
-  { id:"fw6", room:"witness", head:"Interview: Kit Vane",
-    claim:"“Sell it? I tried. Mother keeps the deeds and Uncle Lionel keeps the pen. Nobody in this family lets me sign for so much as a pizza.”",
-    joke:"",
-    note:"Wanted to sell it. Couldn’t sign for it. The Registry agrees with him about the pen." },
-  { id:"fc1", room:"court", head:"Board minutes, March meeting",
-    claim:"No resolution to dispose of Southfield. The bylaws require the Chair’s countersignature for any disposal over 250,000. None is recorded.",
-    joke:"The minutes give three paragraphs to the biscuits.",
-    note:"The transfer went around the board and around the Chair." },
-  { id:"fc2", room:"court", head:"Gate log, 9 July",
-    claim:"Lionel Fairweather’s badge: in at 23:31, out at 23:59. No other entries after 22:00.",
-    joke:"",
-    note:"Of the two people on that login, only one was in the building at 23:48." },
-  { id:"fv1", room:"vault", head:"Equipment lease for the copper still",
-    claim:"A five-year lease approved at minute 12 of the April board meeting. Monthly payments run from the Trust’s operating account, and every one appears on the statements.",
-    joke:"",
-    note:"Leased, not bought with orchard money. Desmond’s honor, and his still, are intact." },
-  { id:"fv2", room:"vault", head:"A charred fragment from the strong-room hearth",
-    claim:"“…in full and final satisfaction of the sum owed by L.F. on account of Thunderclap, the transfer of the parcel known as Southfield…”",
-    joke:"",
-    note:"Looks like the side letter. A personal debt, settled with the family’s orchard. Well. That’s a heck of a thing." },
-  { id:"fv3", room:"vault", head:"Racing pages, folded in a coat pocket",
-    claim:"“Thunderclap (owned in partnership by L. Fairweather and the Brindle Hill syndicate) finished last at Harwick. Again.”",
-    joke:"",
-    note:"Treasurer. Debt. Brindle Hill. Three things that shouldn’t be in one sentence." }
-];
-
-var F_TIMELINE = [
-  { d:"14 October (last year)", t:"Crane inspects Southfield and values it at 3.4 million." },
-  { d:"28 Feb – 10 March", t:"Ottoline is in Lisbon, looking at barometers." },
-  { d:"3 March", t:"Southfield is transferred to Brindle Hill Farms for nil cash under a side letter, signed by the Treasurer." },
-  { d:"March board meeting", t:"No disposal is approved, and nothing is countersigned." },
-  { d:"20 March", t:"Priya asks “Is Southfield still ours?” and gets the reply “Clerical. Ignore.”" },
-  { d:"April", t:"The copper still arrives on a lease approved at minute 12." },
-  { d:"May", t:"Kit’s pitch deck still lists Southfield as something to sell “next year.”" },
-  { d:"30 June", t:"Financial year ends." },
-  { d:"9 July, 23:31–23:59", t:"Lionel is in the office. At 23:48 the appraisal date changes from “14 Oct” to “30 Jun.”" },
-  { d:"9 July, to midnight", t:"Priya is judging perry at the county fair." },
-  { d:"September", t:"The Valuation Supper. The Land Registry’s envelope arrives with the port." }
-];
-
-var MECHS = [
-  { id:"cash", t:"Sold for cash; the proceeds were skimmed from the Trust’s bank account" },
-  { id:"appraiser", t:"The appraiser inflated the valuation" },
-  { id:"heir", t:"The heir sold it quietly to fund his start-up" },
-  { id:"swap", t:"Swapped to settle a personal debt; an old appraisal was rolled forward to hide it" },
-  { id:"still", t:"Sale proceeds secretly paid for the copper still" },
-  { id:"clerical", t:"No wrongdoing: an overoptimistic forecast and a clerical error" }
-];
-var KEY_CLUES = ["fg2","fl2","fc2","fw2","fg1","fg3","fl1","fv2","fv3","fl3","fc1"];
-var ALTS = [
-  { id:"a1", t:"“The appraiser inflated it.”", ok:["fg1","fw5","fl2"], x:"Crane’s file is dated 14 October, before the transfer, and the change log shows the date was edited later under the treasury login. His number was accurate when he made it." },
-  { id:"a5", t:"“Kit sold it to fund his app.”", ok:["fk1","fw6","fg2"], x:"His own deck, dated May, still plans to sell Southfield “next year,” and the Registry shows the Treasurer signed in March. Kit wanted to sell it. Somebody beat him to it." },
-  { id:"a2", t:"“The sale proceeds bought the still.”", ok:["fv1","fl1"], x:"The still is leased, approved at minute 12 and paid monthly. No sale proceeds ever arrived to pay for anything." },
-  { id:"a3", t:"“The cash was skimmed from the bank.”", ok:["fl1","fg2"], x:"The Registry says nil cash, and the statements show no deposit. There was never any cash to skim." },
-  { id:"a4", t:"“Just a clerical error and an optimistic Chair.”", ok:["fg3","fv2","fc1"], x:"“Clerical. Ignore.” came after a direct question, the side letter shows intent, and the transfer skipped the board. The Chair was overoptimistic, but she was in Lisbon and never countersigned." }
-];
-
-/* ============================================================
    THE CASE IN BRIEF, CASE FILES, THE INQUIRY
    Facts come from the four reviewed sources. Anything in the
    “born on a day” lens is labeled opinion: our read of the cited
@@ -1957,14 +1783,13 @@ var MYSTERIES = [
 var KEY = "vanishing-valuation-v1";
 function blank(){
   return { started:true, mode:"real", humor:true, lens:"facts", tab:"timeline", room:null,
-    real:{ guess:{}, sourced:{}, alt:{}, board:{}, ledger:{}, wit:{}, res:{}, inq:{} },
-    fic:{ seen:{}, board:{}, culprit:"", mech:"", picks:[], alts:{}, submitted:false } };
+    real:{ guess:{}, sourced:{}, alt:{}, board:{}, ledger:{}, wit:{}, res:{}, inq:{} } };
 }
 function load(){
   try { var raw = localStorage.getItem(KEY); if(!raw) return blank();
     var s = JSON.parse(raw), b = blank();
     // Every visit opens on the timeline; saved progress is kept. The title screen is one click away on the brand.
-    return Object.assign(b, s, { started:true, mode:"real", tab:"timeline", room:null, real:Object.assign(b.real, s.real||{}), fic:Object.assign(b.fic, s.fic||{}) });
+    var out = Object.assign(b, s, { started:true, mode:"real", tab:"timeline", room:null, real:Object.assign(b.real, s.real||{}) }); delete out.fic; return out;
   } catch(err){ return blank(); }
 }
 function save(s){ try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(err){} }
@@ -1988,15 +1813,6 @@ function realScore(r){
   var inqPts=0, inq=r.inq||{};
   MYSTERIES.forEach(function(m){ ["facts","born"].forEach(function(l){ var a=inq[l+":"+m.id], o=l==="facts"?"born":"facts"; if(a===l) inqPts+=15; else if(a===o) inqPts+=5; }); });
   return { "Reading the record (The Inquiry)":inqPts, "Accurate sourcing":src, "Correct evidence classification":cls, "Identifying uncertainty":unc, "Avoiding double-counting":dbl, "Recognizing alternative explanations":alt };
-}
-function ficScore(f){
-  var ex=0, ev=0, alt=0;
-  F_CARDS.forEach(function(c){ if (f.seen[c.id]) ex += 3; });
-  if (f.submitted){
-    f.picks.forEach(function(id){ if (KEY_CLUES.indexOf(id)>=0) ev += 10; });
-    ALTS.forEach(function(a){ if (f.alts[a.id] && a.ok.indexOf(f.alts[a.id])>=0) alt += 10; });
-  }
-  return { "Clues examined":ex, "Evidence cited":ev, "Alternatives ruled out":alt };
 }
 function sum(o){ return Object.keys(o).reduce(function(a,k){ return a+o[k]; },0); }
 
@@ -2033,13 +1849,10 @@ function App(){
     return function(){ clearTimeout(t); window.removeEventListener("resize", place); };
   }, [st.tab, st.mode, st.started]);
   function up(fn){ setSt(function(prev){ var n = JSON.parse(JSON.stringify(prev)); fn(n); return n; }); }
-  var real = st.mode === "real";
-  var score = real ? realScore(st.real) : ficScore(st.fic);
-  var tabs = real
-    ? [["brief","The case in brief"],["timeline","Timeline"],["files","Case files"],["file","The VPEG File"],["inquiry","The Inquiry"],["rooms","Rooms"],["board","Caseboard"],["people","People & entities"],["challenges","Challenges"],["sources","Sources"],["assess","Evidence Assessment"]]
-    : [["rooms","The rooms"],["board","Caseboard"],["timeline","Timeline"],["people","The family"],["deduce","The drawing room"]];
+  var real = true;
+  var score = realScore(st.real);
+  var tabs = [["brief","The case in brief"],["timeline","Timeline"],["files","Case files"],["file","The VPEG File"],["inquiry","The Inquiry"],["rooms","Rooms"],["board","Caseboard"],["people","People & entities"],["challenges","Challenges"],["sources","Sources"],["assess","Evidence Assessment"]];
 
-  function setMode(m){ up(function(n){ n.mode = m; n.tab = m === "real" ? "brief" : "rooms"; n.room = null; }); setOpen(null); }
   function go(tab){ up(function(n){ n.tab = tab; n.room = null; }); }
 
   var cream = st.started && real && (st.tab === "timeline" || st.tab === "file");
@@ -2048,14 +1861,9 @@ function App(){
     <header className=${"top " + ch}>
       <div className="wrap">
         <div className="brand"><button className="brand-btn" title="Back to the title screen" onClick=${function(){ up(function(n){ n.started = false; }); setOpen(null); }}><b>The Case of the Vanishing Valuation</b>
-          <span>${real ? "Case Explorer · the public record" : "Fictional Mystery · not a true story"}</span></button></div>
+          <span>Case Explorer · the public record</span></button></div>
         ${st.started && html`
         <div className="tools">
-          <div className="pill-switch" role="group" aria-label="Mode" data-on=${real ? 0 : 1}>
-            <button aria-pressed=${real} onClick=${function(){setMode("real");}}>Case Explorer</button>
-            <button aria-pressed=${!real} onClick=${function(){setMode("fiction");}}>Fictional Mystery</button>
-            <span aria-hidden="true"></span>
-          </div>
           ${real && html`<div className=${"pill-switch lens" + (st.lens === "born" ? " born" : "")} role="group" aria-label="Evidence lens" data-on=${st.lens === "born" ? 1 : 0}>
             <button aria-pressed=${st.lens !== "born"} title=${LENSES.facts.note} onClick=${function(){ up(function(n){ n.lens = "facts"; }); }}>Stick to the facts</button>
             <button aria-pressed=${st.lens === "born"} title=${LENSES.born.note} onClick=${function(){ up(function(n){ n.lens = "born"; }); }}>Born on a day</button>
@@ -2073,7 +1881,7 @@ function App(){
       <span className="fbi">Official victim resources: <a href=${FBI_URL} target="_blank" rel="noopener noreferrer">${FBI_LABEL}</a> <span className="soft">(external site; contents not verified here; no affiliation)</span></span>
     </div></div>
     ${confirmReset && html`<div className="notice-bar" role="alertdialog" aria-label="Confirm reset"><div className="wrap" style=${{display:"flex",gap:"10px",flexWrap:"wrap",alignItems:"center"}}>
-      <span>Erase all progress saved in this browser, for both modes?</span>
+      <span>Erase all progress saved in this browser?</span>
       <button className="dlg-btn primary" onClick=${function(){ var b = blank(); b.started = true; b.humor = st.humor; setSt(b); setConfirmReset(false); setOpen(null); }}>Erase progress</button>
       <button className="dlg-btn" autoFocus onClick=${function(){ setConfirmReset(false); }}>Keep it</button>
     </div></div>`}`;
@@ -2088,13 +1896,12 @@ function App(){
   else if (st.tab === "inquiry") body = html`<${Inquiry} st=${st} up=${up} openCard=${setOpen} />`;
   else if (st.tab === "board") body = html`<${Board} st=${st} up=${up} openCard=${setOpen} score=${score} />`;
   else if (st.tab === "timeline") body = html`<${Timeline} real=${real} st=${st} go=${go} openCard=${setOpen} openSrc=${function(s){ setDrawer({src:s}); }} />`;
-  else if (st.tab === "people") body = real ? html`<${People} openSrc=${function(s){ setDrawer({src:s}); }} />` : html`<${Cast} humor=${st.humor} />`;
+  else if (st.tab === "people") body = html`<${People} openSrc=${function(s){ setDrawer({src:s}); }} />`;
   else if (st.tab === "challenges") body = html`<${Challenges} st=${st} up=${up} />`;
   else if (st.tab === "sources") body = html`<${SourcesView} />`;
   else if (st.tab === "assess") body = html`<${Assessment} st=${st} score=${score} />`;
-  else if (st.tab === "deduce") body = html`<${Deduce} st=${st} up=${up} />`;
 
-  var card = open && (real ? CARDS : F_CARDS).filter(function(c){ return c.id === open; })[0];
+  var card = open && CARDS.filter(function(c){ return c.id === open; })[0];
 
   return html`
     ${header}
@@ -2102,13 +1909,11 @@ function App(){
       ${tabs.map(function(t){ return html`<button key=${t[0]} aria-current=${st.tab===t[0] ? "page" : undefined} onClick=${function(){ go(t[0]); }}>${t[1]}</button>`; })}
       <span className="tab-ink" aria-hidden="true" style=${ink}></span>
     </div></nav>
-    <main className=${(real ? "" : "fic-band") + (cream ? " cream" : "")}><div className="wrap">${body}</div></main>
+    <main className=${cream ? "cream" : ""}><div className="wrap">${body}</div></main>
     <footer><div className="wrap">
       An independent educational experience: not legal advice, not an official investigation, and not an accusation of criminal guilt. Allegations are not findings. The real case may remain unresolved. Built from documents reviewed on ${REVIEW_DATE}, plus public filings and dockets added to the timeline on October 23, 2026; not reviewed by a lawyer. Progress is saved only in this browser.
     </div></footer>
-    ${card && (real
-      ? html`<${CardDialog} c=${card} st=${st} up=${up} close=${function(){ setOpen(null); }} openSrc=${function(){ up(function(n){ n.real.sourced[card.id] = true; }); setDrawer({src:card.src, card:card}); }} />`
-      : html`<${FicDialog} c=${card} st=${st} up=${up} close=${function(){ setOpen(null); }} />`)}
+    ${card && html`<${CardDialog} c=${card} st=${st} up=${up} close=${function(){ setOpen(null); }} openSrc=${function(){ up(function(n){ n.real.sourced[card.id] = true; }); setDrawer({src:card.src, card:card}); }} />`}
     ${drawer && html`<${Drawer} d=${drawer} close=${function(){ setDrawer(null); }} />`}
   `;
 }
@@ -2162,20 +1967,20 @@ function Poster(){
       <rect x="14" y="14" width="572" height="872" fill="none" stroke="#c8a24a" strokeOpacity=".55" strokeWidth="1.5" />
       <rect x="22" y="22" width="556" height="856" fill="none" stroke="#c8a24a" strokeOpacity=".25" strokeWidth="1" />
     </svg>
-    <div className="p-top">A case file in two parts</div>
+    <div className="p-top">From the public record</div>
     <div className="p-title"><span>The Case of the</span><em>Vanishing Valuation</em></div>
     <div className="p-tag">Follow the paper.</div>
     <figcaption className="p-bill">
-      <div className="p-parts"><span>Part One · <b>The Record</b></span><span>Part Two · <b>The Fiction</b></span></div>
-      <p>Based on public court filings · and one entirely invented orchard · Case No. 4:25-cv-00132 (E.D. Mo.) · Now showing on the docket</p>
-      <div className="p-rating"><b>PL</b><span><strong>Pending litigation</strong> Allegations are not findings. Part Two is not a true story.</span></div>
+      <div className="p-parts"><span><b>The Record</b></span></div>
+      <p>Based on public court filings · Case No. 4:25-cv-00132 (E.D. Mo.) · Now showing on the docket</p>
+      <div className="p-rating"><b>PL</b><span><strong>Pending litigation</strong> Allegations are not findings.</span></div>
     </figcaption>
   </figure>`;
 }
 
 function Welcome(p){
   var st = p.st, up = p.up;
-  function start(m){ up(function(n){ n.started = true; n.mode = m; n.tab = m === "real" ? "brief" : "rooms"; }); }
+  function start(){ up(function(n){ n.started = true; n.mode = "real"; n.tab = "brief"; }); }
   return html`<main style=${{paddingTop:0}}>
     <section className="hero" aria-label="Title"><${Poster} /></section>
     <div className="wrap welcome">
@@ -2184,27 +1989,19 @@ function Welcome(p){
           <strong>Before you begin</strong>
           An independent educational experience—not legal advice, an official investigation, or an accusation of criminal guilt. Allegations are not findings. The real case may remain unresolved.
         </div>
-        <p className="lede">Some people playing this lost money in the fund described in Part One. Part One treats that seriously. It sorts the public record into what courts ordered, what witnesses said under oath, what parties allege, and what nobody knows yet. It never asks you to decide who is guilty, and its jokes are only about jargon.</p>
-        <p className="lede muted">Part Two is a separate, invented whodunit about a posh family, an orchard trust and a missing orchard. None of its characters is based on a real person.</p>
+        <p className="lede">Some people playing this lost money in the fund described here. This site treats that seriously. It sorts the public record into what courts ordered, what witnesses said under oath, what parties allege, and what nobody knows yet. It never asks you to decide who is guilty, and its jokes are only about jargon.</p>
         <label className="check"><input type="checkbox" id="humor-toggle" checked=${st.humor} onChange=${function(ev){ var v = ev.target.checked; up(function(n){ n.humor = v; }); }} /> Include dry humor</label>
       </div>
       <div className="door">
-        <button onClick=${function(){ start("real"); }}>
-          <span className="reel">Part One</span>
+        <button onClick=${function(){ start(); }}>
+          <span className="reel">Start here</span>
           <b>The Record</b>
           <span className="mode-name">Case Explorer</span>
           <span className="truecard">This is a real case. Nothing here decides it.</span>
           <span>Six rooms of sourced evidence and three challenges. It ends in an Evidence Assessment, not a verdict. Some evidence slots are left empty on purpose.</span>
         </button>
-        <button className="fic" onClick=${function(){ start("fiction"); }}>
-          <span className="reel">Part Two</span>
-          <b>The Fiction</b>
-          <span className="mode-name">Fictional Mystery</span>
-          <span className="truecard">This is not a true story.</span>
-          <span>Pellingham Manor. One missing orchard. Seven people who would all prefer it was somebody else. Invented from top to bottom, with a fair solution.</span>
-        </button>
         <button className="v2door" onClick=${function(){ up(function(n){ n.started = true; n.mode = "real"; n.tab = "file"; }); }}>
-          <span className="reel">Also in Part One</span>
+          <span className="reel">Also here</span>
           <b>The VPEG File</b>
           <span>No game. Our call, the money, the players, three storylines and our odds, every fact labeled and linked.</span>
         </button>
@@ -2214,30 +2011,22 @@ function Welcome(p){
   </main>`;
 }
 
-function ColdOpen(){
-  return html`<div className="screenplay" role="region" aria-label="Cold open (fiction)">
-    ${COLD_OPEN.map(function(l, i){ return html`<p key=${i} className=${"sp-" + l[0]}>${l[1]}</p>`; })}
-  </div>`;
-}
-
 function Rooms(p){
-  var st = p.st, real = st.mode === "real";
-  var list = real ? CARDS : F_CARDS;
+  var st = p.st;
+  var list = CARDS;
   return html`<section>
-    ${!real && html`<${ColdOpen} />`}
-    <div className="section-head"><h2>${real ? "The record, in six rooms" : "Six rooms of Pellingham Manor"}</h2>
-      <span>${real ? "Each card cites its source · classify before the status is revealed" : "Every exhibit here is fictional game material"}</span></div>
+    <div className="section-head"><h2>The record, in six rooms</h2>
+      <span>Each card cites its source · classify before the status is revealed</span></div>
     <div className="rooms">
       ${ROOMS.map(function(r, i){
         var cs = list.filter(function(c){ return c.room === r.id; });
-        var done = cs.filter(function(c){ return real ? st.real.guess[c.id] : st.fic.seen[c.id]; }).length;
-        var empty = real ? (EMPTY[r.id]||[]).length : 0;
+        var done = cs.filter(function(c){ return st.real.guess[c.id]; }).length;
+        var empty = (EMPTY[r.id]||[]).length;
         return html`<button key=${r.id} className="room" onClick=${function(){ p.up(function(n){ n.room = r.id; }); }}>
-          <span className="kicker">${real ? "File " : "Scene "}${i+1}</span>
+          <span className="kicker">File ${i+1}</span>
           <h3>${r.name}</h3>
-          ${!real && html`<span className="slug">${r.slug}</span>`}
-          <span>${real ? r.real : r.fic}</span>
-          <span className="meta"><span>${cs.length} ${real ? "cards" : "exhibits"}</span><span>${done} ${real ? "classified" : "examined"}</span>${real && html`<span>${empty} empty slot${empty===1?"":"s"}</span>`}</span>
+          <span>${r.real}</span>
+          <span className="meta"><span>${cs.length} cards</span><span>${done} classified</span>${html`<span>${empty} empty slot${empty===1?"":"s"}</span>`}</span>
         </button>`;
       })}
     </div>
@@ -2245,34 +2034,31 @@ function Rooms(p){
 }
 
 function Room(p){
-  var st = p.st, real = st.mode === "real";
+  var st = p.st;
   var idx = ROOMS.map(function(x){ return x.id; }).indexOf(p.id), r = ROOMS[idx];
-  var list = (real ? CARDS : F_CARDS).filter(function(c){ return c.room === p.id; });
-  var aside = st.humor ? (real ? REAL_ASIDES : FIC_ASIDES)[p.id] : null;
+  var list = CARDS.filter(function(c){ return c.room === p.id; });
+  var aside = st.humor ? REAL_ASIDES[p.id] : null;
   return html`<section>
     <button className="dlg-btn" onClick=${function(){ p.up(function(n){ n.room = null; }); }}>← All rooms</button>
     <div style=${{margin:"18px 0 14px"}}>
-      <div className="kicker">${real ? "File " : "Scene "}${idx+1}</div>
-      <div className="section-head" style=${{margin:"4px 0 0"}}><h2>${r.name}</h2><span>${real ? r.real : r.fic}</span></div>
-      ${!real && html`<div className="slug">${r.slug}</div>`}
+      <div className="kicker">File ${idx+1}</div>
+      <div className="section-head" style=${{margin:"4px 0 0"}}><h2>${r.name}</h2><span>${r.real}</span></div>
     </div>
-    ${aside && html`<p className="aside"><b>${real ? "Clerk’s aside (an invented interface joke, not about the real case):" : "Aside:"}</b> ${aside}</p>`}
+    ${aside && html`<p className="aside"><b>Clerk’s aside (an invented interface joke, not about the real case):</b> ${aside}</p>`}
     <div className="cards">
       ${list.map(function(c){
-        var known = real ? st.real.guess[c.id] : true;
-        var onBoard = real ? st.real.board[c.id] : st.fic.board[c.id];
-        return html`<button key=${c.id} className="folder" onClick=${function(){ p.openCard(c.id); if (!real) p.up(function(n){ n.fic.seen[c.id] = true; }); }}>
-          ${!real && html`<span className="stamp" aria-hidden="true">Exhibit</span>`}
+        var known = st.real.guess[c.id];
+        var onBoard = st.real.board[c.id];
+        return html`<button key=${c.id} className="folder" onClick=${function(){ p.openCard(c.id); }}>
           <h3>${c.head}</h3>
-          <span className="cite">${real ? srcCite(c) : "Exhibit " + c.id.toUpperCase() + " · invented"}</span>
+          <span className="cite">${srcCite(c)}</span>
           <span className="row">
-            ${known ? html`<${Chip} status=${real ? c.status : "fiction"} />` : html`<span className="hidden-status">Status: classify to reveal</span>`}
+            ${known ? html`<${Chip} status=${c.status} />` : html`<span className="hidden-status">Status: classify to reveal</span>`}
             ${onBoard && html`<span className="tag">On caseboard</span>`}
-            ${!real && st.fic.seen[c.id] && html`<span className="tag">Examined</span>`}
           </span>
         </button>`;
       })}
-      ${real && (EMPTY[p.id]||[]).map(function(s, i){
+      ${(EMPTY[p.id]||[]).map(function(s, i){
         return html`<div key=${"e"+i} className="empty-slot" role="group" aria-label="Empty evidence slot">
           <span><${Chip} status="unverified" /></span>
           <h3>Empty slot: ${s.t}</h3>
@@ -2365,27 +2151,6 @@ function CardDialog(p){
   </div>`;
 }
 
-function FicDialog(p){
-  var c = p.c, st = p.st, ref = useDialogFocus(), onBoard = st.fic.board[c.id];
-  var titleId = "fdlg-"+c.id;
-  var r = ROOMS.filter(function(x){ return x.id===c.room; })[0];
-  return html`<div className="scrim" onClick=${function(ev){ if (ev.target === ev.currentTarget) p.close(); }}>
-    <div className="dialog" role="dialog" aria-modal="true" aria-labelledby=${titleId} tabIndex="-1" ref=${ref} style=${{borderTopColor:"var(--blood)"}}>
-      <span className="stamp" aria-hidden="true">Exhibit ${c.id.toUpperCase()}</span>
-      <div className="kicker">${r.name} · <span className="mono">${r.slug}</span></div>
-      <h2 id=${titleId}>${c.head}</h2>
-      <p><${Chip} status="fiction" /></p>
-      <p style=${{fontFamily:"var(--f-type)",fontSize:".98rem"}}>${c.claim}</p>
-      ${st.humor && c.joke && html`<p className="aside">${c.joke}</p>`}
-      <div className="box"><h4>Auditor’s note</h4><p style=${{margin:0}}>${c.note}</p></div>
-      <div className="actions">
-        <button className="dlg-btn primary" onClick=${function(){ p.up(function(n){ if (n.fic.board[c.id]) delete n.fic.board[c.id]; else n.fic.board[c.id] = true; }); }}>${onBoard ? "Remove from caseboard" : "Add to caseboard"}</button>
-        <button className="dlg-btn" onClick=${p.close}>Close</button>
-      </div>
-    </div>
-  </div>`;
-}
-
 function Drawer(p){
   var ref = useDialogFocus(), d = p.d;
   return html`<aside className="drawer" role="dialog" aria-modal="true" aria-label="Source drawer" tabIndex="-1" ref=${ref}>
@@ -2410,23 +2175,7 @@ function Drawer(p){
 }
 
 function Board(p){
-  var st = p.st, real = st.mode === "real";
-  if (!real){
-    var ids = Object.keys(st.fic.board);
-    return html`<section>
-      <div className="section-head"><h2>Caseboard</h2><span className="muted ui">Fictional Mystery</span></div>
-      <div className="lanes">
-        <div className="lane"><h3>What the source establishes</h3><p>Real-case lane. Switch to the Case Explorer to use it.</p></div>
-        <div className="lane"><h3>What a party alleges</h3><p>Real-case lane. Switch to the Case Explorer to use it.</p></div>
-        <div className="lane"><h3>What an investigator asks next</h3><p>Real-case lane. Switch to the Case Explorer to use it.</p></div>
-        <div className="lane fic"><h3>Exists only in the fictional story</h3><p>Exhibits you pinned at Pellingham Manor.</p>
-          ${ids.length === 0 && html`<p className="muted">Nothing pinned yet.</p>`}
-          ${ids.map(function(id){ var c = F_CARDS.filter(function(x){ return x.id === id; })[0];
-            return html`<div key=${id} className="pin"><button className="linkish" onClick=${function(){ p.openCard(id); }}>${c.head}</button><div><${Chip} status="fiction" /></div></div>`; })}
-        </div>
-      </div>
-    </section>`;
-  }
+  var st = p.st;
   var ids2 = Object.keys(st.real.board);
   var cards = ids2.map(function(id){ return CARDS.filter(function(c){ return c.id === id; })[0]; });
   var established = cards.filter(function(c){ return c.status === "court" || c.status === "sworn" || c.status === "receiver"; });
@@ -2454,7 +2203,6 @@ function Board(p){
         ${qs.map(function(x){ return html`<div key=${x.c.id+x.i} className="pin">${x.q}<div className="mono" style=${{marginTop:"4px"}}>re: ${x.c.head}</div>
           <button className="dlg-btn" style=${{marginTop:"6px",minHeight:"30px",padding:"2px 8px",fontSize:".8rem"}} onClick=${function(){ p.up(function(n){ n.real.board[x.c.id].questions.splice(x.i,1); }); }}>Remove question</button></div>`; })}
       </div>
-      <div className="lane fic"><h3>Exists only in the fictional story</h3><p>This lane stays empty in the Case Explorer. Fiction never mixes with the record.</p></div>
     </div>
   </section>`;
 }
@@ -3504,11 +3252,6 @@ function VPEGFile(p){
 }
 
 function Timeline(p){
-  if (!p.real) return html`<section>
-    <div className="section-head"><h2>Timeline</h2><span>Fictional Mystery · every date is invented</span></div>
-    <p className="aside">Pieced together from exhibits you can find in the manor rooms.</p>
-    <ol className="tl">${F_TIMELINE.map(function(t,i){ return html`<li key=${i}><div className="when">${t.d}</div><div>${t.t}</div><div><${Chip} status="fiction" /></div></li>`; })}</ol>
-  </section>`;
   return html`<section>
     <div className="section-head"><h2>Timeline</h2><span className="muted ui">Every account, on the date it claims</span></div>
     <${LensNote} lens=${p.st.lens} />
@@ -3529,22 +3272,6 @@ function People(p){
         </div>`; })}
       </div>`; })}
     </div>
-  </section>`;
-}
-
-function Cast(p){
-  function initials(n){ return n.replace(/“[^”]*”/g,"").split(/\s+/).filter(Boolean).map(function(w){ return w[0]; }).slice(0,2).join(""); }
-  return html`<section>
-    <div className="section-head"><h2>The family, and the help</h2><span>Invented characters · none is based on a real person</span></div>
-    <div className="cast">${CAST.map(function(c){ return html`<div key=${c.id} className="person">
-      <div style=${{display:"flex",gap:"12px",alignItems:"center"}}>
-        <span className="crest" aria-hidden="true">${initials(c.n)}</span>
-        <div><h3>${c.n}</h3><div className="role">${c.r}</div></div>
-      </div>
-      <p>${c.d}</p>
-      ${p.humor && html`<p className="aside">${c.j}</p>`}
-      <div style=${{marginTop:"auto"}}><${Chip} status="fiction" /></div>
-    </div>`; })}</div>
   </section>`;
 }
 
@@ -3676,96 +3403,6 @@ function Assessment(p){
         <li>How does Husch Blackwell respond to the JLP complaint, and is a class certified?</li>
         <li>Are there criminal proceedings? None were found in the reviewed sources. The FBI victim-information page exists, but its contents were not verified.</li>
       </ul></section>
-    </div>
-  </section>`;
-}
-
-function Deduce(p){
-  var f = p.st.fic;
-  var seen = F_CARDS.filter(function(c){ return f.seen[c.id]; });
-  function upF(fn){ p.up(function(n){ fn(n.fic); }); }
-  var ready = f.culprit && f.mech && f.picks.length >= 3;
-  if (f.submitted) return html`<${Reveal} st=${p.st} up=${p.up} />`;
-  return html`<section>
-    <div className="section-head"><h2>The drawing room</h2><span className="muted ui">Fiction only. Points come from the evidence you cite, not from the name you choose.</span></div>
-    ${seen.length < 8 && html`<p className="aside">You have examined ${seen.length} of ${F_CARDS.length} exhibits. You can submit at any time, but the fair solution needs clues from several rooms.</p>`}
-    <div className="chal">
-      <h3 style=${{fontSize:"1.3rem"}}>1. Who gave Southfield away and kept it on the books?</h3>
-      <div className="opts" role="radiogroup" aria-label="Suspect">${CAST.map(function(c){ return html`<button key=${c.id} role="radio" aria-checked=${f.culprit===c.id} aria-pressed=${f.culprit===c.id} onClick=${function(){ upF(function(x){ x.culprit = c.id; }); }}>${c.n}</button>`; })}</div>
-      <h3 style=${{fontSize:"1.3rem",marginTop:"16px"}}>2. How was it done?</h3>
-      <div className="opts" role="radiogroup" aria-label="Mechanism">${MECHS.map(function(m){ return html`<button key=${m.id} role="radio" aria-checked=${f.mech===m.id} aria-pressed=${f.mech===m.id} onClick=${function(){ upF(function(x){ x.mech = m.id; }); }}>${m.t}</button>`; })}</div>
-      <h3 style=${{fontSize:"1.3rem",marginTop:"16px"}}>3. Cite your evidence (pick 3 to 5 examined exhibits)</h3>
-      ${seen.length === 0 ? html`<p className="muted">Examine exhibits in the manor rooms first.</p>` :
-        html`<div className="opts">${seen.map(function(c){ var on = f.picks.indexOf(c.id) >= 0;
-          return html`<button key=${c.id} aria-pressed=${on} disabled=${!on && f.picks.length >= 5} onClick=${function(){ upF(function(x){ var i = x.picks.indexOf(c.id); if (i>=0) x.picks.splice(i,1); else if (x.picks.length < 5) x.picks.push(c.id); }); }}>${c.id.toUpperCase()}: ${c.head}</button>`; })}</div>`}
-      <h3 style=${{fontSize:"1.3rem",marginTop:"16px"}}>4. Rule out the competing explanations</h3>
-      <p className="muted" style=${{marginTop:0}}>For each theory, choose the exhibit that does the most to defeat it.</p>
-      ${ALTS.map(function(a){ return html`<div key=${a.id} style=${{margin:"8px 0"}}>
-        <label htmlFor=${"alt-"+a.id}><b>${a.t}</b></label>
-        <select id=${"alt-"+a.id} value=${f.alts[a.id] || ""} onChange=${function(ev){ var v = ev.target.value; upF(function(x){ x.alts[a.id] = v; }); }}>
-          <option value="">Choose an exhibit…</option>
-          ${seen.map(function(c){ return html`<option key=${c.id} value=${c.id}>${c.id.toUpperCase()}: ${c.head}</option>`; })}
-        </select></div>`; })}
-      <div className="actions"><button className="dlg-btn primary" disabled=${!ready} onClick=${function(){ upF(function(x){ x.submitted = true; }); }}>Present the case in the drawing room</button>
-        ${!ready && html`<span className="muted ui" style=${{alignSelf:"center"}}>Choose a person and a mechanism, and cite at least three exhibits.</span>`}</div>
-    </div>
-  </section>`;
-}
-
-var FINALE = [
-  ["slug","INT. PELLINGHAM MANOR — DRAWING ROOM — LATER"],
-  ["action","The family has been assembled, which none of them enjoyed. Someone has lit the fire. It is still September."],
-  ["char","YOU"],["dia","Nobody sold Southfield for money. That’s what bothered me. No deposit, no buyer’s cheque. An orchard that size goes, you’d expect a little paperwork with a number on it."],
-  ["char","OTTOLINE"],["dia","Then where did it go?"],
-  ["char","YOU"],["dia","It paid off a debt. Not the Trust’s."],
-  ["action","Six heads turn, slowly, toward LIONEL, who has become very interested in his stopwatch."],
-  ["char","LIONEL"],["dia","I’d like it noted that the horse was very promising."],
-  ["char","MARGUERITE"],["dia","Noted."],
-  ["trans","CUT TO BLACK."]
-];
-
-function Reveal(p){
-  var f = p.st.fic;
-  var right = f.culprit === "lionel" && f.mech === "swap";
-  var name = (CAST.filter(function(c){ return c.id === f.culprit; })[0] || {}).n;
-  var sc = ficScore(f);
-  return html`<section className="reveal">
-    <div className="kicker" style=${{color:"var(--blood)"}}>Fictional Mystery · The final scene</div>
-    <h2 style=${{fontSize:"clamp(1.9rem,5vw,2.6rem)",fontStyle:"italic",margin:"6px 0 10px"}}>The orchard that was paid away</h2>
-    <p><${Chip} status="fiction" /></p>
-    <p className="lede">${right
-      ? "You named Lionel Fairweather and the right mechanism. Here’s the scene, and how the evidence holds it up."
-      : "You named " + (name || "someone") + ". Not quite. Here’s how it actually went, and the exhibits that show it."}</p>
-    <div className="pts">${Object.keys(sc).map(function(k){ return html`<div key=${k}><b>${sc[k]}</b><span>${k}</span></div>`; })}</div>
-
-    <div className="screenplay" style=${{boxShadow:"none",border:"1px solid var(--line)"}}>
-      ${FINALE.map(function(l, i){ return html`<p key=${i} className=${"sp-" + l[0]}>${l[1]}</p>`; })}
-    </div>
-
-    <h3>What happened</h3>
-    <p>Lionel Fairweather, the Treasurer, co-owned a racehorse called Thunderclap with the Brindle Hill syndicate and ran up a debt to them. On 3 March, while the Chair was in Lisbon, he signed Southfield Orchard over to Brindle Hill Farms for nil cash, under a side letter that settled his personal debt (FG2, FV2, FV3). The board never approved the disposal, and the Chair never countersigned it (FC1, FW4).</p>
-    <p>To keep the orchard on the books, he didn’t invent a new number. He reused an honest one. Crane’s 14 October appraisal of 3.4 million was accurate when made (FG1, FW5). At 23:48 on 9 July, under the shared “treasury-desk” login, its date was changed to 30 June so it looked like a year-end valuation (FL2). Only two people use that login (FL3). Priya was judging perry at the county fair (FW2), and the gate log puts Lionel alone in the building from 23:31 to 23:59 (FC2). In March Priya had asked “Is Southfield still ours?” and the reply, initialled L.F., was “Clerical. Ignore.” (FG3). At supper he told you Crane valued it “at year-end,” which Crane’s own file contradicts (FW3).</p>
-
-    <h3>Why the other explanations fail</h3>
-    <ul>${ALTS.map(function(a){ var mine = f.alts[a.id]; var ok = mine && a.ok.indexOf(mine) >= 0;
-      return html`<li key=${a.id} style=${{marginBottom:"8px"}}><b>${a.t}</b> ${a.x} <span className="ui" style=${{color: ok ? "var(--ok)" : "var(--bad)"}}>(${mine ? (ok ? "your pick, " + mine.toUpperCase() + ", works" : "your pick, " + mine.toUpperCase() + ", doesn’t do the job") : "not answered"})</span></li>`; })}</ul>
-
-    <h3>The fair-play check</h3>
-    <p>Every fact in this solution was on an exhibit you could open before you accused anyone. The red herrings had real evidence behind them. The Chair’s forecasts really were overconfident. The newsletter photo really was a stock image. Kit really did want to sell. The still really was new. The appraiser’s signature really was on the 3.4 million. A good case explains every clue, including the ones that point the wrong way.</p>
-    ${p.st.humor && html`<p className="aside">Ottoline has since revised her forecast for Southfield’s exit to “not applicable.” It is the first accurate forecast in the Trust’s history. Real nice.</p>`}
-    <div className="actions"><button className="dlg-btn" onClick=${function(){ p.up(function(n){ n.fic.submitted = false; }); }}>Revise my deduction</button></div>
-
-    <div className="credits" role="region" aria-label="Closing credits (fiction)">
-      <p className="credit">Closing credits</p>
-      <dl>
-        <dt>The Treasurer</dt><dd>Lionel Fairweather</dd>
-        <dt>The Orchard</dt><dd>Southfield (3.4 million, on paper)</dd>
-        <dt>The Horse</dt><dd>Thunderclap (finished last)</dd>
-        <dt>The Appraiser</dt><dd>Bartholomew Crane, who was right in October</dd>
-        <dt>The Analyst</dt><dd>Priya Haldane, who asked first</dd>
-        <dt>The Barometers</dt><dd>Eleven, all set to “Fair”</dd>
-      </dl>
-      <p className="fine">No orchards were harmed in the making of this mystery. The people, places, companies and events in Part Two are invented. Any resemblance to real persons, living or dead, or to any real fund, is coincidental.</p>
     </div>
   </section>`;
 }
