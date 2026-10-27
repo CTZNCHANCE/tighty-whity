@@ -393,7 +393,6 @@ body:has(.dt){overflow-x:clip}
 .dt-threads,.dt-marks,.dt-arcs,.dt-cursor,.dt-years{transition:opacity .35s ease}
 .dt-stage.is-open .dt-threads,.dt-stage.is-open .dt-marks,.dt-stage.is-open .dt-arcs,.dt-stage.is-open .dt-cursor,.dt-stage.is-open .dt-years,.dt-stage.is-open .dt-pill{opacity:0;pointer-events:none}
 .dt-stage.is-open .dt-lane-label{opacity:0;transform:translateX(160px)}
-.dt-stage.is-open .dt-bar{opacity:.25;pointer-events:none}
 .dt-stage.is-open{cursor:default}
 /* markers */
 .dt-mark,.dt-cluster,.dt-overlap{cursor:pointer;outline:none}
@@ -598,17 +597,35 @@ body:has(.dt){overflow-x:clip}
 .dt-prev i{left:0;text-align:left}.dt-next i{right:0;text-align:right}
 .dt-prev:hover i,.dt-next:hover i,.dt-prev:focus-visible i,.dt-next:focus-visible i{opacity:.8}
 /* range bar */
-.dt-bar{position:absolute;left:32px;right:32px;bottom:18px;height:24px;z-index:4;transition:height .3s ease,opacity .3s}
-.dt-bar:hover,.dt-bar.held,.dt-bar:focus-within{height:48px}
-.dt-bar-track{position:relative;height:100%;border-radius:999px;background:rgba(52,49,47,.06)}
-.dt-era{position:absolute;top:22%;bottom:22%;display:flex;align-items:center;padding-left:10px;border-left:1px solid rgba(52,49,47,.18);font-style:italic;font-size:13px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s}
-.dt-bar:hover .dt-era,.dt-bar.held .dt-era,.dt-bar:focus-within .dt-era{opacity:.45}
-.dt-bar:hover .dt-era.on,.dt-bar.held .dt-era.on,.dt-bar:focus-within .dt-era.on{opacity:.95}
-.dt-win{position:absolute;top:0;bottom:0;min-width:8px;border-radius:999px;cursor:grab;touch-action:none}
-.dt-win::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,#F2BE4E,#E9665C,#8F4C7C);opacity:.5}
-.dt-handle{position:absolute;top:50%;width:16px;height:16px;border-radius:50%;border:1.5px solid var(--dt-ink);background:#fff;transform:translate(-50%,-50%);cursor:ew-resize;padding:0;z-index:1;transition:width .2s,height .2s;touch-action:none}
+/* overview ruler: fixed scale, the window follows the zoom (like an arrangement overview) */
+.dt-ruler{position:relative;z-index:6;padding:14px 32px 22px;border-bottom:1px solid var(--dt-line);background:var(--dt-bg)}
+.dt-zoom{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.dt-zb{width:40px;height:40px;border-radius:50%;border:1px solid var(--dt-ink);background:var(--dt-bg);color:var(--dt-ink);font-size:24px;line-height:1;display:inline-grid;place-items:center;cursor:pointer;padding:0;transition:background .2s,color .2s,opacity .2s}
+.dt-zb:hover:not(:disabled){background:var(--dt-ink);color:var(--dt-bg)}
+.dt-zb:disabled,.dt-whole:disabled{opacity:.3;cursor:default}
+.dt-zmeter{display:grid;min-width:230px;text-align:center;line-height:1.2}
+.dt-zmeter b{font-style:italic;font-weight:500;font-size:19px}
+.dt-zmeter span{font-size:13px;color:var(--dt-soft)}
+.dt-zhint{margin-left:auto;font-style:italic;font-size:14px;color:var(--dt-soft)}
+.dt-ruler-track{position:relative;height:46px;border:1px solid var(--dt-line);border-radius:10px;background:#fff8;cursor:pointer;overflow:visible;touch-action:none}
+.dt-era{position:absolute;top:0;bottom:0;border-left:1px solid rgba(52,49,47,.14);pointer-events:none;overflow:hidden}
+.dt-era.alt{background:rgba(52,49,47,.035)}
+.dt-era em{position:absolute;left:6px;top:3px;font-size:11px;white-space:nowrap;opacity:.45}
+.dt-era.on em{opacity:.9}
+.dt-yr{position:absolute;bottom:3px;transform:translateX(-50%);font-size:11px;color:var(--dt-soft);pointer-events:none;font-variant-numeric:tabular-nums}
+.dt-yr::before{content:"";position:absolute;left:50%;bottom:15px;height:5px;border-left:1px solid rgba(52,49,47,.3)}
+.dt-tick{position:absolute;top:19px;width:3px;height:9px;margin-left:-1.5px;border-radius:2px;pointer-events:none;opacity:.85}
+.dt-tick.gap{border:1px dashed var(--dt-soft)}
+.dt-tick.dim{opacity:.2}
+.dt-playhead{position:absolute;top:-6px;bottom:-6px;border-left:2px solid var(--dt-ink);pointer-events:none;z-index:2}
+.dt-playhead b{position:absolute;bottom:-18px;left:0;transform:translateX(-50%);font-size:11px;font-weight:500;white-space:nowrap;background:var(--dt-ink);color:var(--dt-bg);padding:0 6px;border-radius:999px}
+.dt-playhead.r b{transform:translateX(-100%)}.dt-playhead.l b{transform:none}
+.dt-win{position:absolute;top:-3px;bottom:-3px;min-width:8px;border:2px solid var(--dt-ink);border-radius:8px;cursor:grab;touch-action:none;box-shadow:0 0 0 9999px rgba(251,246,241,0);transition:background .2s}
+.dt-win::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,#F2BE4E,#E9665C,#8F4C7C);opacity:.18}
+.dt-ruler-track:hover .dt-win::before{opacity:.28}
+.dt-handle{position:absolute;top:50%;width:12px;height:26px;border-radius:6px;border:1.5px solid var(--dt-ink);background:#fff;transform:translate(-50%,-50%);cursor:ew-resize;padding:0;z-index:1;touch-action:none}
 .dt-handle.a{left:0}.dt-handle.b{left:100%}
-.dt-bar:hover .dt-handle,.dt-bar.held .dt-handle,.dt-handle:focus-visible{width:22px;height:22px}
+@media (max-width:900px){.dt-zhint{flex-basis:100%;margin-left:0}.dt-yr.odd{display:none}.dt-era em{display:none}}
 @keyframes dtIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
 @keyframes dtFade{from{opacity:0;transform:translateY(-4px)}}
 /* list view: the same entries as reading text */
@@ -2775,9 +2792,15 @@ function MPPanel(p){
     </aside></div>`;
 }
 
+/* The newest entry from the record (not a visitor's own, not a gap): the timeline opens on it. */
+function dtLatest(){ return TL_ITEMS.filter(function(it){ return it.kind === "event" && !it.e.mine; }).reduce(function(m, it){ return !m || it.x > m.x ? it : m; }, null); }
+function dtSpan(s){ var mo = Math.round(s * 12); return mo < 24 ? mo + " month" + (mo === 1 ? "" : "s") : (Math.round(s * 10) / 10) + " years"; }
+
 function CaseTimeline(p){
   var lens = p.st.lens;
-  var init = useState(function(){ var h = tlParseHash(); return { a:h && h.from ? Math.max(TL_MIN, h.from) : TL_MIN, b:h && h.to ? Math.min(TL_MAX, h.to + 1/12) : TL_MAX, sel:h && h.ev ? h.ev : null }; })[0];
+  var init = useState(function(){ var h = tlParseHash();
+    if (!h){ var last = dtLatest(); return { a:last ? Math.max(TL_MIN, last.x - 1.5) : TL_MIN, b:TL_MAX, sel:last ? last.id : null }; }
+    return { a:h.from ? Math.max(TL_MIN, h.from) : TL_MIN, b:h.to ? Math.min(TL_MAX, h.to + 1/12) : TL_MAX, sel:h.ev ? h.ev : null }; })[0];
   var _s = useState(init.sel), sel = _s[0], setSel = _s[1];
   var _m = useState(function(){ return window.innerWidth <= 640 ? "list" : "canvas"; }), mode = _m[0], setMode = _m[1];
   var _pe = useState(""), person = _pe[0], setPerson = _pe[1];
@@ -2855,7 +2878,7 @@ function CaseTimeline(p){
 
   // Pointer: drag pans at the current scale; wheel zooms around the pointer.
   var drag = useRef(null);
-  function onDown(ev){ if (sel || ev.button) return; if (ev.target.closest(".dt-chrome,.dt-bar,.dt-menu")) return; drag.current = { x:ev.clientX, moved:false }; }
+  function onDown(ev){ if (sel || ev.button) return; if (ev.target.closest(".dt-chrome,.dt-menu")) return; drag.current = { x:ev.clientX, moved:false }; }
   function onMove(ev){
     var e = eng.current; if (!e) return; var r = stage.current.getBoundingClientRect(); e.cursorAt(ev.clientX - r.left);
     var d = drag.current; if (!d) return; var dx = ev.clientX - d.x; if (!d.moved && Math.abs(dx) < 4) return;
@@ -2869,9 +2892,9 @@ function CaseTimeline(p){
     s.addEventListener("wheel", wheel, { passive:false }); return function(){ s.removeEventListener("wheel", wheel); };
   }, [mode, sel]);
 
-  // Range bar: the whole record in one strip; drag the window or either handle.
+  // Overview ruler: the whole record in one fixed strip; the window follows the zoom. Drag the window or a handle, or click to jump.
   function barDrag(kind){ return function(ev){
-    ev.preventDefault(); ev.stopPropagation(); var b = bar.current.getBoundingClientRect(), v0 = eng.current.view(), x0 = ev.clientX, per = (TL_MAX - TL_MIN) / b.width;
+    ev.preventDefault(); ev.stopPropagation(); if (selRef.current) setSel(null); var b = bar.current.getBoundingClientRect(), v0 = eng.current.view(), x0 = ev.clientX, per = (TL_MAX - TL_MIN) / b.width;
     function mv(e2){ var dt = (e2.clientX - x0) * per;
       if (kind === "win") eng.current.go(v0[0] + dt, v0[1] + dt, true);
       else if (kind === "a") eng.current.go(Math.min(v0[0] + dt, v0[1] - .04), v0[1], true);
@@ -2882,6 +2905,12 @@ function CaseTimeline(p){
   function handleKey(kind){ return function(ev){ var v = eng.current.view(), st = ev.shiftKey ? 1 : 1/12, d = ev.key === "ArrowLeft" || ev.key === "ArrowDown" ? -st : ev.key === "ArrowRight" || ev.key === "ArrowUp" ? st : 0; if (!d) return; ev.preventDefault();
     if (kind === "a") eng.current.go(Math.min(v[0] + d, v[1] - .04), v[1], true); else eng.current.go(v[0], Math.max(v[1] + d, v[0] + .04), true); }; }
   function pct(x){ return (x - TL_MIN) / (TL_MAX - TL_MIN) * 100; }
+  var total = TL_MAX - TL_MIN, span = range[1] - range[0], whole = span > total - .05, zx = Math.max(1, Math.round(total / span));
+  function zoomBy(f){ if (sel) setSel(null); if (eng.current) eng.current.zoomAt(f); }
+  function jump(ev){ if (ev.button || !eng.current || ev.target.closest(".dt-win")) return; var b = bar.current.getBoundingClientRect(), x = TL_MIN + (ev.clientX - b.left) / b.width * total;
+    if (sel) setSel(null); eng.current.go(x - span / 2, x + span / 2); }
+  var years = []; for (var yr = Math.ceil(TL_MIN); yr <= Math.floor(TL_MAX); yr++) years.push(yr);
+  var selIt = sel && tlItem(sel);
 
   var STAT = ["court","sworn","filing","docket","plaintiff","defense","reported","unverified"].concat(mp.length ? ["visitor"] : []);
   var filtering = person || pq || Object.keys(hidden).some(function(k){ return hidden[k]; });
@@ -2931,7 +2960,30 @@ function CaseTimeline(p){
   }
 
   var i = order.indexOf(sel), prevIt = sel && tlItem(order[(i - 1 + order.length) % order.length]), nextIt = sel && tlItem(order[(i + 1) % order.length]);
+  var ruler = html`<div className="dt-ruler">
+    <div className="dt-zoom" role="group" aria-label="Zoom">
+      <button className="dt-zb" aria-label="Zoom out" title="Zoom out (−)" disabled=${whole} onClick=${function(){ zoomBy(2); }}><span aria-hidden="true">−</span></button>
+      <div className="dt-zmeter" aria-live="polite">
+        <b>${dtShortDate(range[0])} – ${dtShortDate(range[1])}</b>
+        <span>${whole ? "The whole record, " + Math.round(total) + " years" : dtSpan(span) + " of " + Math.round(total) + " years · zoomed " + zx + "×"}</span>
+      </div>
+      <button className="dt-zb" aria-label="Zoom in" title="Zoom in (+)" disabled=${span <= .05} onClick=${function(){ zoomBy(.5); }}><span aria-hidden="true">+</span></button>
+      <button className="dt-chip dt-whole" disabled=${whole && !sel} onClick=${function(){ setSel(null); if (eng.current) eng.current.go(TL_MIN, TL_MAX); }}>See the whole record</button>
+      <span className="dt-zhint">${sel ? "An entry is open. Close it, or use − to step back and see what's around it." : "Scroll on the timeline to zoom, drag to move, or click this strip to jump."}</span>
+    </div>
+    <div className="dt-ruler-track" ref=${bar} onPointerDown=${jump} title="The whole record. The outlined window is what the timeline below is showing.">
+      ${TL.eras.map(function(er, k){ var on = tlEnd(er.to) > range[0] && tlYear(er.from) < range[1]; return html`<span key=${er.id} className=${"dt-era" + (on ? " on" : "") + (k % 2 ? " alt" : "")} style=${{left:pct(tlYear(er.from)) + "%", width:(pct(Math.min(TL_MAX, tlEnd(er.to))) - pct(tlYear(er.from))) + "%"}}><em>${er.name}</em></span>`; })}
+      ${years.map(function(y){ return html`<span key=${y} className=${"dt-yr" + (y % 2 ? " odd" : "")} style=${{left:pct(y) + "%"}}>${y}</span>`; })}
+      ${shown.map(function(it){ return html`<i key=${it.id} className=${"dt-tick" + (it.kind === "gap" ? " gap" : "") + (match(it) === "dim" ? " dim" : "")} style=${{left:pct(it.x) + "%", background:it.kind === "gap" ? "transparent" : DT_LANES[it.lane].from}}></i>`; })}
+      ${selIt && html`<i className=${"dt-playhead" + (pct(selIt.x) > 88 ? " r" : pct(selIt.x) < 12 ? " l" : "")} style=${{left:pct(selIt.x) + "%"}}><b>${dtItemDate(selIt)}</b></i>`}
+      <div className="dt-win" style=${{left:pct(range[0]) + "%", width:(pct(range[1]) - pct(range[0])) + "%"}} onPointerDown=${barDrag("win")}>
+        <button className="dt-handle a" role="slider" aria-label="Start of range" aria-valuemin=${TL_MIN} aria-valuemax=${TL_MAX} aria-valuenow=${range[0].toFixed(2)} aria-valuetext=${dtShortDate(range[0])} onPointerDown=${barDrag("a")} onKeyDown=${handleKey("a")}></button>
+        <button className="dt-handle b" role="slider" aria-label="End of range" aria-valuemin=${TL_MIN} aria-valuemax=${TL_MAX} aria-valuenow=${range[1].toFixed(2)} aria-valuetext=${dtShortDate(range[1])} onPointerDown=${barDrag("b")} onKeyDown=${handleKey("b")}></button>
+      </div>
+    </div>
+  </div>`;
   return html`<div className="dt">
+    ${ruler}
     <div className="dt-stage" ref=${stage} tabIndex="0" aria-label="Case timeline. Drag or use the arrow keys to move, scroll or plus and minus to zoom, Home to see everything. The List view has the same entries as text."
       onPointerDown=${onDown} onPointerMove=${onMove} onPointerUp=${onUp} onPointerLeave=${onUp}>
       <canvas className="dt-dust" aria-hidden="true"></canvas>
@@ -2946,15 +2998,6 @@ function CaseTimeline(p){
       ${sel && html`<${DTCapsule} sel=${sel} lens=${lens} select=${select} openSrc=${p.openSrc} openCard=${p.openCard} go=${p.go}
         prev=${function(){ stepSel(-1); }} next=${function(){ stepSel(1); }} close=${function(){ setSel(null); }}
         prevTitle=${prevIt ? dtItemTitle(prevIt) : ""} nextTitle=${nextIt ? dtItemTitle(nextIt) : ""} />`}
-      <div className="dt-bar" ref=${bar}>
-        <div className="dt-bar-track">
-          ${TL.eras.map(function(er){ var on = tlEnd(er.to) > range[0] && tlYear(er.from) < range[1]; return html`<span key=${er.id} className=${"dt-era" + (on ? " on" : "")} style=${{left:pct(tlYear(er.from)) + "%"}}>${er.name}</span>`; })}
-          <div className="dt-win" style=${{left:pct(range[0]) + "%", width:(pct(range[1]) - pct(range[0])) + "%"}} onPointerDown=${barDrag("win")}>
-            <button className="dt-handle a" role="slider" aria-label="Start of range" aria-valuemin=${TL_MIN} aria-valuemax=${TL_MAX} aria-valuenow=${range[0].toFixed(2)} aria-valuetext=${dtShortDate(range[0])} onPointerDown=${barDrag("a")} onKeyDown=${handleKey("a")}></button>
-            <button className="dt-handle b" role="slider" aria-label="End of range" aria-valuemin=${TL_MIN} aria-valuemax=${TL_MAX} aria-valuenow=${range[1].toFixed(2)} aria-valuetext=${dtShortDate(range[1])} onPointerDown=${barDrag("b")} onKeyDown=${handleKey("b")}></button>
-          </div>
-        </div>
-      </div>
     </div>
   </div>`;
 }
