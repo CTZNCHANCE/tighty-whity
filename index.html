@@ -378,8 +378,13 @@ body:has(.dt){overflow-x:clip}
   position:relative;width:100vw;margin-inline:calc(50% - 50vw);margin-top:22px;background:var(--dt-bg);color:var(--dt-ink);font-family:var(--f-dt);font-size:17px;line-height:1.5;color-scheme:light}
 .dt :focus-visible{outline:2px solid var(--dt-ink);outline-offset:3px}
 .dt button{font-family:var(--f-dt)}
-.dt-stage{position:relative;height:max(620px,min(88vh,900px));overflow:hidden;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;outline:none}
-.dt-stage.dragging{cursor:grabbing}
+.dt-stage{position:relative;height:max(620px,min(88vh,900px));overflow:hidden;cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg stroke='%23FBF6F1' stroke-width='4.5'%3E%3Ccircle cx='12' cy='14' r='6.5'/%3E%3Cpath d='M17 19l6 6M12 3v3M9.5 4.5L12 2l2.5 2.5M12 25v3M9.5 27.5L12 30l2.5-2.5'/%3E%3C/g%3E%3Cg stroke='%2334312F' stroke-width='2'%3E%3Ccircle cx='12' cy='14' r='6.5' fill='%23FBF6F1' fill-opacity='.6'/%3E%3Cpath d='M17 19l6 6M12 3v3M9.5 4.5L12 2l2.5 2.5M12 25v3M9.5 27.5L12 30l2.5-2.5M9 14h6M12 11v6'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") 12 14, zoom-in;touch-action:pan-y;user-select:none;-webkit-user-select:none;outline:none}
+.dt-stage.dragging,.dt-ruler-track.held{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg stroke='%23FBF6F1' stroke-width='4.5'%3E%3Ccircle cx='12' cy='14' r='6.5'/%3E%3Cpath d='M17 19l6 6M12 3v3M9.5 4.5L12 2l2.5 2.5M12 25v3M9.5 27.5L12 30l2.5-2.5'/%3E%3C/g%3E%3Cg stroke='%2334312F' stroke-width='2'%3E%3Ccircle cx='12' cy='14' r='6.5' fill='%23FBF6F1' fill-opacity='.6'/%3E%3Cpath d='M17 19l6 6M12 3v3M9.5 4.5L12 2l2.5 2.5M12 25v3M9.5 27.5L12 30l2.5-2.5M9 14h6M12 11v6'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") 12 14, zoom-in}
+.dt-tip{position:absolute;top:-30px;left:0;z-index:7;transform:translate(-50%,0);pointer-events:none;white-space:nowrap;background:var(--dt-pill,#353433);color:#FBF6F1;font-family:var(--f-dt);font-style:italic;font-size:13px;line-height:1;padding:5px 11px;border-radius:999px;opacity:0;transition:opacity .2s}
+.dt-tip b{font-style:normal;font-weight:600;margin:0 2px 0 6px}.dt-tip b:first-child{margin-left:0}
+.dt-tip.in{opacity:1}
+.dt-stage.is-open .dt-tip,.dt-stage.dragging .dt-tip{opacity:0}
+@media (hover:none){.dt-tip{display:none}}
 .dt-stage:focus-visible{box-shadow:inset 0 0 0 2px var(--dt-ink)}
 .dt-dust,.dt-svg{position:absolute;inset:0;width:100%;height:100%;display:block}
 .dt-dust{opacity:.5;pointer-events:none}
@@ -607,7 +612,7 @@ body:has(.dt){overflow-x:clip}
 .dt-zmeter b{font-style:italic;font-weight:500;font-size:19px}
 .dt-zmeter span{font-size:13px;color:var(--dt-soft)}
 .dt-zhint{margin-left:auto;font-style:italic;font-size:14px;color:var(--dt-soft)}
-.dt-ruler-track{position:relative;height:46px;border:1px solid var(--dt-line);border-radius:10px;background:#fff8;cursor:pointer;overflow:visible;touch-action:none}
+.dt-ruler-track{position:relative;height:46px;border:1px solid var(--dt-line);border-radius:10px;background:#fff8;cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg stroke='%23FBF6F1' stroke-width='4.5'%3E%3Ccircle cx='12' cy='14' r='6.5'/%3E%3Cpath d='M17 19l6 6M12 3v3M9.5 4.5L12 2l2.5 2.5M12 25v3M9.5 27.5L12 30l2.5-2.5'/%3E%3C/g%3E%3Cg stroke='%2334312F' stroke-width='2'%3E%3Ccircle cx='12' cy='14' r='6.5' fill='%23FBF6F1' fill-opacity='.6'/%3E%3Cpath d='M17 19l6 6M12 3v3M9.5 4.5L12 2l2.5 2.5M12 25v3M9.5 27.5L12 30l2.5-2.5M9 14h6M12 11v6'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") 12 14, zoom-in;overflow:visible;touch-action:none}
 .dt-era{position:absolute;top:0;bottom:0;border-left:1px solid rgba(52,49,47,.14);pointer-events:none;overflow:hidden}
 .dt-era.alt{background:rgba(52,49,47,.035)}
 .dt-era em{position:absolute;left:6px;top:3px;font-size:11px;white-space:nowrap;opacity:.45}
@@ -620,10 +625,10 @@ body:has(.dt){overflow-x:clip}
 .dt-playhead{position:absolute;top:-6px;bottom:-6px;border-left:2px solid var(--dt-ink);pointer-events:none;z-index:2}
 .dt-playhead b{position:absolute;bottom:-18px;left:0;transform:translateX(-50%);font-size:11px;font-weight:500;white-space:nowrap;background:var(--dt-ink);color:var(--dt-bg);padding:0 6px;border-radius:999px}
 .dt-playhead.r b{transform:translateX(-100%)}.dt-playhead.l b{transform:none}
-.dt-win{position:absolute;top:-3px;bottom:-3px;min-width:8px;border:2px solid var(--dt-ink);border-radius:8px;cursor:grab;touch-action:none;box-shadow:0 0 0 9999px rgba(251,246,241,0);transition:background .2s}
+.dt-win{position:absolute;top:-3px;bottom:-3px;min-width:8px;border:2px solid var(--dt-ink);border-radius:8px;touch-action:none;pointer-events:none;box-shadow:0 0 0 9999px rgba(251,246,241,0);transition:background .2s}
 .dt-win::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,#F2BE4E,#E9665C,#8F4C7C);opacity:.18}
 .dt-ruler-track:hover .dt-win::before{opacity:.28}
-.dt-handle{position:absolute;top:50%;width:12px;height:26px;border-radius:6px;border:1.5px solid var(--dt-ink);background:#fff;transform:translate(-50%,-50%);cursor:ew-resize;padding:0;z-index:1;touch-action:none}
+.dt-handle{pointer-events:auto;position:absolute;top:50%;width:12px;height:26px;border-radius:6px;border:1.5px solid var(--dt-ink);background:#fff;transform:translate(-50%,-50%);cursor:ew-resize;padding:0;z-index:1;touch-action:none}
 .dt-handle.a{left:0}.dt-handle.b{left:100%}
 @media (max-width:900px){.dt-zhint{flex-basis:100%;margin-left:0}.dt-yr.odd{display:none}.dt-era em{display:none}}
 @keyframes dtIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
@@ -2603,8 +2608,8 @@ function DTEngine(root, o){
   function kick(){ if (!raf) raf = requestAnimationFrame(step); }
   this.go = function(a, b, instant){ var c = clamp(a, b); if (instant || DT_REDUCED){ tween = null; view = c; render(); return; } tween = { a0:view[0], b0:view[1], a1:c[0], b1:c[1], t0:performance.now(), d:500 }; kick(); };
   this.view = function(){ return view.slice(); };
-  this.zoomAt = function(f, px){ var L = lanes[LANES[0].id], x0 = L.x0, x1 = W - DT_LABEL, a = tween ? tween.a1 : view[0], b = tween ? tween.b1 : view[1];
-    var c = px == null ? (a + b) / 2 : a + Math.max(0, Math.min(1, (px - x0) / (x1 - x0))) * (b - a); self.go(c - (c - a) * f, c + (b - c) * f); };
+  this.zoomAt = function(f, px, instant){ var L = lanes[LANES[0].id], x0 = L.x0, x1 = W - DT_LABEL, a = tween ? tween.a1 : view[0], b = tween ? tween.b1 : view[1];
+    var c = px == null ? (a + b) / 2 : a + Math.max(0, Math.min(1, (px - x0) / (x1 - x0))) * (b - a); self.go(c - (c - a) * f, c + (b - c) * f, instant); };
   this.panBy = function(dx){ var L = lanes[LANES[0].id], per = (view[1] - view[0]) / ((W - DT_LABEL) - L.x0); tween = null; var c = clamp(view[0] - dx * per, view[1] - dx * per); view = c; render(); };
   this.setMatch = function(fn){ match = fn; render(); };
   this.setLens = function(l){ lens = l; render(); };
@@ -2794,6 +2799,8 @@ function MPPanel(p){
 
 /* The newest entry from the record (not a visitor's own, not a gap): the timeline opens on it. */
 function dtLatest(){ return TL_ITEMS.filter(function(it){ return it.kind === "event" && !it.e.mine; }).reduce(function(m, it){ return !m || it.x > m.x ? it : m; }, null); }
+/* The little instruction that rides along with the magnifier cursor. */
+function dtTip(host, x, y, on){ var t = host && host.querySelector(":scope > .dt-tip"); if (!t) return; t.classList.toggle("in", !!on); if (on){ t.style.left = x + "px"; if (y) t.style.top = (y + 26) + "px"; } }
 function dtSpan(s){ var mo = Math.round(s * 12); return mo < 24 ? mo + " month" + (mo === 1 ? "" : "s") : (Math.round(s * 10) / 10) + " years"; }
 
 function CaseTimeline(p){
@@ -2878,13 +2885,16 @@ function CaseTimeline(p){
 
   // Pointer: drag pans at the current scale; wheel zooms around the pointer.
   var drag = useRef(null);
-  function onDown(ev){ if (sel || ev.button) return; if (ev.target.closest(".dt-chrome,.dt-menu")) return; drag.current = { x:ev.clientX, moved:false }; }
+  function onDown(ev){ if (sel || ev.button) return; if (ev.target.closest(".dt-chrome,.dt-menu")) return; drag.current = { x:ev.clientX, y:ev.clientY, px:ev.clientX - stage.current.getBoundingClientRect().left, mouse:ev.pointerType === "mouse", moved:false }; }
   function onMove(ev){
     var e = eng.current; if (!e) return; var r = stage.current.getBoundingClientRect(); e.cursorAt(ev.clientX - r.left);
-    var d = drag.current; if (!d) return; var dx = ev.clientX - d.x; if (!d.moved && Math.abs(dx) < 4) return;
-    d.moved = true; e.dragged = true; stage.current.classList.add("dragging"); e.panBy(dx); d.x = ev.clientX;
+    dtTip(stage.current, ev.clientX - r.left, ev.clientY - r.top, !sel && !ev.target.closest(".dt-chrome,.dt-menu,.dt-capsule-wrap"));
+    var d = drag.current; if (!d) return; var dx = ev.clientX - d.x, dy = d.mouse ? ev.clientY - d.y : 0; if (!d.moved && Math.abs(dx) < 4 && Math.abs(dy) < 4) return;
+    d.moved = true; e.dragged = true; stage.current.classList.add("dragging");
+    if (dx) e.panBy(dx); if (dy) e.zoomAt(Math.exp(-dy * .008), d.px + (ev.clientX - r.left - d.px), true); d.x = ev.clientX; d.y = ev.clientY;
   }
   function onUp(){ if (drag.current && drag.current.moved) setTimeout(function(){ if (eng.current) eng.current.dragged = false; }, 0); drag.current = null; if (stage.current) stage.current.classList.remove("dragging"); }
+  function onLeave(){ onUp(); if (stage.current) dtTip(stage.current, 0, 0, false); }
   useEffect(function(){
     var s = stage.current; if (!s || mode !== "canvas") return;
     function wheel(ev){ if (sel || ev.target.closest(".dt-chrome,.dt-menu,.dt-capsule-wrap")) return; ev.preventDefault(); var r = s.getBoundingClientRect(), dy = ev.deltaMode ? ev.deltaY * 16 : ev.deltaY;
@@ -2907,8 +2917,18 @@ function CaseTimeline(p){
   function pct(x){ return (x - TL_MIN) / (TL_MAX - TL_MIN) * 100; }
   var total = TL_MAX - TL_MIN, span = range[1] - range[0], whole = span > total - .05, zx = Math.max(1, Math.round(total / span));
   function zoomBy(f){ if (sel) setSel(null); if (eng.current) eng.current.zoomAt(f); }
-  function jump(ev){ if (ev.button || !eng.current || ev.target.closest(".dt-win")) return; var b = bar.current.getBoundingClientRect(), x = TL_MIN + (ev.clientX - b.left) / b.width * total;
-    if (sel) setSel(null); eng.current.go(x - span / 2, x + span / 2); }
+  // Scrub the strip: drag up or down to zoom around the point you grabbed, left or right to move; a plain click jumps there.
+  function scrub(ev){
+    if (ev.button || !eng.current || ev.target.closest(".dt-handle")) return; ev.preventDefault();
+    var b = bar.current.getBoundingClientRect(), v0 = eng.current.view(), x0 = ev.clientX, y0 = ev.clientY, c = TL_MIN + (x0 - b.left) / b.width * total, moved = false;
+    if (sel) setSel(null);
+    function mv(e2){ var dx = e2.clientX - x0, dy = e2.clientY - y0; if (!moved && Math.abs(dx) < 3 && Math.abs(dy) < 3) return; moved = true;
+      var f = Math.exp(-dy * .012), dt = dx / b.width * total, a = c - (c - v0[0]) * f + dt; eng.current.go(a, a + (v0[1] - v0[0]) * f, true);
+      dtTip(bar.current, e2.clientX - b.left, 0, true); }
+    function up(){ window.removeEventListener("pointermove", mv); window.removeEventListener("pointerup", up); if (bar.current) bar.current.classList.remove("held");
+      if (!moved && eng.current){ var s0 = v0[1] - v0[0]; eng.current.go(c - s0 / 2, c + s0 / 2); } }
+    bar.current.classList.add("held"); window.addEventListener("pointermove", mv); window.addEventListener("pointerup", up);
+  }
   var years = []; for (var yr = Math.ceil(TL_MIN); yr <= Math.floor(TL_MAX); yr++) years.push(yr);
   var selIt = sel && tlItem(sel);
 
@@ -2969,14 +2989,16 @@ function CaseTimeline(p){
       </div>
       <button className="dt-zb" aria-label="Zoom in" title="Zoom in (+)" disabled=${span <= .05} onClick=${function(){ zoomBy(.5); }}><span aria-hidden="true">+</span></button>
       <button className="dt-chip dt-whole" disabled=${whole && !sel} onClick=${function(){ setSel(null); if (eng.current) eng.current.go(TL_MIN, TL_MAX); }}>See the whole record</button>
-      <span className="dt-zhint">${sel ? "An entry is open. Close it, or use − to step back and see what's around it." : "Scroll on the timeline to zoom, drag to move, or click this strip to jump."}</span>
+      <span className="dt-zhint">${sel ? "An entry is open. Close it, or use − to step back and see what's around it." : "On the strip or the timeline: drag up or down to zoom, left or right to move. Scrolling zooms too."}</span>
     </div>
-    <div className="dt-ruler-track" ref=${bar} onPointerDown=${jump} title="The whole record. The outlined window is what the timeline below is showing.">
+    <div className="dt-ruler-track" ref=${bar} onPointerDown=${scrub} aria-label="The whole record. The outlined window is what the timeline below is showing."
+      onPointerMove=${function(ev){ dtTip(bar.current, ev.clientX - bar.current.getBoundingClientRect().left, 0, !ev.target.closest(".dt-handle")); }} onPointerLeave=${function(){ if (!bar.current.classList.contains("held")) dtTip(bar.current, 0, 0, false); }}>
+      <div className="dt-tip" aria-hidden="true"><b>↕</b> drag to zoom <b>↔</b> drag to move</div>
       ${TL.eras.map(function(er, k){ var on = tlEnd(er.to) > range[0] && tlYear(er.from) < range[1]; return html`<span key=${er.id} className=${"dt-era" + (on ? " on" : "") + (k % 2 ? " alt" : "")} style=${{left:pct(tlYear(er.from)) + "%", width:(pct(Math.min(TL_MAX, tlEnd(er.to))) - pct(tlYear(er.from))) + "%"}}><em>${er.name}</em></span>`; })}
       ${years.map(function(y){ return html`<span key=${y} className=${"dt-yr" + (y % 2 ? " odd" : "")} style=${{left:pct(y) + "%"}}>${y}</span>`; })}
       ${shown.map(function(it){ return html`<i key=${it.id} className=${"dt-tick" + (it.kind === "gap" ? " gap" : "") + (match(it) === "dim" ? " dim" : "")} style=${{left:pct(it.x) + "%", background:it.kind === "gap" ? "transparent" : DT_LANES[it.lane].from}}></i>`; })}
       ${selIt && html`<i className=${"dt-playhead" + (pct(selIt.x) > 88 ? " r" : pct(selIt.x) < 12 ? " l" : "")} style=${{left:pct(selIt.x) + "%"}}><b>${dtItemDate(selIt)}</b></i>`}
-      <div className="dt-win" style=${{left:pct(range[0]) + "%", width:(pct(range[1]) - pct(range[0])) + "%"}} onPointerDown=${barDrag("win")}>
+      <div className="dt-win" style=${{left:pct(range[0]) + "%", width:(pct(range[1]) - pct(range[0])) + "%"}}>
         <button className="dt-handle a" role="slider" aria-label="Start of range" aria-valuemin=${TL_MIN} aria-valuemax=${TL_MAX} aria-valuenow=${range[0].toFixed(2)} aria-valuetext=${dtShortDate(range[0])} onPointerDown=${barDrag("a")} onKeyDown=${handleKey("a")}></button>
         <button className="dt-handle b" role="slider" aria-label="End of range" aria-valuemin=${TL_MIN} aria-valuemax=${TL_MAX} aria-valuenow=${range[1].toFixed(2)} aria-valuetext=${dtShortDate(range[1])} onPointerDown=${barDrag("b")} onKeyDown=${handleKey("b")}></button>
       </div>
@@ -2985,8 +3007,9 @@ function CaseTimeline(p){
   return html`<div className="dt">
     ${ruler}
     <div className="dt-stage" ref=${stage} tabIndex="0" aria-label="Case timeline. Drag or use the arrow keys to move, scroll or plus and minus to zoom, Home to see everything. The List view has the same entries as text."
-      onPointerDown=${onDown} onPointerMove=${onMove} onPointerUp=${onUp} onPointerLeave=${onUp}>
+      onPointerDown=${onDown} onPointerMove=${onMove} onPointerUp=${onUp} onPointerLeave=${onLeave}>
       <canvas className="dt-dust" aria-hidden="true"></canvas>
+      <div className="dt-tip" aria-hidden="true"><b>↕</b> drag to zoom <b>↔</b> drag to move</div>
       <svg className="dt-svg" aria-hidden="false" role="group"></svg>
       <div className="dt-years" aria-hidden="true"><span>${dtBig(range[0], range[1] - range[0])}</span><span>${dtBig(range[1], range[1] - range[0])}</span></div>
       <div className="dt-cursor off" aria-hidden="true"><b></b></div>
