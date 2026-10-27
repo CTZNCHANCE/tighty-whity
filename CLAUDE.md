@@ -66,6 +66,6 @@ A filmmaker. Earlier direction: a posh crime-drama look (Succession meets Knives
 
 ## Open items when this handoff was written
 
-- Every visit lands on the Timeline tab (set in `blank()` and `load()`); the title screen with its three doors is one click away on the brand name. `#file` and timeline hash links still open their own views.
+- Every visit lands on the Timeline tab (set in `blank()` and `load()`) with the newest record entry already open (`dtLatest()`, in a window of about the last 22 months). Above the timeline sits a fixed overview ruler (`.dt-ruler`: the whole record, with a window that follows the zoom, a playhead for the open entry, − / + buttons, a zoom readout and "See the whole record"); it replaced the old range bar at the bottom of the stage. The title screen with its three doors is one click away on the brand name. `#file` and timeline hash links still open their own views.
 - The VPEG File (our call, money, players, storylines, odds, takeaways) is the `file` tab in Case Explorer, data in the `VF_*` arrays. It opens from a third door on the title screen and from `#file`.
 - If new filings are obtained, add them to `sources/`, update the cards, timeline and storylines, re-run the quote check, then re-verify the coverage date.
