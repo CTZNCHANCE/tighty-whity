@@ -20,6 +20,7 @@ It is a single-file React page (UMD React 18.3.1 + htm, from cdnjs/jsdelivr) wit
 - **V1 timeline data** lives in `data/timeline.json`. Edit it there, then run `node scripts/build-timeline.mjs` (it validates every account's source, pinpoint and status and writes the data into `vanishing-valuation/index.html`; `--check` only validates), then build V1.
 - The `*/index.html` source files are written as **claude.ai Artifacts**, without the doctype/html/head skeleton. Wrap them for static hosting:
   - `./scripts/build-standalone.sh` builds `vanishing-valuation/index.html` into `index.html` (V1).
+- **Link previews:** `build-standalone.sh` writes the `<title>` and Open Graph / Twitter tags into the head. The preview image is `og-image.jpg` (2400x1260): the whole-record timeline with the site title laid over it. Re-shoot it when the look changes.
 - **Always rebuild after editing a source file, and commit both** the source and the built output.
 - **Vercel** deploys `main` automatically (repo root, framework "Other", no build command). Public addresses: `https://time-will-tell-timeline.vercel.app` (added Oct. 24, 2026; `time-will-tell.vercel.app` belongs to someone else) and `https://tighty-whity.vercel.app`; the longer `*-ctznchances-projects.vercel.app` aliases require a Vercel login.
 - **Workflow:** work on a branch, open a PR, merge, and Vercel is live in about 30 seconds. The owner usually says "merge" when ready.
